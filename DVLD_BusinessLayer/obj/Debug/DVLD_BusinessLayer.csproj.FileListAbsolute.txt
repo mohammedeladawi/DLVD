@@ -1,0 +1,9 @@
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD_BusinessLayer\bin\Debug\DVLD_BusinessLayer.dll
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD_BusinessLayer\bin\Debug\DVLD_BusinessLayer.pdb
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD_BusinessLayer\bin\Debug\DVLD_DataAccessLayer.dll
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD_BusinessLayer\bin\Debug\DVLD_DataAccessLayer.pdb
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD_BusinessLayer\obj\Debug\DVLD_Bus.693E2707.Up2Date
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer.dll
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD_BusinessLayer\obj\Debug\DVLD_BusinessLayer.pdb

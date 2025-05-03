@@ -1,0 +1,12 @@
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\bin\Debug\DVLD.exe.config
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\bin\Debug\DVLD.exe
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\bin\Debug\DVLD.pdb
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\bin\Debug\DVLD_BusinessLayer.dll
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\bin\Debug\DVLD_BusinessLayer.pdb
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD_PersentationLayer.csproj.AssemblyReference.cache
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.Properties.Resources.resources
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD_PersentationLayer.csproj.GenerateResource.cache
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD_PersentationLayer.csproj.CoreCompileInputs.cache
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD_Per.6320BE22.Up2Date
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.exe
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.pdb
