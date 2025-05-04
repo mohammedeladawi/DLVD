@@ -28,13 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.ctrManageData1 = new DVLD.CtrManageData();
+            this.SuspendLayout();
+            // 
+            // ctrManageData1
+            // 
+            this.ctrManageData1.Location = new System.Drawing.Point(22, 72);
+            this.ctrManageData1.Name = "ctrManageData1";
+            this.ctrManageData1.Size = new System.Drawing.Size(3000, 1500);
+            this.ctrManageData1.TabIndex = 0;
+            // 
+            // ManagePeople
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(2698, 1799);
+            this.Controls.Add(this.ctrManageData1);
+            this.Name = "ManagePeople";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.ManagePeople_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private CtrManageData ctrManageData1;
     }
 }
 
