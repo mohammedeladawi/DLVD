@@ -1,6 +1,6 @@
 ﻿namespace DVLD
 {
-    partial class ManagePeople
+    partial class frmManagePeople
     {
         /// <summary>
         /// Required designer variable.
@@ -28,24 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.ctrManageData1 = new DVLD.CtrManageData();
             this.SuspendLayout();
             // 
+            // btnAddNewPerson
+            // 
+            this.btnAddNewPerson.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddNewPerson.BackgroundImage = global::DVLD.Properties.Resources.incorporation;
+            this.btnAddNewPerson.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAddNewPerson.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAddNewPerson.Image = global::DVLD.Properties.Resources.incorporation;
+            this.btnAddNewPerson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddNewPerson.Location = new System.Drawing.Point(2257, 282);
+            this.btnAddNewPerson.Name = "btnAddNewPerson";
+            this.btnAddNewPerson.Size = new System.Drawing.Size(133, 99);
+            this.btnAddNewPerson.TabIndex = 1;
+            this.btnAddNewPerson.UseVisualStyleBackColor = false;
+            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
+            // 
             // ctrManageData1
             // 
-            this.ctrManageData1.Location = new System.Drawing.Point(22, 72);
+            this.ctrManageData1.Location = new System.Drawing.Point(11, 24);
             this.ctrManageData1.Name = "ctrManageData1";
-            this.ctrManageData1.Size = new System.Drawing.Size(3000, 1500);
+            this.ctrManageData1.Size = new System.Drawing.Size(2654, 860);
             this.ctrManageData1.TabIndex = 0;
             // 
-            // ManagePeople
+            // frmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2698, 1799);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(2712, 1025);
+            this.Controls.Add(this.btnAddNewPerson);
             this.Controls.Add(this.ctrManageData1);
-            this.Name = "ManagePeople";
-            this.Text = "Form1";
+            this.Name = "frmManagePeople";
+            this.Text = "Manage People";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ManagePeople_Load);
             this.ResumeLayout(false);
@@ -55,6 +73,7 @@
         #endregion
 
         private CtrManageData ctrManageData1;
+        private System.Windows.Forms.Button btnAddNewPerson;
     }
 }
 

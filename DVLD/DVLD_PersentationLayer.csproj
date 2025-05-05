@@ -47,11 +47,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEditPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditPerson.Designer.cs">
+      <DependentUpon>AddEditPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrCloseBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrCloseBtn.Designer.cs">
+      <DependentUpon>ctrCloseBtn.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtrManageData.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CtrManageData.Designer.cs">
       <DependentUpon>CtrManageData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrSaveBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrSaveBtn.Designer.cs">
+      <DependentUpon>ctrSaveBtn.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagePeople.cs">
       <SubType>Form</SubType>
@@ -61,8 +79,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddEditPerson.resx">
+      <DependentUpon>AddEditPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrCloseBtn.resx">
+      <DependentUpon>ctrCloseBtn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtrManageData.resx">
       <DependentUpon>CtrManageData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrSaveBtn.resx">
+      <DependentUpon>ctrSaveBtn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagePeople.resx">
       <DependentUpon>ManagePeople.cs</DependentUpon>
@@ -75,6 +102,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -94,6 +122,9 @@
       <Project>{bcbbcd2c-3a42-485d-8442-b799681ed844}</Project>
       <Name>DVLD_BusinessLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\images\incorporation.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

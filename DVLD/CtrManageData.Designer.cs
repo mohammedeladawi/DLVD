@@ -32,22 +32,24 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cmbFilter = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pbManageLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManageData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbManageLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvManageData
             // 
             this.dgvManageData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvManageData.Location = new System.Drawing.Point(14, 314);
+            this.dgvManageData.Location = new System.Drawing.Point(12, 372);
             this.dgvManageData.Name = "dgvManageData";
             this.dgvManageData.RowHeadersWidth = 82;
             this.dgvManageData.RowTemplate.Height = 33;
-            this.dgvManageData.Size = new System.Drawing.Size(2805, 480);
+            this.dgvManageData.Size = new System.Drawing.Size(2805, 773);
             this.dgvManageData.TabIndex = 0;
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(420, 253);
+            this.txtSearch.Location = new System.Drawing.Point(436, 308);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(352, 31);
             this.txtSearch.TabIndex = 1;
@@ -56,7 +58,7 @@
             // cmbFilter
             // 
             this.cmbFilter.FormattingEnabled = true;
-            this.cmbFilter.Location = new System.Drawing.Point(156, 250);
+            this.cmbFilter.Location = new System.Drawing.Point(172, 305);
             this.cmbFilter.Name = "cmbFilter";
             this.cmbFilter.Size = new System.Drawing.Size(239, 33);
             this.cmbFilter.TabIndex = 2;
@@ -66,23 +68,34 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(50, 253);
+            this.label1.Location = new System.Drawing.Point(66, 308);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "Filter By";
             // 
+            // pbManageLogo
+            // 
+            this.pbManageLogo.Location = new System.Drawing.Point(886, 12);
+            this.pbManageLogo.Name = "pbManageLogo";
+            this.pbManageLogo.Size = new System.Drawing.Size(650, 278);
+            this.pbManageLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbManageLogo.TabIndex = 4;
+            this.pbManageLogo.TabStop = false;
+            // 
             // CtrManageData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pbManageLogo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbFilter);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dgvManageData);
             this.Name = "CtrManageData";
-            this.Size = new System.Drawing.Size(2822, 860);
+            this.Size = new System.Drawing.Size(2822, 1190);
             ((System.ComponentModel.ISupportInitialize)(this.dgvManageData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbManageLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,5 +107,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.ComboBox cmbFilter;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbManageLogo;
     }
 }

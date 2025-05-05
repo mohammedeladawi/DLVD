@@ -68,6 +68,12 @@ namespace DVLD
             LoadTableHeadersInCmbFilters();
         }
 
+        public void loadLogoImg(string imgUrl)
+        {
+            pbManageLogo.Image = Image.FromFile(imgUrl);
+
+        }
+
         private void cmbFilter_SelectedValueChanged(object sender, EventArgs e)
         {
             _txtFilterVisibilty();
@@ -77,5 +83,7 @@ namespace DVLD
         {
             _updateDgvManageData();
         }
+    
+        
     }
 }

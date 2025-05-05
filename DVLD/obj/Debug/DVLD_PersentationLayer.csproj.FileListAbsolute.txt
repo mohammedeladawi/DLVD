@@ -13,4 +13,7 @@ C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVL
 C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\bin\Debug\DVLD_DataAccessLayer.dll
 C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\bin\Debug\DVLD_DataAccessLayer.pdb
 C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.CtrManageData.resources
-C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.ManagePeople.resources
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.frmManagePeople.resources
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.ctrCloseBtn.resources
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.ctrSaveBtn.resources
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.frmAddEditPerson.resources
