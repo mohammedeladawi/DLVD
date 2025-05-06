@@ -3,16 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\addeditperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:addeditperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0CAEEEE1-8285-4582-B8D1-2FC8CEA3808D}|..\\DVLD_DataAccessLayer\\DVLD_DataAccessLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld_dataaccesslayer\\dataaccesspeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\addeditperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\addeditperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:addeditperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\managepeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:managepeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\addeditperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:addeditperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,32 +21,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ManagePeople.cs",
-              "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\ManagePeople.cs",
-              "RelativeDocumentMoniker": "ManagePeople.cs",
-              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\ManagePeople.cs",
-              "RelativeToolTip": "ManagePeople.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAuwCQAAAATAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "DataAccessPeople.cs",
+              "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD_DataAccessLayer\\DataAccessPeople.cs",
+              "RelativeDocumentMoniker": "..\\DVLD_DataAccessLayer\\DataAccessPeople.cs",
+              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD_DataAccessLayer\\DataAccessPeople.cs",
+              "RelativeToolTip": "..\\DVLD_DataAccessLayer\\DataAccessPeople.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAYwIsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T13:43:50.414Z",
+              "WhenOpened": "2025-05-06T14:03:32.802Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "AddEditPerson.cs",
               "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\AddEditPerson.cs",
               "RelativeDocumentMoniker": "AddEditPerson.cs",
               "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\AddEditPerson.cs",
               "RelativeToolTip": "AddEditPerson.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAuwH8AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAASwEQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T10:29:37.531Z",
+              "WhenOpened": "2025-05-06T13:46:19.982Z",
               "EditorCaption": ""
             },
             {

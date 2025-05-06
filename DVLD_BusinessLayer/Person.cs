@@ -29,7 +29,7 @@ namespace DVLD_BusinessLayer
 
         private bool _AddNewPerson()
         {
-            int PersonId = clsDataAccessPeople.AddNewPerson(NationalNo, FirstName, SecondName, ThirdName, LastName,
+            this.PersonId = clsDataAccessPeople.AddNewPerson(NationalNo, FirstName, SecondName, ThirdName, LastName,
                                                         DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID, ImagePath);
             if (PersonId != -1)
                 Mode = enMode.Update;
@@ -39,7 +39,8 @@ namespace DVLD_BusinessLayer
 
         private bool _UpdatePerson()
         {
-            return false;
+            return clsDataAccessPeople.UpdatePerson(PersonId, NationalNo, FirstName, SecondName, ThirdName, LastName,
+                                                    DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID, ImagePath); ;
         }
 
         public clsPerson()

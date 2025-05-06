@@ -29,7 +29,7 @@ namespace DVLD
         {
 
             string mainLogoUrl = @"C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\assets\images\team-management.png";
-            ctrManageData1.loadLogoImg(mainLogoUrl);
+            ctrManageData1.loadLogoImgAndTitle(mainLogoUrl, "Manage People");
 
             _LoadPeopleData();
         }

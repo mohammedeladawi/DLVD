@@ -33,6 +33,9 @@
             this.cmbFilter = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pbManageLogo = new System.Windows.Forms.PictureBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblNumOfRecords = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManageData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbManageLogo)).BeginInit();
             this.SuspendLayout();
@@ -78,22 +81,57 @@
             // 
             this.pbManageLogo.Location = new System.Drawing.Point(886, 12);
             this.pbManageLogo.Name = "pbManageLogo";
-            this.pbManageLogo.Size = new System.Drawing.Size(650, 278);
+            this.pbManageLogo.Size = new System.Drawing.Size(508, 198);
             this.pbManageLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbManageLogo.TabIndex = 4;
             this.pbManageLogo.TabStop = false;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Red;
+            this.lblTitle.Location = new System.Drawing.Point(1066, 236);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(144, 51);
+            this.lblTitle.TabIndex = 5;
+            this.lblTitle.Text = "label2";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(65, 1178);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(166, 33);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "#Records: ";
+            // 
+            // lblNumOfRecords
+            // 
+            this.lblNumOfRecords.AutoSize = true;
+            this.lblNumOfRecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumOfRecords.Location = new System.Drawing.Point(247, 1183);
+            this.lblNumOfRecords.Name = "lblNumOfRecords";
+            this.lblNumOfRecords.Size = new System.Drawing.Size(93, 33);
+            this.lblNumOfRecords.TabIndex = 7;
+            this.lblNumOfRecords.Text = "label3";
             // 
             // CtrManageData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblNumOfRecords);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pbManageLogo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbFilter);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dgvManageData);
             this.Name = "CtrManageData";
-            this.Size = new System.Drawing.Size(2822, 1190);
+            this.Size = new System.Drawing.Size(2822, 1250);
             ((System.ComponentModel.ISupportInitialize)(this.dgvManageData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbManageLogo)).EndInit();
             this.ResumeLayout(false);
@@ -108,5 +146,8 @@
         private System.Windows.Forms.ComboBox cmbFilter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbManageLogo;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblNumOfRecords;
     }
 }

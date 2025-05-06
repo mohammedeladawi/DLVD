@@ -65,7 +65,8 @@ namespace DVLD
             txtAddress.Text = Person.Address;
             txtPhone.Text = Person.Phone;
 
-            //cmbCountry.SelectedItem = clsCountry.Find(Person.NationalityCountryID).CountryName;
+            clsCountry NationalityCountry = clsCountry.FindByID(Person.NationalityCountryID);
+            cmbCountry.SelectedItem = NationalityCountry.CountryName;
 
             switch (Person.Gendor)
             {
@@ -90,6 +91,17 @@ namespace DVLD
             {
                 lblHeading.Text = "Add Person";
                 lblPersonId.Text = "???";
+
+                // DX
+                txtFirstName.Text = "Mohammed";
+                txtSecondName.Text = "Ibraheem";
+                txtThirdName.Text = "Eladawi";
+                txtLastName.Text = "Ahmed";
+                txtNationalNo.Text = "1212sa312A";
+
+                txtEmail.Text = "myEmail@yahoo.com";
+                txtAddress.Text = "Abu Dhabi, Mushrif";
+                txtPhone.Text = "00009943290";
             }
             else if (Mode == enMode.Update) 
             {
@@ -140,11 +152,15 @@ namespace DVLD
             if (Person.Save())
             {
                 MessageBox.Show("Person has been added succeessfully");
+                Mode = enMode.Update;
+                _LoadFormData();   
             }
             else
             {
                 MessageBox.Show("Can't add the person");
             };
         }
+
+ 
     }
 }

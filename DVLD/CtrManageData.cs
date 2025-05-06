@@ -45,6 +45,7 @@ namespace DVLD
         public void LoadDataInDgvManageData(DataTable dt)
         {
             dgvManageData.DataSource = dt;
+            lblNumOfRecords.Text = dt.Rows.Count.ToString();
         }
 
         public void LoadTableHeadersInCmbFilters()
@@ -68,9 +69,10 @@ namespace DVLD
             LoadTableHeadersInCmbFilters();
         }
 
-        public void loadLogoImg(string imgUrl)
+        public void loadLogoImgAndTitle(string imgUrl, string title)
         {
             pbManageLogo.Image = Image.FromFile(imgUrl);
+            lblTitle.Text = title;
 
         }
 

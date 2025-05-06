@@ -28,7 +28,17 @@ namespace DVLD_BusinessLayer
         {
             int CountryID = -1;
 
-            bool isFound = clsDataAccessCountires.FindCountryByName(ref CountryID,ref CountryName);
+            bool isFound = clsDataAccessCountires.FindCountryByName(ref CountryID, CountryName);
+            if (isFound)
+                return new clsCountry(CountryID, CountryName);
+            else
+                return null;
+        }
+
+        public static clsCountry FindByID(int CountryID) {
+
+            string CountryName = string.Empty;
+            bool isFound = clsDataAccessCountires.FindCountryByID(CountryID, ref CountryName);
             if (isFound)
                 return new clsCountry(CountryID, CountryName);
             else

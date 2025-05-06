@@ -51,7 +51,7 @@
             // 
             this.ctrManageData1.Location = new System.Drawing.Point(11, 24);
             this.ctrManageData1.Name = "ctrManageData1";
-            this.ctrManageData1.Size = new System.Drawing.Size(2654, 860);
+            this.ctrManageData1.Size = new System.Drawing.Size(2654, 1284);
             this.ctrManageData1.TabIndex = 0;
             // 
             // frmManagePeople
@@ -59,7 +59,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(2712, 1025);
+            this.ClientSize = new System.Drawing.Size(2724, 1261);
             this.Controls.Add(this.btnAddNewPerson);
             this.Controls.Add(this.ctrManageData1);
             this.Name = "frmManagePeople";
