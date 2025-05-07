@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_BusinessLayer;
+using System.IO;
 
 namespace DVLD
 {
@@ -31,23 +32,23 @@ namespace DVLD
         // Update
         public frmAddEditPerson(int PersonID)
         {
-            //Todo
-            //Person = clsPerson.Find(PersonID);
+            InitializeComponent();
+            Person = clsPerson.FindByID(PersonID);
             Mode = enMode.Update;
             _LoadFormData();
         }
 
-        private void _LoadAndInitCmbCountry()
+        private void _SetCmbCountries()
         {
             DataTable dt = clsCountry.GetAllCountires();
+            cmbCountry.DataSource = dt;
+            cmbCountry.DisplayMember = "CountryName";
+            cmbCountry.ValueMember = "CountryID";
 
-            foreach(DataRow dr in dt.Rows)
-                cmbCountry.Items.Add(dr["CountryName"].ToString());
-
-            if (Person.NationalityCountryID == -1)
-                cmbCountry.SelectedItem = "Jordan";
-            //else
-                //cmbCountry.SelectedItem = clsCountry.FindByID(Person.NationalityCountryID).CountryName;
+            if (Person.NationalityCountryID != -1)
+                cmbCountry.SelectedValue = Person.NationalityCountryID;
+            else
+                cmbCountry.SelectedValue = 2;
 
         }
        
@@ -78,7 +79,7 @@ namespace DVLD
                     break;
             }
 
-            if (Person.ImagePath != "")
+            if (Person.ImagePath != "" && File.Exists(Person.ImagePath))
                 pbProfileImage.Load(Person.ImagePath);
 
             dtpDateOfBirth.Value = Person.DateOfBirth;
@@ -86,7 +87,7 @@ namespace DVLD
 
         private void _LoadFormData()
         {
-            _LoadAndInitCmbCountry();
+            _SetCmbCountries();
             if (Mode == enMode.AddNew)
             {
                 lblHeading.Text = "Add Person";
@@ -135,9 +136,8 @@ namespace DVLD
             Person.Gendor = (byte)((rbMale.Checked) ? 0 : 1);
             Person.DateOfBirth = dtpDateOfBirth.Value;
             Person.Address = txtAddress.Text;
-
-            clsCountry NationalityCountry = clsCountry.FindByName(cmbCountry.SelectedItem.ToString());
-            Person.NationalityCountryID = NationalityCountry.CountryID;
+            Person.NationalityCountryID = (int)cmbCountry.SelectedValue;
+            
             //Person.ImagePath = pbProfileImage.ImageLocation;
         }
 
@@ -151,13 +151,13 @@ namespace DVLD
             _SetPersonFields();
             if (Person.Save())
             {
-                MessageBox.Show("Person has been added succeessfully");
+                MessageBox.Show("Person has been added/updated succeessfully");
                 Mode = enMode.Update;
                 _LoadFormData();   
             }
             else
             {
-                MessageBox.Show("Can't add the person");
+                MessageBox.Show("Can't add/update the person");
             };
         }
 

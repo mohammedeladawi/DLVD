@@ -12,6 +12,10 @@ namespace DVLD
 {
     public partial class CtrManageData : UserControl
     {
+        public DataGridView dgvManageDate1
+        {
+            get { return dgvManageData; } 
+        }
         public CtrManageData()
         {
             InitializeComponent();
@@ -26,7 +30,7 @@ namespace DVLD
                 txtSearch.Visible = true;
         }
 
-        private void _updateDgvManageData()
+        private void _UpdateDgvManageData()
         {
             string filterText = txtSearch.Text;
             string colName = cmbFilter.SelectedItem.ToString();
@@ -60,7 +64,7 @@ namespace DVLD
             cmbFilter.SelectedIndex = 0;
         }
 
-        public void loadData(DataTable dt)
+        public void LoadData(DataTable dt)
         {
             if (dt == null || dt.Rows.Count == 0) 
                 return;
@@ -69,7 +73,7 @@ namespace DVLD
             LoadTableHeadersInCmbFilters();
         }
 
-        public void loadLogoImgAndTitle(string imgUrl, string title)
+        public void LoadLogoImgAndTitle(string imgUrl, string title)
         {
             pbManageLogo.Image = Image.FromFile(imgUrl);
             lblTitle.Text = title;
@@ -83,10 +87,10 @@ namespace DVLD
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            _updateDgvManageData();
+            _UpdateDgvManageData();
         }
     
-        public void LoadContextMenuStrip(ContextMenuStrip cms)
+        public void SetContextMenuStrip(ContextMenuStrip cms)
         {
             dgvManageData.ContextMenuStrip = cms;
         }

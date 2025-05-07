@@ -217,8 +217,10 @@ namespace DVLD_DataAccessLayer
                             Phone = (string)read["Phone"];
                             Email = (string)read["Email"];
                             NationalityCountryID = (int)read["NationalityCountryID"];
-                            ImagePath = (string)read["ImagePath"];
-                            
+
+                            if (read["ImagePath"] != DBNull.Value)
+                                ImagePath = (string)read["ImagePath"];
+
                             return true;
                         }
                     }

@@ -69,6 +69,8 @@ namespace DVLD_BusinessLayer
             this.PersonId = PersonID;
             this.NationalNo = NationalNo;
             this.FirstName = FirstName;
+            this.SecondName = SecondName;
+            this.ThirdName = ThirdName;
             this.LastName = LastName;
             this.DateOfBirth = DateOfBirth;
             this.Gendor = Gendor;
@@ -86,7 +88,7 @@ namespace DVLD_BusinessLayer
             return clsDataAccessPeople.GetAllPeopleInfo();
         }
 
-        public clsPerson FindByID(int PersonID)
+        public static clsPerson FindByID(int PersonID)
         {
             string NationalNo = "";
             string FirstName = "";
