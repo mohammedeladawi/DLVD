@@ -54,6 +54,9 @@ namespace DVLD
 
         public void LoadTableHeadersInCmbFilters()
         {
+            if (cmbFilter.Items.Count > 0)
+                return;
+
             cmbFilter.Items.Add("None");
 
             foreach (DataGridViewColumn column in dgvManageData.Columns)

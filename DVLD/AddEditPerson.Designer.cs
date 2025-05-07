@@ -54,13 +54,14 @@
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ctrSaveBtn1 = new DVLD.ctrSaveBtn();
             this.llblRemoveImage = new System.Windows.Forms.LinkLabel();
             this.llblSetImage = new System.Windows.Forms.LinkLabel();
             this.pbProfileImage = new System.Windows.Forms.PictureBox();
             this.cmbCountry = new System.Windows.Forms.ComboBox();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
+            this.ofdImagePath = new System.Windows.Forms.OpenFileDialog();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
+            this.ctrSaveBtn1 = new DVLD.ctrSaveBtn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfileImage)).BeginInit();
             this.SuspendLayout();
@@ -328,15 +329,6 @@
             this.panel1.Size = new System.Drawing.Size(1294, 612);
             this.panel1.TabIndex = 3;
             // 
-            // ctrSaveBtn1
-            // 
-            this.ctrSaveBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrSaveBtn1.Location = new System.Drawing.Point(1025, 533);
-            this.ctrSaveBtn1.Name = "ctrSaveBtn1";
-            this.ctrSaveBtn1.Size = new System.Drawing.Size(212, 66);
-            this.ctrSaveBtn1.TabIndex = 9;
-            this.ctrSaveBtn1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ctrSaveBtn1_MouseClick);
-            // 
             // llblRemoveImage
             // 
             this.llblRemoveImage.AutoSize = true;
@@ -346,6 +338,7 @@
             this.llblRemoveImage.TabIndex = 8;
             this.llblRemoveImage.TabStop = true;
             this.llblRemoveImage.Text = "Remove ";
+            this.llblRemoveImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblRemoveImage_LinkClicked);
             // 
             // llblSetImage
             // 
@@ -383,6 +376,10 @@
             this.dtpDateOfBirth.Size = new System.Drawing.Size(234, 31);
             this.dtpDateOfBirth.TabIndex = 5;
             // 
+            // ofdImagePath
+            // 
+            this.ofdImagePath.FileName = "openFileDialog1";
+            // 
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -390,6 +387,15 @@
             this.ctrCloseBtn1.Name = "ctrCloseBtn1";
             this.ctrCloseBtn1.Size = new System.Drawing.Size(230, 66);
             this.ctrCloseBtn1.TabIndex = 9;
+            // 
+            // ctrSaveBtn1
+            // 
+            this.ctrSaveBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ctrSaveBtn1.Location = new System.Drawing.Point(1025, 533);
+            this.ctrSaveBtn1.Name = "ctrSaveBtn1";
+            this.ctrSaveBtn1.Size = new System.Drawing.Size(212, 66);
+            this.ctrSaveBtn1.TabIndex = 9;
+            this.ctrSaveBtn1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ctrSaveBtn1_MouseClick);
             // 
             // frmAddEditPerson
             // 
@@ -446,5 +452,6 @@
         private System.Windows.Forms.ComboBox cmbCountry;
         private ctrCloseBtn ctrCloseBtn1;
         private ctrSaveBtn ctrSaveBtn1;
+        private System.Windows.Forms.OpenFileDialog ofdImagePath;
     }
 }

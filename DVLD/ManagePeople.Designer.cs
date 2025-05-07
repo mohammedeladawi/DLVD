@@ -109,7 +109,6 @@
             this.Name = "frmManagePeople";
             this.Text = "Manage People";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.ManagePeople_Load);
             this.cmsPeople.ResumeLayout(false);
             this.ResumeLayout(false);
 

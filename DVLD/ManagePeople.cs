@@ -17,6 +17,12 @@ namespace DVLD
         public frmManagePeople()
         {
             InitializeComponent();
+
+            string mainLogoUrl = @"C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\assets\images\team-management.png";
+            ctrManageData1.LoadLogoImgAndTitle(mainLogoUrl, "Manage People");
+            ctrManageData1.SetContextMenuStrip(cmsPeople);
+
+            _LoadPeopleData();
         }
 
         private void _AddNewPersonDialog()
@@ -37,17 +43,6 @@ namespace DVLD
         {
             DataTable dt = clsPerson.GetAllPersonsInfo();
             ctrManageData1.LoadData(dt);
-        }
-
-        private void ManagePeople_Load(object sender, EventArgs e)
-        {
-
-            string mainLogoUrl = @"C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\assets\images\team-management.png";
-            ctrManageData1.LoadLogoImgAndTitle(mainLogoUrl, "Manage People");
-            ctrManageData1.SetContextMenuStrip(cmsPeople);
-
-            _LoadPeopleData();
-            
         }
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)

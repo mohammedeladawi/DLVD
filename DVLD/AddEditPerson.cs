@@ -80,7 +80,15 @@ namespace DVLD
             }
 
             if (Person.ImagePath != "" && File.Exists(Person.ImagePath))
+            {
                 pbProfileImage.Load(Person.ImagePath);
+                llblRemoveImage.Visible = true;
+            }
+            else
+            {
+                llblRemoveImage.Visible = false;
+            }
+
 
             dtpDateOfBirth.Value = Person.DateOfBirth;
         }
@@ -92,6 +100,7 @@ namespace DVLD
             {
                 lblHeading.Text = "Add Person";
                 lblPersonId.Text = "???";
+                llblRemoveImage.Visible = false;
 
                 // DX
                 txtFirstName.Text = "Mohammed";
@@ -113,15 +122,17 @@ namespace DVLD
 
         private void _ChangeImage()
         {
-            string imageUrl;
+            if ((Person.ImagePath != "" && File.Exists(Person.ImagePath)))
+                return;
 
-            // Todo Later;
+            string imageUrl;
             if (rbFemale.Checked)
                 imageUrl = @"C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\assets\images\woman.png";
             else
                 imageUrl = @"C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\assets\images\man.png";
-
+                
             pbProfileImage.Image = Image.FromFile(imageUrl);
+
         }
 
         private void _SetPersonFields()
@@ -161,9 +172,43 @@ namespace DVLD
             };
         }
 
+        private string _CopyImageAndGetPath(OpenFileDialog ImageFileDialog)
+        {
+            string ImagePath = ImageFileDialog.FileName;
+
+            string destinationFolder = Path.Combine(Application.StartupPath, "Images");
+            Directory.CreateDirectory(destinationFolder);
+
+            string extension = Path.GetExtension(ImagePath);
+            string newFileName = Guid.NewGuid().ToString("N") + extension;
+            string destinationPath = Path.Combine(destinationFolder, newFileName);
+
+            File.Copy(ImagePath, destinationPath);
+            return destinationPath;
+        }
+       
         private void llblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            OpenFileDialog ImageFileDialog = new OpenFileDialog();
 
+            ImageFileDialog.Title = "Set Image";
+            ImageFileDialog.Filter = "JPG Images(*.jpg)|*.jpg|PNG Images(*.png)|*.png";
+            ImageFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            if (ImageFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string destinationPath = _CopyImageAndGetPath(ImageFileDialog);
+                Person.ImagePath = destinationPath;
+                pbProfileImage.Image = Image.FromFile(destinationPath);
+                llblRemoveImage.Visible = true;
+            }
+        }
+
+        private void llblRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            pbProfileImage.Image = null;
+            Person.ImagePath = "";
+            llblRemoveImage.Visible = false;
         }
     }
 }
