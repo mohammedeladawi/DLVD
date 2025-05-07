@@ -356,6 +356,7 @@
             this.llblSetImage.TabIndex = 8;
             this.llblSetImage.TabStop = true;
             this.llblSetImage.Text = "Set Image";
+            this.llblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSetImage_LinkClicked);
             // 
             // pbProfileImage
             // 

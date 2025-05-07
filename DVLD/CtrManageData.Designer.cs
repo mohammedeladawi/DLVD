@@ -47,7 +47,7 @@
             this.dgvManageData.Name = "dgvManageData";
             this.dgvManageData.RowHeadersWidth = 82;
             this.dgvManageData.RowTemplate.Height = 33;
-            this.dgvManageData.Size = new System.Drawing.Size(2805, 773);
+            this.dgvManageData.Size = new System.Drawing.Size(2383, 543);
             this.dgvManageData.TabIndex = 0;
             // 
             // txtSearch
@@ -91,7 +91,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Red;
-            this.lblTitle.Location = new System.Drawing.Point(1066, 236);
+            this.lblTitle.Location = new System.Drawing.Point(1072, 232);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(144, 51);
             this.lblTitle.TabIndex = 5;
@@ -102,7 +102,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(65, 1178);
+            this.label2.Location = new System.Drawing.Point(65, 944);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(166, 33);
             this.label2.TabIndex = 6;
@@ -112,7 +112,7 @@
             // 
             this.lblNumOfRecords.AutoSize = true;
             this.lblNumOfRecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumOfRecords.Location = new System.Drawing.Point(247, 1183);
+            this.lblNumOfRecords.Location = new System.Drawing.Point(234, 945);
             this.lblNumOfRecords.Name = "lblNumOfRecords";
             this.lblNumOfRecords.Size = new System.Drawing.Size(93, 33);
             this.lblNumOfRecords.TabIndex = 7;
@@ -131,7 +131,7 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dgvManageData);
             this.Name = "CtrManageData";
-            this.Size = new System.Drawing.Size(2822, 1250);
+            this.Size = new System.Drawing.Size(2454, 1026);
             ((System.ComponentModel.ISupportInitialize)(this.dgvManageData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbManageLogo)).EndInit();
             this.ResumeLayout(false);

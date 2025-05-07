@@ -16,7 +16,15 @@ namespace DVLD_DataAccessLayer
         public static DataTable GetAllPeopleInfo()
         {
             DataTable dt = new DataTable();
-            string query = "Select * From People;";
+            string query = @"SELECT PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName,
+                                 CASE
+                                    WHEN Gendor = 0 THEN 'Male'
+                                    WHEN Gendor = 1 THEN 'Female'
+                                    Else 'Unkown'
+                                 END AS Gendor,
+                                 DateOfBirth, Nationality = Countries.CountryName,
+                                 Phone, Email FROM People
+                             Join Countries ON Countries.CountryID = People.NationalityCountryID;";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
@@ -36,7 +44,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        //Console.WriteLine(ex.Message);
+                        Console.WriteLine(ex.Message);
                     }
                 }
             }
@@ -83,7 +91,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        //Console.WriteLine(ex.Message);
+                        Console.WriteLine(ex.Message);
                     }
                 }
             }
@@ -112,7 +120,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        //Console.WriteLine(ex.Message);
+                        Console.WriteLine(ex.Message);
                     }
                 }
             }
@@ -171,7 +179,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        //Console.WriteLine(ex.Message);
+                        Console.WriteLine(ex.Message);
                     }
                 }
             }
@@ -180,5 +188,48 @@ namespace DVLD_DataAccessLayer
         }
 
 
+        public static bool FindPersonByID (int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName,
+                                           ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref byte Gendor, ref string Address,
+                                           ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
+        {
+
+            string commandStr = @"Select * From People WHERE PersonID = @PersonID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@PersonID", PersonID);
+                    try
+                    {
+                        connection.Open();
+                        SqlDataReader read = command.ExecuteReader();
+                        if (read.Read())
+                        {
+                            NationalNo = (string)read["NationalNo"];
+                            FirstName = (string)read["FirstName"];
+                            SecondName = (string)read["SecondName"];
+                            ThirdName = (string)read["ThirdName"];
+                            LastName = (string)read["LastName"];
+                            DateOfBirth = (DateTime)read["DateOfBirth"];
+                            Gendor = (byte)read["Gendor"];
+                            Address = (string)read["Address"];
+                            Phone = (string)read["Phone"];
+                            Email = (string)read["Email"];
+                            NationalityCountryID = (int)read["NationalityCountryID"];
+                            ImagePath = (string)read["ImagePath"];
+                            
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
     }
 }

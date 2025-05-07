@@ -161,6 +161,9 @@ namespace DVLD
             };
         }
 
- 
+        private void llblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }

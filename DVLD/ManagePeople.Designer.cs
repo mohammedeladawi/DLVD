@@ -40,18 +40,18 @@
             this.btnAddNewPerson.ForeColor = System.Drawing.Color.Transparent;
             this.btnAddNewPerson.Image = global::DVLD.Properties.Resources.incorporation;
             this.btnAddNewPerson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddNewPerson.Location = new System.Drawing.Point(2257, 282);
+            this.btnAddNewPerson.Location = new System.Drawing.Point(2285, 304);
             this.btnAddNewPerson.Name = "btnAddNewPerson";
-            this.btnAddNewPerson.Size = new System.Drawing.Size(133, 99);
+            this.btnAddNewPerson.Size = new System.Drawing.Size(95, 67);
             this.btnAddNewPerson.TabIndex = 1;
             this.btnAddNewPerson.UseVisualStyleBackColor = false;
             this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
             // 
             // ctrManageData1
             // 
-            this.ctrManageData1.Location = new System.Drawing.Point(11, 24);
+            this.ctrManageData1.Location = new System.Drawing.Point(7, 38);
             this.ctrManageData1.Name = "ctrManageData1";
-            this.ctrManageData1.Size = new System.Drawing.Size(2654, 1284);
+            this.ctrManageData1.Size = new System.Drawing.Size(2392, 936);
             this.ctrManageData1.TabIndex = 0;
             // 
             // frmManagePeople
@@ -59,7 +59,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(2724, 1261);
+            this.ClientSize = new System.Drawing.Size(2408, 1105);
             this.Controls.Add(this.btnAddNewPerson);
             this.Controls.Add(this.ctrManageData1);
             this.Name = "frmManagePeople";

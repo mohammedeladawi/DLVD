@@ -86,6 +86,9 @@ namespace DVLD
             _updateDgvManageData();
         }
     
-        
+        public void LoadContextMenuStrip(ContextMenuStrip cms)
+        {
+            dgvManageData.ContextMenuStrip = cms;
+        }
     }
 }

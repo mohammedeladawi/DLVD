@@ -33,7 +33,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        //Console.WriteLine(ex.Message);
+                        Console.WriteLine(ex.Message);
                     }
                 }
             }
@@ -66,7 +66,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        //Console.WriteLine(ex.Message);
+                        Console.WriteLine(ex.Message);
                     }
                 }
             }
@@ -100,7 +100,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        //Console.WriteLine(ex.Message);
+                        Console.WriteLine(ex.Message);
                     }
                 }
             }
