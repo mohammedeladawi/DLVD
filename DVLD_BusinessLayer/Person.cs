@@ -118,6 +118,11 @@ namespace DVLD_BusinessLayer
             }
         }
 
+        public static bool IsExistByNationalNo(string NationalNo)
+        {
+            return clsDataAccessPeople.IsPersonExistByNationalNo(NationalNo);
+        }
+
         public bool Save()
         {
             switch(Mode)

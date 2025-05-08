@@ -9,14 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_BusinessLayer;
 using System.IO;
+using System.Xml.Linq;
+using System.Net.Mail;
 
 namespace DVLD
 {
     public partial class frmAddEditPerson : Form
     {
+        // Reusable controls
+        private ErrorProvider _addEditPersonErrProvider = new ErrorProvider();
+        
         private enum enMode { AddNew, Update };
         private enMode Mode;
         private clsPerson Person;
+
 
         // Add New
         public frmAddEditPerson()
@@ -25,8 +31,6 @@ namespace DVLD
 
             Person = new clsPerson();
             Mode = enMode.AddNew;
-
-            _LoadFormData();
         }
 
         // Update
@@ -35,10 +39,9 @@ namespace DVLD
             InitializeComponent();
             Person = clsPerson.FindByID(PersonID);
             Mode = enMode.Update;
-            _LoadFormData();
         }
 
-        private void _SetCmbCountries()
+        private void _InitializeCmbCountries()
         {
             DataTable dt = clsCountry.GetAllCountires();
             cmbCountry.DataSource = dt;
@@ -93,14 +96,14 @@ namespace DVLD
             dtpDateOfBirth.Value = Person.DateOfBirth;
         }
 
-        private void _LoadFormData()
+        private void _LoadFrmAddUpdateData()
         {
-            _SetCmbCountries();
             if (Mode == enMode.AddNew)
             {
                 lblHeading.Text = "Add Person";
                 lblPersonId.Text = "???";
                 llblRemoveImage.Visible = false;
+                rbMale.Checked = true;
 
                 // DX
                 txtFirstName.Text = "Mohammed";
@@ -164,7 +167,7 @@ namespace DVLD
             {
                 MessageBox.Show("Person has been added/updated succeessfully");
                 Mode = enMode.Update;
-                _LoadFormData();   
+                _LoadFrmAddUpdateData();   
             }
             else
             {
@@ -209,6 +212,103 @@ namespace DVLD
             pbProfileImage.Image = null;
             Person.ImagePath = "";
             llblRemoveImage.Visible = false;
+        }
+
+        private void CancelEventAndShowErr(TextBox txtBox, CancelEventArgs e, string message)
+        {           
+            e.Cancel = true;
+            txtBox.Focus();
+            _addEditPersonErrProvider.SetError(txtBox, message);
+        }
+
+        private void RunEventAndHideErr(TextBox txtBox, CancelEventArgs e)
+        {
+            e.Cancel = false;
+            _addEditPersonErrProvider.SetError(txtBox, string.Empty);
+        }
+
+        private void txtName_ValidationSchema(object sender, CancelEventArgs e)
+        {
+            TextBox txtName = sender as TextBox;
+
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                CancelEventAndShowErr(txtName, e, "Name Can't be Empty");
+            }
+            else
+            {
+                RunEventAndHideErr(txtName, e);
+            }
+        }
+
+        private void txtNationalNo_Validating(object sender, CancelEventArgs e)
+        {
+            TextBox txtNationalNo = sender as TextBox;
+            if (Mode == enMode.AddNew == clsPerson.IsExistByNationalNo(txtNationalNo.Text))
+            {
+                CancelEventAndShowErr(txtNationalNo, e, "National No. is already exist");
+            } 
+            else if (string.IsNullOrEmpty(txtNationalNo.Text)) 
+            {
+                CancelEventAndShowErr(txtNationalNo, e, "Can't be empty");
+            }
+            else
+            {
+                RunEventAndHideErr(txtNationalNo, e);
+            }
+        }
+
+        private void _InitializeTheDtpDateOfBirth()
+        {
+            dtpDateOfBirth.MaxDate = DateTime.Today.AddYears(-18);
+        }
+        private void frmAddEditPerson_Load(object sender, EventArgs e)
+        {
+            _InitializeCmbCountries();
+            _InitializeTheDtpDateOfBirth();
+            _LoadFrmAddUpdateData();
+
+        }
+
+        private void txtPhone_Validating(object sender, CancelEventArgs e)
+        {
+            string Phone = txtPhone.Text;
+           
+            if (!Phone.All(char.IsDigit))
+            {
+                CancelEventAndShowErr((sender as TextBox), e, "Please enter a valid phone number");
+            }
+            else
+            {
+                RunEventAndHideErr((sender as TextBox), e);
+            }
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            string email = txtEmail.Text;
+
+            try
+            {
+                RunEventAndHideErr(sender as TextBox, e);
+                var addr = new MailAddress(email);
+            }
+            catch
+            {
+                CancelEventAndShowErr((sender as TextBox), e, "Please enter a valid email address.");
+            }
+        }
+
+        private void txtAddress_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtAddress.Text))
+            {
+                CancelEventAndShowErr(txtAddress, e, "Address Can't be Empty");
+            }
+            else
+            {
+                RunEventAndHideErr(txtAddress, e);
+            }
         }
     }
 }

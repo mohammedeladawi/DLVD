@@ -59,7 +59,6 @@
             this.pbProfileImage = new System.Windows.Forms.PictureBox();
             this.cmbCountry = new System.Windows.Forms.ComboBox();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
-            this.ofdImagePath = new System.Windows.Forms.OpenFileDialog();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
             this.ctrSaveBtn1 = new DVLD.ctrSaveBtn();
             this.panel1.SuspendLayout();
@@ -219,6 +218,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(234, 31);
             this.txtFirstName.TabIndex = 2;
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_ValidationSchema);
             // 
             // txtNationalNo
             // 
@@ -226,6 +226,7 @@
             this.txtNationalNo.Name = "txtNationalNo";
             this.txtNationalNo.Size = new System.Drawing.Size(234, 31);
             this.txtNationalNo.TabIndex = 2;
+            this.txtNationalNo.Validating += new System.ComponentModel.CancelEventHandler(this.txtNationalNo_Validating);
             // 
             // txtEmail
             // 
@@ -233,6 +234,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(234, 31);
             this.txtEmail.TabIndex = 2;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // txtPhone
             // 
@@ -240,6 +242,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(234, 31);
             this.txtPhone.TabIndex = 2;
+            this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtPhone_Validating);
             // 
             // txtAddress
             // 
@@ -248,6 +251,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(728, 93);
             this.txtAddress.TabIndex = 2;
+            this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddress_Validating);
             // 
             // txtSecondName
             // 
@@ -255,6 +259,7 @@
             this.txtSecondName.Name = "txtSecondName";
             this.txtSecondName.Size = new System.Drawing.Size(234, 31);
             this.txtSecondName.TabIndex = 2;
+            this.txtSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_ValidationSchema);
             // 
             // txtThirdName
             // 
@@ -262,6 +267,7 @@
             this.txtThirdName.Name = "txtThirdName";
             this.txtThirdName.Size = new System.Drawing.Size(234, 31);
             this.txtThirdName.TabIndex = 2;
+            this.txtThirdName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_ValidationSchema);
             // 
             // txtLastName
             // 
@@ -269,6 +275,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(234, 31);
             this.txtLastName.TabIndex = 2;
+            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_ValidationSchema);
             // 
             // rbMale
             // 
@@ -376,10 +383,6 @@
             this.dtpDateOfBirth.Size = new System.Drawing.Size(234, 31);
             this.dtpDateOfBirth.TabIndex = 5;
             // 
-            // ofdImagePath
-            // 
-            this.ofdImagePath.FileName = "openFileDialog1";
-            // 
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -409,6 +412,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmAddEditPerson";
             this.Text = "Add/Edit Person";
+            this.Load += new System.EventHandler(this.frmAddEditPerson_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfileImage)).EndInit();
@@ -452,6 +456,5 @@
         private System.Windows.Forms.ComboBox cmbCountry;
         private ctrCloseBtn ctrCloseBtn1;
         private ctrSaveBtn ctrSaveBtn1;
-        private System.Windows.Forms.OpenFileDialog ofdImagePath;
     }
 }

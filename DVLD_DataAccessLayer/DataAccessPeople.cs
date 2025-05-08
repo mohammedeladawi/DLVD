@@ -99,7 +99,7 @@ namespace DVLD_DataAccessLayer
             return -1;
         }
 
-        public static bool IsPersonExist(string NationalNo)
+        public static bool IsPersonExistByNationalNo(string NationalNo)
         {
             string query = "select x=1 from People where NationalNo = @NationalNo;";
 
