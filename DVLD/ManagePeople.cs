@@ -39,6 +39,24 @@ namespace DVLD
             frmAddPerson.ShowDialog();
         }
 
+        private void _DeletePersonDialog(int PersonID)
+        {
+            if (MessageBox.Show("Are you sure you want to delete this person?",
+                "Delete a Person", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+                == DialogResult.OK)
+            {
+                if (clsPerson.DeleteByID(PersonID))
+                {
+                    MessageBox.Show("Person has been deleted Succesfully.");
+                    _LoadPeopleData();
+                }
+                else
+                {
+                    MessageBox.Show("Could't deleted this Person.");
+                }
+            }
+        }
+
         private void _LoadPeopleData()
         {
             DataTable dt = clsPerson.GetAllPersonsInfo();
@@ -68,6 +86,21 @@ namespace DVLD
                 DataGridViewRow row = dgvPeople.SelectedRows[0];
                 int PersonID = Convert.ToInt32(row.Cells["PersonID"].Value);
                 _UpdatePersonDialog(PersonID);                
+            }
+            else
+            {
+                MessageBox.Show("There are no selected rows");
+            }
+        }
+
+        private void tsmiDeletePerson_Click(object sender, EventArgs e)
+        {
+            DataGridView dgvPeople = ctrManageData1.dgvManageDate1;
+            if (dgvPeople.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgvPeople.SelectedRows[0];
+                int PersonID = Convert.ToInt32(row.Cells["PersonID"].Value);
+                _DeletePersonDialog(PersonID);
             }
             else
             {

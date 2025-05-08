@@ -233,5 +233,36 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+    
+    
+        public static bool DeletePersonByID(int PersonID)
+        {
+
+            string commandStr = @"Delete From People Where PersonID = @PersonID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@PersonID", PersonID);
+
+                    try
+                    {
+                        connection.Open();
+                        int numberOfRows = command.ExecuteNonQuery();
+                        if (numberOfRows > 0)
+                        {
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
     }
 }

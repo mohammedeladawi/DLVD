@@ -123,6 +123,11 @@ namespace DVLD_BusinessLayer
             return clsDataAccessPeople.IsPersonExistByNationalNo(NationalNo);
         }
 
+        public static bool DeleteByID(int PersonID)
+        {
+            
+            return clsDataAccessPeople.DeletePersonByID(PersonID);
+        }
         public bool Save()
         {
             switch(Mode)

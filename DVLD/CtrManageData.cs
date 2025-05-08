@@ -23,7 +23,7 @@ namespace DVLD
 
         private void _txtFilterVisibilty()
         {
-            // hide or show txt
+            // hide or show txt box
             if (cmbFilter.SelectedIndex == 0)
                 txtSearch.Visible = false;
             else

@@ -97,6 +97,7 @@
             this.tsmiDeletePerson.Name = "tsmiDeletePerson";
             this.tsmiDeletePerson.Size = new System.Drawing.Size(300, 38);
             this.tsmiDeletePerson.Text = "Delete";
+            this.tsmiDeletePerson.Click += new System.EventHandler(this.tsmiDeletePerson_Click);
             // 
             // frmManagePeople
             // 
