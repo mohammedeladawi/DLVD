@@ -65,11 +65,23 @@
     <Compile Include="CtrManageData.Designer.cs">
       <DependentUpon>CtrManageData.cs</DependentUpon>
     </Compile>
+    <Compile Include="ctrPersonInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrPersonInformation.Designer.cs">
+      <DependentUpon>ctrPersonInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctrSaveBtn.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ctrSaveBtn.Designer.cs">
       <DependentUpon>ctrSaveBtn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPersonDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPersonDetails.Designer.cs">
+      <DependentUpon>frmPersonDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagePeople.cs">
       <SubType>Form</SubType>
@@ -88,8 +100,14 @@
     <EmbeddedResource Include="CtrManageData.resx">
       <DependentUpon>CtrManageData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ctrPersonInformation.resx">
+      <DependentUpon>ctrPersonInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctrSaveBtn.resx">
       <DependentUpon>ctrSaveBtn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPersonDetails.resx">
+      <DependentUpon>frmPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagePeople.resx">
       <DependentUpon>ManagePeople.cs</DependentUpon>

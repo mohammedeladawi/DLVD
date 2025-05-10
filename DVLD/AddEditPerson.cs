@@ -23,6 +23,9 @@ namespace DVLD
         private enMode Mode;
         private clsPerson Person;
 
+        // Send data back to frmPersonDetails
+        public delegate void DataBackEventHandler(object sender, clsPerson person);
+        public event DataBackEventHandler DataBack;
 
         // Add New
         public frmAddEditPerson()
@@ -167,7 +170,8 @@ namespace DVLD
             {
                 MessageBox.Show("Person has been added/updated succeessfully");
                 Mode = enMode.Update;
-                _LoadFrmAddUpdateData();   
+                _LoadFrmAddUpdateData();
+                DataBack?.Invoke(this, Person);
             }
             else
             {

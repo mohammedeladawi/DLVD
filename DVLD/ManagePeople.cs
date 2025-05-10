@@ -57,6 +57,13 @@ namespace DVLD
             }
         }
 
+        private void _ShowPersonDetailsDialog(int PersonID)
+        {
+            Form frmPersonInfo = new frmPersonDetails(PersonID);
+            frmPersonInfo.FormClosed += frmPersonDetails_Closed;
+            frmPersonInfo.ShowDialog();
+        }
+            
         private void _LoadPeopleData()
         {
             DataTable dt = clsPerson.GetAllPersonsInfo();
@@ -78,14 +85,27 @@ namespace DVLD
             _AddNewPersonDialog();
         }
 
-        private void tsmiEditPersonInfo_Click(object sender, EventArgs e)
+        private int GetSelectedPersonID()
         {
             DataGridView dgvPeople = ctrManageData1.dgvManageDate1;
+            int PersonID = -1;
+
             if (dgvPeople.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = dgvPeople.SelectedRows[0];
-                int PersonID = Convert.ToInt32(row.Cells["PersonID"].Value);
-                _UpdatePersonDialog(PersonID);                
+                PersonID = Convert.ToInt32(row.Cells["PersonID"].Value);
+            }
+
+            return PersonID;
+        }
+
+        private void tsmiEditPersonInfo_Click(object sender, EventArgs e)
+        {
+            int PersonID = GetSelectedPersonID();
+            
+            if (PersonID != -1)
+            {
+                _UpdatePersonDialog(PersonID);
             }
             else
             {
@@ -95,11 +115,10 @@ namespace DVLD
 
         private void tsmiDeletePerson_Click(object sender, EventArgs e)
         {
-            DataGridView dgvPeople = ctrManageData1.dgvManageDate1;
-            if (dgvPeople.SelectedRows.Count > 0)
+            int PersonID = GetSelectedPersonID();
+
+            if (PersonID != -1)
             {
-                DataGridViewRow row = dgvPeople.SelectedRows[0];
-                int PersonID = Convert.ToInt32(row.Cells["PersonID"].Value);
                 _DeletePersonDialog(PersonID);
             }
             else
@@ -107,5 +126,25 @@ namespace DVLD
                 MessageBox.Show("There are no selected rows");
             }
         }
+
+        private void tsmiShowPersonDetails_Click(object sender, EventArgs e)
+        {
+            int PersonID = GetSelectedPersonID();
+
+            if (PersonID != -1)
+            {
+                _ShowPersonDetailsDialog(PersonID);
+            }
+            else
+            {
+                MessageBox.Show("There are no selected rows");
+            }
+        }
+
+        private void frmPersonDetails_Closed(object sender, FormClosedEventArgs e)
+        {
+            _LoadPeopleData();
+        }
+
     }
 }

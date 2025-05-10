@@ -77,6 +77,7 @@
             this.tsmiShowPersonDetails.Name = "tsmiShowPersonDetails";
             this.tsmiShowPersonDetails.Size = new System.Drawing.Size(300, 38);
             this.tsmiShowPersonDetails.Text = "Show Details";
+            this.tsmiShowPersonDetails.Click += new System.EventHandler(this.tsmiShowPersonDetails_Click);
             // 
             // tsmiAddNewPerson
             // 
