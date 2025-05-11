@@ -19,3 +19,4 @@ C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVL
 C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.frmAddEditPerson.resources
 C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.ctrPersonInformation.resources
 C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.frmPersonDetails.resources
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.frmManageUsers.resources

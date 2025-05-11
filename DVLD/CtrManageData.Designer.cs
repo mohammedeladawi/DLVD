@@ -36,6 +36,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblNumOfRecords = new System.Windows.Forms.Label();
+            this.cmbSearch = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManageData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbManageLogo)).BeginInit();
             this.SuspendLayout();
@@ -118,10 +119,20 @@
             this.lblNumOfRecords.TabIndex = 7;
             this.lblNumOfRecords.Text = "label3";
             // 
+            // cmbSearch
+            // 
+            this.cmbSearch.FormattingEnabled = true;
+            this.cmbSearch.Location = new System.Drawing.Point(436, 308);
+            this.cmbSearch.Name = "cmbSearch";
+            this.cmbSearch.Size = new System.Drawing.Size(253, 33);
+            this.cmbSearch.TabIndex = 8;
+            this.cmbSearch.SelectedValueChanged += new System.EventHandler(this.cmbSearch_SelectedValueChanged);
+            // 
             // CtrManageData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cmbSearch);
             this.Controls.Add(this.lblNumOfRecords);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
@@ -149,5 +160,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblNumOfRecords;
+        private System.Windows.Forms.ComboBox cmbSearch;
     }
 }
