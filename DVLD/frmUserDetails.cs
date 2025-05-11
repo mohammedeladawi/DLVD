@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using DVLD_BusinessLayer;
+
+namespace DVLD
+{
+    public partial class frmUserDetails : Form
+    {
+        private clsUser _user;
+        public frmUserDetails(int userID)
+        {
+            this._user = clsUser.FindByID(userID);
+            InitializeComponent();
+        }
+
+        private void frmUserDetails_Load(object sender, EventArgs e)
+        {
+            clsPerson person = clsPerson.FindByID(_user.PerosnID);
+
+            if (person != null )
+                ctrPersonInformation1.LoadPersonInfo(person);
+
+            if (_user != null)
+                ctrUserInfo1.LoadUserInfo(_user.UserID, _user.UserName, _user.isActive);
+
+            
+        }
+    }
+}

@@ -94,6 +94,7 @@ namespace DVLD
             else
                 dt.DefaultView.RowFilter = $"{colName} Like '%{filterText}%'";
         }
+       
         private void cmbSearch_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cmbSearch.SelectedItem is KeyValuePair<string, bool> selectedItem)
