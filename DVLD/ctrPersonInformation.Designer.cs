@@ -85,6 +85,7 @@
             // llblEditPersonInfo
             // 
             this.llblEditPersonInfo.AutoSize = true;
+            this.llblEditPersonInfo.Enabled = false;
             this.llblEditPersonInfo.Location = new System.Drawing.Point(1086, 183);
             this.llblEditPersonInfo.Name = "llblEditPersonInfo";
             this.llblEditPersonInfo.Size = new System.Drawing.Size(164, 25);
@@ -107,81 +108,81 @@
             this.lblAddress.AutoSize = true;
             this.lblAddress.Location = new System.Drawing.Point(208, 511);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(70, 25);
+            this.lblAddress.Size = new System.Drawing.Size(48, 25);
             this.lblAddress.TabIndex = 1;
-            this.lblAddress.Text = "label7";
+            this.lblAddress.Text = "???";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Location = new System.Drawing.Point(208, 423);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(70, 25);
+            this.lblEmail.Size = new System.Drawing.Size(48, 25);
             this.lblEmail.TabIndex = 1;
-            this.lblEmail.Text = "label7";
+            this.lblEmail.Text = "???";
             // 
             // lblGendor
             // 
             this.lblGendor.AutoSize = true;
             this.lblGendor.Location = new System.Drawing.Point(208, 333);
             this.lblGendor.Name = "lblGendor";
-            this.lblGendor.Size = new System.Drawing.Size(70, 25);
+            this.lblGendor.Size = new System.Drawing.Size(48, 25);
             this.lblGendor.TabIndex = 1;
-            this.lblGendor.Text = "label7";
+            this.lblGendor.Text = "???";
             // 
             // lblNationalNo
             // 
             this.lblNationalNo.AutoSize = true;
             this.lblNationalNo.Location = new System.Drawing.Point(208, 251);
             this.lblNationalNo.Name = "lblNationalNo";
-            this.lblNationalNo.Size = new System.Drawing.Size(70, 25);
+            this.lblNationalNo.Size = new System.Drawing.Size(48, 25);
             this.lblNationalNo.TabIndex = 1;
-            this.lblNationalNo.Text = "label7";
+            this.lblNationalNo.Text = "???";
             // 
             // lblCountry
             // 
             this.lblCountry.AutoSize = true;
             this.lblCountry.Location = new System.Drawing.Point(736, 251);
             this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(70, 25);
+            this.lblCountry.Size = new System.Drawing.Size(48, 25);
             this.lblCountry.TabIndex = 1;
-            this.lblCountry.Text = "label7";
+            this.lblCountry.Text = "???";
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Location = new System.Drawing.Point(736, 159);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(70, 25);
+            this.lblPhone.Size = new System.Drawing.Size(48, 25);
             this.lblPhone.TabIndex = 1;
-            this.lblPhone.Text = "label7";
+            this.lblPhone.Text = "???";
             // 
             // lblFullName
             // 
             this.lblFullName.AutoSize = true;
             this.lblFullName.Location = new System.Drawing.Point(208, 159);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(70, 25);
+            this.lblFullName.Size = new System.Drawing.Size(48, 25);
             this.lblFullName.TabIndex = 1;
-            this.lblFullName.Text = "label7";
+            this.lblFullName.Text = "???";
             // 
             // lblDateOfBirth
             // 
             this.lblDateOfBirth.AutoSize = true;
             this.lblDateOfBirth.Location = new System.Drawing.Point(736, 75);
             this.lblDateOfBirth.Name = "lblDateOfBirth";
-            this.lblDateOfBirth.Size = new System.Drawing.Size(70, 25);
+            this.lblDateOfBirth.Size = new System.Drawing.Size(48, 25);
             this.lblDateOfBirth.TabIndex = 1;
-            this.lblDateOfBirth.Text = "label7";
+            this.lblDateOfBirth.Text = "???";
             // 
             // lblPersonID
             // 
             this.lblPersonID.AutoSize = true;
             this.lblPersonID.Location = new System.Drawing.Point(208, 75);
             this.lblPersonID.Name = "lblPersonID";
-            this.lblPersonID.Size = new System.Drawing.Size(70, 25);
+            this.lblPersonID.Size = new System.Drawing.Size(48, 25);
             this.lblPersonID.TabIndex = 1;
-            this.lblPersonID.Text = "label7";
+            this.lblPersonID.Text = "???";
             // 
             // label6
             // 

@@ -3,24 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmmanageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\frmmanageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:frmmanageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\frmuserdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:frmuserdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\frmuserdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:frmuserdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\ctrmanagedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:ctrmanagedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\frmmanagepeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:frmmanagepeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\frmmanageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:frmmanageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCBBCD2C-3A42-485D-8442-B799681ED844}|..\\DVLD_BusinessLayer\\DVLD_BusinessLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld_businesslayer\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,44 +25,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CtrManageData.cs",
-              "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\CtrManageData.cs",
-              "RelativeDocumentMoniker": "CtrManageData.cs",
-              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\CtrManageData.cs",
-              "RelativeToolTip": "CtrManageData.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAowG8AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T14:56:58.262Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmUserDetails.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmUserDetails.cs",
-              "RelativeDocumentMoniker": "frmUserDetails.cs",
-              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmUserDetails.cs [Design]",
-              "RelativeToolTip": "frmUserDetails.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T14:48:36.321Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmUserDetails.cs",
-              "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmUserDetails.cs",
-              "RelativeDocumentMoniker": "frmUserDetails.cs",
-              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmUserDetails.cs",
-              "RelativeToolTip": "frmUserDetails.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACAAAAAMAAAAAAAAAA==",
+              "Title": "frmManagePeople.cs",
+              "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmManagePeople.cs",
+              "RelativeDocumentMoniker": "frmManagePeople.cs",
+              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmManagePeople.cs",
+              "RelativeToolTip": "frmManagePeople.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAvwHUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T14:47:58.078Z",
+              "WhenOpened": "2025-05-14T04:53:40.167Z",
               "EditorCaption": ""
             },
             {
@@ -76,24 +46,37 @@
               "Title": "frmManageUsers.cs",
               "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmManageUsers.cs",
               "RelativeDocumentMoniker": "frmManageUsers.cs",
-              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmManageUsers.cs*",
-              "RelativeToolTip": "frmManageUsers.cs*",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAYwCwAAAA5AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmManageUsers.cs",
+              "RelativeToolTip": "frmManageUsers.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAuwHUAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T05:57:14.34Z",
+              "WhenOpened": "2025-05-14T04:52:59.94Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "frmManageUsers.cs [Design]",
               "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmManageUsers.cs",
               "RelativeDocumentMoniker": "frmManageUsers.cs",
-              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmManageUsers.cs [Design]*",
-              "RelativeToolTip": "frmManageUsers.cs [Design]*",
+              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmManageUsers.cs [Design]",
+              "RelativeToolTip": "frmManageUsers.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T05:54:28.401Z",
+              "WhenOpened": "2025-05-14T04:52:53.804Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD_BusinessLayer\\User.cs",
+              "RelativeDocumentMoniker": "..\\DVLD_BusinessLayer\\User.cs",
+              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD_BusinessLayer\\User.cs",
+              "RelativeToolTip": "..\\DVLD_BusinessLayer\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T03:01:32.697Z",
+              "EditorCaption": ""
             }
           ]
         }

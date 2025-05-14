@@ -1,6 +1,6 @@
 ﻿namespace DVLD
 {
-    partial class CtrManageData
+    partial class ctrManageData
     {
         /// <summary> 
         /// Required designer variable.

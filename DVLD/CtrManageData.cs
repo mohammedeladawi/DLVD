@@ -11,13 +11,13 @@ using System.IO;
 
 namespace DVLD
 {
-    public partial class CtrManageData : UserControl
+    public partial class ctrManageData : UserControl
     {
         public DataGridView dgvManageDate1
         {
             get { return dgvManageData; } 
         }
-        public CtrManageData()
+        public ctrManageData()
         {
             InitializeComponent();
         }

@@ -16,8 +16,6 @@ namespace DVLD
 {
     public partial class frmAddEditPerson : Form
     {
-        // Reusable controls
-        private ErrorProvider _addEditPersonErrProvider = new ErrorProvider();
         
         private enum enMode { AddNew, Update };
         private enMode Mode;
@@ -218,18 +216,8 @@ namespace DVLD
             llblRemoveImage.Visible = false;
         }
 
-        private void CancelEventAndShowErr(TextBox txtBox, CancelEventArgs e, string message)
-        {           
-            e.Cancel = true;
-            txtBox.Focus();
-            _addEditPersonErrProvider.SetError(txtBox, message);
-        }
 
-        private void RunEventAndHideErr(TextBox txtBox, CancelEventArgs e)
-        {
-            e.Cancel = false;
-            _addEditPersonErrProvider.SetError(txtBox, string.Empty);
-        }
+
 
         private void txtName_ValidationSchema(object sender, CancelEventArgs e)
         {
@@ -237,28 +225,28 @@ namespace DVLD
 
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
-                CancelEventAndShowErr(txtName, e, "Name Can't be Empty");
+                clsErrProviderUtilities.CancelEventAndShowErr(txtName, e, "Name Can't be Empty");
             }
             else
             {
-                RunEventAndHideErr(txtName, e);
+                clsErrProviderUtilities.RunEventAndHideErr(txtName, e);
             }
         }
 
         private void txtNationalNo_Validating(object sender, CancelEventArgs e)
         {
             TextBox txtNationalNo = sender as TextBox;
-            if (Mode == enMode.AddNew == clsPerson.IsExistByNationalNo(txtNationalNo.Text))
+            if (Mode == enMode.AddNew && clsPerson.IsExistByNationalNo(txtNationalNo.Text))
             {
-                CancelEventAndShowErr(txtNationalNo, e, "National No. is already exist");
+                clsErrProviderUtilities.CancelEventAndShowErr(txtNationalNo, e, "National No. is already exist");
             } 
             else if (string.IsNullOrEmpty(txtNationalNo.Text)) 
             {
-                CancelEventAndShowErr(txtNationalNo, e, "Can't be empty");
+                clsErrProviderUtilities.CancelEventAndShowErr(txtNationalNo, e, "Can't be empty");
             }
             else
             {
-                RunEventAndHideErr(txtNationalNo, e);
+                clsErrProviderUtilities.RunEventAndHideErr(txtNationalNo, e);
             }
         }
 
@@ -280,11 +268,11 @@ namespace DVLD
            
             if (!Phone.All(char.IsDigit))
             {
-                CancelEventAndShowErr((sender as TextBox), e, "Please enter a valid phone number");
+                clsErrProviderUtilities.CancelEventAndShowErr((sender as TextBox), e, "Please enter a valid phone number");
             }
             else
             {
-                RunEventAndHideErr((sender as TextBox), e);
+                clsErrProviderUtilities.RunEventAndHideErr((sender as TextBox), e);
             }
         }
 
@@ -294,12 +282,12 @@ namespace DVLD
 
             try
             {
-                RunEventAndHideErr(sender as TextBox, e);
+                clsErrProviderUtilities.RunEventAndHideErr(sender as TextBox, e);
                 var addr = new MailAddress(email);
             }
             catch
             {
-                CancelEventAndShowErr((sender as TextBox), e, "Please enter a valid email address.");
+                clsErrProviderUtilities.CancelEventAndShowErr((sender as TextBox), e, "Please enter a valid email address.");
             }
         }
 
@@ -307,11 +295,11 @@ namespace DVLD
         {
             if (string.IsNullOrWhiteSpace(txtAddress.Text))
             {
-                CancelEventAndShowErr(txtAddress, e, "Address Can't be Empty");
+                clsErrProviderUtilities.CancelEventAndShowErr(txtAddress, e, "Address Can't be Empty");
             }
             else
             {
-                RunEventAndHideErr(txtAddress, e);
+                clsErrProviderUtilities.RunEventAndHideErr(txtAddress, e);
             }
         }
     }

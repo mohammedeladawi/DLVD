@@ -233,8 +233,55 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
-    
-    
+
+
+        public static bool FindPersonByNationalNo(ref int PersonID, string NationalNo, ref string FirstName, ref string SecondName,
+                                   ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref byte Gendor, ref string Address,
+                                   ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
+        {
+
+            string commandStr = @"Select * From People WHERE NationalNo = @NationalNo";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@NationalNo", NationalNo);
+                    try
+                    {
+                        connection.Open();
+                        SqlDataReader read = command.ExecuteReader();
+                        if (read.Read())
+                        {
+                            PersonID = (int)read["PersonID"];
+                            FirstName = (string)read["FirstName"];
+                            SecondName = (string)read["SecondName"];
+                            ThirdName = (string)read["ThirdName"];
+                            LastName = (string)read["LastName"];
+                            DateOfBirth = (DateTime)read["DateOfBirth"];
+                            Gendor = (byte)read["Gendor"];
+                            Address = (string)read["Address"];
+                            Phone = (string)read["Phone"];
+                            Email = (string)read["Email"];
+                            NationalityCountryID = (int)read["NationalityCountryID"];
+
+                            if (read["ImagePath"] != DBNull.Value)
+                                ImagePath = (string)read["ImagePath"];
+
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
+
+
         public static bool DeletePersonByID(int PersonID)
         {
 

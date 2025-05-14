@@ -47,11 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEditPerson.cs">
+    <Compile Include="ErrProviderUtilities.cs" />
+    <Compile Include="frmAddEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditPerson.Designer.cs">
-      <DependentUpon>AddEditPerson.cs</DependentUpon>
+    <Compile Include="frmAddEditPerson.Designer.cs">
+      <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </Compile>
     <Compile Include="ctrCloseBtn.cs">
       <SubType>UserControl</SubType>
@@ -59,11 +60,23 @@
     <Compile Include="ctrCloseBtn.Designer.cs">
       <DependentUpon>ctrCloseBtn.cs</DependentUpon>
     </Compile>
-    <Compile Include="CtrManageData.cs">
+    <Compile Include="ctrFindShowPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CtrManageData.Designer.cs">
-      <DependentUpon>CtrManageData.cs</DependentUpon>
+    <Compile Include="ctrFindShowPerson.Designer.cs">
+      <DependentUpon>ctrFindShowPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrManageData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrManageData.Designer.cs">
+      <DependentUpon>ctrManageData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrNextBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrNextBtn.Designer.cs">
+      <DependentUpon>ctrNextBtn.cs</DependentUpon>
     </Compile>
     <Compile Include="ctrPersonInformation.cs">
       <SubType>UserControl</SubType>
@@ -83,6 +96,12 @@
     <Compile Include="ctrUserInfo.Designer.cs">
       <DependentUpon>ctrUserInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddUpdateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUpdateUser.Designer.cs">
+      <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmManageUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,22 +120,28 @@
     <Compile Include="frmUserDetails.Designer.cs">
       <DependentUpon>frmUserDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManagePeople.cs">
+    <Compile Include="frmManagePeople.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManagePeople.Designer.cs">
-      <DependentUpon>ManagePeople.cs</DependentUpon>
+    <Compile Include="frmManagePeople.Designer.cs">
+      <DependentUpon>frmManagePeople.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddEditPerson.resx">
-      <DependentUpon>AddEditPerson.cs</DependentUpon>
+    <EmbeddedResource Include="frmAddEditPerson.resx">
+      <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctrCloseBtn.resx">
       <DependentUpon>ctrCloseBtn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CtrManageData.resx">
-      <DependentUpon>CtrManageData.cs</DependentUpon>
+    <EmbeddedResource Include="ctrFindShowPerson.resx">
+      <DependentUpon>ctrFindShowPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrManageData.resx">
+      <DependentUpon>ctrManageData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrNextBtn.resx">
+      <DependentUpon>ctrNextBtn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctrPersonInformation.resx">
       <DependentUpon>ctrPersonInformation.cs</DependentUpon>
@@ -127,6 +152,9 @@
     <EmbeddedResource Include="ctrUserInfo.resx">
       <DependentUpon>ctrUserInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUpdateUser.resx">
+      <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmManageUsers.resx">
       <DependentUpon>frmManageUsers.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,8 +164,8 @@
     <EmbeddedResource Include="frmUserDetails.resx">
       <DependentUpon>frmUserDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManagePeople.resx">
-      <DependentUpon>ManagePeople.cs</DependentUpon>
+    <EmbeddedResource Include="frmManagePeople.resx">
+      <DependentUpon>frmManagePeople.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

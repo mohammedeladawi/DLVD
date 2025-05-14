@@ -13,11 +13,42 @@ namespace DVLD_BusinessLayer
         enum enMode { AddNew, Update }
         enMode Mode;
 
+        private bool _AddNewUser()
+        {
+            this.UserID = clsDataAccessUsers.AddNewUser(PerosnID, UserName, Password, isActive);
+            bool isAdded = UserID != -1;
+            
+            if (isAdded)
+                Mode = enMode.Update;
+
+            return isAdded;
+        }
+
+        private bool _UpdateUser()
+        {
+            return clsDataAccessUsers.UpdateUser(UserID, PerosnID, UserName, Password, isActive);
+        }
+        
+        private int _PersonID;
         public int UserID { get; set; }
-        public int PerosnID { get; set; }
+        public int PerosnID 
+        {
+            get
+            {
+                return _PersonID;
+            }
+
+            set
+            {
+                _PersonID = value;
+                Person = clsPerson.FindByID(_PersonID);
+            }
+        }
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool isActive { get; set; }
+
+        public clsPerson Person { get; private set; }
 
         public static DataTable GetAllUsersData()
         {
@@ -31,6 +62,7 @@ namespace DVLD_BusinessLayer
             UserName = userName;
             Password = password;
             this.isActive = isActive;
+            this.Person = clsPerson.FindByID(perosnID);
             
             Mode = enMode.Update;
         }
@@ -58,6 +90,34 @@ namespace DVLD_BusinessLayer
                 return new clsUser(userID, personID, username, password, isActive);
             else
                 return null;
+        }
+    
+        public static bool IsExistByPersonID(int personID)
+        {
+            return clsDataAccessUsers.IsUserExistByPersonID(personID);
+        }
+        
+        public static bool IsExistByUserName(string username)
+        {
+            return clsDataAccessUsers.IsUserNameExist(username);
+        }
+
+        public static bool DeleteByID(int userID)
+        {
+            return clsDataAccessUsers.DeleteUserByID(userID);
+        }
+       
+        public bool Save()
+        {
+            switch(Mode)
+            {
+                case enMode.AddNew:
+                    return _AddNewUser();
+                case enMode.Update:
+                    return _UpdateUser();
+            }
+
+            return false;
         }
     }
 }

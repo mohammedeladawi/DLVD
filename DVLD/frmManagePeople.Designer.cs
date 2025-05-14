@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.btnAddNewPerson = new System.Windows.Forms.Button();
-            this.ctrManageData1 = new DVLD.CtrManageData();
+            this.ctrManageData1 = new DVLD.ctrManageData();
             this.cmsPeople = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiShowPersonDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAddNewPerson = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,7 +118,7 @@
 
         #endregion
 
-        private CtrManageData ctrManageData1;
+        private ctrManageData ctrManageData1;
         private System.Windows.Forms.Button btnAddNewPerson;
         private System.Windows.Forms.ContextMenuStrip cmsPeople;
         private System.Windows.Forms.ToolStripMenuItem tsmiShowPersonDetails;

@@ -22,15 +22,11 @@ namespace DVLD
 
         private void frmUserDetails_Load(object sender, EventArgs e)
         {
-            clsPerson person = clsPerson.FindByID(_user.PerosnID);
+            if (_user == null)
+                return;
 
-            if (person != null )
-                ctrPersonInformation1.LoadPersonInfo(person);
-
-            if (_user != null)
-                ctrUserInfo1.LoadUserInfo(_user.UserID, _user.UserName, _user.isActive);
-
-            
+            ctrPersonInformation1.LoadPersonInfo(_user.Person);
+            ctrUserInfo1.LoadUserInfo(_user.UserID, _user.UserName, _user.isActive);
         }
     }
 }

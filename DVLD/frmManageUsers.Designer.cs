@@ -29,22 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.ctrManageData1 = new DVLD.CtrManageData();
             this.cmsUsers = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiShowUserDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAddNewUser = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiEditUser = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDeleteUser = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiChangeUserPassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctrManageData1 = new DVLD.ctrManageData();
             this.cmsUsers.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // ctrManageData1
-            // 
-            this.ctrManageData1.Location = new System.Drawing.Point(21, 123);
-            this.ctrManageData1.Name = "ctrManageData1";
-            this.ctrManageData1.Size = new System.Drawing.Size(2314, 1130);
-            this.ctrManageData1.TabIndex = 0;
             // 
             // cmsUsers
             // 
@@ -70,24 +63,34 @@
             this.tsmiAddNewUser.Name = "tsmiAddNewUser";
             this.tsmiAddNewUser.Size = new System.Drawing.Size(300, 38);
             this.tsmiAddNewUser.Text = "Add New User";
+            this.tsmiAddNewUser.Click += new System.EventHandler(this.tsmiAddNewUser_Click);
             // 
             // tsmiEditUser
             // 
             this.tsmiEditUser.Name = "tsmiEditUser";
             this.tsmiEditUser.Size = new System.Drawing.Size(300, 38);
             this.tsmiEditUser.Text = "Edit";
+            this.tsmiEditUser.Click += new System.EventHandler(this.tsmiEditUser_Click);
             // 
             // tsmiDeleteUser
             // 
             this.tsmiDeleteUser.Name = "tsmiDeleteUser";
-            this.tsmiDeleteUser.Size = new System.Drawing.Size(274, 38);
+            this.tsmiDeleteUser.Size = new System.Drawing.Size(300, 38);
             this.tsmiDeleteUser.Text = "Delete";
+            this.tsmiDeleteUser.Click += new System.EventHandler(this.tsmiDeleteUser_Click);
             // 
             // tsmiChangeUserPassword
             // 
             this.tsmiChangeUserPassword.Name = "tsmiChangeUserPassword";
             this.tsmiChangeUserPassword.Size = new System.Drawing.Size(300, 38);
             this.tsmiChangeUserPassword.Text = "Change Password";
+            // 
+            // ctrManageData1
+            // 
+            this.ctrManageData1.Location = new System.Drawing.Point(21, 123);
+            this.ctrManageData1.Name = "ctrManageData1";
+            this.ctrManageData1.Size = new System.Drawing.Size(2314, 1130);
+            this.ctrManageData1.TabIndex = 0;
             // 
             // frmManageUsers
             // 
@@ -106,7 +109,7 @@
 
         #endregion
 
-        private CtrManageData ctrManageData1;
+        private ctrManageData ctrManageData1;
         private System.Windows.Forms.ContextMenuStrip cmsUsers;
         private System.Windows.Forms.ToolStripMenuItem tsmiShowUserDetails;
         private System.Windows.Forms.ToolStripMenuItem tsmiAddNewUser;

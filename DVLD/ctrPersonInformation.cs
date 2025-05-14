@@ -28,11 +28,12 @@ namespace DVLD
             
             if (_person == null)
             {
-                llblEditPersonInfo.Visible = false;
+                llblEditPersonInfo.Enabled = false;
                 MessageBox.Show("There is no person with this ID");
                 return;
             }
 
+            llblEditPersonInfo.Enabled = true;
             lblPersonID.Text = Convert.ToString(_person.PersonId);
             lblFullName.Text = _person.FirstName + " " + _person.LastName;
             lblNationalNo.Text = _person.NationalNo;

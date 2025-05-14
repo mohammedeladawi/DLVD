@@ -47,7 +47,6 @@ namespace DVLD_DataAccessLayer
             return dt;
         }
  
-    
         public static bool FindUserByID(int userID, ref int personID, ref string username, ref string password, ref bool isActive)
         {
             string commandStr = @"Select * From Users WHERE UserID = @UserID";
@@ -80,5 +79,166 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+
+        public static int AddNewUser(int personID, string username, string password, bool isActive)
+        {
+            string commandStr = @"Insert Into Users (PersonID, Username, Password, IsActive)
+                                  values (@PersonID, @Username, @Password, @IsActive)
+                                  SELECT SCOPE_IDENTITY();";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@PersonID", personID);
+                    command.Parameters.AddWithValue("@Username", username);
+                    command.Parameters.AddWithValue("@Password", password);
+                    command.Parameters.AddWithValue("@IsActive", isActive);
+
+                    try
+                    {
+                        connection.Open();
+                        object userID = command.ExecuteScalar();
+                        
+                        if (userID != null)
+                        {
+                            return Convert.ToInt16(userID);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return -1;
+        }
+
+        public static bool UpdateUser(int userID, int personID, string username, string password, bool isActive)
+        {
+            string commandStr = @"UPDATE Users SET 
+                                  PersonID = @PersonID,
+                                  UserName = @UserName,
+                                  Password = @Password,
+                                  IsActive = @IsActive
+                                  WHERE UserID = @UserID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@PersonID", personID);
+                    command.Parameters.AddWithValue("@UserName", username);
+                    command.Parameters.AddWithValue("@Password", password);
+                    command.Parameters.AddWithValue("@IsActive", isActive);
+                    command.Parameters.AddWithValue("@UserID", userID);
+
+                    try
+                    {
+                        connection.Open();
+                       
+                        int numberOfRows = command.ExecuteNonQuery();
+                        if (numberOfRows > 0)
+                        {
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public static bool IsUserExistByPersonID(int personID)
+        {
+            string query = "select x=1 from Users where PersonID = @PersonID;";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PersonID", personID);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public static bool IsUserNameExist(string username)
+        {
+            string query = "select x=1 from Users where UserName = @UserName;";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserName", username);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+            return false;
+        }
+
+        public static bool DeleteUserByID(int userID)
+        {
+            string commandStr = @"Delete From Users Where UserID = @UserID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", userID);
+
+                    try
+                    {
+                        connection.Open();
+                        int numberOfRows = command.ExecuteNonQuery();
+                        if (numberOfRows > 0)
+                        {
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
+
     }
 }
