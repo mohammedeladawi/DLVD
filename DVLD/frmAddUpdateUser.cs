@@ -165,11 +165,8 @@ namespace DVLD
 
         private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
         {
-            if (txtConfirmPassword.Text == string.Empty)
-            {
-                clsErrProviderUtilities.CancelEventAndShowErr(txtConfirmPassword, e, "Password can't be empty");
-            }
-            else if (txtConfirmPassword.Text != txtPassword.Text)
+
+            if (txtPassword.Text != string.Empty && txtConfirmPassword.Text != txtPassword.Text)
             {
                 clsErrProviderUtilities.CancelEventAndShowErr(txtConfirmPassword, e, "Password confirmation doesn't match password!");
             }

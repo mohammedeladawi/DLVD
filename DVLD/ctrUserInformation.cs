@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DVLD
 {
-    public partial class ctrUserInfo : UserControl
+    public partial class ctrUserInformation : UserControl
     {
-        public ctrUserInfo()
+        public ctrUserInformation()
         {
             InitializeComponent();
         }

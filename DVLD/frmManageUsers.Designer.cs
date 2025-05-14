@@ -84,6 +84,7 @@
             this.tsmiChangeUserPassword.Name = "tsmiChangeUserPassword";
             this.tsmiChangeUserPassword.Size = new System.Drawing.Size(300, 38);
             this.tsmiChangeUserPassword.Text = "Change Password";
+            this.tsmiChangeUserPassword.Click += new System.EventHandler(this.tsmiChangeUserPassword_Click);
             // 
             // ctrManageData1
             // 

@@ -18,6 +18,13 @@ namespace DVLD
             InitializeComponent();
         }
 
+        private void ChangePasswordDialog(int userID)
+        {
+            Form changeUserPassword = new frmChangeUserPassword(userID);
+            changeUserPassword.FormClosed += subForm_Closed;
+            changeUserPassword.ShowDialog();
+        }
+
         private void DeleteUserDialog(int userID)
         {
             if (MessageBox.Show("Are you sure you want to delete this user?",
@@ -99,7 +106,7 @@ namespace DVLD
        
         private void subForm_Closed(object sender, FormClosedEventArgs e)
         {
-            ctrManageData1.LoadData(clsUser.GetAllUsersData());
+            ReloadUsersData();
         }
 
         private void tsmiEditUser_Click(object sender, EventArgs e)
@@ -121,6 +128,19 @@ namespace DVLD
             if (UserID != -1)
             {
                 DeleteUserDialog(UserID);
+            }
+            else
+            {
+                MessageBox.Show("There is no selected row");
+            }
+        }
+
+        private void tsmiChangeUserPassword_Click(object sender, EventArgs e)
+        {
+            int UserID = GetSelectedUserID();
+            if (UserID != -1)
+            {
+                ChangePasswordDialog(UserID);
             }
             else
             {

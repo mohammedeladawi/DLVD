@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctrUserPersonInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrUserPersonInformation.Designer.cs">
+      <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="ErrProviderUtilities.cs" />
     <Compile Include="frmAddEditPerson.cs">
       <SubType>Form</SubType>
@@ -90,17 +96,23 @@
     <Compile Include="ctrSaveBtn.Designer.cs">
       <DependentUpon>ctrSaveBtn.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrUserInfo.cs">
+    <Compile Include="ctrUserInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrUserInfo.Designer.cs">
-      <DependentUpon>ctrUserInfo.cs</DependentUpon>
+    <Compile Include="ctrUserInformation.Designer.cs">
+      <DependentUpon>ctrUserInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddUpdateUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAddUpdateUser.Designer.cs">
       <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangeUserPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangeUserPassword.Designer.cs">
+      <DependentUpon>frmChangeUserPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="frmManageUsers.cs">
       <SubType>Form</SubType>
@@ -128,6 +140,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ctrUserPersonInformation.resx">
+      <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,11 +164,14 @@
     <EmbeddedResource Include="ctrSaveBtn.resx">
       <DependentUpon>ctrSaveBtn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrUserInfo.resx">
-      <DependentUpon>ctrUserInfo.cs</DependentUpon>
+    <EmbeddedResource Include="ctrUserInformation.resx">
+      <DependentUpon>ctrUserInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateUser.resx">
       <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangeUserPassword.resx">
+      <DependentUpon>frmChangeUserPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageUsers.resx">
       <DependentUpon>frmManageUsers.cs</DependentUpon>

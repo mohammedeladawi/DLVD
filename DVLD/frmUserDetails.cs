@@ -25,8 +25,7 @@ namespace DVLD
             if (_user == null)
                 return;
 
-            ctrPersonInformation1.LoadPersonInfo(_user.Person);
-            ctrUserInfo1.LoadUserInfo(_user.UserID, _user.UserName, _user.isActive);
+            ctrUserPersonInformation1.LoadUserInfo(_user);
         }
     }
 }

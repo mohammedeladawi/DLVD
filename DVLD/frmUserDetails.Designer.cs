@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
-            this.ctrUserInfo1 = new DVLD.ctrUserInfo();
-            this.ctrPersonInformation1 = new DVLD.ctrPersonInformation();
+            this.ctrUserPersonInformation1 = new DVLD.ctrUserPersonInformation();
+            this.ctrCloseBtn2 = new DVLD.ctrCloseBtn();
             this.SuspendLayout();
             // 
             // ctrCloseBtn1
@@ -41,28 +41,29 @@
             this.ctrCloseBtn1.Size = new System.Drawing.Size(228, 64);
             this.ctrCloseBtn1.TabIndex = 2;
             // 
-            // ctrUserInfo1
+            // ctrUserPersonInformation1
             // 
-            this.ctrUserInfo1.Location = new System.Drawing.Point(94, 667);
-            this.ctrUserInfo1.Name = "ctrUserInfo1";
-            this.ctrUserInfo1.Size = new System.Drawing.Size(1166, 148);
-            this.ctrUserInfo1.TabIndex = 1;
+            this.ctrUserPersonInformation1.Location = new System.Drawing.Point(23, 12);
+            this.ctrUserPersonInformation1.Name = "ctrUserPersonInformation1";
+            this.ctrUserPersonInformation1.Size = new System.Drawing.Size(1536, 1000);
+            this.ctrUserPersonInformation1.TabIndex = 3;
             // 
-            // ctrPersonInformation1
+            // ctrCloseBtn2
             // 
-            this.ctrPersonInformation1.Location = new System.Drawing.Point(75, 11);
-            this.ctrPersonInformation1.Name = "ctrPersonInformation1";
-            this.ctrPersonInformation1.Size = new System.Drawing.Size(1418, 650);
-            this.ctrPersonInformation1.TabIndex = 0;
+            this.ctrCloseBtn2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ctrCloseBtn2.Location = new System.Drawing.Point(1309, 913);
+            this.ctrCloseBtn2.Name = "ctrCloseBtn2";
+            this.ctrCloseBtn2.Size = new System.Drawing.Size(228, 64);
+            this.ctrCloseBtn2.TabIndex = 4;
             // 
             // frmUserDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1542, 886);
+            this.ClientSize = new System.Drawing.Size(1564, 989);
+            this.Controls.Add(this.ctrCloseBtn2);
+            this.Controls.Add(this.ctrUserPersonInformation1);
             this.Controls.Add(this.ctrCloseBtn1);
-            this.Controls.Add(this.ctrUserInfo1);
-            this.Controls.Add(this.ctrPersonInformation1);
             this.Name = "frmUserDetails";
             this.Text = "frmUserDetails";
             this.Load += new System.EventHandler(this.frmUserDetails_Load);
@@ -71,9 +72,8 @@
         }
 
         #endregion
-
-        private ctrPersonInformation ctrPersonInformation1;
-        private ctrUserInfo ctrUserInfo1;
         private ctrCloseBtn ctrCloseBtn1;
+        private ctrUserPersonInformation ctrUserPersonInformation1;
+        private ctrCloseBtn ctrCloseBtn2;
     }
 }
