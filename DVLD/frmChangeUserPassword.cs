@@ -19,6 +19,12 @@ namespace DVLD
             _user = clsUser.FindByID(userID);
             InitializeComponent();
         }
+
+        public frmChangeUserPassword(clsUser user)
+        {
+            _user = user;
+            InitializeComponent();
+        }
         private bool IsCurrPasswordRight()
         {
             string currPasswordTxt = txtCurrentPassword.Text;

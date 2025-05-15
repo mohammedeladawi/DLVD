@@ -20,6 +20,12 @@ namespace DVLD
             InitializeComponent();
         }
 
+        public frmUserDetails(clsUser user)
+        {
+            this._user = user;
+            InitializeComponent();
+        }
+
         private void frmUserDetails_Load(object sender, EventArgs e)
         {
             if (_user == null)

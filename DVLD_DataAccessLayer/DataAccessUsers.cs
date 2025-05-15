@@ -80,6 +80,39 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
+        public static bool FindUserByUsernameAndPassword(ref int userID, ref int personID, string username, string password, ref bool isActive)
+        {
+            string commandStr = @"Select * From Users WHERE UserName = @UserName And Password = @Password";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@UserName", username);
+                    command.Parameters.AddWithValue("@Password", password);
+                    try
+                    {
+                        connection.Open();
+                        SqlDataReader read = command.ExecuteReader();
+                        if (read.Read())
+                        {
+                            userID = (int)read["UserID"];
+                            personID = (int)read["PersonID"];
+                            isActive = (bool)read["IsActive"];
+
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
+
         public static int AddNewUser(int personID, string username, string password, bool isActive)
         {
             string commandStr = @"Insert Into Users (PersonID, Username, Password, IsActive)

@@ -70,33 +70,33 @@
             this.tsmiEditPersonInfo,
             this.tsmiDeletePerson});
             this.cmsPeople.Name = "contextMenuStrip1";
-            this.cmsPeople.Size = new System.Drawing.Size(301, 200);
+            this.cmsPeople.Size = new System.Drawing.Size(265, 156);
             // 
             // tsmiShowPersonDetails
             // 
             this.tsmiShowPersonDetails.Name = "tsmiShowPersonDetails";
-            this.tsmiShowPersonDetails.Size = new System.Drawing.Size(300, 38);
+            this.tsmiShowPersonDetails.Size = new System.Drawing.Size(264, 38);
             this.tsmiShowPersonDetails.Text = "Show Details";
             this.tsmiShowPersonDetails.Click += new System.EventHandler(this.tsmiShowPersonDetails_Click);
             // 
             // tsmiAddNewPerson
             // 
             this.tsmiAddNewPerson.Name = "tsmiAddNewPerson";
-            this.tsmiAddNewPerson.Size = new System.Drawing.Size(300, 38);
+            this.tsmiAddNewPerson.Size = new System.Drawing.Size(264, 38);
             this.tsmiAddNewPerson.Text = "Add New Person";
             this.tsmiAddNewPerson.Click += new System.EventHandler(this.tsmiAddNewPerson_Click);
             // 
             // tsmiEditPersonInfo
             // 
             this.tsmiEditPersonInfo.Name = "tsmiEditPersonInfo";
-            this.tsmiEditPersonInfo.Size = new System.Drawing.Size(300, 38);
+            this.tsmiEditPersonInfo.Size = new System.Drawing.Size(264, 38);
             this.tsmiEditPersonInfo.Text = "Edit";
             this.tsmiEditPersonInfo.Click += new System.EventHandler(this.tsmiEditPersonInfo_Click);
             // 
             // tsmiDeletePerson
             // 
             this.tsmiDeletePerson.Name = "tsmiDeletePerson";
-            this.tsmiDeletePerson.Size = new System.Drawing.Size(300, 38);
+            this.tsmiDeletePerson.Size = new System.Drawing.Size(264, 38);
             this.tsmiDeletePerson.Text = "Delete";
             this.tsmiDeletePerson.Click += new System.EventHandler(this.tsmiDeletePerson_Click);
             // 
@@ -110,7 +110,6 @@
             this.Controls.Add(this.ctrManageData1);
             this.Name = "frmManagePeople";
             this.Text = "Manage People";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.cmsPeople.ResumeLayout(false);
             this.ResumeLayout(false);
 

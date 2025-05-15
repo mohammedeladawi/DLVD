@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\frmchangeuserpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:frmchangeuserpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\frmchangeuserpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:frmchangeuserpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\frmuserdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:frmuserdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\frmmanageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:frmmanageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|c:\\users\\mazik\\desktop\\19. full real project\\03. dvld project\\dvld\\frmmanagepeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{06E6FC3E-D4A7-41F0-93C8-17161DC14C51}|DVLD_PersentationLayer.csproj|solutionrelative:frmmanagepeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,31 +38,94 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "frmChangeUserPassword.cs",
               "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmChangeUserPassword.cs",
               "RelativeDocumentMoniker": "frmChangeUserPassword.cs",
               "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmChangeUserPassword.cs",
               "RelativeToolTip": "frmChangeUserPassword.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAhwEgAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T05:43:05.76Z",
+              "WhenOpened": "2025-05-15T03:58:16.46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmUserDetails.cs",
+              "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmUserDetails.cs",
+              "RelativeDocumentMoniker": "frmUserDetails.cs",
+              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmUserDetails.cs",
+              "RelativeToolTip": "frmUserDetails.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T03:52:07.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmManagePeople.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmManagePeople.cs",
+              "RelativeDocumentMoniker": "frmManagePeople.cs",
+              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmManagePeople.cs [Design]",
+              "RelativeToolTip": "frmManagePeople.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T02:47:54.12Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmManageUsers.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmManageUsers.cs",
+              "RelativeDocumentMoniker": "frmManageUsers.cs",
+              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmManageUsers.cs [Design]",
+              "RelativeToolTip": "frmManageUsers.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T02:47:36.703Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmMain.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmMain.Designer.cs",
+              "RelativeDocumentMoniker": "frmMain.Designer.cs",
+              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmMain.Designer.cs",
+              "RelativeToolTip": "frmMain.Designer.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAArwEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T02:37:19.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmMain.cs",
+              "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmMain.cs",
+              "RelativeDocumentMoniker": "frmMain.cs",
+              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmMain.cs",
+              "RelativeToolTip": "frmMain.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAApwDkAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T02:34:15.321Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmChangeUserPassword.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmChangeUserPassword.cs",
-              "RelativeDocumentMoniker": "frmChangeUserPassword.cs",
-              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmChangeUserPassword.cs [Design]",
-              "RelativeToolTip": "frmChangeUserPassword.cs [Design]",
+              "Title": "frmMain.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmMain.cs",
+              "RelativeDocumentMoniker": "frmMain.cs",
+              "ToolTip": "C:\\Users\\mazik\\Desktop\\19. Full Real Project\\03. DVLD Project\\DVLD\\frmMain.cs [Design]",
+              "RelativeToolTip": "frmMain.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T05:37:27.434Z",
+              "WhenOpened": "2025-05-15T02:31:37.536Z",
               "EditorCaption": " [Design]"
             }
           ]

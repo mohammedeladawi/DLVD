@@ -27,3 +27,5 @@ C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVL
 C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.ctrUserPersonInformation.resources
 C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.ctrUserInformation.resources
 C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.frmChangeUserPassword.resources
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.frmMain.resources
+C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\obj\Debug\DVLD.frmLogin.resources

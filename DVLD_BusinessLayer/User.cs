@@ -91,7 +91,20 @@ namespace DVLD_BusinessLayer
             else
                 return null;
         }
-    
+
+        public static clsUser FindByUsernameAndPassword(string username, string password )
+        {
+            int userID = -1;
+            int personID = -1;
+            bool isActive = false;
+
+            bool isFound = clsDataAccessUsers.FindUserByUsernameAndPassword(ref userID, ref personID, username, password, ref isActive);
+            if (isFound)
+                return new clsUser(userID, personID, username, password, isActive);
+            else
+                return null;
+        }
+
         public static bool IsExistByPersonID(int personID)
         {
             return clsDataAccessUsers.IsUserExistByPersonID(personID);
