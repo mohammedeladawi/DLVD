@@ -15,6 +15,7 @@ namespace DVLD
         public DataGridView dgvManageDate1
         {
             get { return dgvManageData; }
+            
         }
         public ctrDataView()
         {

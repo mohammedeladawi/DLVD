@@ -24,31 +24,84 @@ namespace DVLD
             InitializeComponent();
         }
 
-        private void SearchIconVisibility()
+        private bool isTxtSearchSubscribed = false;
+        private bool isCmbSearchSubscribed = false;
+        private void StopTxtSearch()
         {
-            // hide or show txt box
-            if (cmbFilter.SelectedItem.ToString() == "None")
+            if (isTxtSearchSubscribed)
             {
-                cmbSearch.Visible = false;
-                txtSearch.Visible = false;
-
+                txtSearch.TextChanged -= txtSearch_TextChanged;
+                isTxtSearchSubscribed = false;
             }
-            else if (cmbFilter.SelectedItem.ToString() == "IsActive")
-            {
-                txtSearch.Visible = false;
-                cmbSearch.Visible = true;
 
-                InitializeCmbSearchItems();
+            txtSearch.Clear();
+            txtSearch.Visible = false;
+        }
+
+        private void StopCmbSearch()
+        {
+            if (isCmbSearchSubscribed)
+            {
+                cmbSearch.SelectedValueChanged -= cmbSearch_SelectedValueChanged;
+                isCmbSearchSubscribed = false;
+            }
+
+            cmbSearch.SelectedValue = null;
+            cmbSearch.Visible = false;
+        }
+
+        private void PlayTxtSearch()
+        {
+            txtSearch.Visible = true;
+
+            if (!isTxtSearchSubscribed)
+            {
+                txtSearch.TextChanged += txtSearch_TextChanged;
+                isTxtSearchSubscribed = true;
             }
             else
             {
-                cmbSearch.Visible = false;
-                txtSearch.Visible = true;
+                txtSearch.Clear();
+            }
+        }
+
+        private void PlayCmbSearch()
+        {
+            cmbSearch.Visible = true;
+
+            if (!isCmbSearchSubscribed)
+            {
+                cmbSearch.SelectedValueChanged += cmbSearch_SelectedValueChanged;
+                isCmbSearchSubscribed = true;
+            }
+
+            cmbSearch.SelectedValue = 1; // Set default selection, adjust if needed
+        }
+        private void SearchIconVisibility()
+        {
+            if (cmbFilter.SelectedItem.ToString() == "None")
+            {
+                StopTxtSearch();
+                StopCmbSearch();
+            }
+            else if (cmbFilter.SelectedItem.ToString() == "IsActive")
+            {
+                StopTxtSearch();
+                PlayCmbSearch();
+            }
+            else
+            {
+                StopCmbSearch();
+                PlayTxtSearch();
+
             }
         }
 
         private void InitializeCmbSearchItems()
         {
+            if (cmbSearch.Items.Count > 0)
+                return;
+
             cmbSearch.DisplayMember = "Key";
             cmbSearch.ValueMember = "Value";
 
@@ -75,6 +128,7 @@ namespace DVLD
 
         private void cmbFilter_SelectedValueChanged(object sender, EventArgs e)
         {
+            _dt.DefaultView.RowFilter = string.Empty;
             SearchIconVisibility();
         }
 
@@ -88,7 +142,7 @@ namespace DVLD
             else
                 _dt.DefaultView.RowFilter = $"{colName} Like '%{filterText}%'";
         }
-       
+
         private void cmbSearch_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cmbSearch.SelectedItem is KeyValuePair<string, bool> selectedItem)
@@ -98,7 +152,7 @@ namespace DVLD
 
                 _dt.DefaultView.RowFilter = $"{colName} = {filterValue}";
             }
-        
+
         }
 
         public void LoadData(DataTable dt)
@@ -111,6 +165,7 @@ namespace DVLD
 
             ctrDataView1.LoadDataInDgvManageData(_dt);
             LoadTableHeadersInCmbFilters();
+            InitializeCmbSearchItems();
         }
 
         public void LoadTitle(string title)

@@ -21,7 +21,8 @@ namespace DVLD
              _manageUsers = new frmManageUsers(),
              _userDetails = new frmUserDetails(clsGlobalSettings.currentUser),
              _changeUserPassword = new frmChangeUserPassword(clsGlobalSettings.currentUser),
-             _manageApplicationTypes = new frmManageApplicationTypes();
+             _manageApplicationTypes = new frmManageApplicationTypes(),
+             _manageTestTypes = new frmManageTestTypes();
 
         private void tsmiPeople_Click(object sender, EventArgs e)
         {
@@ -37,6 +38,17 @@ namespace DVLD
         private void tsmiSignOut_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_manageTestTypes.IsDisposed)
+            {
+                _manageTestTypes = new frmManageTestTypes();
+            }
+
+            _manageTestTypes.MdiParent = this;
+            _manageTestTypes.Show();
         }
 
         private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,7 +88,7 @@ namespace DVLD
         {
             if (_manageUsers.IsDisposed)
             {
-                _manageUsers = new frmManagePeople();
+                _manageUsers = new frmManageUsers();
             }
 
             _manageUsers.MdiParent = this;

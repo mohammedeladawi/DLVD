@@ -45,6 +45,7 @@
     <Compile Include="DataAccessCountires.cs" />
     <Compile Include="DataAccessSettings.cs" />
     <Compile Include="DataAccessPeople.cs" />
+    <Compile Include="DataAccessTestTypes.cs" />
     <Compile Include="DataAccessUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
