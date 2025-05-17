@@ -20,7 +20,9 @@ namespace DVLD
         Form _managePeople = new frmManagePeople(),
              _manageUsers = new frmManageUsers(),
              _userDetails = new frmUserDetails(clsGlobalSettings.currentUser),
-             _changeUserPassword = new frmChangeUserPassword(clsGlobalSettings.currentUser);
+             _changeUserPassword = new frmChangeUserPassword(clsGlobalSettings.currentUser),
+             _manageApplicationTypes = new frmManageApplicationTypes();
+
         private void tsmiPeople_Click(object sender, EventArgs e)
         {
             if (_managePeople.IsDisposed)
@@ -35,6 +37,17 @@ namespace DVLD
         private void tsmiSignOut_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_manageApplicationTypes.IsDisposed)
+            {
+                _manageApplicationTypes = new frmManageApplicationTypes();
+            }
+
+            _manageApplicationTypes.MdiParent = this;
+            _manageApplicationTypes.Show();
         }
 
         private void tsmiCurrUserInfo_Click(object sender, EventArgs e)
