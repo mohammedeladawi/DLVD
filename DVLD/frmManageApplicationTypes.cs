@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace DVLD
         public frmManageApplicationTypes()
         {
             InitializeComponent();
+        }
+
+        private void frmManageApplicationTypes_Load(object sender, EventArgs e)
+        {
+            ctrDataView1.LoadDataInDgvManageData(clsApplicationType.GetAllTypes());
         }
     }
 }
