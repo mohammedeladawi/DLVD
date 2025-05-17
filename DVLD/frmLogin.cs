@@ -42,9 +42,9 @@ namespace DVLD
             {
                 ClearLoginFields();
             }
-            
-            Form Main = new frmMain();
-            Main.Show();
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

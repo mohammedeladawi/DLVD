@@ -16,7 +16,12 @@ namespace DVLD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+
+            frmLogin Login = new frmLogin();
+            while (Login.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new frmMain());
+            }
         }
     }
 }
