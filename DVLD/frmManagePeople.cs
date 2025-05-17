@@ -18,8 +18,7 @@ namespace DVLD
         {
             InitializeComponent();
 
-            string mainLogoUrl = @"C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\assets\images\team-management.png";
-            ctrManageData1.LoadLogoImgAndTitle(mainLogoUrl, "Manage People");
+            ctrManageData1.LoadTitle("Manage People");
             ctrManageData1.SetContextMenuStrip(cmsPeople);
 
             _LoadPeopleData();

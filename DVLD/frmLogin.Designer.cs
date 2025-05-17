@@ -40,19 +40,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(578, 58);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label1.Location = new System.Drawing.Point(303, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 55);
+            this.label1.Size = new System.Drawing.Size(147, 55);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Login Page";
+            this.label1.Text = "Login";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(429, 268);
+            this.label2.Location = new System.Drawing.Point(56, 231);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 25);
             this.label2.TabIndex = 0;
@@ -62,7 +62,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(429, 384);
+            this.label3.Location = new System.Drawing.Point(56, 347);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 25);
             this.label3.TabIndex = 0;
@@ -70,24 +70,25 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(588, 262);
+            this.txtUserName.Location = new System.Drawing.Point(214, 225);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(336, 31);
             this.txtUserName.TabIndex = 1;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(588, 378);
+            this.txtPassword.Location = new System.Drawing.Point(214, 341);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(336, 31);
-            this.txtPassword.TabIndex = 1;
+            this.txtPassword.TabIndex = 2;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(761, 506);
+            this.btnLogin.Location = new System.Drawing.Point(282, 495);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(163, 41);
-            this.btnLogin.TabIndex = 2;
+            this.btnLogin.Size = new System.Drawing.Size(164, 41);
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -95,7 +96,7 @@
             // cbRememberMe
             // 
             this.cbRememberMe.AutoSize = true;
-            this.cbRememberMe.Location = new System.Drawing.Point(601, 446);
+            this.cbRememberMe.Location = new System.Drawing.Point(228, 408);
             this.cbRememberMe.Name = "cbRememberMe";
             this.cbRememberMe.Size = new System.Drawing.Size(184, 29);
             this.cbRememberMe.TabIndex = 3;
@@ -106,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1366, 828);
+            this.ClientSize = new System.Drawing.Size(705, 828);
             this.Controls.Add(this.cbRememberMe);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);

@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctrDataView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrDataView.Designer.cs">
+      <DependentUpon>ctrDataView.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctrUserPersonInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -72,11 +78,11 @@
     <Compile Include="ctrFindShowPerson.Designer.cs">
       <DependentUpon>ctrFindShowPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrManageData.cs">
+    <Compile Include="ctrManageDataView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrManageData.Designer.cs">
-      <DependentUpon>ctrManageData.cs</DependentUpon>
+    <Compile Include="ctrManageDataView.Designer.cs">
+      <DependentUpon>ctrManageDataView.cs</DependentUpon>
     </Compile>
     <Compile Include="ctrNextBtn.cs">
       <SubType>UserControl</SubType>
@@ -153,6 +159,9 @@
     <Compile Include="GlobalSettings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ctrDataView.resx">
+      <DependentUpon>ctrDataView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctrUserPersonInformation.resx">
       <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,8 +174,8 @@
     <EmbeddedResource Include="ctrFindShowPerson.resx">
       <DependentUpon>ctrFindShowPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrManageData.resx">
-      <DependentUpon>ctrManageData.cs</DependentUpon>
+    <EmbeddedResource Include="ctrManageDataView.resx">
+      <DependentUpon>ctrManageDataView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctrNextBtn.resx">
       <DependentUpon>ctrNextBtn.cs</DependentUpon>
@@ -235,6 +244,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\images\incorporation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\form %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\status_available.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account_settings %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\screw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vecteezy_male-character-sitting-in-a-new-car-the-man-took-the-driving_5605324.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

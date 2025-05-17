@@ -11,13 +11,15 @@ using System.IO;
 
 namespace DVLD
 {
-    public partial class ctrManageData : UserControl
+    public partial class ctrManageDataView : UserControl
     {
         public DataGridView dgvManageDate1
         {
-            get { return dgvManageData; } 
+            get {return ctrDataView1.dgvManageDate1;}
         }
-        public ctrManageData()
+
+        private DataTable _dt; 
+        public ctrManageDataView()
         {
             InitializeComponent();
         }
@@ -55,25 +57,20 @@ namespace DVLD
             cmbSearch.SelectedIndex = 0;
         }
 
-        private void LoadDataInDgvManageData(DataTable dt)
-        {
-            dgvManageData.DataSource = dt;
-            lblNumOfRecords.Text = dt.Rows.Count.ToString();
-        }
-
         private void LoadTableHeadersInCmbFilters()
         {
+            // function works one time
             if (cmbFilter.Items.Count > 0)
                 return;
 
             cmbFilter.Items.Add("None");
 
-            foreach (DataGridViewColumn column in dgvManageData.Columns)
+            foreach (DataColumn column in _dt.Columns)
             {
-                cmbFilter.Items.Add(column.HeaderText);
+                cmbFilter.Items.Add(column.ColumnName);
             }
         
-            cmbFilter.SelectedIndex = 0;
+            cmbFilter.SelectedIndex = 0; // "NONE"
         }
 
         private void cmbFilter_SelectedValueChanged(object sender, EventArgs e)
@@ -86,13 +83,10 @@ namespace DVLD
             string filterText = txtSearch.Text;
             string colName = cmbFilter.SelectedItem.ToString();
 
-            DataTable dt = (DataTable)dgvManageData.DataSource; // Referrence
-
-
-            if (dt.Columns.Contains(colName) && dt.Columns[colName].DataType != typeof(string))
-                dt.DefaultView.RowFilter = $"Convert({colName}, 'System.String') Like '%{filterText}%'";
+            if (_dt.Columns.Contains(colName) && _dt.Columns[colName].DataType != typeof(string))
+                _dt.DefaultView.RowFilter = $"Convert({colName}, 'System.String') Like '%{filterText}%'";
             else
-                dt.DefaultView.RowFilter = $"{colName} Like '%{filterText}%'";
+                _dt.DefaultView.RowFilter = $"{colName} Like '%{filterText}%'";
         }
        
         private void cmbSearch_SelectedValueChanged(object sender, EventArgs e)
@@ -102,36 +96,31 @@ namespace DVLD
                 string colName = cmbFilter.SelectedItem.ToString();
                 bool filterValue = selectedItem.Value;
 
-                DataTable dt = (DataTable)dgvManageData.DataSource; // Referrence
-
-                dt.DefaultView.RowFilter = $"{colName} = {filterValue}";
+                _dt.DefaultView.RowFilter = $"{colName} = {filterValue}";
             }
         
         }
 
         public void LoadData(DataTable dt)
         {
+            // Bind to DataGridView
+            _dt = dt;
+
             if (dt == null || dt.Rows.Count == 0)
                 return;
 
-            LoadDataInDgvManageData(dt);
+            ctrDataView1.LoadDataInDgvManageData(_dt);
             LoadTableHeadersInCmbFilters();
         }
 
-        public void LoadLogoImgAndTitle(string imgUrl, string title)
+        public void LoadTitle(string title)
         {
-            if (File.Exists(imgUrl))
-                pbManageLogo.Image = Image.FromFile(imgUrl);
-
             lblTitle.Text = title;
-
         }
 
         public void SetContextMenuStrip(ContextMenuStrip cms)
         {
-            dgvManageData.ContextMenuStrip = cms;
+            ctrDataView1.SetContextMenuStrip(cms);
         }
-
-
     }
 }

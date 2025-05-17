@@ -52,7 +52,7 @@ namespace DVLD
         {
             if (_changeUserPassword.IsDisposed)
             {
-                _changeUserPassword = new frmUserDetails(clsGlobalSettings.currentUser);
+                _changeUserPassword = new frmChangeUserPassword(clsGlobalSettings.currentUser);
             }
 
             _changeUserPassword.MdiParent = this;

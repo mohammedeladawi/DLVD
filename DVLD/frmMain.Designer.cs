@@ -42,7 +42,6 @@
             // 
             // msDVLD
             // 
-            this.msDVLD.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.msDVLD.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.msDVLD.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiApplications,
@@ -52,33 +51,38 @@
             this.tsmiAccountSettings});
             this.msDVLD.Location = new System.Drawing.Point(0, 0);
             this.msDVLD.Name = "msDVLD";
-            this.msDVLD.Size = new System.Drawing.Size(1870, 42);
+            this.msDVLD.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.msDVLD.Size = new System.Drawing.Size(1247, 38);
             this.msDVLD.TabIndex = 1;
             this.msDVLD.Text = "menuStrip1";
             // 
             // tsmiApplications
             // 
+            this.tsmiApplications.Image = global::DVLD.Properties.Resources.form__1_;
             this.tsmiApplications.Name = "tsmiApplications";
-            this.tsmiApplications.Size = new System.Drawing.Size(164, 38);
+            this.tsmiApplications.Size = new System.Drawing.Size(138, 36);
             this.tsmiApplications.Text = "Applications";
             // 
             // tsmiPeople
             // 
+            this.tsmiPeople.Image = global::DVLD.Properties.Resources.group;
             this.tsmiPeople.Name = "tsmiPeople";
-            this.tsmiPeople.Size = new System.Drawing.Size(106, 38);
+            this.tsmiPeople.Size = new System.Drawing.Size(100, 36);
             this.tsmiPeople.Text = "People";
             this.tsmiPeople.Click += new System.EventHandler(this.tsmiPeople_Click);
             // 
             // tsmiDrivers
             // 
+            this.tsmiDrivers.Image = global::DVLD.Properties.Resources.car;
             this.tsmiDrivers.Name = "tsmiDrivers";
-            this.tsmiDrivers.Size = new System.Drawing.Size(108, 38);
+            this.tsmiDrivers.Size = new System.Drawing.Size(101, 36);
             this.tsmiDrivers.Text = "Drivers";
             // 
             // tsmiUsers
             // 
+            this.tsmiUsers.Image = global::DVLD.Properties.Resources.status_available;
             this.tsmiUsers.Name = "tsmiUsers";
-            this.tsmiUsers.Size = new System.Drawing.Size(91, 38);
+            this.tsmiUsers.Size = new System.Drawing.Size(90, 36);
             this.tsmiUsers.Text = "Users";
             this.tsmiUsers.Click += new System.EventHandler(this.tsmiUsers_Click);
             // 
@@ -88,39 +92,47 @@
             this.tsmiCurrUserInfo,
             this.tsmiChangeCurrUserPassword,
             this.tsmiSignOut});
+            this.tsmiAccountSettings.Image = global::DVLD.Properties.Resources.account_settings__1_;
             this.tsmiAccountSettings.Name = "tsmiAccountSettings";
-            this.tsmiAccountSettings.Size = new System.Drawing.Size(214, 38);
+            this.tsmiAccountSettings.Size = new System.Drawing.Size(166, 36);
             this.tsmiAccountSettings.Text = "Account Settings";
             // 
             // tsmiCurrUserInfo
             // 
+            this.tsmiCurrUserInfo.Image = global::DVLD.Properties.Resources.user;
             this.tsmiCurrUserInfo.Name = "tsmiCurrUserInfo";
-            this.tsmiCurrUserInfo.Size = new System.Drawing.Size(359, 44);
+            this.tsmiCurrUserInfo.Size = new System.Drawing.Size(207, 26);
             this.tsmiCurrUserInfo.Text = "Current User Info";
             this.tsmiCurrUserInfo.Click += new System.EventHandler(this.tsmiCurrUserInfo_Click);
             // 
             // tsmiChangeCurrUserPassword
             // 
+            this.tsmiChangeCurrUserPassword.Image = global::DVLD.Properties.Resources.screw;
             this.tsmiChangeCurrUserPassword.Name = "tsmiChangeCurrUserPassword";
-            this.tsmiChangeCurrUserPassword.Size = new System.Drawing.Size(359, 44);
+            this.tsmiChangeCurrUserPassword.Size = new System.Drawing.Size(207, 26);
             this.tsmiChangeCurrUserPassword.Text = "Change Password";
             this.tsmiChangeCurrUserPassword.Click += new System.EventHandler(this.tsmiChangeCurrUserPassword_Click);
             // 
             // tsmiSignOut
             // 
+            this.tsmiSignOut.Image = global::DVLD.Properties.Resources.cancel;
             this.tsmiSignOut.Name = "tsmiSignOut";
-            this.tsmiSignOut.Size = new System.Drawing.Size(359, 44);
+            this.tsmiSignOut.Size = new System.Drawing.Size(207, 26);
             this.tsmiSignOut.Text = "Sign Out";
             this.tsmiSignOut.Click += new System.EventHandler(this.tsmiSignOut_Click);
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1870, 1088);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.BackgroundImage = global::DVLD.Properties.Resources.vecteezy_male_character_sitting_in_a_new_car_the_man_took_the_driving_5605324;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(1247, 675);
             this.Controls.Add(this.msDVLD);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.msDVLD;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMain";
             this.Text = "frmMain";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
