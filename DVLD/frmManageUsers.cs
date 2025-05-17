@@ -77,7 +77,7 @@ namespace DVLD
        
         private void frmManageUsers_Load(object sender, EventArgs e)
         {
-            ctrManageData1.LoadLogoImgAndTitle("", "Manage Users");
+            ctrManageData1.LoadTitle("Manage Users");
             ctrManageData1.LoadData(clsUser.GetAllUsersData());
             ctrManageData1.SetContextMenuStrip(cmsUsers);
         }
