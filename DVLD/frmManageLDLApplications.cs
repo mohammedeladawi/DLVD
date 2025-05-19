@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD_BusinessLayer;
 
 namespace DVLD
 {
@@ -20,6 +21,7 @@ namespace DVLD
         private void frmManageLDLApplications_Load(object sender, EventArgs e)
         {
             ctrManageData1.LoadTitle("Local Driving License Applications");
+            ctrManageData1.LoadData(clsLDLApplication.GetAllApplications());
         }
     }
 }

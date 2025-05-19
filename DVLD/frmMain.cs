@@ -22,7 +22,8 @@ namespace DVLD
              _userDetails = new frmUserDetails(clsGlobalSettings.currentUser),
              _changeUserPassword = new frmChangeUserPassword(clsGlobalSettings.currentUser),
              _manageApplicationTypes = new frmManageApplicationTypes(),
-             _manageTestTypes = new frmManageTestTypes();
+             _manageTestTypes = new frmManageTestTypes(),
+             _manageLDLApplications = new frmManageLDLApplications();
 
         private void tsmiPeople_Click(object sender, EventArgs e)
         {
@@ -43,6 +44,17 @@ namespace DVLD
         private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // TODO: New Local DL Application
+        }
+
+        private void localDrivingLicenseApplicationsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (_manageLDLApplications.IsDisposed)
+            {
+                _manageLDLApplications = new frmManageTestTypes();
+            }
+
+            _manageLDLApplications.MdiParent = this;
+            _manageLDLApplications.Show();
         }
 
         private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)

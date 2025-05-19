@@ -35,7 +35,7 @@
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrCloseBtn1.Location = new System.Drawing.Point(1347, 1000);
+            this.ctrCloseBtn1.Location = new System.Drawing.Point(1287, 944);
             this.ctrCloseBtn1.Name = "ctrCloseBtn1";
             this.ctrCloseBtn1.Size = new System.Drawing.Size(228, 64);
             this.ctrCloseBtn1.TabIndex = 3;
@@ -52,7 +52,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1612, 1086);
+            this.ClientSize = new System.Drawing.Size(1592, 1030);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.ctrManageData1);
             this.Name = "frmManageLDLApplications";
