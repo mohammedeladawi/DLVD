@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
             this.ctrDataView1 = new DVLD.ctrDataView();
+            this.cmsManageApplicationTypes = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editApplicationTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsManageApplicationTypes.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -61,6 +65,21 @@
             this.ctrDataView1.Size = new System.Drawing.Size(1478, 670);
             this.ctrDataView1.TabIndex = 1;
             // 
+            // cmsManageApplicationTypes
+            // 
+            this.cmsManageApplicationTypes.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.cmsManageApplicationTypes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editApplicationTypeToolStripMenuItem});
+            this.cmsManageApplicationTypes.Name = "cmsManageApplicationTypes";
+            this.cmsManageApplicationTypes.Size = new System.Drawing.Size(314, 86);
+            // 
+            // editApplicationTypeToolStripMenuItem
+            // 
+            this.editApplicationTypeToolStripMenuItem.Name = "editApplicationTypeToolStripMenuItem";
+            this.editApplicationTypeToolStripMenuItem.Size = new System.Drawing.Size(313, 38);
+            this.editApplicationTypeToolStripMenuItem.Text = "Edit Application Type";
+            this.editApplicationTypeToolStripMenuItem.Click += new System.EventHandler(this.editApplicationTypeToolStripMenuItem_Click);
+            // 
             // frmManageApplicationTypes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -73,6 +92,7 @@
             this.Name = "frmManageApplicationTypes";
             this.Text = "frmManageApplicationTypes";
             this.Load += new System.EventHandler(this.frmManageApplicationTypes_Load);
+            this.cmsManageApplicationTypes.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -83,5 +103,7 @@
         private System.Windows.Forms.Label label1;
         private ctrDataView ctrDataView1;
         private ctrCloseBtn ctrCloseBtn1;
+        private System.Windows.Forms.ContextMenuStrip cmsManageApplicationTypes;
+        private System.Windows.Forms.ToolStripMenuItem editApplicationTypeToolStripMenuItem;
     }
 }

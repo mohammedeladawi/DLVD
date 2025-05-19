@@ -48,5 +48,18 @@ namespace DVLD
         }
 
 
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            // TODO: Rememmber ME (Functionality)
+            // DX
+            clsGlobalSettings.currentUser = clsUser.FindByUsernameAndPassword("mohammed", "1233");
+            clsUser currUser = clsGlobalSettings.currentUser;
+
+            if (currUser == null)
+                return;
+
+            txtUserName.Text = currUser.UserName;
+            txtPassword.Text = currUser.Password;
+        }
     }
 }

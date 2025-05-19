@@ -40,5 +40,72 @@ namespace DVLD_DataAccessLayer
 
             return dt;
         }
+
+        public static bool FindApplicationTypeByID(int applicationTypeID, ref string title, ref decimal fees)
+        {
+            string commandStr = @"Select * From ApplicationTypes WHERE ApplicationTypeID = @ApplicationTypeID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@ApplicationTypeID", applicationTypeID);
+                    try
+                    {
+                        connection.Open();
+                        SqlDataReader read = command.ExecuteReader();
+                        if (read.Read())
+                        {
+                            title = (string)read["ApplicationTypeTitle"];
+                            fees = (decimal)read["ApplicationFees"];
+
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public static bool UpdateApplicationType(int applicationTypeID, string title, decimal fees)
+        {
+            string commandStr = @"UPDATE ApplicationTypes SET 
+                                  ApplicationTypeTitle = @ApplicationTypeTitle,
+                                  ApplicationFees = @ApplicationFees
+                                  WHERE ApplicationTypeID = @ApplicationTypeID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@ApplicationTypeTitle", title);
+                    command.Parameters.AddWithValue("@ApplicationFees", fees);
+                    command.Parameters.AddWithValue("@ApplicationTypeID", applicationTypeID);
+
+                    try
+                    {
+                        connection.Open();
+
+                        int numberOfRows = command.ExecuteNonQuery();
+                        if (numberOfRows > 0)
+                        {
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
+
     }
 }

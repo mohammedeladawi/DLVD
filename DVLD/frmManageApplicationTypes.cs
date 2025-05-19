@@ -13,14 +13,59 @@ namespace DVLD
 {
     public partial class frmManageApplicationTypes: Form
     {
+        private int GetSelectedApplicationTypeID()
+        {
+            DataGridView dgvApplicationType = ctrDataView1.dgvManageDate1;
+            int ApplicationTypeID = -1;
+
+            if (dgvApplicationType.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgvApplicationType.SelectedRows[0];
+                ApplicationTypeID = Convert.ToInt32(row.Cells["ApplicationTypeID"].Value);
+            }
+
+            return ApplicationTypeID;
+        }
+        private void ReloadApplicationTypesData()
+        {
+            ctrDataView1.LoadDataInDgvManageData(clsApplicationType.GetAllTypes());
+        }
+        private void frmUpdateApplicationType_Closed(object sender, EventArgs e)
+        {
+            ReloadApplicationTypesData();
+        }
+
+        private void UpdateApplicationTypeDialog(int applicationTypeID)
+        {
+            Form updateApplicationType = new frmUpdateApplicationType(applicationTypeID);
+            updateApplicationType.FormClosed += frmUpdateApplicationType_Closed;
+            updateApplicationType.ShowDialog();
+        }
+
+        private void frmManageApplicationTypes_Load(object sender, EventArgs e)
+        {
+            ctrDataView1.SetContextMenuStrip(cmsManageApplicationTypes);
+            ctrDataView1.LoadDataInDgvManageData(clsApplicationType.GetAllTypes());
+        }
+
+        private void editApplicationTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int applicationTypeID = GetSelectedApplicationTypeID();
+
+            if (applicationTypeID != -1)
+            {
+                UpdateApplicationTypeDialog(applicationTypeID);
+            }
+            else
+            {
+                MessageBox.Show("There is no selected row");
+            }
+        }
+
         public frmManageApplicationTypes()
         {
             InitializeComponent();
         }
 
-        private void frmManageApplicationTypes_Load(object sender, EventArgs e)
-        {
-            ctrDataView1.LoadDataInDgvManageData(clsApplicationType.GetAllTypes());
-        }
     }
 }
