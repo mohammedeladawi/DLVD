@@ -40,6 +40,11 @@ namespace DVLD
             this.Close();
         }
 
+        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO: New Local DL Application
+        }
+
         private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_manageTestTypes.IsDisposed)
