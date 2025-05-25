@@ -41,11 +41,75 @@ namespace DVLD_DataAccessLayer
             return dt;
         }
 
+        public static bool FindLDLApplicationByID(int ldlApplicationID, ref int applicationID, ref int licenseClassID)
+        {
+            string commandStr = @"Select * From LocalDrivingLicenseApplications 
+                                  WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
 
-        // Find
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", ldlApplicationID);
+                    try
+                    {
+                        connection.Open();
+                        SqlDataReader read = command.ExecuteReader();
+                        if (read.Read())
+                        {
+                            applicationID = (int)read["ApplicationID"];
+                            licenseClassID = (int)read["LicenseClassID"];
+
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        // Add New
+        public static int AddNewLDLApplication(int applicationID, int licenseClassID)
+        {
+            string commandStr = @"INSERT INTO LocalDrivingLicenseApplications(ApplicationID, LicenseClassID)
+                                  values(@ApplicationID, @LicenseClassID);
+                                  SELECT SCOPE_IDENTITY();";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@ApplicationID", applicationID);
+                    command.Parameters.AddWithValue("@LicenseClassID", licenseClassID);
+
+                    try
+                    {
+                        connection.Open();
+                        object lDLapplication = command.ExecuteScalar();
+
+                        if (lDLapplication != null)
+                        {
+                            return Convert.ToInt32(lDLapplication);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return -1;
+        }
+
 
         // Update
 
-        // Add New
+
     }
 }

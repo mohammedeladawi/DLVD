@@ -41,7 +41,7 @@ namespace DVLD
             this.Close();
         }
 
-        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tsmiNewLDL_Click(object sender, EventArgs e)
         {
             // TODO: New Local DL Application
         }
@@ -50,7 +50,7 @@ namespace DVLD
         {
             if (_manageLDLApplications.IsDisposed)
             {
-                _manageLDLApplications = new frmManageTestTypes();
+                _manageLDLApplications = new frmManageLDLApplications();
             }
 
             _manageLDLApplications.MdiParent = this;

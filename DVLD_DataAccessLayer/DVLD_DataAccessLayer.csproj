@@ -46,6 +46,7 @@
     <Compile Include="DataAccessCountires.cs" />
     <Compile Include="DataAccessSettings.cs" />
     <Compile Include="DataAccessPeople.cs" />
+    <Compile Include="DataAccessLicenseClasses.cs" />
     <Compile Include="DataAccessTestTypes.cs" />
     <Compile Include="DataAccessApplications.cs" />
     <Compile Include="DataAccessUsers.cs" />

@@ -41,11 +41,11 @@ namespace DVLD_DataAccessLayer
                     try
                     {
                         connection.Open();
-                        object userID = command.ExecuteScalar();
+                        object applicationID = command.ExecuteScalar();
                         
-                        if (userID != null)
+                        if (applicationID != null)
                         {
-                            return Convert.ToInt16(userID);
+                            return Convert.ToInt16(applicationID);
                         }
                     }
                     catch (Exception ex)
@@ -69,9 +69,9 @@ namespace DVLD_DataAccessLayer
             {
                 using (SqlCommand command = new SqlCommand(commandStr, connection))
                 {
-                    command.Parameters.AddWithValue("@ApplicationStatus", applicationID);
-                    command.Parameters.AddWithValue("@LastStatusDateUserName", applicationStatus);
-                    command.Parameters.AddWithValue("@ApplicationID", lastStatusDate);
+                    command.Parameters.AddWithValue("@ApplicationStatus", applicationStatus);
+                    command.Parameters.AddWithValue("@LastStatusDate", lastStatusDate);
+                    command.Parameters.AddWithValue("@ApplicationID", applicationID);
 
 
                     try
@@ -95,7 +95,7 @@ namespace DVLD_DataAccessLayer
         }
 
         // For New and Completed ApplicationStatus
-        public static bool IsSameApllicationExist(int personID, byte licenseClassID)
+        public static bool IsSameApplicationExist(int personID, int licenseClassID)
         {
             string query = @"select x=1 from Applications
                              JOIN LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
@@ -170,6 +170,45 @@ namespace DVLD_DataAccessLayer
         {
             byte status = (byte)enStatus.Completed;
             return _UpdateApplication(applicationID, status, DateTime.Now);
+        }
+   
+        public static bool FindApplicationByID(int applicationID, ref int applicationPersonID, ref DateTime applicationDate,
+            ref byte applicationTypeID, ref byte applicationStatus, ref DateTime lastStatusDate,
+            ref decimal paidFees, ref int createdByUserID)
+        {
+            string commandStr = @"Select * From Applications WHERE ApplicationID = @ApplicationID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@ApplicationID", applicationID);
+                    try
+                    {
+                        connection.Open();
+                        SqlDataReader read = command.ExecuteReader();
+                        if (read.Read())
+                        {
+                            applicationID = (int)read["ApplicationID"];
+                            applicationPersonID = (int)read["ApplicationPersonID"];
+                            applicationDate = (DateTime)read["ApplicationDate"];
+                            applicationTypeID = Convert.ToByte(read["ApplicationTypeID"]);
+                            applicationStatus = (byte)read["ApplicationStatus"];
+                            lastStatusDate = (DateTime)read["LastStatusDate"];
+                            paidFees = (decimal)read["PaidFees"];
+                            createdByUserID = (int)read["CreatedByUserID"];
+
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }

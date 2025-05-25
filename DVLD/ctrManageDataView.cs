@@ -134,13 +134,26 @@ namespace DVLD
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string filterText = txtSearch.Text;
+            string filterText = txtSearch.Text.Replace("'", "''"); // Escape single quotes
+            if (cmbFilter.SelectedItem == null) return;
+
             string colName = cmbFilter.SelectedItem.ToString();
 
-            if (_dt.Columns.Contains(colName) && _dt.Columns[colName].DataType != typeof(string))
-                _dt.DefaultView.RowFilter = $"Convert({colName}, 'System.String') Like '%{filterText}%'";
-            else
-                _dt.DefaultView.RowFilter = $"{colName} Like '%{filterText}%'";
+            // Ensure the column exists in the DataTable
+            if (_dt.Columns.Contains(colName))
+            {
+                // Escape special characters in column name (dots, spaces, etc.)
+                string safeColName = $"[{colName}]";
+
+                if (_dt.Columns[colName].DataType != typeof(string))
+                {
+                    _dt.DefaultView.RowFilter = $"Convert({safeColName}, 'System.String') LIKE '%{filterText}%'";
+                }
+                else
+                {
+                    _dt.DefaultView.RowFilter = $"{safeColName} LIKE '%{filterText}%'";
+                }
+            }
         }
 
         private void cmbSearch_SelectedValueChanged(object sender, EventArgs e)

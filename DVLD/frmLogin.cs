@@ -51,15 +51,15 @@ namespace DVLD
         private void frmLogin_Load(object sender, EventArgs e)
         {
             // TODO: Rememmber ME (Functionality)
-            // DX
-            clsGlobalSettings.currentUser = clsUser.FindByUsernameAndPassword("mohammed", "1233");
-            clsUser currUser = clsGlobalSettings.currentUser;
+            //------------------------------------------ DX
 
-            if (currUser == null)
-                return;
+            //clsUser currUser = clsGlobalSettings.currentUser;
 
-            txtUserName.Text = currUser.UserName;
-            txtPassword.Text = currUser.Password;
+            //if (currUser == null)
+            //    return;
+
+            //txtUserName.Text = currUser.UserName;
+            //txtPassword.Text = currUser.Password;
         }
     }
 }

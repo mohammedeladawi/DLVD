@@ -9,6 +9,6 @@ namespace DVLD
 {
     internal static class clsGlobalSettings
     {
-        public static clsUser currentUser;
+        public static clsUser currentUser = clsUser.FindByUsernameAndPassword("mohammed", "1233");
     }
 }
