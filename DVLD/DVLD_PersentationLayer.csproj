@@ -47,11 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctrLDLApplicationInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrLDLApplicationInfo.Designer.cs">
+      <DependentUpon>ctrLDLApplicationInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctrDataView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ctrDataView.Designer.cs">
       <DependentUpon>ctrDataView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrManageTestApplicationInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrManageTestApplicationInfo.Designer.cs">
+      <DependentUpon>ctrManageTestApplicationInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="ctrUserPersonInformation.cs">
       <SubType>UserControl</SubType>
@@ -107,6 +119,12 @@
     </Compile>
     <Compile Include="ctrUserInformation.Designer.cs">
       <DependentUpon>ctrUserInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmScheduleTestAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmScheduleTestAppointment.Designer.cs">
+      <DependentUpon>frmScheduleTestAppointment.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddUpdateUser.cs">
       <SubType>Form</SubType>
@@ -192,11 +210,23 @@
     <Compile Include="frmManagePeople.Designer.cs">
       <DependentUpon>frmManagePeople.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmManageVisionTestAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageVisionTestAppointments.Designer.cs">
+      <DependentUpon>frmManageVisionTestAppointments.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalSettings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ctrLDLApplicationInfo.resx">
+      <DependentUpon>ctrLDLApplicationInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctrDataView.resx">
       <DependentUpon>ctrDataView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrManageTestApplicationInfo.resx">
+      <DependentUpon>ctrManageTestApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctrUserPersonInformation.resx">
       <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
@@ -224,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctrUserInformation.resx">
       <DependentUpon>ctrUserInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmScheduleTestAppointment.resx">
+      <DependentUpon>frmScheduleTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateUser.resx">
       <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
@@ -266,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmManagePeople.resx">
       <DependentUpon>frmManagePeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageVisionTestAppointments.resx">
+      <DependentUpon>frmManageVisionTestAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

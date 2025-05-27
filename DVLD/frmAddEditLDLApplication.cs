@@ -111,6 +111,7 @@ namespace DVLD
        
         private void frmAddEditLDLApplication_Load(object sender, EventArgs e)
         {
+            this.AutoScroll = true;
             cbLicenseClassesInitialization(); 
             SetFrmAddUpdateFields();
         }

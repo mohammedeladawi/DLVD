@@ -14,8 +14,7 @@ namespace DVLD_BusinessLayer
         private bool _IsAllowedAge()
         {
             int applicantPersonAge = DateTime.Now.Year - Application.Person.DateOfBirth.Year;
-            clsLicenseClass licenseClass = clsLicenseClass.Find(LicenseClassID);
-            return licenseClass.MinmumAllowedAge <= applicantPersonAge;
+            return LicenseClass.MinmumAllowedAge <= applicantPersonAge;
         }
         private bool _AddNewLDLApplication()
         {
@@ -53,6 +52,7 @@ namespace DVLD_BusinessLayer
         enMode Mode;
 
         public int _ApplicationID;
+        public int _LicenseClassID;
         public int LocalDrivingLicenseApplicationID { get; private set; }
         public int ApplicationID
         {
@@ -66,9 +66,27 @@ namespace DVLD_BusinessLayer
                 Application = clsApplication.Find(_ApplicationID);
             }
         }
-        public int LicenseClassID { get; set; }
+        public int LicenseClassID 
+        {
+            get
+            {
+                return _LicenseClassID;
+            }
 
+            set
+            {
+                _LicenseClassID = value;
+                if (_LicenseClassID != -1)
+                    LicenseClass = clsLicenseClass.Find(_LicenseClassID);
+            }
+        }
+        
+        public clsLicenseClass LicenseClass;
+        
         public clsApplication Application;
+
+        public byte PassedTestsCount { get; set; }
+
 
         public static DataTable GetAllApplications()
         {
@@ -85,6 +103,7 @@ namespace DVLD_BusinessLayer
             // application logic
             Application = new clsApplication();
             Application.ApplicationTypeID = 1;
+            PassedTestsCount = 0;
         }
 
         private clsLDLApplication(int localDrivingLicenseApplicationID, int applicationID, int licenseClassID)
@@ -93,6 +112,7 @@ namespace DVLD_BusinessLayer
             LocalDrivingLicenseApplicationID = localDrivingLicenseApplicationID;
             ApplicationID = applicationID;
             LicenseClassID = licenseClassID;
+            PassedTestsCount = clsTest.PassedTestsCount(LocalDrivingLicenseApplicationID);
         }
 
         //---------------- ToDo ---------------

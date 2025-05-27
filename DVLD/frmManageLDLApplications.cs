@@ -87,5 +87,26 @@ namespace DVLD
         {
             ReloadApplicationData();
         }
+
+        private void ShowMangageVTestDialog(int ldlApplicationID)
+        {
+            Form scheduleVTest = new frmManageVisionTestAppointments(ldlApplicationID);
+            scheduleVTest.FormClosed += frm_Closed;
+            scheduleVTest.ShowDialog();
+        }
+
+        private void tsmiScheduleVisionTest_Click(object sender, EventArgs e)
+        {
+            int ldlApplicationID = GetSelectedLDLApplicationID();
+            if (ldlApplicationID != -1)
+            {
+                ShowMangageVTestDialog(ldlApplicationID);
+            }
+            else
+            {
+                MessageBox.Show("There is no selected row");
+            }
+
+        }
     }
 }

@@ -11,7 +11,6 @@ namespace DVLD_BusinessLayer
     public class clsTestType
     {
 
-
         private bool _UpdateTestTypes()
         {
             return clsDataAccessTestTypes.UpdateTestType(TestTypeID, Title, Description, Fees);
