@@ -18,6 +18,8 @@ namespace DVLD
         clsLDLApplication _ldlApplication;
         clsTestAppointment _testAppointment;
         clsTestType _testType;
+        int trials;
+        decimal retakeTestFees = clsApplicationType.Find(7).Fees;
         public frmScheduleTestAppointment(clsLDLApplication ldlApplication, int testTypeID)
         {
             Mode = enMode.AddNew;
@@ -36,19 +38,16 @@ namespace DVLD
             InitializeComponent();
         }
 
-        private void SetGPRetakeTest(int trials)
+        private void SetGPRetakeTest()
         {
-            // ------ ToDo: Get Trials the right way ----------//
             if (trials > 0)
             {
-                decimal retakeTestFees = clsApplicationType.Find(7).Fees;
                 gpRetakeTestInfo.Enabled = true;
                 lblRetakeTestAppFees.Text = retakeTestFees.ToString();
                 lblTotalFees.Text = (retakeTestFees + _testType.Fees).ToString();
             }
             else
             {
-                decimal retakeTestFees = clsApplicationType.Find(7).Fees;
                 gpRetakeTestInfo.Enabled = false;
                 lblRetakeTestAppFees.Text = "0";
                 lblTotalFees.Text = _testType.Fees.ToString();
@@ -56,10 +55,46 @@ namespace DVLD
             }
         }
 
-        private void SetTestAppointmentInfo()
+
+        private int AddNewRetakeTestApplication()
         {
-            // ---- To Do Get Test Trials -------//
-            int trials = 0;
+            clsApplication retakeTestApplication = new clsApplication();
+            retakeTestApplication.ApplicationTypeID = 7;
+            retakeTestApplication.ApplicationDate = DateTime.Now;
+            retakeTestApplication.ApplicationPersonID = _ldlApplication.Application.ApplicationPersonID;
+            retakeTestApplication.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            retakeTestApplication.PaidFees = retakeTestFees;
+
+            if (retakeTestApplication.Save())
+            {
+                return retakeTestApplication.ApplicationID;
+            }
+
+            return -1;
+        }
+        private void SetTestAppointmentData()
+        {
+            _testAppointment.TestTypeID = _testType.TestTypeID;
+            _testAppointment.LDLApplicationID = _ldlApplication._ApplicationID;
+            _testAppointment.AppointmentDate = dtpAppointmentDate.Value;
+            _testAppointment.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            _testAppointment.PaidFees = _testType.Fees;
+
+            // retake test
+            if (trials > 0)
+            {
+                int retakeTestAppID = AddNewRetakeTestApplication();
+                if (retakeTestAppID != -1)
+                {
+                    _testAppointment.RetakeTestApplicationID = retakeTestAppID;
+                }
+            }
+        }
+        private void SetTestAppointmentDataIntoUIFields()
+        {
+            trials =
+                clsTest.FailedSpecificTestsCount(_ldlApplication.LocalDrivingLicenseApplicationID, _testType.TestTypeID);
+
             clsPerson person = _ldlApplication.Application.Person;
             string name = person.FirstName + " " + person.LastName;
             
@@ -79,13 +114,29 @@ namespace DVLD
 
             }
 
-            SetGPRetakeTest(trials);
+            SetGPRetakeTest();
 
         }
 
         private void frmAddEditVisionTestAppointment_Load(object sender, EventArgs e)
         {
-            SetTestAppointmentInfo();
+            dtpAppointmentDate.Format = DateTimePickerFormat.Custom;
+            dtpAppointmentDate.CustomFormat = "dd/MM/yy";
+
+            SetTestAppointmentDataIntoUIFields();
+        }
+
+        private void ctrSaveBtn1_Click(object sender, EventArgs e)
+        {
+            SetTestAppointmentData();
+            if (_testAppointment.Save())
+            {
+                MessageBox.Show("Appointment has been added/updated successfully.");
+            }
+            else
+            {
+                MessageBox.Show("Couldn't add/update the appointment");
+            }
         }
     }
 }

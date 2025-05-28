@@ -39,6 +39,11 @@ namespace DVLD
 
         }
 
+        private void ReloadAppointmentsView()
+        {
+            DataTable testAppointmentsDT = clsTestAppointment.GetAllTestAppointmentsByLDLAppID(_ldlApplicationID);
+            ctrTestApplicationInfo1.SetTestAppointmentsView(testAppointmentsDT);
+        }
         private void frmVisionTestAppointments_Load(object sender, EventArgs e)
         {
             ctrTestApplicationInfo1.SetTestTitle("Vision Test Appointments");
@@ -76,11 +81,17 @@ namespace DVLD
             }
             else
             {
-                Form addEditVisionTest = new frmScheduleTestAppointment(_ldlApplication, 1);
-                addEditVisionTest.ShowDialog();
+                Form frmScheduleVTest = new frmScheduleTestAppointment(_ldlApplication, 1);
+                frmScheduleVTest.FormClosed += frmScheduleVTest_Closed;
+                frmScheduleVTest.ShowDialog();
 
             }
 
+        }
+
+        private void frmScheduleVTest_Closed(object sender, EventArgs e)
+        {
+            ReloadAppointmentsView();
         }
     }
 }

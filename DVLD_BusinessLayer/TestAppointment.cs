@@ -13,7 +13,7 @@ namespace DVLD_BusinessLayer
         private bool _AddNewAppointment()
         {
             this.TestAppointmentID = clsDataAccessTestAppointments.AddNewTestAppointment
-                (TestAppointmentID, LDLApplicationID, AppointmentDate, PaidFees, CreatedByUserID, RetakeTestApplicationID);
+                (TestTypeID, LDLApplicationID, AppointmentDate, PaidFees, CreatedByUserID, RetakeTestApplicationID);
 
             bool isAdded = TestAppointmentID != -1;
             if (isAdded)
@@ -31,6 +31,7 @@ namespace DVLD_BusinessLayer
 
         public int TestAppointmentID {get; private set;}
         public int LDLApplicationID { get; set; }
+        public int TestTypeID { get; set; }
         public DateTime AppointmentDate { get; set; } 
         public decimal PaidFees { get; set; }
         public int CreatedByUserID { get; set; }

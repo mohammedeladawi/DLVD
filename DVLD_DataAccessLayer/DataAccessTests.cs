@@ -47,5 +47,41 @@ namespace DVLD_DataAccessLayer
 
             return 0;
         }
+
+        public static int FailedTestsCountByLDLAppIdAndTestTypeID(int ldlApplicationID, int testTypeID)
+        {
+            string commandStr = @"select count(1) from tests T
+                                  JOIN TestAppointments TA on TA.TestAppointmentID = T.TestAppointmentID
+                                  JOIN LocalDrivingLicenseApplications LDLApp on LDLApp.LocalDrivingLicenseApplicationID = TA.LocalDrivingLicenseApplicationID
+                                  where LDLApp.LocalDrivingLicenseApplicationID = @LDLApplicationID;
+                                    and TestTypeID = @TestTypeID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@LDLApplicationID", ldlApplicationID);
+                    command.Parameters.AddWithValue("@TestTypeID", testTypeID);
+
+                    try
+                    {
+                        connection.Open();
+                        SqlDataReader read = command.ExecuteReader();
+                        if (read.Read())
+                        {
+                            int testsCount = (int)read[0];
+                            return testsCount;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return 0;
+        }
+    
     }
 }

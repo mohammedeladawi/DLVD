@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.gpTest = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpAppointmentDate = new System.Windows.Forms.DateTimePicker();
             this.gpRetakeTestInfo = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -49,13 +49,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTestTitle = new System.Windows.Forms.Label();
+            this.ctrSaveBtn1 = new DVLD.ctrSaveBtn();
+            this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
             this.gpTest.SuspendLayout();
             this.gpRetakeTestInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpTest
             // 
-            this.gpTest.Controls.Add(this.dateTimePicker1);
+            this.gpTest.Controls.Add(this.dtpAppointmentDate);
             this.gpTest.Controls.Add(this.gpRetakeTestInfo);
             this.gpTest.Controls.Add(this.lblFees);
             this.gpTest.Controls.Add(this.lblTrials);
@@ -76,12 +78,12 @@
             this.gpTest.TabStop = false;
             this.gpTest.Text = "Test";
             // 
-            // dateTimePicker1
+            // dtpAppointmentDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(163, 283);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 10;
+            this.dtpAppointmentDate.Location = new System.Drawing.Point(163, 283);
+            this.dtpAppointmentDate.Name = "dtpAppointmentDate";
+            this.dtpAppointmentDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpAppointmentDate.TabIndex = 10;
             // 
             // gpRetakeTestInfo
             // 
@@ -273,13 +275,34 @@
             this.lblTestTitle.Text = "label2";
             this.lblTestTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // frmAddEditVisionTestAppointment
+            // ctrSaveBtn1
+            // 
+            this.ctrSaveBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ctrSaveBtn1.Location = new System.Drawing.Point(307, 579);
+            this.ctrSaveBtn1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ctrSaveBtn1.Name = "ctrSaveBtn1";
+            this.ctrSaveBtn1.Size = new System.Drawing.Size(141, 42);
+            this.ctrSaveBtn1.TabIndex = 9;
+            this.ctrSaveBtn1.Click += new System.EventHandler(this.ctrSaveBtn1_Click);
+            // 
+            // ctrCloseBtn1
+            // 
+            this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ctrCloseBtn1.Location = new System.Drawing.Point(106, 579);
+            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ctrCloseBtn1.Name = "ctrCloseBtn1";
+            this.ctrCloseBtn1.Size = new System.Drawing.Size(153, 42);
+            this.ctrCloseBtn1.TabIndex = 2;
+            // 
+            // frmScheduleTestAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 573);
+            this.ClientSize = new System.Drawing.Size(609, 637);
+            this.Controls.Add(this.ctrSaveBtn1);
+            this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.gpTest);
-            this.Name = "frmAddEditVisionTestAppointment";
+            this.Name = "frmScheduleTestAppointment";
             this.Text = "frmAddEditVisionTestAppointment";
             this.Load += new System.EventHandler(this.frmAddEditVisionTestAppointment_Load);
             this.gpTest.ResumeLayout(false);
@@ -293,7 +316,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gpTest;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpAppointmentDate;
         private System.Windows.Forms.GroupBox gpRetakeTestInfo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -313,5 +336,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTestTitle;
+        private ctrSaveBtn ctrSaveBtn1;
+        private ctrCloseBtn ctrCloseBtn1;
     }
 }
