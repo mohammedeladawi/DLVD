@@ -73,7 +73,6 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
-        // Add New
         public static int AddNewLDLApplication(int applicationID, int licenseClassID)
         {
             string commandStr = @"INSERT INTO LocalDrivingLicenseApplications(ApplicationID, LicenseClassID)
@@ -107,8 +106,38 @@ namespace DVLD_DataAccessLayer
             return -1;
         }
 
+        public static bool UpdateLDLApplication(int ldlApplicationID, int licenseClassID)
+        {
+            string commandStr = @"UPDATE LocalDrivingLicenseApplications SET 
+                                  LicenseClassID = @LicenseClassID
+                                  WHERE LocalDrivingLicenseApplicationID = @LDLApplicationID";
 
-        // Update
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@LicenseClassID", licenseClassID);
+                    command.Parameters.AddWithValue("@LDLApplicationID", ldlApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+
+                        int numberOfRows = command.ExecuteNonQuery();
+                        if (numberOfRows > 0)
+                        {
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
 
 
     }

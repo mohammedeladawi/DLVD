@@ -94,5 +94,10 @@ namespace DVLD
             this.person = person;
             SetFindShowPersonFields();
         }
+
+        public void DisableFindPerson()
+        {
+            gbFindPerson.Enabled = false;
+        }
     }
 }

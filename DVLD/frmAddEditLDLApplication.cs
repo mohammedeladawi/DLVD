@@ -11,10 +11,6 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
-// applications ==> Done
-// licenseClasses
-// ldlApplications
-// applicationTypes
 namespace DVLD
 {
     public partial class frmAddEditLDLApplication : Form
@@ -34,7 +30,7 @@ namespace DVLD
         public frmAddEditLDLApplication(int ldlApplicationID)
         {
             Mode = enMode.Update;
-            //_ldlApplication = clsLDLApplication.FindByID(ldlApplicationID);
+            _ldlApplication = clsLDLApplication.FindByID(ldlApplicationID);
 
             InitializeComponent();
         }
@@ -72,34 +68,48 @@ namespace DVLD
                 DefaultTapInitialization();
         }
 
-        private void SetFrmAddData()
+        private void SetFrmAddDataIntoUIFields()
         {
             DateTime applicationDate = _ldlApplication.Application.ApplicationDate;
             decimal applicationTypeFees = _ldlApplication.Application.ApplicationType.Fees;
 
-            lblLDLApplicationTitle.Text = "New Local Driving License Application";
             lblApplicationDate.Text = applicationDate.ToShortDateString();
             lblApplicationFees.Text = "$" + applicationTypeFees.ToString();
             lblCreatedBy.Text = clsGlobalSettings.currentUser.UserName.ToString();
+        }
+
+
+        private void SetFrmUpdateDataIntoUIFields()
+        {
+            // disable addnew, find person buttons
+            ctrFindShowPerson1.DisableFindPerson();
+
+
+            ctrFindShowPerson1.person = _ldlApplication.Application.Person;
+            SetFrmAddDataIntoUIFields();
+
+            // Application Info Tap
+            int createdByUserID = _ldlApplication.Application.CreatedByUserID;
+            lblDLApplicationID.Text = _ldlApplication.LocalDrivingLicenseApplicationID.ToString();
+            lblApplicationDate.Text = _ldlApplication.Application.ApplicationDate.ToString();
+            cbLicenseClasses.SelectedValue = _ldlApplication.LicenseClassID;
+            lblApplicationFees.Text = _ldlApplication.Application.PaidFees.ToString();
+            lblCreatedBy.Text = clsUser.FindByID(createdByUserID).UserName;
         }
         private void SetFrmAddUpdateFields()
         {
             if (Mode == enMode.AddNew)
             {
-                 SetFrmAddData();
+                lblLDLApplicationTitle.Text = "New Local Driving License Application";
+                SetFrmAddDataIntoUIFields();
             }
             else if (Mode == enMode.Update)
             {
                 lblLDLApplicationTitle.Text = "Update Local Driving License Application";
-                // SetFrmUpdateData();
-
-                // ------------------Todo----------------------------------
-                //ctrFindShowPerson1.person = _ldlApplication.Application.Person;
-                //AddApplicationDataToTpApplicationInfo();
+                SetFrmUpdateDataIntoUIFields();
             }
         }
 
-        //---------- Tap page Application Info -------//
         private void cbLicenseClassesInitialization()
         {
             Dictionary<int, string> licenseClassesMap = clsLicenseClass.getClassesIDName();
@@ -138,7 +148,7 @@ namespace DVLD
             }
             else
             {
-                MessageBox.Show("Can't Update Application");
+                MessageBox.Show("Can't Add/Update Application");
             }
 
         }

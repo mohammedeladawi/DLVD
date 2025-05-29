@@ -83,6 +83,13 @@ namespace DVLD
             addUpdateLDLApplication.ShowDialog();
         }
 
+        private void ShowUpdateLDLApplicationDialog(int ldlApplicationID)
+        {
+            Form editUpdateLDLApplication = new frmAddEditLDLApplication(ldlApplicationID);
+            editUpdateLDLApplication.FormClosed += frm_Closed;
+            editUpdateLDLApplication.ShowDialog();
+        }
+
         private void frm_Closed(object sender, FormClosedEventArgs e)
         {
             ReloadApplicationData();
@@ -107,6 +114,19 @@ namespace DVLD
                 MessageBox.Show("There is no selected row");
             }
 
+        }
+
+        private void tsmiEditApplication_Click(object sender, EventArgs e)
+        {
+            int ldlApplicationID = GetSelectedLDLApplicationID();
+            if (ldlApplicationID != -1)
+            {
+                ShowUpdateLDLApplicationDialog(ldlApplicationID);
+            }
+            else
+            {
+                MessageBox.Show("There is no selected row");
+            }
         }
     }
 }

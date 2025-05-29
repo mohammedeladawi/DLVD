@@ -25,7 +25,7 @@ namespace DVLD
             //}
             //-------------------------------------------------------------
 
-            Form addEditLDLApplication = new frmManageLDLApplications();
+            Form addEditLDLApplication = new frmManageVisionTestAppointments(9);
             addEditLDLApplication.ShowDialog();
         }
     }

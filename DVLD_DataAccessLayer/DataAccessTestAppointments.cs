@@ -148,7 +148,11 @@ namespace DVLD_DataAccessLayer
                             appointmentDate = (DateTime)read["AppointmentDate"];
                             paidFees = (decimal)read["PaidFees"];
                             createdByUserID = (int)read["CreatedByUserID"];
-                            retakeTestApplicationID = (int)read["RetakeTestApplicationID"];
+
+                            retakeTestApplicationID =
+                                read["RetakeTestApplicationID"] != DBNull.Value
+                                ? (int)read["RetakeTestApplicationID"]
+                                : (int?)null;
 
                             return true;
                         }

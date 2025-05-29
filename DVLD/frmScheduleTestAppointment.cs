@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace DVLD
 {
@@ -18,7 +19,7 @@ namespace DVLD
         clsLDLApplication _ldlApplication;
         clsTestAppointment _testAppointment;
         clsTestType _testType;
-        int trials;
+        int _trials;
         decimal retakeTestFees = clsApplicationType.Find(7).Fees;
         public frmScheduleTestAppointment(clsLDLApplication ldlApplication, int testTypeID)
         {
@@ -26,6 +27,8 @@ namespace DVLD
             _ldlApplication = ldlApplication;
             _testType = clsTestType.Find(testTypeID);
             _testAppointment = new clsTestAppointment();
+            _trials = clsTest.SpecificTestTrials(_ldlApplication.LocalDrivingLicenseApplicationID, _testType.TestTypeID);
+
             InitializeComponent();
         }
 
@@ -35,12 +38,13 @@ namespace DVLD
             _ldlApplication = ldlApplication;
             _testType = clsTestType.Find(testTypeID);
             _testAppointment = clsTestAppointment.Find(testAppointmentID);
+            _trials = clsTest.SpecificTestTrials(_ldlApplication.LocalDrivingLicenseApplicationID, _testType.TestTypeID);
             InitializeComponent();
         }
 
         private void SetGPRetakeTest()
         {
-            if (trials > 0)
+            if (_trials > 0)
             {
                 gpRetakeTestInfo.Enabled = true;
                 lblRetakeTestAppFees.Text = retakeTestFees.ToString();
@@ -54,7 +58,6 @@ namespace DVLD
                 lblRetakeTestAppID.Text = "N/A";
             }
         }
-
 
         private int AddNewRetakeTestApplication()
         {
@@ -74,14 +77,15 @@ namespace DVLD
         }
         private void SetTestAppointmentData()
         {
+            var selectedDate = dtpAppointmentDate.Value;
+            _testAppointment.AppointmentDate = selectedDate;
             _testAppointment.TestTypeID = _testType.TestTypeID;
-            _testAppointment.LDLApplicationID = _ldlApplication._ApplicationID;
-            _testAppointment.AppointmentDate = dtpAppointmentDate.Value;
+            _testAppointment.LDLApplicationID = _ldlApplication.LocalDrivingLicenseApplicationID;
             _testAppointment.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
             _testAppointment.PaidFees = _testType.Fees;
 
             // retake test
-            if (trials > 0)
+            if (_trials > 0)
             {
                 int retakeTestAppID = AddNewRetakeTestApplication();
                 if (retakeTestAppID != -1)
@@ -90,30 +94,34 @@ namespace DVLD
                 }
             }
         }
-        private void SetTestAppointmentDataIntoUIFields()
+      
+        private void SetDataIntoUIFields()
         {
-            trials =
-                clsTest.FailedSpecificTestsCount(_ldlApplication.LocalDrivingLicenseApplicationID, _testType.TestTypeID);
-
             clsPerson person = _ldlApplication.Application.Person;
             string name = person.FirstName + " " + person.LastName;
+
+            lblDLApplicationID.Text = _ldlApplication.LocalDrivingLicenseApplicationID.ToString();
+            lblLicenseClass.Text = _ldlApplication.LicenseClass.ClassName.ToString();
+            lblName.Text = name;
+            lblTrials.Text = _trials.ToString();
+            gpTest.Text = _testType.Title;
+            lblFees.Text = _testType.Fees.ToString();
+        }
+      
+        private void SetAddEditFrmFields()
+        {
             
             if (Mode == enMode.AddNew)
             {
                 lblTestTitle.Text = "Schedule " + _testType.Title;
-                lblDLApplicationID.Text = _ldlApplication.LocalDrivingLicenseApplicationID.ToString();
-                lblLicenseClass.Text = _ldlApplication.LicenseClass.ClassName.ToString();
-                lblName.Text = name;
-                lblTrials.Text = trials.ToString();
-                gpTest.Text = _testType.Title;
-                lblFees.Text = _testType.Fees.ToString();
             }
             else if (Mode == enMode.Update)
             {
-                //----- TODO Update Logic ---------
-
+                lblTestTitle.Text = "Update " + _testType.Title;
+                dtpAppointmentDate.Value = _testAppointment.AppointmentDate;
             }
 
+            SetDataIntoUIFields();
             SetGPRetakeTest();
 
         }
@@ -123,7 +131,7 @@ namespace DVLD
             dtpAppointmentDate.Format = DateTimePickerFormat.Custom;
             dtpAppointmentDate.CustomFormat = "dd/MM/yy";
 
-            SetTestAppointmentDataIntoUIFields();
+            SetAddEditFrmFields();
         }
 
         private void ctrSaveBtn1_Click(object sender, EventArgs e)

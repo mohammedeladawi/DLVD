@@ -49,6 +49,7 @@ namespace DVLD_BusinessLayer
         public clsTestAppointment()
         {
             TestAppointmentID = -1;
+            TestTypeID = -1;
             LDLApplicationID = -1;
             AppointmentDate = DateTime.Now;
             PaidFees = 0;
@@ -61,7 +62,7 @@ namespace DVLD_BusinessLayer
             DateTime appointmentDate, decimal paidFees, int createdByUserID, int? retakeTestApplicationID)
         {
             TestAppointmentID = testAppointmentID;
-            TestAppointmentID = testTypeID;
+            TestTypeID = testTypeID;
             LDLApplicationID = ldlApplicationID;
             AppointmentDate = appointmentDate;
             PaidFees = paidFees;

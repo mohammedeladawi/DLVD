@@ -48,7 +48,7 @@ namespace DVLD_DataAccessLayer
             return 0;
         }
 
-        public static int FailedTestsCountByLDLAppIdAndTestTypeID(int ldlApplicationID, int testTypeID)
+        public static int SpecificTestTrialsByLDLAppIdAndTestTypeID(int ldlApplicationID, int testTypeID)
         {
             string commandStr = @"select count(1) from tests T
                                   JOIN TestAppointments TA on TA.TestAppointmentID = T.TestAppointmentID

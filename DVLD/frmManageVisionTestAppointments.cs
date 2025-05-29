@@ -21,7 +21,7 @@ namespace DVLD
             if (dgvTestType.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = dgvTestType.SelectedRows[0];
-                AppointmentID = Convert.ToInt32(row.Cells["Appointment ID"].Value);
+                AppointmentID = Convert.ToInt32(row.Cells["TestAppointmentID"].Value);
             }
 
             return AppointmentID;
@@ -57,6 +57,24 @@ namespace DVLD
 
         private void tmsiEdit_Click(object sender, EventArgs e)
         {
+            int testAppointmentID = GetSelectedTestAppointmentID();
+            if (testAppointmentID == -1)
+            {
+                MessageBox.Show("There is no selected row");
+                return;
+            }
+
+            if (_ldlApplication.Application.ApplicationStatus == 2)
+            {
+                MessageBox.Show("can't update test for cancelled application");
+            }
+            else
+            {
+                Form frmScheduleVTest = new frmScheduleTestAppointment(_ldlApplication, 1, testAppointmentID);
+                frmScheduleVTest.FormClosed += frmScheduleVTest_Closed;
+                frmScheduleVTest.ShowDialog();
+            }
+
 
         }
 

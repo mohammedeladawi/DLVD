@@ -41,10 +41,16 @@ namespace DVLD_BusinessLayer
 
             return false;
         }
-
-        //--------------------- ToDo if needed --------------
         private bool _UpdateLDLApplication()
         {
+            bool IsDoublicate = clsApplication.IsExist(Application.ApplicationPersonID, LicenseClassID);
+            if (!IsDoublicate)
+            {
+                // update ldlApplication
+                return 
+                    clsDataAccessLDLApplications.UpdateLDLApplication(LocalDrivingLicenseApplicationID, LicenseClassID);
+
+            }
             return false;
         }
 
@@ -60,7 +66,7 @@ namespace DVLD_BusinessLayer
             {
                 return _ApplicationID;
             }
-            set
+           private set
             {
                 _ApplicationID = value;
                 Application = clsApplication.Find(_ApplicationID);
@@ -151,7 +157,7 @@ namespace DVLD_BusinessLayer
                 case enMode.AddNew:
                     return _AddNewLDLApplication();
                 case enMode.Update:
-                    return false;
+                    return _UpdateLDLApplication();
             }
 
             return false;

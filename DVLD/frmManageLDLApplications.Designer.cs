@@ -81,6 +81,7 @@
             this.tsmiEditApplication.Name = "tsmiEditApplication";
             this.tsmiEditApplication.Size = new System.Drawing.Size(292, 24);
             this.tsmiEditApplication.Text = "Edit Application";
+            this.tsmiEditApplication.Click += new System.EventHandler(this.tsmiEditApplication_Click);
             // 
             // tsmiDeleteApplication
             // 
