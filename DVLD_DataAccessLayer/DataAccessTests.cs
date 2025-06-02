@@ -28,6 +28,7 @@ namespace DVLD_DataAccessLayer
                 using (SqlCommand command = new SqlCommand(commandStr, connection))
                 {
                     command.Parameters.AddWithValue("@LDLApplicationID", ldlApplicationID);
+
                     try
                     {
                         connection.Open();
@@ -47,13 +48,13 @@ namespace DVLD_DataAccessLayer
 
             return 0;
         }
-
-        public static int SpecificTestTrialsByLDLAppIdAndTestTypeID(int ldlApplicationID, int testTypeID)
+    
+      public static int SpecificTestTrialsByLDLAppIdAndTestTypeID(int ldlApplicationID, int testTypeID)
         {
             string commandStr = @"select count(1) from tests T
                                   JOIN TestAppointments TA on TA.TestAppointmentID = T.TestAppointmentID
                                   JOIN LocalDrivingLicenseApplications LDLApp on LDLApp.LocalDrivingLicenseApplicationID = TA.LocalDrivingLicenseApplicationID
-                                  where LDLApp.LocalDrivingLicenseApplicationID = @LDLApplicationID;
+                                  where LDLApp.LocalDrivingLicenseApplicationID = @LDLApplicationID
                                     and TestTypeID = @TestTypeID";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
@@ -82,6 +83,44 @@ namespace DVLD_DataAccessLayer
 
             return 0;
         }
-    
+      
+      public static int AddNewTest( int testAppointmentID, bool testResult, string notes, int createdByUserID) 
+        { string commandStr = @"Insert Into Tests(TestAppointmentID, TestResult, Notes, CreatedByUserID)
+                                  values (@TestAppointmentID, @TestResult, @Notes, @CreatedByUserID);
+                                  SELECT SCOPE_IDENTITY();";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@TestAppointmentID", testAppointmentID);
+                    command.Parameters.AddWithValue("@TestResult", testResult);
+                    command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
+
+                    if (notes == string.Empty)  
+                        command.Parameters.AddWithValue("Notes", DBNull.Value);
+                    else
+                        command.Parameters.AddWithValue("Notes", notes);
+
+
+                    try
+                    {
+                            connection.Open();
+                            object testID = command.ExecuteScalar();
+
+                            if (testID != null)
+                            {
+                                return Convert.ToInt32(testID);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                }
+            }
+
+            return -1;
+        }
     }
 }

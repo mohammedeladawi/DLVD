@@ -44,18 +44,30 @@ namespace DVLD
 
         private void SetGPRetakeTest()
         {
-            if (_trials > 0)
+            // Reset values
+            lblRetakeTestAppFees.Text = "0";
+            lblTotalFees.Text = _testType.Fees.ToString();
+            lblRetakeTestAppID.Text = "N/A";
+            gpRetakeTestInfo.Enabled = false;
+
+            if (_trials <= 0)
+                return;
+
+            switch (Mode)
             {
-                gpRetakeTestInfo.Enabled = true;
-                lblRetakeTestAppFees.Text = retakeTestFees.ToString();
-                lblTotalFees.Text = (retakeTestFees + _testType.Fees).ToString();
-            }
-            else
-            {
-                gpRetakeTestInfo.Enabled = false;
-                lblRetakeTestAppFees.Text = "0";
-                lblTotalFees.Text = _testType.Fees.ToString();
-                lblRetakeTestAppID.Text = "N/A";
+                case enMode.AddNew:
+                    gpRetakeTestInfo.Enabled = true;
+                    lblRetakeTestAppFees.Text = retakeTestFees.ToString();
+                    lblTotalFees.Text = (_testType.Fees + retakeTestFees).ToString();
+                    break;
+
+                case enMode.Update:
+                    if (_testAppointment?.RetakeTestApplicationID != null)
+                    {
+                        gpRetakeTestInfo.Enabled = true;
+                        lblRetakeTestAppID.Text = _testAppointment.RetakeTestApplicationID.ToString();
+                    }
+                    break;
             }
         }
 
@@ -75,6 +87,7 @@ namespace DVLD
 
             return -1;
         }
+       
         private void SetTestAppointmentData()
         {
             var selectedDate = dtpAppointmentDate.Value;
@@ -106,6 +119,13 @@ namespace DVLD
             lblTrials.Text = _trials.ToString();
             gpTest.Text = _testType.Title;
             lblFees.Text = _testType.Fees.ToString();
+
+
+            if (_testAppointment.IsLocked)
+            {
+                dtpAppointmentDate.Enabled = false;
+                ctrSaveBtn1.Enabled = false;
+            }
         }
       
         private void SetAddEditFrmFields()
@@ -113,7 +133,7 @@ namespace DVLD
             
             if (Mode == enMode.AddNew)
             {
-                lblTestTitle.Text = "Schedule " + _testType.Title;
+                lblTestTitle.Text = "Schedule " + ((_trials > 0) ? "Retake Test" : _testType.Title);
             }
             else if (Mode == enMode.Update)
             {
@@ -140,6 +160,7 @@ namespace DVLD
             if (_testAppointment.Save())
             {
                 MessageBox.Show("Appointment has been added/updated successfully.");
+                this.Close();
             }
             else
             {

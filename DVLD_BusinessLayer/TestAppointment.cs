@@ -22,9 +22,9 @@ namespace DVLD_BusinessLayer
 
             return isAdded;
         }
-        private bool _UpdateAppointmentDate()
+        private bool _UpdateAppointment()
         {
-            return clsDataAccessTestAppointments.UpdateTestAppointmentDate(TestAppointmentID, AppointmentDate);
+            return clsDataAccessTestAppointments.UpdateTestAppointment(TestAppointmentID, AppointmentDate, IsLocked);
         }
         private enum enMode { AddNew, Update}
         enMode Mode;
@@ -34,6 +34,7 @@ namespace DVLD_BusinessLayer
         public int TestTypeID { get; set; }
         public DateTime AppointmentDate { get; set; } 
         public decimal PaidFees { get; set; }
+        public bool IsLocked { get; set; }
         public int CreatedByUserID { get; set; }
         public int? RetakeTestApplicationID { get; set; }
 
@@ -41,9 +42,9 @@ namespace DVLD_BusinessLayer
         {
             return clsDataAccessTestAppointments.IsActiveAppointmentExist(ldlApplicationID);
         }
-        public static DataTable GetAllTestAppointmentsByLDLAppID(int ldlApplicationID)
+        public static DataTable GetAllTestAppointmentsByLDLAppID(int ldlApplicationID, int testTypeID)
         {
-            return clsDataAccessTestAppointments.GetAllTestAppointmenstByLDLAppID(ldlApplicationID);
+            return clsDataAccessTestAppointments.GetAllTestAppointmenstByLDLAppID(ldlApplicationID, testTypeID);
         }
 
         public clsTestAppointment()
@@ -53,19 +54,21 @@ namespace DVLD_BusinessLayer
             LDLApplicationID = -1;
             AppointmentDate = DateTime.Now;
             PaidFees = 0;
+            IsLocked = false;
             CreatedByUserID = -1;
             RetakeTestApplicationID = null;
             Mode = enMode.AddNew;
         }
 
         private clsTestAppointment(int testAppointmentID, int testTypeID, int ldlApplicationID,
-            DateTime appointmentDate, decimal paidFees, int createdByUserID, int? retakeTestApplicationID)
+            DateTime appointmentDate, decimal paidFees, bool isLocked, int createdByUserID, int? retakeTestApplicationID)
         {
             TestAppointmentID = testAppointmentID;
             TestTypeID = testTypeID;
             LDLApplicationID = ldlApplicationID;
             AppointmentDate = appointmentDate;
             PaidFees = paidFees;
+            IsLocked = isLocked;
             CreatedByUserID = createdByUserID;
             RetakeTestApplicationID = retakeTestApplicationID;
             Mode = enMode.Update;
@@ -77,17 +80,20 @@ namespace DVLD_BusinessLayer
             int ldlApplicationID = -1;
             DateTime appointmentDate = DateTime.Now;
             decimal paidFees = 0;
+            bool isLocked = false;
             int createdByUserID = -1;
             int? retakeTestApplicationID = null;
 
             bool isFound = clsDataAccessTestAppointments.FindByTestAppointmentID(testAppointmentID, ref testTypeID,
-                ref ldlApplicationID, ref appointmentDate, ref paidFees, ref createdByUserID, ref retakeTestApplicationID);
+                ref ldlApplicationID, ref appointmentDate, ref paidFees, ref isLocked, ref createdByUserID, ref retakeTestApplicationID);
             if (isFound)
                 return new clsTestAppointment(testAppointmentID, testTypeID,
-                ldlApplicationID, appointmentDate, paidFees, createdByUserID, retakeTestApplicationID);
+                ldlApplicationID, appointmentDate, paidFees, isLocked, createdByUserID, retakeTestApplicationID);
             else
                 return null;
         }
+
+        
 
         public bool Save()
         {
@@ -96,7 +102,7 @@ namespace DVLD_BusinessLayer
                 case enMode.AddNew:
                     return _AddNewAppointment();
                 case enMode.Update:
-                    return _UpdateAppointmentDate();
+                    return _UpdateAppointment();
             }
 
             return false;

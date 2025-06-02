@@ -61,38 +61,39 @@
             this.tsmiShowLicense,
             this.tsmiShowPersonLicenseHistory});
             this.cmsManageLDLApplications.Name = "cmsManageLDLApplications";
-            this.cmsManageLDLApplications.Size = new System.Drawing.Size(293, 248);
+            this.cmsManageLDLApplications.Size = new System.Drawing.Size(436, 390);
+            this.cmsManageLDLApplications.Opening += new System.ComponentModel.CancelEventHandler(this.cmsManageLDLApplications_Opening);
             // 
             // tsmiShowApplicationDetails
             // 
             this.tsmiShowApplicationDetails.Name = "tsmiShowApplicationDetails";
-            this.tsmiShowApplicationDetails.Size = new System.Drawing.Size(292, 24);
+            this.tsmiShowApplicationDetails.Size = new System.Drawing.Size(435, 38);
             this.tsmiShowApplicationDetails.Text = "Show Application Details";
             // 
             // tsmiAddNewLDLApplication
             // 
             this.tsmiAddNewLDLApplication.Name = "tsmiAddNewLDLApplication";
-            this.tsmiAddNewLDLApplication.Size = new System.Drawing.Size(292, 24);
+            this.tsmiAddNewLDLApplication.Size = new System.Drawing.Size(435, 38);
             this.tsmiAddNewLDLApplication.Text = "Add New Application";
             this.tsmiAddNewLDLApplication.Click += new System.EventHandler(this.tsmiAddNewLDLApplication_Click);
             // 
             // tsmiEditApplication
             // 
             this.tsmiEditApplication.Name = "tsmiEditApplication";
-            this.tsmiEditApplication.Size = new System.Drawing.Size(292, 24);
+            this.tsmiEditApplication.Size = new System.Drawing.Size(435, 38);
             this.tsmiEditApplication.Text = "Edit Application";
             this.tsmiEditApplication.Click += new System.EventHandler(this.tsmiEditApplication_Click);
             // 
             // tsmiDeleteApplication
             // 
             this.tsmiDeleteApplication.Name = "tsmiDeleteApplication";
-            this.tsmiDeleteApplication.Size = new System.Drawing.Size(292, 24);
+            this.tsmiDeleteApplication.Size = new System.Drawing.Size(435, 38);
             this.tsmiDeleteApplication.Text = "Delete Application";
             // 
             // tsmiCancelApplication
             // 
             this.tsmiCancelApplication.Name = "tsmiCancelApplication";
-            this.tsmiCancelApplication.Size = new System.Drawing.Size(292, 24);
+            this.tsmiCancelApplication.Size = new System.Drawing.Size(435, 38);
             this.tsmiCancelApplication.Text = "Cancel Application";
             this.tsmiCancelApplication.Click += new System.EventHandler(this.tsmiCancelApplication_Click);
             // 
@@ -103,71 +104,72 @@
             this.tsmiScheduleWrittenTest,
             this.tsmiScheduleStreetTest});
             this.tsmiScheduleTest.Name = "tsmiScheduleTest";
-            this.tsmiScheduleTest.Size = new System.Drawing.Size(292, 24);
+            this.tsmiScheduleTest.Size = new System.Drawing.Size(435, 38);
             this.tsmiScheduleTest.Text = "Schedule Tests";
             // 
             // tsmiScheduleVisionTest
             // 
             this.tsmiScheduleVisionTest.Name = "tsmiScheduleVisionTest";
-            this.tsmiScheduleVisionTest.Size = new System.Drawing.Size(235, 26);
+            this.tsmiScheduleVisionTest.Size = new System.Drawing.Size(380, 44);
             this.tsmiScheduleVisionTest.Text = "Schedule Vision Test";
             this.tsmiScheduleVisionTest.Click += new System.EventHandler(this.tsmiScheduleVisionTest_Click);
             // 
             // tsmiScheduleWrittenTest
             // 
             this.tsmiScheduleWrittenTest.Name = "tsmiScheduleWrittenTest";
-            this.tsmiScheduleWrittenTest.Size = new System.Drawing.Size(235, 26);
+            this.tsmiScheduleWrittenTest.Size = new System.Drawing.Size(380, 44);
             this.tsmiScheduleWrittenTest.Text = "Schedule Written Test";
+            this.tsmiScheduleWrittenTest.Click += new System.EventHandler(this.tsmiScheduleWrittenTest_Click);
             // 
             // tsmiScheduleStreetTest
             // 
             this.tsmiScheduleStreetTest.Name = "tsmiScheduleStreetTest";
-            this.tsmiScheduleStreetTest.Size = new System.Drawing.Size(235, 26);
+            this.tsmiScheduleStreetTest.Size = new System.Drawing.Size(380, 44);
             this.tsmiScheduleStreetTest.Text = "Schedule Street Test";
+            this.tsmiScheduleStreetTest.Click += new System.EventHandler(this.tsmiScheduleStreetTest_Click);
             // 
             // tsmiIssueDrivingLicense
             // 
             this.tsmiIssueDrivingLicense.Name = "tsmiIssueDrivingLicense";
-            this.tsmiIssueDrivingLicense.Size = new System.Drawing.Size(292, 24);
+            this.tsmiIssueDrivingLicense.Size = new System.Drawing.Size(435, 38);
             this.tsmiIssueDrivingLicense.Text = "Issue Driving License (First Time)";
             // 
             // tsmiShowLicense
             // 
             this.tsmiShowLicense.Name = "tsmiShowLicense";
-            this.tsmiShowLicense.Size = new System.Drawing.Size(292, 24);
+            this.tsmiShowLicense.Size = new System.Drawing.Size(435, 38);
             this.tsmiShowLicense.Text = "Show License";
             // 
             // tsmiShowPersonLicenseHistory
             // 
             this.tsmiShowPersonLicenseHistory.Name = "tsmiShowPersonLicenseHistory";
-            this.tsmiShowPersonLicenseHistory.Size = new System.Drawing.Size(292, 24);
+            this.tsmiShowPersonLicenseHistory.Size = new System.Drawing.Size(435, 38);
             this.tsmiShowPersonLicenseHistory.Text = "Show Person License History";
             // 
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrCloseBtn1.Location = new System.Drawing.Point(890, 607);
-            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(1);
+            this.ctrCloseBtn1.Location = new System.Drawing.Point(1335, 948);
+            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(2);
             this.ctrCloseBtn1.Name = "ctrCloseBtn1";
-            this.ctrCloseBtn1.Size = new System.Drawing.Size(153, 42);
+            this.ctrCloseBtn1.Size = new System.Drawing.Size(228, 64);
             this.ctrCloseBtn1.TabIndex = 3;
             // 
             // ctrManageData1
             // 
-            this.ctrManageData1.Location = new System.Drawing.Point(10, 10);
-            this.ctrManageData1.Margin = new System.Windows.Forms.Padding(1);
+            this.ctrManageData1.Location = new System.Drawing.Point(15, 16);
+            this.ctrManageData1.Margin = new System.Windows.Forms.Padding(2);
             this.ctrManageData1.Name = "ctrManageData1";
-            this.ctrManageData1.Size = new System.Drawing.Size(1033, 581);
+            this.ctrManageData1.Size = new System.Drawing.Size(1550, 908);
             this.ctrManageData1.TabIndex = 2;
             // 
             // frmManageLDLApplications
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1061, 659);
+            this.ClientSize = new System.Drawing.Size(1592, 1030);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.ctrManageData1);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmManageLDLApplications";
             this.Text = "frmManageLDLApplications";
             this.Load += new System.EventHandler(this.frmManageLDLApplications_Load);

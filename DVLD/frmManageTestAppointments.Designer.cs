@@ -1,6 +1,6 @@
 ﻿namespace DVLD
 {
-    partial class frmManageVisionTestAppointments
+    partial class frmManageTestAppointments
     {
         /// <summary>
         /// Required designer variable.
@@ -41,18 +41,18 @@
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrCloseBtn1.Location = new System.Drawing.Point(845, 1002);
-            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ctrCloseBtn1.Location = new System.Drawing.Point(1268, 1566);
             this.ctrCloseBtn1.Name = "ctrCloseBtn1";
-            this.ctrCloseBtn1.Size = new System.Drawing.Size(153, 42);
+            this.ctrCloseBtn1.Size = new System.Drawing.Size(228, 64);
             this.ctrCloseBtn1.TabIndex = 1;
             // 
             // ctrTestApplicationInfo1
             // 
             this.ctrTestApplicationInfo1.AutoScroll = true;
-            this.ctrTestApplicationInfo1.Location = new System.Drawing.Point(12, 12);
+            this.ctrTestApplicationInfo1.Location = new System.Drawing.Point(18, 19);
+            this.ctrTestApplicationInfo1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.ctrTestApplicationInfo1.Name = "ctrTestApplicationInfo1";
-            this.ctrTestApplicationInfo1.Size = new System.Drawing.Size(1045, 1044);
+            this.ctrTestApplicationInfo1.Size = new System.Drawing.Size(1568, 1631);
             this.ctrTestApplicationInfo1.TabIndex = 0;
             // 
             // cmsVisionTestAppointment
@@ -62,44 +62,46 @@
             this.cmsiTakeTest,
             this.tmsiEdit});
             this.cmsVisionTestAppointment.Name = "cmsVisionTestAppointment";
-            this.cmsVisionTestAppointment.Size = new System.Drawing.Size(152, 52);
+            this.cmsVisionTestAppointment.Size = new System.Drawing.Size(301, 124);
             this.cmsVisionTestAppointment.Text = "Edit";
             // 
             // cmsiTakeTest
             // 
             this.cmsiTakeTest.Name = "cmsiTakeTest";
-            this.cmsiTakeTest.Size = new System.Drawing.Size(151, 24);
+            this.cmsiTakeTest.Size = new System.Drawing.Size(300, 38);
             this.cmsiTakeTest.Text = "Take A Test";
             this.cmsiTakeTest.Click += new System.EventHandler(this.cmsiTakeTest_Click);
             // 
             // tmsiEdit
             // 
             this.tmsiEdit.Name = "tmsiEdit";
-            this.tmsiEdit.Size = new System.Drawing.Size(151, 24);
+            this.tmsiEdit.Size = new System.Drawing.Size(300, 38);
             this.tmsiEdit.Text = "Edit";
             this.tmsiEdit.Click += new System.EventHandler(this.tmsiEdit_Click);
             // 
             // btnAddNewAppointment
             // 
-            this.btnAddNewAppointment.Location = new System.Drawing.Point(753, 559);
+            this.btnAddNewAppointment.Location = new System.Drawing.Point(1130, 873);
+            this.btnAddNewAppointment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddNewAppointment.Name = "btnAddNewAppointment";
-            this.btnAddNewAppointment.Size = new System.Drawing.Size(167, 23);
+            this.btnAddNewAppointment.Size = new System.Drawing.Size(250, 36);
             this.btnAddNewAppointment.TabIndex = 2;
             this.btnAddNewAppointment.Text = "Add New Appointment";
             this.btnAddNewAppointment.UseVisualStyleBackColor = true;
             this.btnAddNewAppointment.Click += new System.EventHandler(this.btnAddNewAppointment_Click);
             // 
-            // frmVisionTestAppointments
+            // frmManageVisionTestAppointments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1055, 1055);
+            this.ClientSize = new System.Drawing.Size(1582, 1648);
             this.Controls.Add(this.btnAddNewAppointment);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.ctrTestApplicationInfo1);
-            this.Name = "frmVisionTestAppointments";
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "frmManageVisionTestAppointments";
             this.Text = "frmVisionTestAppointments";
-            this.Load += new System.EventHandler(this.frmVisionTestAppointments_Load);
+            this.Load += new System.EventHandler(this.frmManageTestAppointments_Load);
             this.cmsVisionTestAppointment.ResumeLayout(false);
             this.ResumeLayout(false);
 

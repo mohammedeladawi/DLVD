@@ -186,6 +186,12 @@
     <Compile Include="frmPersonDetails.Designer.cs">
       <DependentUpon>frmPersonDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTakeTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTakeTest.Designer.cs">
+      <DependentUpon>frmTakeTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUpdateApplicationType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,11 +216,11 @@
     <Compile Include="frmManagePeople.Designer.cs">
       <DependentUpon>frmManagePeople.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmManageVisionTestAppointments.cs">
+    <Compile Include="frmManageTestAppointments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmManageVisionTestAppointments.Designer.cs">
-      <DependentUpon>frmManageVisionTestAppointments.cs</DependentUpon>
+    <Compile Include="frmManageTestAppointments.Designer.cs">
+      <DependentUpon>frmManageTestAppointments.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalSettings.cs" />
     <Compile Include="Program.cs" />
@@ -288,6 +294,9 @@
     <EmbeddedResource Include="frmPersonDetails.resx">
       <DependentUpon>frmPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTakeTest.resx">
+      <DependentUpon>frmTakeTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUpdateApplicationType.resx">
       <DependentUpon>frmUpdateApplicationType.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,8 +309,8 @@
     <EmbeddedResource Include="frmManagePeople.resx">
       <DependentUpon>frmManagePeople.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmManageVisionTestAppointments.resx">
-      <DependentUpon>frmManageVisionTestAppointments.cs</DependentUpon>
+    <EmbeddedResource Include="frmManageTestAppointments.resx">
+      <DependentUpon>frmManageTestAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

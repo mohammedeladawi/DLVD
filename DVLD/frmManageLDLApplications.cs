@@ -13,6 +13,7 @@ namespace DVLD
 {
     public partial class frmManageLDLApplications : Form
     {
+        enum enTestTypes : byte { Vision = 1, Written = 2, Practical = 3 };
         public frmManageLDLApplications()
         {
             InitializeComponent();
@@ -30,6 +31,20 @@ namespace DVLD
             }
 
             return ldlApplicationID;
+        }
+
+        private int GetSelectedPassedTests()
+        {
+            DataGridView dgvLDLApplication = ctrManageData1.dgvManageDate1;
+            int passedTests = 0;
+
+            if (dgvLDLApplication.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgvLDLApplication.SelectedRows[0];
+                passedTests = Convert.ToInt32(row.Cells["Passed Tests"].Value);
+            }
+
+            return passedTests;
         }
 
         private void frmManageLDLApplications_Load(object sender, EventArgs e)
@@ -97,9 +112,35 @@ namespace DVLD
 
         private void ShowMangageVTestDialog(int ldlApplicationID)
         {
-            Form scheduleVTest = new frmManageVisionTestAppointments(ldlApplicationID);
+            Form scheduleVTest = new frmManageTestAppointments(ldlApplicationID, (int)enTestTypes.Vision, 1);
             scheduleVTest.FormClosed += frm_Closed;
             scheduleVTest.ShowDialog();
+        }
+
+        private void ShowMangageWrittenTestDialog(int ldlApplicationID)
+        {
+            Form scheduleVTest = new frmManageTestAppointments(ldlApplicationID, (int)enTestTypes.Written, 2);
+            scheduleVTest.FormClosed += frm_Closed;
+            scheduleVTest.ShowDialog();
+        }
+        private void ShowMangageStreetTestDialog(int ldlApplicationID)
+        {
+            Form scheduleVTest = new frmManageTestAppointments(ldlApplicationID, (int)enTestTypes.Practical, 3);
+            scheduleVTest.FormClosed += frm_Closed;
+            scheduleVTest.ShowDialog();
+        }
+
+        private void tsmiEditApplication_Click(object sender, EventArgs e)
+        {
+            int ldlApplicationID = GetSelectedLDLApplicationID();
+            if (ldlApplicationID != -1)
+            {
+                ShowUpdateLDLApplicationDialog(ldlApplicationID);
+            }
+            else
+            {
+                MessageBox.Show("There is no selected row");
+            }
         }
 
         private void tsmiScheduleVisionTest_Click(object sender, EventArgs e)
@@ -116,17 +157,57 @@ namespace DVLD
 
         }
 
-        private void tsmiEditApplication_Click(object sender, EventArgs e)
+        private void tsmiScheduleWrittenTest_Click(object sender, EventArgs e)
         {
             int ldlApplicationID = GetSelectedLDLApplicationID();
             if (ldlApplicationID != -1)
             {
-                ShowUpdateLDLApplicationDialog(ldlApplicationID);
+                ShowMangageWrittenTestDialog(ldlApplicationID);
             }
             else
             {
                 MessageBox.Show("There is no selected row");
             }
+        }
+
+        private void tsmiScheduleStreetTest_Click(object sender, EventArgs e)
+        {
+            int ldlApplicationID = GetSelectedLDLApplicationID();
+            if (ldlApplicationID != -1)
+            {
+                ShowMangageStreetTestDialog(ldlApplicationID);
+            }
+            else
+            {
+                MessageBox.Show("There is no selected row");
+            }
+        }
+
+        private void tsmiTestsDisability()
+        {
+            tsmiScheduleVisionTest.Enabled = false;
+            tsmiScheduleWrittenTest.Enabled = false;
+            tsmiScheduleStreetTest.Enabled = false;
+
+            int passedTests = GetSelectedPassedTests();
+            
+            if (passedTests == 0)
+                tsmiScheduleVisionTest.Enabled = true;
+            else if (passedTests == 1)
+                tsmiScheduleWrittenTest.Enabled = true;
+            else if (passedTests == 2)
+                tsmiScheduleStreetTest.Enabled = true;
+            else 
+                tsmiScheduleTest.Enabled = false;
+        }
+
+        private void cmsManageLDLApplications_Opening(object sender, CancelEventArgs e)
+        {
+            tsmiIssueDrivingLicense.Enabled = false;
+            tsmiShowLicense.Enabled = false;
+
+            tsmiTestsDisability();
+
         }
     }
 }

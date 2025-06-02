@@ -44,9 +44,9 @@
     <Compile Include="DataAccessLDLApplications.cs" />
     <Compile Include="DataAccessApplicationTypes.cs" />
     <Compile Include="DataAccessCountires.cs" />
-    <Compile Include="DataAccessSettings.cs" />
     <Compile Include="DataAccessPeople.cs" />
     <Compile Include="DataAccessLicenseClasses.cs" />
+    <Compile Include="DataAccessSettings.cs" />
     <Compile Include="DataAccessTestAppointments.cs" />
     <Compile Include="DataAccessTests.cs" />
     <Compile Include="DataAccessTestTypes.cs" />

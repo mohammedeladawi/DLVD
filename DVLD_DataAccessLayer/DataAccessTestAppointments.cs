@@ -14,17 +14,20 @@ namespace DVLD_DataAccessLayer
 {
     public static class clsDataAccessTestAppointments
     {
-        public static DataTable GetAllTestAppointmenstByLDLAppID(int ldlApplicationID)
+        public static DataTable GetAllTestAppointmenstByLDLAppID(int ldlApplicationID, int testTypeID)
         {
             DataTable dt = new DataTable();
             string query = @"select TestAppointmentID, AppointmentDate, PaidFees, IsLocked from TestAppointments
-                             where LocalDrivingLicenseApplicationID = @LDLApplicationID; ";
+                             where LocalDrivingLicenseApplicationID = @LDLApplicationID
+                             and TestTypeID = @TestTypeID";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@LDLApplicationID", ldlApplicationID);
+                    command.Parameters.AddWithValue("@TestTypeID", testTypeID);
+
 
                     try
                     {
@@ -127,7 +130,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool FindByTestAppointmentID(int testAppointmentID, ref int testTypeID,
                 ref int ldlApplicationID, ref DateTime appointmentDate, ref decimal paidFees,
-                ref int createdByUserID, ref int? retakeTestApplicationID)
+                ref bool isLocked, ref int createdByUserID, ref int? retakeTestApplicationID)
         {
             string commandStr = @"Select * From TestAppointments 
                                   WHERE TestAppointmentID = @TestAppointmentID";
@@ -146,6 +149,7 @@ namespace DVLD_DataAccessLayer
                             testTypeID = (int)read["TestTypeID"];
                             ldlApplicationID = (int)read["LocalDrivingLicenseApplicationID"];
                             appointmentDate = (DateTime)read["AppointmentDate"];
+                            isLocked = (bool)read["IsLocked"];
                             paidFees = (decimal)read["PaidFees"];
                             createdByUserID = (int)read["CreatedByUserID"];
 
@@ -167,10 +171,11 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
-        public static bool UpdateTestAppointmentDate(int testAppointmentID, DateTime newDate)
+        public static bool UpdateTestAppointment(int testAppointmentID, DateTime newDate, bool isLocked)
         {
             string commandStr = @"UPDATE TestAppointments SET 
-                                  AppointmentDate = @AppointmentDate
+                                  AppointmentDate = @AppointmentDate,
+                                  IsLocked = @IsLocked
                                   WHERE TestAppointmentID = @TestAppointmentID";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
@@ -178,6 +183,7 @@ namespace DVLD_DataAccessLayer
                 using (SqlCommand command = new SqlCommand(commandStr, connection))
                 {
                     command.Parameters.AddWithValue("@AppointmentDate", newDate);
+                    command.Parameters.AddWithValue("@IsLocked", isLocked);
                     command.Parameters.AddWithValue("@TestAppointmentID", testAppointmentID);
 
                     try
@@ -200,5 +206,6 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
+    
     }
 }

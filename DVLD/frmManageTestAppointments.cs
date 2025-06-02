@@ -11,8 +11,12 @@ using DVLD_BusinessLayer;
 
 namespace DVLD
 {
-    public partial class frmManageVisionTestAppointments: Form
+    public partial class frmManageTestAppointments: Form
     {
+        int _ldlApplicationID;
+        clsLDLApplication _ldlApplication;
+        int _testTypeID;
+        int _testOrder;
         private int GetSelectedTestAppointmentID()
         {
             DataGridView dgvTestType = ctrTestApplicationInfo1.dgvManageDate1;
@@ -26,13 +30,13 @@ namespace DVLD
 
             return AppointmentID;
         }
-        int _ldlApplicationID;
-        clsLDLApplication _ldlApplication;
         
-        public frmManageVisionTestAppointments(int ldlApplicationID)
+        public frmManageTestAppointments(int ldlApplicationID, int testTypeID, int testOrder)
         {
             _ldlApplicationID = ldlApplicationID;
             _ldlApplication = clsLDLApplication.FindByID(_ldlApplicationID);
+            _testTypeID = testTypeID;
+            _testOrder = testOrder;
 
             InitializeComponent();
             this.AutoScroll = true;
@@ -41,15 +45,18 @@ namespace DVLD
 
         private void ReloadAppointmentsView()
         {
-            DataTable testAppointmentsDT = clsTestAppointment.GetAllTestAppointmentsByLDLAppID(_ldlApplicationID);
+            DataTable testAppointmentsDT = clsTestAppointment.GetAllTestAppointmentsByLDLAppID(_ldlApplicationID, _testTypeID);
             ctrTestApplicationInfo1.SetTestAppointmentsView(testAppointmentsDT);
+            ctrTestApplicationInfo1.SetApplicationInfo(_ldlApplicationID);
         }
-        private void frmVisionTestAppointments_Load(object sender, EventArgs e)
+
+        private void frmManageTestAppointments_Load(object sender, EventArgs e)
         {
-            ctrTestApplicationInfo1.SetTestTitle("Vision Test Appointments");
+            string testTitle = clsTestType.Find(_testTypeID).Title;
+            ctrTestApplicationInfo1.SetTestTitle("Manage " + testTitle + " Appointments");
             ctrTestApplicationInfo1.SetApplicationInfo(_ldlApplicationID);
 
-            DataTable testAppointmentsDT = clsTestAppointment.GetAllTestAppointmentsByLDLAppID(_ldlApplicationID);
+            DataTable testAppointmentsDT = clsTestAppointment.GetAllTestAppointmentsByLDLAppID(_ldlApplicationID, _testTypeID);
             ctrTestApplicationInfo1.SetTestAppointmentsView(testAppointmentsDT);
             ctrTestApplicationInfo1.SetContextMenuStrip(cmsVisionTestAppointment);
 
@@ -70,9 +77,9 @@ namespace DVLD
             }
             else
             {
-                Form frmScheduleVTest = new frmScheduleTestAppointment(_ldlApplication, 1, testAppointmentID);
-                frmScheduleVTest.FormClosed += frmScheduleVTest_Closed;
-                frmScheduleVTest.ShowDialog();
+                Form frmScheduleTest = new frmScheduleTestAppointment(_ldlApplication, _testTypeID, testAppointmentID);
+                frmScheduleTest.FormClosed += frmScheduleTest_Closed;
+                frmScheduleTest.ShowDialog();
             }
 
 
@@ -80,7 +87,30 @@ namespace DVLD
 
         private void cmsiTakeTest_Click(object sender, EventArgs e)
         {
-
+            int testAppointmentID = GetSelectedTestAppointmentID();
+            if (testAppointmentID == -1)
+            {
+                MessageBox.Show("There is no selected row");
+                return;
+            }
+            if (_ldlApplication.Application.ApplicationStatus == 2)
+            {
+                MessageBox.Show("can't take test for cancelled application");
+            }
+            else if (clsTest.PassedTestsCount(_ldlApplicationID) >= _testOrder)
+            {
+                MessageBox.Show("You already passed this test");
+            }
+            else if (clsTestAppointment.Find(testAppointmentID).IsLocked)
+            {
+                MessageBox.Show("You already took test for this appointment");
+            }
+            else
+            {
+                Form takeTestForm = new frmTakeTest(_testTypeID, testAppointmentID);
+                takeTestForm.FormClosed += frmScheduleTest_Closed;
+                takeTestForm.ShowDialog();
+            }
         }
 
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
@@ -89,7 +119,7 @@ namespace DVLD
             {
                 MessageBox.Show("You already have an active appointment");
             }
-            else if (_ldlApplication.PassedTestsCount >= 1)
+            else if (clsTest.PassedTestsCount(_ldlApplicationID) >= _testOrder)
             {
                 MessageBox.Show("You already passed this test");
             }
@@ -99,15 +129,14 @@ namespace DVLD
             }
             else
             {
-                Form frmScheduleVTest = new frmScheduleTestAppointment(_ldlApplication, 1);
-                frmScheduleVTest.FormClosed += frmScheduleVTest_Closed;
+                Form frmScheduleVTest = new frmScheduleTestAppointment(_ldlApplication, _testTypeID);
+                frmScheduleVTest.FormClosed += frmScheduleTest_Closed;
                 frmScheduleVTest.ShowDialog();
-
             }
 
         }
 
-        private void frmScheduleVTest_Closed(object sender, EventArgs e)
+        private void frmScheduleTest_Closed(object sender, EventArgs e)
         {
             ReloadAppointmentsView();
         }

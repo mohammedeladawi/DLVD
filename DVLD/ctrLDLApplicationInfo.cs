@@ -43,7 +43,7 @@ namespace DVLD
         }
         private void SetDLApplicationInfo()
         {
-            byte passedTests = _ldlApplication.PassedTestsCount;
+            byte passedTests = clsTest.PassedTestsCount(_ldlApplication.LocalDrivingLicenseApplicationID);
             lblDLAppID.Text = _ldlApplication.LocalDrivingLicenseApplicationID.ToString();
             lblLicenseClass.Text = _ldlApplication.LicenseClass.ClassName;
             lblPassedTests.Text = $"{passedTests} / 3";

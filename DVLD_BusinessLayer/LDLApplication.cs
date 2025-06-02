@@ -91,7 +91,6 @@ namespace DVLD_BusinessLayer
         
         public clsApplication Application;
 
-        public byte PassedTestsCount { get; set; }
 
 
         public static DataTable GetAllApplications()
@@ -109,7 +108,6 @@ namespace DVLD_BusinessLayer
             // application logic
             Application = new clsApplication();
             Application.ApplicationTypeID = 1;
-            PassedTestsCount = 0;
         }
 
         private clsLDLApplication(int localDrivingLicenseApplicationID, int applicationID, int licenseClassID)
@@ -118,7 +116,6 @@ namespace DVLD_BusinessLayer
             LocalDrivingLicenseApplicationID = localDrivingLicenseApplicationID;
             ApplicationID = applicationID;
             LicenseClassID = licenseClassID;
-            PassedTestsCount = clsTest.PassedTestsCount(LocalDrivingLicenseApplicationID);
         }
 
         //---------------- ToDo ---------------
