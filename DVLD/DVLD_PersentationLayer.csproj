@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctrIssueBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrIssueBtn.Designer.cs">
+      <DependentUpon>ctrIssueBtn.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctrLDLApplicationInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -119,6 +125,18 @@
     </Compile>
     <Compile Include="ctrUserInformation.Designer.cs">
       <DependentUpon>ctrUserInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDriverLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDriverLicenseInfo.Designer.cs">
+      <DependentUpon>frmDriverLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIssueDrivingLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIssueDrivingLicense.Designer.cs">
+      <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="frmScheduleTestAppointment.cs">
       <SubType>Form</SubType>
@@ -225,6 +243,9 @@
     <Compile Include="GlobalSettings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ctrIssueBtn.resx">
+      <DependentUpon>ctrIssueBtn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctrLDLApplicationInfo.resx">
       <DependentUpon>ctrLDLApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +281,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctrUserInformation.resx">
       <DependentUpon>ctrUserInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDriverLicenseInfo.resx">
+      <DependentUpon>frmDriverLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIssueDrivingLicense.resx">
+      <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmScheduleTestAppointment.resx">
       <DependentUpon>frmScheduleTestAppointment.cs</DependentUpon>

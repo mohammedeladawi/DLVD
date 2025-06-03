@@ -36,7 +36,7 @@ namespace DVLD
         private int GetSelectedPassedTests()
         {
             DataGridView dgvLDLApplication = ctrManageData1.dgvManageDate1;
-            int passedTests = 0;
+            int passedTests = -1;
 
             if (dgvLDLApplication.SelectedRows.Count > 0)
             {
@@ -185,29 +185,130 @@ namespace DVLD
 
         private void tsmiTestsDisability()
         {
+            tsmiScheduleTest.Enabled = false;
             tsmiScheduleVisionTest.Enabled = false;
             tsmiScheduleWrittenTest.Enabled = false;
             tsmiScheduleStreetTest.Enabled = false;
 
             int passedTests = GetSelectedPassedTests();
+            int ldlApplicaitonID = GetSelectedLDLApplicationID();
             
-            if (passedTests == 0)
-                tsmiScheduleVisionTest.Enabled = true;
-            else if (passedTests == 1)
-                tsmiScheduleWrittenTest.Enabled = true;
-            else if (passedTests == 2)
-                tsmiScheduleStreetTest.Enabled = true;
-            else 
-                tsmiScheduleTest.Enabled = false;
+            var application = clsLDLApplication.FindByID(ldlApplicaitonID)?.Application;
+            if (application == null || application.ApplicationStatus == 2)
+                return;
+
+            if (passedTests >= 0 && passedTests <= 2)
+                tsmiScheduleTest.Enabled = true;
+
+
+            switch (passedTests)
+            {
+                case 0:
+                    tsmiScheduleVisionTest.Enabled = true;
+                    break;
+                case 1:
+                    tsmiScheduleWrittenTest.Enabled = true;
+                    break;
+                case 2:
+                    tsmiScheduleStreetTest.Enabled = true;
+                    break;
+            }
+
+        }
+
+        private void tsmiIssueDrivingLicenseDisability()
+        {
+            tsmiIssueDrivingLicense.Enabled = false;
+
+            int passedTests = GetSelectedPassedTests();
+            int ldlApplicaitonID = GetSelectedLDLApplicationID();
+
+            var application = clsLDLApplication.FindByID(ldlApplicaitonID)?.Application;
+            if (application == null || application.ApplicationStatus == 2)
+                return;
+
+
+
+            if (passedTests == 3 && application.ApplicationStatus != 3)
+                tsmiIssueDrivingLicense.Enabled = true;
+ 
+               
+
+        }
+        
+        private void tsmiRemainingItemsDisability()
+        {
+            tsmiEditApplication.Enabled = false;
+            tsmiCancelApplication.Enabled = false;
+            tsmiDeleteApplication.Enabled  = false;
+            tsmiShowLicense.Enabled = false;
+
+            int ldlApplicationID = GetSelectedLDLApplicationID();
+            
+            var application = clsLDLApplication.FindByID(ldlApplicationID)?.Application;
+            if (application == null || application.ApplicationStatus == 2)
+                return; 
+            
+            if (application.ApplicationStatus != 3)
+            {
+                tsmiEditApplication.Enabled = true;
+                tsmiCancelApplication.Enabled = true;
+                tsmiDeleteApplication.Enabled = true;
+            }
+            else
+            {
+                tsmiShowLicense.Enabled = true;
+            }
         }
 
         private void cmsManageLDLApplications_Opening(object sender, CancelEventArgs e)
         {
-            tsmiIssueDrivingLicense.Enabled = false;
+
             tsmiShowLicense.Enabled = false;
 
             tsmiTestsDisability();
+            tsmiIssueDrivingLicenseDisability();
+            tsmiRemainingItemsDisability();
+        }
 
+        private void ShowIssueDirvingLicenseDialog(int ldlApplicaitonID)
+        {
+            Form issueDLForm = new frmIssueDrivingLicense(ldlApplicaitonID);
+            issueDLForm.FormClosed += frm_Closed;
+            issueDLForm.ShowDialog();
+        }
+        
+        private void tsmiIssueDrivingLicense_Click(object sender, EventArgs e)
+        {
+            int ldlApplicationID = GetSelectedLDLApplicationID();
+            if (ldlApplicationID != -1)
+            {
+                ShowIssueDirvingLicenseDialog(ldlApplicationID);
+            }
+            else
+            {
+                MessageBox.Show("There is no selected row");
+            }
+
+        }
+
+        private void ShowLicenseInfoDialog(int ldlApplicationID)
+        {
+            Form showLicenseInfo = new frmDriverLicenseInfo(ldlApplicationID);
+            showLicenseInfo.ShowDialog();
+        }
+
+        private void tsmiShowLicense_Click(object sender, EventArgs e)
+        {
+            int ldlApplicationID = GetSelectedLDLApplicationID();
+            if (ldlApplicationID != -1)
+            {
+                ShowLicenseInfoDialog(ldlApplicationID);
+            }
+            else
+            {
+                MessageBox.Show("There is no selected row");
+            }
         }
     }
 }

@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccessLicenses.cs" />
     <Compile Include="DataAccessLDLApplications.cs" />
     <Compile Include="DataAccessApplicationTypes.cs" />
     <Compile Include="DataAccessCountires.cs" />
+    <Compile Include="DataAccessDrivers.cs" />
     <Compile Include="DataAccessPeople.cs" />
     <Compile Include="DataAccessLicenseClasses.cs" />
     <Compile Include="DataAccessSettings.cs" />
