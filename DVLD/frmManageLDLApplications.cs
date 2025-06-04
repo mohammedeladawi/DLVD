@@ -310,5 +310,33 @@ namespace DVLD
                 MessageBox.Show("There is no selected row");
             }
         }
+
+        private void ShowDeleteLicenseDialog(int ldlApplicationID)
+        {
+           if (MessageBox.Show("Are you sure you want to delete this application?", "Delete LDL Application", MessageBoxButtons.OKCancel) 
+                == DialogResult.OK)
+            {
+                if (clsLDLApplication.Delete(ldlApplicationID))
+                {
+                   MessageBox.Show("Application has been deleted successfully");
+                    ReloadApplicationData();
+                }
+                else
+                    MessageBox.Show("Couldn't delete this application");
+            }
+        }
+        private void tsmiDeleteApplication_Click(object sender, EventArgs e)
+        {
+            int ldlApplicationID = GetSelectedLDLApplicationID();
+            if (ldlApplicationID != -1)
+            {
+                ShowDeleteLicenseDialog(ldlApplicationID);
+            }
+            else
+            {
+                MessageBox.Show("There is no selected row");
+            }
+
+        }
     }
 }

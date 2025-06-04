@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD_BusinessLayer
 {
@@ -118,12 +119,22 @@ namespace DVLD_BusinessLayer
             LicenseClassID = licenseClassID;
         }
 
-        //---------------- ToDo ---------------
-        public static bool Delete()
-        { 
-            return false;
+        public static bool Delete(int ldlApplicationID)
+        {
+            // find applicationID
+            var applicationID = clsLDLApplication.FindByID(ldlApplicationID)?.ApplicationID;
+            if (applicationID == null)
+                return false;
+
+            // delete ldl application
+            if (!clsDataAccessLDLApplications.DeleteLDLApplicationByID(ldlApplicationID))
+                return false;
+
+            // delete application
+            return clsApplication.Delete((int)applicationID);
+ 
         }
-        
+
         public static bool Cancel(int ldlApplicationID)
         {
             clsLDLApplication ldlApplication = FindByID(ldlApplicationID);

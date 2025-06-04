@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD_DataAccessLayer
 {
@@ -139,6 +140,35 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
+        public static bool DeleteLDLApplicationByID(int ldlApplicationID)
+        {
+            string commandStr = @"Delete From LocalDrivingLicenseApplications
+                                  Where LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", ldlApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+                        int numberOfRows = command.ExecuteNonQuery();
+                        if (numberOfRows > 0)
+                        {
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
 
     }
 }

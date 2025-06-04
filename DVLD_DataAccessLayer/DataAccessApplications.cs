@@ -133,7 +133,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool DeleteApplicationByID(int applicationID)
         {
-            string commandStr = @"Delete From Applications Where UserID = @ApplicationID";
+            string commandStr = @"Delete From Applications Where ApplicationID = @ApplicationID";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
