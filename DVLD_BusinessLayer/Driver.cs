@@ -80,6 +80,10 @@ namespace DVLD_BusinessLayer
             return null;
         }
         
+        public static DataTable GetAllDrivers()
+        {
+            return clsDataAccessDrivers.GetAllDrivers();
+        }
         public bool Save()
         {
             switch(Mode)

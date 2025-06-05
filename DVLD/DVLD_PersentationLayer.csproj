@@ -78,6 +78,12 @@
       <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="ErrProviderUtilities.cs" />
+    <Compile Include="frmManageDrivers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageDrivers.Designer.cs">
+      <DependentUpon>frmManageDrivers.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctrUserPersonInformation.resx">
       <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageDrivers.resx">
+      <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>

@@ -13,6 +13,53 @@ namespace DVLD_DataAccessLayer
 {
     public static class clsDataAccessDrivers
     {
+
+        public static DataTable GetAllDrivers()
+        {
+            DataTable dt = new DataTable();
+            string query = @"SELECT 
+                                D.DriverID,
+                                D.PersonID, 
+                                P.NationalNo,
+                                CONCAT_WS(' ', P.FirstName, P.SecondName, P.ThirdName, P.LastName) AS FullName,
+                                D.CreatedDate,
+                                COUNT(L.LicenseID) AS ActiveLicenses
+                            FROM Drivers D
+                            JOIN People P ON P.PersonID = D.PersonID
+                            LEFT JOIN Licenses L ON L.DriverID = D.DriverID AND L.IsActive = 1
+                            GROUP BY 
+                                D.DriverID, D.PersonID, P.NationalNo, 
+                                P.FirstName, P.SecondName, P.ThirdName, P.LastName,
+                                D.CreatedDate;
+";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                dt.Load(reader);
+                                return dt;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return dt;
+        }
+
+        
         public static int AddNewDriver(int personID, int createdByUserID, DateTime createdDate)
         {
             string commandStr = @"Insert Into Drivers (PersonID, CreatedByUserID, CreatedDate)

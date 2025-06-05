@@ -23,7 +23,10 @@ namespace DVLD
              _changeUserPassword = new frmChangeUserPassword(clsGlobalSettings.currentUser),
              _manageApplicationTypes = new frmManageApplicationTypes(),
              _manageTestTypes = new frmManageTestTypes(),
-             _manageLDLApplications = new frmManageLDLApplications();
+             _manageLDLApplications = new frmManageLDLApplications(),
+             _manageDrivers = new frmManageDrivers(), 
+             _addEditLDLApp = new frmAddEditLDLApplication();
+            
 
         private void tsmiPeople_Click(object sender, EventArgs e)
         {
@@ -43,7 +46,25 @@ namespace DVLD
 
         private void tsmiNewLDL_Click(object sender, EventArgs e)
         {
-            // TODO: New Local DL Application
+            if (_addEditLDLApp.IsDisposed)
+            {
+                _addEditLDLApp = new frmAddEditLDLApplication();
+            }
+
+            _addEditLDLApp.MdiParent = this;
+            _addEditLDLApp.Show();
+        }
+
+
+        private void tsmiDrivers_Click(object sender, EventArgs e)
+        {
+            if (_manageDrivers.IsDisposed)
+            {
+                _manageDrivers = new frmManageDrivers();
+            }
+
+            _manageDrivers.MdiParent = this;
+            _manageDrivers.Show();
         }
 
         private void localDrivingLicenseApplicationsToolStripMenuItem1_Click(object sender, EventArgs e)
