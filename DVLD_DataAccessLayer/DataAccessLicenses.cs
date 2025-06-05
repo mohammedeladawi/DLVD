@@ -15,6 +15,57 @@ namespace DVLD_DataAccessLayer
 {
     public static class clsDataAccessLicenses
     {
+        public static DataTable GetLicensesByDriverID(int driverID, int applicationTypeID)
+        {
+            DataTable dt = new DataTable();
+            string query = @"
+                            SELECT 
+                                L.LicenseID, 
+                                L.ApplicationID, 
+                                LC.ClassName, 
+                                L.IssuanceDate, 
+                                L.ExpirationDate, 
+                                L.IsActive
+                            FROM 
+                                Licenses L
+                            JOIN 
+                                LicenseClasses LC ON LC.LicenseClassID = L.LicenseClassID
+                            JOIN 
+                                Applications A ON A.ApplicationID = L.ApplicationID
+                            WHERE 
+                                L.DriverID = @DriverID 
+                            AND 
+                                A.ApplicationTypeID = @ApplicationTypeID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@DriverID", driverID);
+                    command.Parameters.AddWithValue("@ApplicationTypeID", applicationTypeID);
+
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                dt.Load(reader);
+                                return dt;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return dt;
+        }
+
         public static int AddNewLicense(int applicationID, int driverID, int licenseClassID,
                                         DateTime issuanceDate, DateTime expirationDate, string notes,
                                         decimal paidFees, bool isActive, byte issueReason, int createdByUserID)

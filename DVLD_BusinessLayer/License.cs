@@ -151,6 +151,12 @@ namespace DVLD_BusinessLayer
 
             return null;
         }
+        
+        public static DataTable GetLicenses(int driverID, int applicationTypeID)
+        {
+            return clsDataAccessLicenses.GetLicensesByDriverID(driverID, applicationTypeID);
+        }
+
         public bool Save()
         {
             switch(Mode)

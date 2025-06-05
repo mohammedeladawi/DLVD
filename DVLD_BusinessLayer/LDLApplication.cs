@@ -10,12 +10,7 @@ using static System.Net.Mime.MediaTypeNames;
 namespace DVLD_BusinessLayer
 {
     public class clsLDLApplication
-    {
-        public enum enApplicationType
-        {
-            LocalDrivingLicense = 1,
-        }
-
+    {      
         private bool _IsAllowedAge()
         {
             int age = DateTime.Today.Year - Application.Person.DateOfBirth.Year;
@@ -112,7 +107,7 @@ namespace DVLD_BusinessLayer
 
             // application logic
             Application = new clsApplication();
-            Application.ApplicationTypeID = (int)enApplicationType.LocalDrivingLicense;
+            Application.ApplicationTypeID = (int)enApplicationTypes.LocalDrivingLicenseApplication;
         }
 
         private clsLDLApplication(int localDrivingLicenseApplicationID, int applicationID, int licenseClassID)

@@ -338,5 +338,24 @@ namespace DVLD
             }
 
         }
+
+        private void ShowPersonLicenseHistoryDialog(int ldlApplicationID)
+        {
+            Form showPersonLicenseHistory = new frmPersonLicenseHistory(ldlApplicationID);
+            showPersonLicenseHistory.ShowDialog();
+        }
+
+        private void tsmiShowPersonLicenseHistory_Click(object sender, EventArgs e)
+        {
+            int ldlApplicationID = GetSelectedLDLApplicationID();
+            if (ldlApplicationID != -1)
+            {
+                ShowPersonLicenseHistoryDialog(ldlApplicationID);
+            }
+            else
+            {
+                MessageBox.Show("There is no selected row");
+            }
+        }
     }
 }

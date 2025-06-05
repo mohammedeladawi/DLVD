@@ -148,12 +148,13 @@
             this.tsmiShowPersonLicenseHistory.Name = "tsmiShowPersonLicenseHistory";
             this.tsmiShowPersonLicenseHistory.Size = new System.Drawing.Size(292, 24);
             this.tsmiShowPersonLicenseHistory.Text = "Show Person License History";
+            this.tsmiShowPersonLicenseHistory.Click += new System.EventHandler(this.tsmiShowPersonLicenseHistory_Click);
             // 
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ctrCloseBtn1.Location = new System.Drawing.Point(890, 607);
-            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(1);
             this.ctrCloseBtn1.Name = "ctrCloseBtn1";
             this.ctrCloseBtn1.Size = new System.Drawing.Size(153, 42);
             this.ctrCloseBtn1.TabIndex = 3;
@@ -161,7 +162,7 @@
             // ctrManageData1
             // 
             this.ctrManageData1.Location = new System.Drawing.Point(10, 10);
-            this.ctrManageData1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ctrManageData1.Margin = new System.Windows.Forms.Padding(1);
             this.ctrManageData1.Name = "ctrManageData1";
             this.ctrManageData1.Size = new System.Drawing.Size(1033, 581);
             this.ctrManageData1.TabIndex = 2;
@@ -173,7 +174,7 @@
             this.ClientSize = new System.Drawing.Size(1061, 659);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.ctrManageData1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmManageLDLApplications";
             this.Text = "frmManageLDLApplications";
             this.Load += new System.EventHandler(this.frmManageLDLApplications_Load);
