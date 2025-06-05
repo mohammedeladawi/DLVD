@@ -11,11 +11,18 @@ namespace DVLD_BusinessLayer
 {
     public class clsLDLApplication
     {
+        public enum enApplicationType
+        {
+            LocalDrivingLicense = 1,
+        }
 
         private bool _IsAllowedAge()
         {
-            int applicantPersonAge = DateTime.Now.Year - Application.Person.DateOfBirth.Year;
-            return LicenseClass.MinmumAllowedAge <= applicantPersonAge;
+            int age = DateTime.Today.Year - Application.Person.DateOfBirth.Year;
+            if (Application.Person.DateOfBirth.Date > DateTime.Today.AddYears(-age))
+                age--;
+            return LicenseClass.MinmumAllowedAge <= age;
+
         }
         private bool _AddNewLDLApplication()
         {
@@ -34,7 +41,6 @@ namespace DVLD_BusinessLayer
 
                 bool isAdded = LocalDrivingLicenseApplicationID != -1;
                 if (isAdded)
-
                     Mode = enMode.Update;
 
                 return isAdded;
@@ -58,8 +64,8 @@ namespace DVLD_BusinessLayer
         enum enMode { AddNew, Update }
         enMode Mode;
 
-        public int _ApplicationID;
-        public int _LicenseClassID;
+        private int _ApplicationID;
+        private int _LicenseClassID;
         public int LocalDrivingLicenseApplicationID { get; private set; }
         public int ApplicationID
         {
@@ -88,11 +94,9 @@ namespace DVLD_BusinessLayer
             }
         }
         
-        public clsLicenseClass LicenseClass;
+        public clsLicenseClass LicenseClass { get; set; }
         
-        public clsApplication Application;
-
-
+        public clsApplication Application { get; set; }
 
         public static DataTable GetAllApplications()
         {
@@ -108,7 +112,7 @@ namespace DVLD_BusinessLayer
 
             // application logic
             Application = new clsApplication();
-            Application.ApplicationTypeID = 1;
+            Application.ApplicationTypeID = (int)enApplicationType.LocalDrivingLicense;
         }
 
         private clsLDLApplication(int localDrivingLicenseApplicationID, int applicationID, int licenseClassID)
