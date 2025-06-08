@@ -107,7 +107,7 @@ namespace DVLD_BusinessLayer
 
             // application logic
             Application = new clsApplication();
-            Application.ApplicationTypeID = (int)enApplicationTypes.LocalDrivingLicenseApplication;
+            Application.ApplicationTypeID = (int)enApplicationTypes.NewLocalDrivingLicenseService;
         }
 
         private clsLDLApplication(int localDrivingLicenseApplicationID, int applicationID, int licenseClassID)

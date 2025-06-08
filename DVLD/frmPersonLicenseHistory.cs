@@ -35,7 +35,7 @@ namespace DVLD
 
             ctrPersonInformation1.LoadPersonInfo(_driver.Person);
 
-            DataTable dt = clsLicense.GetLicenses(_driver.DriverID, (int)enApplicationTypes.LocalDrivingLicenseApplication);
+            DataTable dt = clsLicense.GetLicenses(_driver.DriverID, (int)enApplicationTypes.NewLocalDrivingLicenseService);
             ctrDVLocal.LoadDataInDgvManageData(dt);
             
         }
