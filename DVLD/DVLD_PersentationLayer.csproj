@@ -47,6 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctrDriverLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrDriverLicenseInfo.Designer.cs">
+      <DependentUpon>ctrDriverLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrFindDLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrFindDLicenseInfo.Designer.cs">
+      <DependentUpon>ctrFindDLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctrIssueBtn.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -78,6 +90,12 @@
       <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="ErrProviderUtilities.cs" />
+    <Compile Include="frmInternationalLicenseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInternationalLicenseApplication.Designer.cs">
+      <DependentUpon>frmInternationalLicenseApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmManageDrivers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +273,12 @@
     <Compile Include="GlobalSettings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ctrDriverLicenseInfo.resx">
+      <DependentUpon>ctrDriverLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrFindDLicenseInfo.resx">
+      <DependentUpon>ctrFindDLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctrIssueBtn.resx">
       <DependentUpon>ctrIssueBtn.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctrUserPersonInformation.resx">
       <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInternationalLicenseApplication.resx">
+      <DependentUpon>frmInternationalLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageDrivers.resx">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>

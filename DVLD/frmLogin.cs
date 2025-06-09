@@ -53,13 +53,13 @@ namespace DVLD
             // TODO: Rememmber ME (Functionality)
             //------------------------------------------ DX
 
-            //clsUser currUser = clsGlobalSettings.currentUser;
+            clsUser currUser = clsGlobalSettings.currentUser;
 
-            //if (currUser == null)
-            //    return;
+            if (currUser == null)
+                return;
 
-            //txtUserName.Text = currUser.UserName;
-            //txtPassword.Text = currUser.Password;
+            txtUserName.Text = currUser.UserName;
+            txtPassword.Text = currUser.Password;
         }
     }
 }

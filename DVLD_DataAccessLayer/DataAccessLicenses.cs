@@ -166,5 +166,60 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+
+        public static bool FindByLicenseID(
+            int licenseID,
+            ref int applicationID,
+            ref int driverID,
+            ref int licenseClassID,
+            ref DateTime issuanceDate,
+            ref DateTime expirationDate,
+            ref string notes,
+            ref decimal paidFees,
+            ref bool isActive,
+            ref byte issueReason,
+            ref int createdByUserID)
+        {
+
+            string commandStr = @"Select * From Licenses WHERE LicenseID = @LicenseID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@LicenseID", licenseID);
+                    try
+                    {
+                        connection.Open();
+                        SqlDataReader read = command.ExecuteReader();
+                        if (read.Read())
+                        {
+                            applicationID = (int)read["ApplicationID"];
+                            driverID = (int)read["DriverID"];
+                            licenseClassID = (int)read["LicenseClassID"];
+                            issuanceDate = (DateTime)read["IssuanceDate"];
+                            expirationDate = (DateTime)read["ExpirationDate"];
+
+                            notes = read["Notes"] != DBNull.Value
+                                ? (string)read["Notes"]
+                                : string.Empty;
+
+                            paidFees = (decimal)read["PaidFees"];
+                            isActive = (bool)read["IsActive"];
+                            issueReason = (byte)read["IssueReason"];
+                            createdByUserID = (int)read["CreatedByUserID"];
+
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
     }
 }
