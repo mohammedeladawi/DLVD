@@ -37,8 +37,6 @@ namespace DVLD_BusinessLayer
         private byte _ApplicationTypeID;
         public clsPerson Person { get; private set; }
         public clsApplicationType ApplicationType;
-
-       
         public int ApplicationID { get; private set; }
         public int ApplicationPersonID
         {

@@ -24,8 +24,9 @@ namespace DVLD
              _manageApplicationTypes = new frmManageApplicationTypes(),
              _manageTestTypes = new frmManageTestTypes(),
              _manageLDLApplications = new frmManageLDLApplications(),
-             _manageDrivers = new frmManageDrivers(), 
-             _addEditLDLApp = new frmAddEditLDLApplication();
+             _manageDrivers = new frmManageDrivers(),
+             _addEditLDLApp = new frmAddEditLDLApplication(),
+             _issueInternationalDL = new frmInternationalLicenseApplication();
             
 
         private void tsmiPeople_Click(object sender, EventArgs e)
@@ -42,6 +43,17 @@ namespace DVLD
         private void tsmiSignOut_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void internationalLiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_issueInternationalDL.IsDisposed)
+            {
+                _issueInternationalDL = new frmInternationalLicenseApplication();
+            }
+
+            _issueInternationalDL.MdiParent = this;
+            _issueInternationalDL.Show();
         }
 
         private void tsmiNewLDL_Click(object sender, EventArgs e)

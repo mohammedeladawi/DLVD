@@ -47,6 +47,10 @@ namespace DVLD_BusinessLayer
         
         private bool _AddNewLicense()
         {
+            var application = clsApplication.Find(ApplicationID);
+            if (application == null)
+                return false;
+
             this.LicenseID = clsDataAccessLicenses.AddNewLicense(ApplicationID, DriverID, LicenseClassID, IssuanceDate, 
                                                                  ExpirationDate, Notes, PaidFees, IsActive, IssueReason, 
                                                                  CreatedByUserID);
@@ -152,7 +156,6 @@ namespace DVLD_BusinessLayer
             return null;
         }
         
-
         public static clsLicense FindByLicenseID(int licenseID)
         {
             int applicationID = -1,

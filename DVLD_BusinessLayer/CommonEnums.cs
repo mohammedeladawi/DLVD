@@ -34,4 +34,12 @@ namespace DVLD_BusinessLayer
         WrittenTheoryTest = 2,
         PracticalStreetTest = 3
     }
+
+    public enum enIssueReasons
+    {
+        FirstTime = 1,
+        Renew = 2,
+        ReplacementForDamaged = 3,
+        ReplacementForLost = 4
+    }
 }

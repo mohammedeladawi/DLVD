@@ -13,7 +13,6 @@ namespace DVLD
 {
     public partial class frmManageLDLApplications : Form
     {
-        enum enTestTypes : byte { Vision = 1, Written = 2, Practical = 3 };
         public frmManageLDLApplications()
         {
             InitializeComponent();
@@ -112,20 +111,20 @@ namespace DVLD
 
         private void ShowMangageVTestDialog(int ldlApplicationID)
         {
-            Form scheduleVTest = new frmManageTestAppointments(ldlApplicationID, (int)enTestTypes.Vision, 1);
+            Form scheduleVTest = new frmManageTestAppointments(ldlApplicationID, (int)enTestTypes.VisionTest, 1);
             scheduleVTest.FormClosed += frm_Closed;
             scheduleVTest.ShowDialog();
         }
 
         private void ShowMangageWrittenTestDialog(int ldlApplicationID)
         {
-            Form scheduleVTest = new frmManageTestAppointments(ldlApplicationID, (int)enTestTypes.Written, 2);
+            Form scheduleVTest = new frmManageTestAppointments(ldlApplicationID, (int)enTestTypes.WrittenTheoryTest, 2);
             scheduleVTest.FormClosed += frm_Closed;
             scheduleVTest.ShowDialog();
         }
         private void ShowMangageStreetTestDialog(int ldlApplicationID)
         {
-            Form scheduleVTest = new frmManageTestAppointments(ldlApplicationID, (int)enTestTypes.Practical, 3);
+            Form scheduleVTest = new frmManageTestAppointments(ldlApplicationID, (int)enTestTypes.PracticalStreetTest, 3);
             scheduleVTest.FormClosed += frm_Closed;
             scheduleVTest.ShowDialog();
         }
@@ -341,7 +340,11 @@ namespace DVLD
 
         private void ShowPersonLicenseHistoryDialog(int ldlApplicationID)
         {
-            Form showPersonLicenseHistory = new frmPersonLicenseHistory(ldlApplicationID);
+            var ldlApp = clsLDLApplication.FindByID(ldlApplicationID);
+            if (ldlApp == null)
+                return;
+
+            Form showPersonLicenseHistory = new frmPersonLicenseHistory(ldlApp.ApplicationID);
             showPersonLicenseHistory.ShowDialog();
         }
 

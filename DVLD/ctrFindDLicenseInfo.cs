@@ -13,6 +13,25 @@ namespace DVLD
 {
     public partial class ctrFindDLicenseInfo: UserControl
     {
+        public GroupBox gbFilterLicense 
+        { 
+            get { return gbFilter; } 
+            set { gbFilter = value; } 
+        }
+        // Define a custom event handler delegate with parameters (Event Decleration)
+        public event Action<int> onLocalLicenseInfoLoaded;
+
+        // Create a protected method to raise the event with a parameter (Fire Decleration)
+        protected virtual void LocalLicenseInfoLoaded(int licenseID)
+        {
+            Action<int> handler = onLocalLicenseInfoLoaded;
+
+            if (handler != null)
+            {
+                handler(licenseID); // Raise the event with a parameter
+            }
+        }
+        
         public ctrFindDLicenseInfo()
         {
             InitializeComponent();
@@ -20,13 +39,15 @@ namespace DVLD
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(txtSearch.Text, out int result))
+            if (!int.TryParse(txtSearch.Text, out int licenseID))
                 return;
 
-            clsLicense license = clsLicense.FindByLicenseID(result);
+            clsLicense license = clsLicense.FindByLicenseID(licenseID);
             if (license != null)
                 ctrDriverLicenseInfo1.LoadLicenseInfo(license);
 
+            if (onLocalLicenseInfoLoaded != null)
+                LocalLicenseInfoLoaded(licenseID);
         }
     }
 }

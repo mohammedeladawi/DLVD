@@ -17,16 +17,16 @@ namespace DVLD
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-             //------------------ ProductionLogic ------------------------
-            frmLogin Login = new frmLogin();
-            while (Login.ShowDialog() == DialogResult.OK)
-            {
-                Application.Run(new frmMain());
-            }
+            //------------------ ProductionLogic ------------------------
+            //frmLogin Login = new frmLogin();
+            //while (Login.ShowDialog() == DialogResult.OK)
+            //{
+            //    Application.Run(new frmMain());
+            //}
             //-------------------------------------------------------------
 
-            //Form addEditLDLApplication = new frmManageLDLApplications();
-            //addEditLDLApplication.ShowDialog();
+            Form addEditLDLApplication = new frmManageILDApplications();
+            addEditLDLApplication.ShowDialog();
         }
     }
 }
