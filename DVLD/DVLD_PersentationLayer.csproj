@@ -186,6 +186,12 @@
     <Compile Include="frmRenewLicenseApplication.Designer.cs">
       <DependentUpon>frmRenewLicenseApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReplacementApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReplacementApplication.Designer.cs">
+      <DependentUpon>frmReplacementApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmScheduleTestAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRenewLicenseApplication.resx">
       <DependentUpon>frmRenewLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReplacementApplication.resx">
+      <DependentUpon>frmReplacementApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmScheduleTestAppointment.resx">
       <DependentUpon>frmScheduleTestAppointment.cs</DependentUpon>

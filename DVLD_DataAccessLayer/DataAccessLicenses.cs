@@ -151,7 +151,7 @@ namespace DVLD_DataAccessLayer
             ref int createdByUserID)
         {
 
-            string commandStr = @"Select * From Licenses WHERE ApplicationID = @ApplicationID and IsActive = 1";
+            string commandStr = @"Select * From Licenses WHERE ApplicationID = @ApplicationID";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {

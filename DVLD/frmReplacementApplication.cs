@@ -1,5 +1,4 @@
-﻿using DVLD_BusinessLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,57 +7,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD_BusinessLayer;
 
 namespace DVLD
 {
-    public partial class frmRenewLicenseApplication : Form
+    public partial class frmReplacementApplication : Form
     {
         private clsLicense _oldLicense, _newLicense;
-        private clsApplicationType _applicationType = clsApplicationType.Find((int)enApplicationTypes.RenewDrivingLicenseService);
-        private clsLicenseClass licenseClass;
-        public frmRenewLicenseApplication()
+        private clsApplicationType _applicationType;
+        public frmReplacementApplication()
         {
             InitializeComponent();
+        }
+
+        private void LoadApplicationType()
+        {
+            int applicationTypeID;
+            if (rbDamagedLicense.Checked)
+                applicationTypeID = (int)enApplicationTypes.ReplacementForDamagedDrivingLicense;
+            else
+                applicationTypeID = (int)enApplicationTypes.ReplacementForLostDrivingLicense;
+
+            _applicationType = clsApplicationType.Find(applicationTypeID);
+            lblApplicationFees.Text = _applicationType.Fees.ToString();
+
         }
         private void InitializeNewLicenseApplication()
         {
             ctrIssueBtn1.Enabled = false;
             llblShowLicenseHistory.Enabled = false;
             llblShowLicenseInfo.Enabled = false;
-
             DateTime todayDate = DateTime.Now;
             lblAppDate.Text = todayDate.ToString("dd/MM/yyyy");
-            lblIssueDate.Text = todayDate.ToString("dd/MM/yyyy");
-            lblApplicationFees.Text = _applicationType.Fees.ToString();
             lblCreatedBy.Text = clsGlobalSettings.currentUser.UserName;
         }
 
-
-       
-        private void ctrFindDLicenseInfo1_onLocalLicenseInfoLoaded_1(int licenseID)
+        private void frmReplacementApplication_Load(object sender, EventArgs e)
         {
+            LoadApplicationType();
             InitializeNewLicenseApplication();
-            _oldLicense = clsLicense.FindByLicenseID(licenseID);
+        }
+
+        private void ctrFindDLicenseInfo1_onLocalLicenseInfoLoaded(int oldLicenseID)
+        {
+            _oldLicense = clsLicense.FindByLicenseID(oldLicenseID);
             if (_oldLicense == null)
                 return;
 
-            // is active 
-            if (_oldLicense.ExpirationDate > DateTime.Now)
+            if (_oldLicense.ExpirationDate < DateTime.Now || !_oldLicense.IsActive)
             {
                 _newLicense = _oldLicense;
                 llblShowLicenseHistory.Enabled = true;
                 llblShowLicenseInfo.Enabled = true;
-                MessageBox.Show("License is not yet expired!");
+                MessageBox.Show("License is expired!");
                 return;
             }
 
             // load renew application fields
-            licenseClass = clsLicenseClass.Find(_oldLicense.LicenseClassID);
-            lblLicenseFees.Text = licenseClass.ClassFees.ToString();
-            lblTotalFees.Text = (licenseClass.ClassFees + _applicationType.Fees).ToString();
             lblOldLicenseID.Text = _oldLicense.LicenseID.ToString();
-            lblExpirationDate.Text = DateTime.Now.AddYears(licenseClass.DefaultValidityLength).ToString();
-            
+
             // enable fields 
             llblShowLicenseHistory.Enabled = true;
             ctrFindDLicenseInfo1.gbFilterLicense.Enabled = false;
@@ -67,18 +74,25 @@ namespace DVLD
 
         private void llblShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+
+            Form showPersonLicenseHistory = new frmPersonLicenseHistory(_oldLicense.ApplicationID);
+            showPersonLicenseHistory.ShowDialog();
+        }
+
+        private void llblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
             if (_newLicense == null)
                 return;
 
-            Form showPersonLicenseHistory = new frmPersonLicenseHistory(_newLicense.ApplicationID);
-            showPersonLicenseHistory.ShowDialog();
+            Form frmLicense = new frmDriverLicenseInfo(_newLicense);
+            frmLicense.ShowDialog();
         }
 
         private void LoadApplicationData(clsApplication application)
         {
             application.ApplicationPersonID = _oldLicense.Driver.PersonID;
             application.ApplicationDate = DateTime.Now;
-            application.ApplicationTypeID = (byte)enApplicationTypes.RenewDrivingLicenseService;
+            application.ApplicationTypeID = Convert.ToByte(_applicationType.ApplicationTypeID);
             application.PaidFees = _applicationType.Fees;
             application.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
         }
@@ -89,50 +103,57 @@ namespace DVLD
             return _oldLicense.Save();
         }
         
+        private byte GetIssueReason()
+        {
+            if (rbDamagedLicense.Checked)
+                return (int)enIssueReasons.ReplacementForDamaged;
+            else
+                return (int)enIssueReasons.ReplacementForLost;
+        }
+        
         private bool AddNewLicense(int renewApplicationID)
         {
             _newLicense = new clsLicense();
             _newLicense.ApplicationID = renewApplicationID;
             _newLicense.DriverID = _oldLicense.DriverID;
             _newLicense.LicenseClassID = _oldLicense.LicenseClassID;
-            _newLicense.IssuanceDate = DateTime.Now;
-            _newLicense.ExpirationDate = DateTime.Now.AddYears(licenseClass.DefaultValidityLength);
-            _newLicense.Notes = txtNotes.Text;
-            _newLicense.PaidFees = licenseClass.ClassFees;
+            _newLicense.IssuanceDate = _oldLicense.IssuanceDate;
+            _newLicense.ExpirationDate = _oldLicense.ExpirationDate;
+            _newLicense.Notes = _oldLicense.Notes;
+            _newLicense.PaidFees = _applicationType.Fees;
             _newLicense.IsActive = true;
-            _newLicense.IssueReason = (byte)enIssueReasons.Renew;
+            _newLicense.IssueReason = GetIssueReason();
             _newLicense.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
             return _newLicense.Save();
         }
+
+        private void rbDamagedLicense_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadApplicationType();
+        }
+
         private void ctrIssueBtn1_Click(object sender, EventArgs e)
         {
-            clsApplication renewApplication = new clsApplication();
-            LoadApplicationData(renewApplication);
-            if (!renewApplication.Save())
+            clsApplication replacementLApplication = new clsApplication();
+            LoadApplicationData(replacementLApplication);
+            if (!replacementLApplication.Save())
                 return;
 
             if (!DeactivateOldLicense())
                 return;
 
-            if (AddNewLicense(renewApplication.ApplicationID))
+            if (AddNewLicense(replacementLApplication.ApplicationID))
             {
-                lblRLAppID.Text = _newLicense.ApplicationID.ToString();
-                lblRenewedLicenseID.Text = _newLicense.LicenseID.ToString();
+                lblLRAppID.Text = _newLicense.ApplicationID.ToString();
+                lblReplacedLicenseID.Text = _newLicense.LicenseID.ToString();
                 llblShowLicenseInfo.Enabled = true;
+                gbReplacement.Enabled = false;
+                ctrIssueBtn1.Enabled = false;
+
                 MessageBox.Show("License has been renewed successfully");
             }
             else
                 MessageBox.Show("Couldn't renew license");
-
-        }
-
-        private void llblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            if (_newLicense == null)
-                return;
-
-            Form frmLicense = new frmDriverLicenseInfo(_newLicense);
-            frmLicense.ShowDialog();
         }
     }
 }

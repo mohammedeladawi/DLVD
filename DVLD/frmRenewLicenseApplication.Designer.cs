@@ -398,7 +398,6 @@
             this.Controls.Add(this.ctrFindDLicenseInfo1);
             this.Name = "frmRenewLicenseApplication";
             this.Text = "frmRenewLicenseApplication";
-            this.Load += new System.EventHandler(this.frmRenewLicenseApplication_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
