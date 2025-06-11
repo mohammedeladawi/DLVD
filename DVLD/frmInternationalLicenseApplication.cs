@@ -89,6 +89,7 @@ namespace DVLD
             application.PaidFees = _applicationType.Fees;
             application.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
         }
+        
         private void LoadILicenseData(clsInternationalLicense internationalLicense, int applicationID)
         {
             DateTime todayDate = DateTime.Now;
@@ -127,6 +128,9 @@ namespace DVLD
 
         private void llblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            if (_localLicense == null)
+                return;
+
             Form frmDILicense = new frmInternationalLicenseInfo(_localLicense.LicenseID);
             frmDILicense.ShowDialog();
         }

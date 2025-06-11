@@ -124,5 +124,37 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+        public static bool HasActiveLicense(int driverID, int licenseClassID)
+        {
+            DataTable dt = new DataTable();
+            string query = @"SELECT 1 FROM Licenses
+                             WHERE IsActive = 1 
+                             AND DriverID = @DriverID
+                             AND LicenseClassID = @LicenseClassID;";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@DriverID", driverID);
+                    command.Parameters.AddWithValue("@LicenseClassID", licenseClassID);
+
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        return result != null;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
+
     }
 }

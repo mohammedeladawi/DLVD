@@ -84,6 +84,11 @@ namespace DVLD_BusinessLayer
         {
             return clsDataAccessDrivers.GetAllDrivers();
         }
+
+        public static bool HasActiveLicense(int driverID, int licenseClassID)
+        {
+            return clsDataAccessDrivers.HasActiveLicense(driverID, licenseClassID);
+        }
         public bool Save()
         {
             switch(Mode)

@@ -15,7 +15,7 @@ namespace DVLD_DataAccessLayer
 {
     public static class clsDataAccessLicenses
     {
-        public static DataTable GetLicensesByDriverID(int driverID, int applicationTypeID)
+        public static DataTable GetLicensesByDriverID(int driverID)
         {
             DataTable dt = new DataTable();
             string query = @"
@@ -33,17 +33,13 @@ namespace DVLD_DataAccessLayer
                             JOIN 
                                 Applications A ON A.ApplicationID = L.ApplicationID
                             WHERE 
-                                L.DriverID = @DriverID 
-                            AND 
-                                A.ApplicationTypeID = @ApplicationTypeID";
+                                L.DriverID = @DriverID;";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@DriverID", driverID);
-                    command.Parameters.AddWithValue("@ApplicationTypeID", applicationTypeID);
-
                     try
                     {
                         connection.Open();
@@ -112,6 +108,35 @@ namespace DVLD_DataAccessLayer
             return -1;
         }
 
+        public static bool UpdateLicense(int licenseID, bool isActive)
+        {
+            string commandStr = @"UPDATE Licenses
+                                  SET IsActive = @IsActive
+                                  WHERE LicenseID = @LicenseID;";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@LicenseID", licenseID);
+                    command.Parameters.AddWithValue("@IsActive", isActive);
+
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
+        
         public static bool FindByApplicationID(
             ref int licenseID,
             int applicationID,
@@ -126,7 +151,7 @@ namespace DVLD_DataAccessLayer
             ref int createdByUserID)
         {
 
-            string commandStr = @"Select * From Licenses WHERE ApplicationID = @ApplicationID";
+            string commandStr = @"Select * From Licenses WHERE ApplicationID = @ApplicationID and IsActive = 1";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
@@ -181,7 +206,7 @@ namespace DVLD_DataAccessLayer
             ref int createdByUserID)
         {
 
-            string commandStr = @"Select * From Licenses WHERE LicenseID = @LicenseID";
+            string commandStr = @"Select * From Licenses WHERE LicenseID = @LicenseID and IsActive = 1";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
@@ -221,5 +246,7 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
+
     }
+
 }

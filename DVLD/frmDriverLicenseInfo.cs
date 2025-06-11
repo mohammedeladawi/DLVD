@@ -27,6 +27,12 @@ namespace DVLD
             InitializeComponent();
         }
 
+        public frmDriverLicenseInfo(clsLicense license)
+        {
+            _license = license;
+            InitializeComponent();
+        }
+
         private void frmDriverLicenseInfo_Load(object sender, EventArgs e)
         {
             ctrDriverLicenseInfo1.LoadLicenseInfo(_license);

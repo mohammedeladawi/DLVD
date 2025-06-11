@@ -45,10 +45,17 @@ namespace DVLD_BusinessLayer
 
         public int CreatedByUserID { get; set; }
         
+        private bool _UpdateLicense()
+        {
+            return clsDataAccessLicenses.UpdateLicense(LicenseID, IsActive);
+        }
         private bool _AddNewLicense()
         {
             var application = clsApplication.Find(ApplicationID);
             if (application == null)
+                return false;
+
+            if (clsDriver.HasActiveLicense(DriverID, LicenseClassID))
                 return false;
 
             this.LicenseID = clsDataAccessLicenses.AddNewLicense(ApplicationID, DriverID, LicenseClassID, IssuanceDate, 
@@ -206,9 +213,9 @@ namespace DVLD_BusinessLayer
             return null;
         }
         
-        public static DataTable GetLicenses(int driverID, int applicationTypeID)
+        public static DataTable GetLicenses(int driverID)
         {
-            return clsDataAccessLicenses.GetLicensesByDriverID(driverID, applicationTypeID);
+            return clsDataAccessLicenses.GetLicensesByDriverID(driverID);
         }
 
         public bool Save()
@@ -219,7 +226,7 @@ namespace DVLD_BusinessLayer
                     return _AddNewLicense();
 
                 case enMode.Update:
-                    return false;
+                    return _UpdateLicense();
             }
 
             return false;
