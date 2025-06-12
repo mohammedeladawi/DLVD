@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccessInternationalLicenses.cs" />
+    <Compile Include="DataAccessDetainedLicenses.cs" />
     <Compile Include="DataAccessLicenses.cs" />
     <Compile Include="DataAccessLDLApplications.cs" />
     <Compile Include="DataAccessApplicationTypes.cs" />
