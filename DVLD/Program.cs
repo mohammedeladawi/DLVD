@@ -25,7 +25,7 @@ namespace DVLD
             //}
             //-------------------------------------------------------------
 
-            Form addEditLDLApplication = new frmReplacementApplication();
+            Form addEditLDLApplication = new frmDetainLicense();
             addEditLDLApplication.ShowDialog();
         }
     }

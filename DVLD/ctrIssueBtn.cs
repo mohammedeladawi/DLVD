@@ -12,9 +12,22 @@ namespace DVLD
 {
     public partial class ctrIssueBtn : UserControl
     {
+        public string btnText
+        {
+            get
+            {
+                return lblBtnTitle.Text;
+            }
+
+            set 
+            {
+                lblBtnTitle.Text = value; 
+            }
+        }
         public ctrIssueBtn()
         {
             InitializeComponent();
         }
+
     }
 }

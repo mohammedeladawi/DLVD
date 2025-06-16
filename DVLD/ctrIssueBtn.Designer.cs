@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblBtnTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblBtnTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 37);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Issue";
+            this.lblBtnTitle.AutoSize = true;
+            this.lblBtnTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBtnTitle.Location = new System.Drawing.Point(66, 15);
+            this.lblBtnTitle.Name = "lblBtnTitle";
+            this.lblBtnTitle.Size = new System.Drawing.Size(92, 37);
+            this.lblBtnTitle.TabIndex = 2;
+            this.lblBtnTitle.Text = "Issue";
             // 
             // ctrIssueBtn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblBtnTitle);
             this.Name = "ctrIssueBtn";
             this.Size = new System.Drawing.Size(226, 68);
             this.ResumeLayout(false);
@@ -56,6 +56,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblBtnTitle;
     }
 }

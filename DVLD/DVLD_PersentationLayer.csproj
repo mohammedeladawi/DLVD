@@ -90,6 +90,12 @@
       <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="ErrProviderUtilities.cs" />
+    <Compile Include="frmDetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDetainLicense.Designer.cs">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInternationalLicenseApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctrUserPersonInformation.resx">
       <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDetainLicense.resx">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInternationalLicenseApplication.resx">
       <DependentUpon>frmInternationalLicenseApplication.cs</DependentUpon>

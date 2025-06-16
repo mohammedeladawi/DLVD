@@ -45,9 +45,7 @@ namespace DVLD
             lblDateOfBirth.Text = person.DateOfBirth.ToString();
             lblDriverID.Text = license.DriverID.ToString();
             lblExpirationDate.Text = license.ExpirationDate.ToString();
-
-            // ------------Todo: with detained classes----------------
-            lblIsDetained.Text = "Will do it";
+            lblIsDetained.Text = clsDetainedLicense.IsDetained(license.LicenseID) ? "Yes" : "No";
 
             LoadPersonImage(person);
         }
