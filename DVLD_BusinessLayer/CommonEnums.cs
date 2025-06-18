@@ -42,4 +42,11 @@ namespace DVLD_BusinessLayer
         ReplacementForDamaged = 3,
         ReplacementForLost = 4
     }
+
+    public enum enApplicationStatus
+    {
+        New = 1,
+        Cancelled = 2,
+        Completed = 3
+    }
 }
