@@ -21,6 +21,15 @@ namespace DVLD
             InitializeComponent();
         }
 
+        public frmReleaseDetainedLicense(int licenseID)
+        {
+            // fire click bntFind
+            //ctrFindDLicenseInfo1.btnFindLicense.
+
+            InitializeComponent();
+            ctrFindDLicenseInfo1.txtSearchText = licenseID.ToString();
+        }
+
         private void DisableFields()
         {
             ctrIssueBtn1.Enabled = false;
@@ -32,6 +41,8 @@ namespace DVLD
         {
             ctrIssueBtn1.btnText = "Release";
             DisableFields();
+            ctrFindDLicenseInfo1.btnFindLicense.PerformClick();
+
         }
 
         private void LoadDetainedLicenseFields()

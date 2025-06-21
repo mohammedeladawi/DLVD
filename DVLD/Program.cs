@@ -18,15 +18,12 @@ namespace DVLD
             Application.SetCompatibleTextRenderingDefault(false);
 
             //------------------ ProductionLogic ------------------------
-            //frmLogin Login = new frmLogin();
-            //while (Login.ShowDialog() == DialogResult.OK)
-            //{
-            //    Application.Run(new frmMain());
-            //}
+            frmLogin Login = new frmLogin();
+            while (Login.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new frmMain());
+            }
             //-------------------------------------------------------------
-
-            Form addEditLDLApplication = new frmReleaseDetainedLicense();
-            addEditLDLApplication.ShowDialog();
         }
     }
 }

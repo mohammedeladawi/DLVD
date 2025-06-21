@@ -26,7 +26,13 @@ namespace DVLD
              _manageLDLApplications = new frmManageLDLApplications(),
              _manageDrivers = new frmManageDrivers(),
              _addEditLDLApp = new frmAddEditLDLApplication(),
-             _issueInternationalDL = new frmInternationalLicenseApplication();
+             _issueInternationalDL = new frmInternationalLicenseApplication(),
+             _renewDrivingLicense = new frmRenewLicenseApplication(),
+             _replaceLostDamagedLicense = new frmReplacementApplication(),
+             _releaseDetainedLicense = new frmReleaseDetainedLicense(),
+            _manageIDLApplications = new frmManageILDApplications(),
+            _detainLicense = new frmDetainLicense(), 
+            _manageDetainedLicenses = new frmManageDetainedLicense();
             
 
         private void tsmiPeople_Click(object sender, EventArgs e)
@@ -45,7 +51,124 @@ namespace DVLD
             this.Close();
         }
 
-        private void internationalLiceToolStripMenuItem_Click(object sender, EventArgs e)
+        private void frmManageIDLApplications_Click(object sender, EventArgs e)
+        {
+            if (_manageIDLApplications.IsDisposed)
+            {
+                _manageIDLApplications = new frmManageILDApplications();
+            }
+
+            _manageLDLApplications.MdiParent = this;
+            _manageIDLApplications.Show();
+        }
+
+        private void tsmiReleaseDetainedLicense2_Click(object sender, EventArgs e)
+        {
+            if (_releaseDetainedLicense.IsDisposed)
+            {
+                _releaseDetainedLicense = new frmReleaseDetainedLicense();
+            }
+
+            _releaseDetainedLicense.MdiParent = this;
+            _releaseDetainedLicense.Show();
+        }
+
+        private void tsmiDetainLicense_Click_1(object sender, EventArgs e)
+        {
+            if (_detainLicense.IsDisposed)
+            {
+                _detainLicense = new frmDetainLicense();
+            }
+
+            _detainLicense.MdiParent = this;
+            _detainLicense.Show();
+        }
+
+        private void tsmiManageDetainedLicense_Click(object sender, EventArgs e)
+        {
+            if (_manageDetainedLicenses.IsDisposed)
+            {
+                _manageDetainedLicenses = new frmManageDetainedLicense();
+            }
+
+            _manageDetainedLicenses.MdiParent = this;
+            _manageDetainedLicenses.Show();
+        }
+
+        private void tsmiManageTestTypes_Click(object sender, EventArgs e)
+        {
+            if (_manageTestTypes.IsDisposed)
+            {
+                _manageTestTypes = new frmManageTestTypes();
+            }
+
+            _manageTestTypes.MdiParent = this;
+            _manageTestTypes.Show();
+        }
+
+        private void tsmiManageApplicationTypes_Click(object sender, EventArgs e)
+        {
+            if (_manageApplicationTypes.IsDisposed)
+            {
+                _manageApplicationTypes = new frmManageApplicationTypes();
+            }
+
+            _manageApplicationTypes.MdiParent = this;
+            _manageApplicationTypes.Show();
+        }
+
+
+        private void tsmiManageLDLApplications_Click(object sender, EventArgs e)
+        {
+            if (_manageLDLApplications.IsDisposed)
+            {
+                _manageLDLApplications = new frmManageLDLApplications();
+            }
+
+            _manageLDLApplications.MdiParent = this;
+            _manageLDLApplications.Show();
+        }
+
+        private void tsmiRetakeTest_Click(object sender, EventArgs e)
+        {
+            //---------------Todo----------------------
+        }
+
+        private void tsmiReleaseDetainedLicense_Click(object sender, EventArgs e)
+        {
+
+            if (_releaseDetainedLicense.IsDisposed)
+            {
+                _releaseDetainedLicense = new frmReleaseDetainedLicense();
+            }
+
+            _releaseDetainedLicense.MdiParent = this;
+            _releaseDetainedLicense.Show();
+        }
+
+        private void tsmiReplaceLostDamagedLicense_Click(object sender, EventArgs e)
+        {
+            if (_replaceLostDamagedLicense.IsDisposed)
+            {
+                _replaceLostDamagedLicense = new frmReplacementApplication();
+            }
+
+            _replaceLostDamagedLicense.MdiParent = this;
+            _replaceLostDamagedLicense.Show();
+        }
+
+        private void tsmiRenewDrivingLicense_Click(object sender, EventArgs e)
+        {
+            if (_renewDrivingLicense.IsDisposed)
+            {
+                _renewDrivingLicense = new frmRenewLicenseApplication();
+            }
+
+            _renewDrivingLicense.MdiParent = this;
+            _renewDrivingLicense.Show();
+        }
+
+        private void tsmiIssueInternationalLicense_Click(object sender, EventArgs e)
         {
             if (_issueInternationalDL.IsDisposed)
             {
@@ -79,38 +202,6 @@ namespace DVLD
             _manageDrivers.Show();
         }
 
-        private void localDrivingLicenseApplicationsToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            if (_manageLDLApplications.IsDisposed)
-            {
-                _manageLDLApplications = new frmManageLDLApplications();
-            }
-
-            _manageLDLApplications.MdiParent = this;
-            _manageLDLApplications.Show();
-        }
-
-        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (_manageTestTypes.IsDisposed)
-            {
-                _manageTestTypes = new frmManageTestTypes();
-            }
-
-            _manageTestTypes.MdiParent = this;
-            _manageTestTypes.Show();
-        }
-
-        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (_manageApplicationTypes.IsDisposed)
-            {
-                _manageApplicationTypes = new frmManageApplicationTypes();
-            }
-
-            _manageApplicationTypes.MdiParent = this;
-            _manageApplicationTypes.Show();
-        }
 
         private void tsmiCurrUserInfo_Click(object sender, EventArgs e)
         {

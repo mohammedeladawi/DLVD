@@ -33,17 +33,20 @@
             this.drivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiNewLDL = new System.Windows.Forms.ToolStripMenuItem();
-            this.internationalLiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.renewDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.replacementForLostOrDamagedLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.releaseDetainedDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.retakeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiIssueInternationLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRenewDrivingLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiReplaceLostDamagedLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiReleaseDetainedLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRetakeTest = new System.Windows.Forms.ToolStripMenuItem();
             this.manageApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.localDrivingLicenseApplicationsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.internationalLicenseApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.detainLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageApplicationTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageTestTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiManageLDLApplications = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmManageIDLApplications = new System.Windows.Forms.ToolStripMenuItem();
+            this.DetainLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiManageDetainedLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDetainLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiReleaseDetainedLicense2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiManageApplicationTypes = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiManageTestTypes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPeople = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDrivers = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiUsers = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +69,6 @@
             this.tsmiAccountSettings});
             this.msDVLD.Location = new System.Drawing.Point(0, 0);
             this.msDVLD.Name = "msDVLD";
-            this.msDVLD.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.msDVLD.Size = new System.Drawing.Size(1870, 42);
             this.msDVLD.TabIndex = 1;
             this.msDVLD.Text = "menuStrip1";
@@ -76,9 +78,9 @@
             this.tsmiApplications.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.drivingLicenseToolStripMenuItem,
             this.manageApplicationsToolStripMenuItem,
-            this.detainLicenseToolStripMenuItem,
-            this.manageApplicationTypesToolStripMenuItem,
-            this.manageTestTypesToolStripMenuItem});
+            this.DetainLicenseToolStripMenuItem,
+            this.tsmiManageApplicationTypes,
+            this.tsmiManageTestTypes});
             this.tsmiApplications.Image = global::DVLD.Properties.Resources.form__1_;
             this.tsmiApplications.Name = "tsmiApplications";
             this.tsmiApplications.Size = new System.Drawing.Size(196, 38);
@@ -88,10 +90,10 @@
             // 
             this.drivingLicenseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newDrivingLicenseToolStripMenuItem,
-            this.renewDrivingLicenseToolStripMenuItem,
-            this.replacementForLostOrDamagedLicenseToolStripMenuItem,
-            this.releaseDetainedDrivingLicenseToolStripMenuItem,
-            this.retakeTestToolStripMenuItem});
+            this.tsmiRenewDrivingLicense,
+            this.tsmiReplaceLostDamagedLicense,
+            this.tsmiReleaseDetainedLicense,
+            this.tsmiRetakeTest});
             this.drivingLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.id;
             this.drivingLicenseToolStripMenuItem.Name = "drivingLicenseToolStripMenuItem";
             this.drivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(429, 44);
@@ -101,7 +103,7 @@
             // 
             this.newDrivingLicenseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiNewLDL,
-            this.internationalLiceToolStripMenuItem});
+            this.tsmiIssueInternationLicense});
             this.newDrivingLicenseToolStripMenuItem.Name = "newDrivingLicenseToolStripMenuItem";
             this.newDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(596, 44);
             this.newDrivingLicenseToolStripMenuItem.Text = "New Driving License";
@@ -113,82 +115,113 @@
             this.tsmiNewLDL.Text = "Local License";
             this.tsmiNewLDL.Click += new System.EventHandler(this.tsmiNewLDL_Click);
             // 
-            // internationalLiceToolStripMenuItem
+            // tsmiIssueInternationLicense
             // 
-            this.internationalLiceToolStripMenuItem.Name = "internationalLiceToolStripMenuItem";
-            this.internationalLiceToolStripMenuItem.Size = new System.Drawing.Size(367, 44);
-            this.internationalLiceToolStripMenuItem.Text = "International License";
-            this.internationalLiceToolStripMenuItem.Click += new System.EventHandler(this.internationalLiceToolStripMenuItem_Click);
+            this.tsmiIssueInternationLicense.Name = "tsmiIssueInternationLicense";
+            this.tsmiIssueInternationLicense.Size = new System.Drawing.Size(367, 44);
+            this.tsmiIssueInternationLicense.Text = "International License";
+            this.tsmiIssueInternationLicense.Click += new System.EventHandler(this.tsmiIssueInternationalLicense_Click);
             // 
-            // renewDrivingLicenseToolStripMenuItem
+            // tsmiRenewDrivingLicense
             // 
-            this.renewDrivingLicenseToolStripMenuItem.Name = "renewDrivingLicenseToolStripMenuItem";
-            this.renewDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(596, 44);
-            this.renewDrivingLicenseToolStripMenuItem.Text = "Renew Driving License";
+            this.tsmiRenewDrivingLicense.Name = "tsmiRenewDrivingLicense";
+            this.tsmiRenewDrivingLicense.Size = new System.Drawing.Size(596, 44);
+            this.tsmiRenewDrivingLicense.Text = "Renew Driving License";
+            this.tsmiRenewDrivingLicense.Click += new System.EventHandler(this.tsmiRenewDrivingLicense_Click);
             // 
-            // replacementForLostOrDamagedLicenseToolStripMenuItem
+            // tsmiReplaceLostDamagedLicense
             // 
-            this.replacementForLostOrDamagedLicenseToolStripMenuItem.Name = "replacementForLostOrDamagedLicenseToolStripMenuItem";
-            this.replacementForLostOrDamagedLicenseToolStripMenuItem.Size = new System.Drawing.Size(596, 44);
-            this.replacementForLostOrDamagedLicenseToolStripMenuItem.Text = "Replacement for Lost or Damaged License";
+            this.tsmiReplaceLostDamagedLicense.Name = "tsmiReplaceLostDamagedLicense";
+            this.tsmiReplaceLostDamagedLicense.Size = new System.Drawing.Size(596, 44);
+            this.tsmiReplaceLostDamagedLicense.Text = "Replacement for Lost or Damaged License";
+            this.tsmiReplaceLostDamagedLicense.Click += new System.EventHandler(this.tsmiReplaceLostDamagedLicense_Click);
             // 
-            // releaseDetainedDrivingLicenseToolStripMenuItem
+            // tsmiReleaseDetainedLicense
             // 
-            this.releaseDetainedDrivingLicenseToolStripMenuItem.Name = "releaseDetainedDrivingLicenseToolStripMenuItem";
-            this.releaseDetainedDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(596, 44);
-            this.releaseDetainedDrivingLicenseToolStripMenuItem.Text = "Release Detained Driving License";
+            this.tsmiReleaseDetainedLicense.Name = "tsmiReleaseDetainedLicense";
+            this.tsmiReleaseDetainedLicense.Size = new System.Drawing.Size(596, 44);
+            this.tsmiReleaseDetainedLicense.Text = "Release Detained Driving License";
+            this.tsmiReleaseDetainedLicense.Click += new System.EventHandler(this.tsmiReleaseDetainedLicense_Click);
             // 
-            // retakeTestToolStripMenuItem
+            // tsmiRetakeTest
             // 
-            this.retakeTestToolStripMenuItem.Name = "retakeTestToolStripMenuItem";
-            this.retakeTestToolStripMenuItem.Size = new System.Drawing.Size(596, 44);
-            this.retakeTestToolStripMenuItem.Text = "Retake Test";
+            this.tsmiRetakeTest.AutoToolTip = true;
+            this.tsmiRetakeTest.Name = "tsmiRetakeTest";
+            this.tsmiRetakeTest.Size = new System.Drawing.Size(596, 44);
+            this.tsmiRetakeTest.Text = "Retake Test";
+            this.tsmiRetakeTest.Click += new System.EventHandler(this.tsmiRetakeTest_Click);
             // 
             // manageApplicationsToolStripMenuItem
             // 
             this.manageApplicationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.localDrivingLicenseApplicationsToolStripMenuItem1,
-            this.internationalLicenseApplicationsToolStripMenuItem});
+            this.tsmiManageLDLApplications,
+            this.frmManageIDLApplications});
             this.manageApplicationsToolStripMenuItem.Image = global::DVLD.Properties.Resources.form__2_;
             this.manageApplicationsToolStripMenuItem.Name = "manageApplicationsToolStripMenuItem";
             this.manageApplicationsToolStripMenuItem.Size = new System.Drawing.Size(429, 44);
             this.manageApplicationsToolStripMenuItem.Text = "Manage Applications";
             // 
-            // localDrivingLicenseApplicationsToolStripMenuItem1
+            // tsmiManageLDLApplications
             // 
-            this.localDrivingLicenseApplicationsToolStripMenuItem1.Name = "localDrivingLicenseApplicationsToolStripMenuItem1";
-            this.localDrivingLicenseApplicationsToolStripMenuItem1.Size = new System.Drawing.Size(507, 44);
-            this.localDrivingLicenseApplicationsToolStripMenuItem1.Text = "Local Driving License Applications";
-            this.localDrivingLicenseApplicationsToolStripMenuItem1.Click += new System.EventHandler(this.localDrivingLicenseApplicationsToolStripMenuItem1_Click);
+            this.tsmiManageLDLApplications.Name = "tsmiManageLDLApplications";
+            this.tsmiManageLDLApplications.Size = new System.Drawing.Size(507, 44);
+            this.tsmiManageLDLApplications.Text = "Local Driving License Applications";
+            this.tsmiManageLDLApplications.Click += new System.EventHandler(this.tsmiManageLDLApplications_Click);
             // 
-            // internationalLicenseApplicationsToolStripMenuItem
+            // frmManageIDLApplications
             // 
-            this.internationalLicenseApplicationsToolStripMenuItem.Name = "internationalLicenseApplicationsToolStripMenuItem";
-            this.internationalLicenseApplicationsToolStripMenuItem.Size = new System.Drawing.Size(507, 44);
-            this.internationalLicenseApplicationsToolStripMenuItem.Text = "International License Applications";
+            this.frmManageIDLApplications.Name = "frmManageIDLApplications";
+            this.frmManageIDLApplications.Size = new System.Drawing.Size(507, 44);
+            this.frmManageIDLApplications.Text = "International License Applications";
+            this.frmManageIDLApplications.Click += new System.EventHandler(this.frmManageIDLApplications_Click);
             // 
-            // detainLicenseToolStripMenuItem
+            // DetainLicenseToolStripMenuItem
             // 
-            this.detainLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.id__1_;
-            this.detainLicenseToolStripMenuItem.Name = "detainLicenseToolStripMenuItem";
-            this.detainLicenseToolStripMenuItem.Size = new System.Drawing.Size(429, 44);
-            this.detainLicenseToolStripMenuItem.Text = "Detain Licenses";
+            this.DetainLicenseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiManageDetainedLicense,
+            this.tsmiDetainLicense,
+            this.tsmiReleaseDetainedLicense2});
+            this.DetainLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.id__1_;
+            this.DetainLicenseToolStripMenuItem.Name = "DetainLicenseToolStripMenuItem";
+            this.DetainLicenseToolStripMenuItem.Size = new System.Drawing.Size(429, 44);
+            this.DetainLicenseToolStripMenuItem.Text = "Detain Licenses";
             // 
-            // manageApplicationTypesToolStripMenuItem
+            // tsmiManageDetainedLicense
             // 
-            this.manageApplicationTypesToolStripMenuItem.Image = global::DVLD.Properties.Resources.reference;
-            this.manageApplicationTypesToolStripMenuItem.Name = "manageApplicationTypesToolStripMenuItem";
-            this.manageApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(429, 44);
-            this.manageApplicationTypesToolStripMenuItem.Text = "Manage Application Types";
-            this.manageApplicationTypesToolStripMenuItem.Click += new System.EventHandler(this.manageApplicationTypesToolStripMenuItem_Click);
+            this.tsmiManageDetainedLicense.Name = "tsmiManageDetainedLicense";
+            this.tsmiManageDetainedLicense.Size = new System.Drawing.Size(423, 44);
+            this.tsmiManageDetainedLicense.Text = "Manage Detained License";
+            this.tsmiManageDetainedLicense.Click += new System.EventHandler(this.tsmiManageDetainedLicense_Click);
             // 
-            // manageTestTypesToolStripMenuItem
+            // tsmiDetainLicense
             // 
-            this.manageTestTypesToolStripMenuItem.Image = global::DVLD.Properties.Resources.test;
-            this.manageTestTypesToolStripMenuItem.Name = "manageTestTypesToolStripMenuItem";
-            this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(429, 44);
-            this.manageTestTypesToolStripMenuItem.Text = "Manage Test Types";
-            this.manageTestTypesToolStripMenuItem.Click += new System.EventHandler(this.manageTestTypesToolStripMenuItem_Click);
+            this.tsmiDetainLicense.Name = "tsmiDetainLicense";
+            this.tsmiDetainLicense.Size = new System.Drawing.Size(423, 44);
+            this.tsmiDetainLicense.Text = "Detain License";
+            this.tsmiDetainLicense.Click += new System.EventHandler(this.tsmiDetainLicense_Click_1);
+            // 
+            // tsmiReleaseDetainedLicense2
+            // 
+            this.tsmiReleaseDetainedLicense2.Name = "tsmiReleaseDetainedLicense2";
+            this.tsmiReleaseDetainedLicense2.Size = new System.Drawing.Size(423, 44);
+            this.tsmiReleaseDetainedLicense2.Text = "Release Detained License";
+            this.tsmiReleaseDetainedLicense2.Click += new System.EventHandler(this.tsmiReleaseDetainedLicense2_Click);
+            // 
+            // tsmiManageApplicationTypes
+            // 
+            this.tsmiManageApplicationTypes.Image = global::DVLD.Properties.Resources.reference;
+            this.tsmiManageApplicationTypes.Name = "tsmiManageApplicationTypes";
+            this.tsmiManageApplicationTypes.Size = new System.Drawing.Size(429, 44);
+            this.tsmiManageApplicationTypes.Text = "Manage Application Types";
+            this.tsmiManageApplicationTypes.Click += new System.EventHandler(this.tsmiManageApplicationTypes_Click);
+            // 
+            // tsmiManageTestTypes
+            // 
+            this.tsmiManageTestTypes.Image = global::DVLD.Properties.Resources.test;
+            this.tsmiManageTestTypes.Name = "tsmiManageTestTypes";
+            this.tsmiManageTestTypes.Size = new System.Drawing.Size(429, 44);
+            this.tsmiManageTestTypes.Text = "Manage Test Types";
+            this.tsmiManageTestTypes.Click += new System.EventHandler(this.tsmiManageTestTypes_Click);
             // 
             // tsmiPeople
             // 
@@ -283,17 +316,20 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiSignOut;
         private System.Windows.Forms.ToolStripMenuItem drivingLicenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageApplicationsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem detainLicenseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageApplicationTypesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageTestTypesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DetainLicenseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiManageApplicationTypes;
+        private System.Windows.Forms.ToolStripMenuItem tsmiManageTestTypes;
         private System.Windows.Forms.ToolStripMenuItem newDrivingLicenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmiNewLDL;
-        private System.Windows.Forms.ToolStripMenuItem renewDrivingLicenseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem replacementForLostOrDamagedLicenseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem releaseDetainedDrivingLicenseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem retakeTestToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem internationalLiceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem localDrivingLicenseApplicationsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem internationalLicenseApplicationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiRenewDrivingLicense;
+        private System.Windows.Forms.ToolStripMenuItem tsmiReplaceLostDamagedLicense;
+        private System.Windows.Forms.ToolStripMenuItem tsmiReleaseDetainedLicense;
+        private System.Windows.Forms.ToolStripMenuItem tsmiRetakeTest;
+        private System.Windows.Forms.ToolStripMenuItem tsmiIssueInternationLicense;
+        private System.Windows.Forms.ToolStripMenuItem tsmiManageLDLApplications;
+        private System.Windows.Forms.ToolStripMenuItem frmManageIDLApplications;
+        private System.Windows.Forms.ToolStripMenuItem tsmiManageDetainedLicense;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDetainLicense;
+        private System.Windows.Forms.ToolStripMenuItem tsmiReleaseDetainedLicense2;
     }
 }

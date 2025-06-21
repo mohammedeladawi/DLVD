@@ -108,6 +108,12 @@
     <Compile Include="frmInternationalLicenseInfo.Designer.cs">
       <DependentUpon>frmInternationalLicenseInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmManageDetainedLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageDetainedLicense.Designer.cs">
+      <DependentUpon>frmManageDetainedLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmManageDrivers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInternationalLicenseInfo.resx">
       <DependentUpon>frmInternationalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageDetainedLicense.resx">
+      <DependentUpon>frmManageDetainedLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageDrivers.resx">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>

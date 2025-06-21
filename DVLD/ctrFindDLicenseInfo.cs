@@ -18,6 +18,17 @@ namespace DVLD
             get { return gbFilter; } 
             set { gbFilter = value; } 
         }
+
+        public string txtSearchText
+        {
+            get { return txtSearch.Text; }
+            set { txtSearch.Text = value; }
+        }
+
+        public Button btnFindLicense
+        {
+            get { return btnFind; }
+        }
         // Define a custom event handler delegate with parameters (Event Decleration)
         public event Action<int> onLocalLicenseInfoLoaded;
 
