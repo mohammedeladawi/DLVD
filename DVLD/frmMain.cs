@@ -12,15 +12,15 @@ namespace DVLD
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+        public frmMain(Form loginForm)
         {
             InitializeComponent();
         }
 
         Form _managePeople = new frmManagePeople(),
              _manageUsers = new frmManageUsers(),
-             _userDetails = new frmUserDetails(clsGlobalSettings.currentUser),
-             _changeUserPassword = new frmChangeUserPassword(clsGlobalSettings.currentUser),
+             _userDetails = new frmUserDetails(clsGlobal.currentUser),
+             _changeUserPassword = new frmChangeUserPassword(clsGlobal.currentUser),
              _manageApplicationTypes = new frmManageApplicationTypes(),
              _manageTestTypes = new frmManageTestTypes(),
              _manageLDLApplications = new frmManageLDLApplications(),
@@ -207,7 +207,7 @@ namespace DVLD
         {
             if (_userDetails.IsDisposed)
             {
-                _userDetails = new frmUserDetails(clsGlobalSettings.currentUser);
+                _userDetails = new frmUserDetails(clsGlobal.currentUser);
             }
 
             _userDetails.MdiParent = this;
@@ -218,7 +218,7 @@ namespace DVLD
         {
             if (_changeUserPassword.IsDisposed)
             {
-                _changeUserPassword = new frmChangeUserPassword(clsGlobalSettings.currentUser);
+                _changeUserPassword = new frmChangeUserPassword(clsGlobal.currentUser);
             }
 
             _changeUserPassword.MdiParent = this;

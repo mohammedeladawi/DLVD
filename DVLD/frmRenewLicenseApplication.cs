@@ -30,7 +30,7 @@ namespace DVLD
             lblAppDate.Text = todayDate.ToString("dd/MM/yyyy");
             lblIssueDate.Text = todayDate.ToString("dd/MM/yyyy");
             lblApplicationFees.Text = _applicationType.Fees.ToString();
-            lblCreatedBy.Text = clsGlobalSettings.currentUser.UserName;
+            lblCreatedBy.Text = clsGlobal.currentUser.UserName;
         }
 
 
@@ -80,7 +80,7 @@ namespace DVLD
             application.ApplicationDate = DateTime.Now;
             application.ApplicationTypeID = (byte)enApplicationTypes.RenewDrivingLicenseService;
             application.PaidFees = _applicationType.Fees;
-            application.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            application.CreatedByUserID = clsGlobal.currentUser.UserID;
         }
 
         private bool DeactivateOldLicense()
@@ -101,7 +101,7 @@ namespace DVLD
             _newLicense.PaidFees = licenseClass.ClassFees;
             _newLicense.IsActive = true;
             _newLicense.IssueReason = (byte)enIssueReasons.Renew;
-            _newLicense.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            _newLicense.CreatedByUserID = clsGlobal.currentUser.UserID;
             return _newLicense.Save();
         }
         private void ctrIssueBtn1_Click(object sender, EventArgs e)

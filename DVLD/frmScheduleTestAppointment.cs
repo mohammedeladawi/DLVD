@@ -77,7 +77,7 @@ namespace DVLD
             retakeTestApplication.ApplicationTypeID = 7;
             retakeTestApplication.ApplicationDate = DateTime.Now;
             retakeTestApplication.ApplicationPersonID = _ldlApplication.Application.ApplicationPersonID;
-            retakeTestApplication.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            retakeTestApplication.CreatedByUserID = clsGlobal.currentUser.UserID;
             retakeTestApplication.PaidFees = retakeTestFees;
 
             if (retakeTestApplication.Save())
@@ -94,7 +94,7 @@ namespace DVLD
             _testAppointment.AppointmentDate = selectedDate;
             _testAppointment.TestTypeID = _testType.TestTypeID;
             _testAppointment.LDLApplicationID = _ldlApplication.LocalDrivingLicenseApplicationID;
-            _testAppointment.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            _testAppointment.CreatedByUserID = clsGlobal.currentUser.UserID;
             _testAppointment.PaidFees = _testType.Fees;
 
             // retake test

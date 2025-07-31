@@ -39,7 +39,7 @@ namespace DVLD
             llblShowLicenseInfo.Enabled = false;
             DateTime todayDate = DateTime.Now;
             lblAppDate.Text = todayDate.ToString("dd/MM/yyyy");
-            lblCreatedBy.Text = clsGlobalSettings.currentUser.UserName;
+            lblCreatedBy.Text = clsGlobal.currentUser.UserName;
         }
 
         private void frmReplacementApplication_Load(object sender, EventArgs e)
@@ -94,7 +94,7 @@ namespace DVLD
             application.ApplicationDate = DateTime.Now;
             application.ApplicationTypeID = Convert.ToByte(_applicationType.ApplicationTypeID);
             application.PaidFees = _applicationType.Fees;
-            application.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            application.CreatedByUserID = clsGlobal.currentUser.UserID;
         }
 
         private bool DeactivateOldLicense()
@@ -123,7 +123,7 @@ namespace DVLD
             _newLicense.PaidFees = _applicationType.Fees;
             _newLicense.IsActive = true;
             _newLicense.IssueReason = GetIssueReason();
-            _newLicense.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            _newLicense.CreatedByUserID = clsGlobal.currentUser.UserID;
             return _newLicense.Save();
         }
 

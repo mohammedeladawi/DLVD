@@ -113,7 +113,7 @@ namespace DVLD
             application.ApplicationDate = DateTime.Now;
             application.ApplicationTypeID = Convert.ToByte(_applicationType.ApplicationTypeID);
             application.PaidFees = _applicationType.Fees;
-            application.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            application.CreatedByUserID = clsGlobal.currentUser.UserID;
 
         }
 
@@ -121,7 +121,7 @@ namespace DVLD
         {
             _detainedLicense.IsReleased = true;
             _detainedLicense.ReleaseDate = DateTime.Now;
-            _detainedLicense.ReleaseByUserID = clsGlobalSettings.currentUser.UserID;
+            _detainedLicense.ReleaseByUserID = clsGlobal.currentUser.UserID;
             _detainedLicense.ReleaseApplicationID = applicationID;
         }
 

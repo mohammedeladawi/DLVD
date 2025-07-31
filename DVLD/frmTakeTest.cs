@@ -43,7 +43,7 @@ namespace DVLD
             test.TestAppointmentID = _testAppointment.TestAppointmentID;
             test.TestResult = rbPass.Checked;
             test.Notes = txtNotes.Text;
-            test.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            test.CreatedByUserID = clsGlobal.currentUser.UserID;
         }
         private void ctrSaveBtn1_Click(object sender, EventArgs e)
         {

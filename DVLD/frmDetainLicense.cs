@@ -28,7 +28,7 @@ namespace DVLD
 
             DateTime todayDate = DateTime.Now;
             lblDetainDate.Text = todayDate.ToString("dd/MM/yyyy");
-            lblCreatedBy.Text = clsGlobalSettings.currentUser.UserName;
+            lblCreatedBy.Text = clsGlobal.currentUser.UserName;
             txtFineFees.Text = "";
         }
 
@@ -94,7 +94,7 @@ namespace DVLD
         private void LoadDetainLicenseData(clsDetainedLicense detainLicense)
         {
             detainLicense.LicenseID = _license.LicenseID;
-            detainLicense.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            detainLicense.CreatedByUserID = clsGlobal.currentUser.UserID;
             detainLicense.DetainDate = DateTime.Now;
             if (decimal.TryParse(txtFineFees.Text, out decimal fineFees))
                 detainLicense.FineFees = fineFees;

@@ -18,11 +18,7 @@ namespace DVLD
             Application.SetCompatibleTextRenderingDefault(false);
 
             //------------------ ProductionLogic ------------------------
-            frmLogin Login = new frmLogin();
-            while (Login.ShowDialog() == DialogResult.OK)
-            {
-                Application.Run(new frmMain());
-            }
+            Application.Run(new frmLogin());
             //-------------------------------------------------------------
         }
     }

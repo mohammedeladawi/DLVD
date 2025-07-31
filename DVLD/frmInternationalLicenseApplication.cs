@@ -31,7 +31,7 @@ namespace DVLD
             lblIssueDate.Text = todayDate.ToString("dd/MM/yyyy");
             lblExpirationDate.Text = todayDate.AddYears(1).ToString("dd/MM/yyyy");
             lblFees.Text = _applicationType.Fees.ToString();
-            lblCreatedBy.Text = clsGlobalSettings.currentUser.UserName;
+            lblCreatedBy.Text = clsGlobal.currentUser.UserName;
         }
         
         private void frmInternationalLicenseApplication_Load(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace DVLD
             application.ApplicationDate = todayDate;
             application.ApplicationTypeID = Convert.ToByte(_applicationType.ApplicationTypeID);
             application.PaidFees = _applicationType.Fees;
-            application.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            application.CreatedByUserID = clsGlobal.currentUser.UserID;
         }
         
         private void LoadILicenseData(clsInternationalLicense internationalLicense, int applicationID)
@@ -99,7 +99,7 @@ namespace DVLD
             internationalLicense.IssueDate = todayDate;
             internationalLicense.ExpirationDate = todayDate.AddYears(1);
             internationalLicense.IsActive = true;
-            internationalLicense.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            internationalLicense.CreatedByUserID = clsGlobal.currentUser.UserID;
         }
         
         private void UpdateInternationApplicationFields(clsInternationalLicense internationalLicense)

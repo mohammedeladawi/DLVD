@@ -89,7 +89,7 @@
     <Compile Include="ctrUserPersonInformation.Designer.cs">
       <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="ErrProviderUtilities.cs" />
+    <Compile Include="Global Classes\ErrProviderUtilities.cs" />
     <Compile Include="frmDetainLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,10 +228,10 @@
     <Compile Include="frmChangeUserPassword.Designer.cs">
       <DependentUpon>frmChangeUserPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
+    <Compile Include="Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
@@ -312,7 +312,7 @@
     <Compile Include="frmManageTestAppointments.Designer.cs">
       <DependentUpon>frmManageTestAppointments.cs</DependentUpon>
     </Compile>
-    <Compile Include="GlobalSettings.cs" />
+    <Compile Include="Global Classes\clsGlobal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ctrDriverLicenseInfo.resx">
@@ -405,7 +405,7 @@
     <EmbeddedResource Include="frmChangeUserPassword.resx">
       <DependentUpon>frmChangeUserPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
@@ -521,5 +521,9 @@
   <ItemGroup>
     <None Include="Resources\test.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeBlack32.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

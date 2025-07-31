@@ -29,37 +29,42 @@ namespace DVLD
         {
             string username = txtUserName.Text;
             string password = txtPassword.Text;
+            
 
-            clsGlobalSettings.currentUser = clsUser.FindByUsernameAndPassword(username, password);
-
-            if (clsGlobalSettings.currentUser == null)
+            clsGlobal.currentUser = clsUser.FindByUsernameAndPassword(username, password);
+            if (clsGlobal.currentUser == null)
             {
                 MessageBox.Show("Invalid UserName or Password!");
                 return;
             }
 
-            if (!cbRememberMe.Checked)
-            {
-                ClearLoginFields();
-            }
+            if (cbRememberMe.Checked)
+                clsGlobal.RememberUsernameAndPassword(username, password);
+            else
+                clsGlobal.RememberUsernameAndPassword("", "");
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            this.Hide();
+            Form frmMain1 = new frmMain(this);
+            frmMain1.ShowDialog();
         }
-
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            // TODO: Rememmber ME (Functionality)
-            //------------------------------------------ DX
+            ClearLoginFields();
+            string username = "";
+            string password = "";
 
-            clsUser currUser = clsGlobalSettings.currentUser;
+            if (clsGlobal.GetStoredCredintials(ref username, ref password))
+            {
+                txtUserName.Text = username;
+                txtPassword.Text = password;
+                cbRememberMe.Checked = true;
+            }
+        }
 
-            if (currUser == null)
-                return;
-
-            txtUserName.Text = currUser.UserName;
-            txtPassword.Text = currUser.Password;
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

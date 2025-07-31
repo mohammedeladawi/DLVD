@@ -22,7 +22,7 @@ namespace DVLD
         private bool InsertDriverData(clsDriver driver)
         {
             driver.PersonID = _ldlApplication.Application.Person.PersonId;
-            driver.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            driver.CreatedByUserID = clsGlobal.currentUser.UserID;
             driver.CreatedDate = DateTime.Now;
 
             return driver.Save();
@@ -39,7 +39,7 @@ namespace DVLD
             license.PaidFees = _ldlApplication.LicenseClass.ClassFees;
             license.IsActive = true;
             license.IssueReason = 1;
-            license.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            license.CreatedByUserID = clsGlobal.currentUser.UserID;
 
             return license.Save();
         }

@@ -75,7 +75,7 @@ namespace DVLD
 
             lblApplicationDate.Text = applicationDate.ToShortDateString();
             lblApplicationFees.Text = "$" + applicationTypeFees.ToString();
-            lblCreatedBy.Text = clsGlobalSettings.currentUser.UserName.ToString();
+            lblCreatedBy.Text = clsGlobal.currentUser.UserName.ToString();
         }
 
 
@@ -133,7 +133,7 @@ namespace DVLD
             _ldlApplication.Application.ApplicationPersonID = _person.PersonId;
             _ldlApplication.Application.ApplicationDate = DateTime.Now;
             _ldlApplication.Application.PaidFees = _ldlApplication.Application.ApplicationType.Fees;
-            _ldlApplication.Application.CreatedByUserID = clsGlobalSettings.currentUser.UserID;
+            _ldlApplication.Application.CreatedByUserID = clsGlobal.currentUser.UserID;
         }
 
         private void ctrSaveBtn1_Click(object sender, EventArgs e)
