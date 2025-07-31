@@ -1,239 +1,158 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace DVLD
 {
     public partial class frmMain : Form
     {
-        public frmMain(Form loginForm)
+        Form _frmLogin;
+        public frmMain(frmLogin frm)
         {
             InitializeComponent();
+            _frmLogin = frm;
         }
-
-        Form _managePeople = new frmManagePeople(),
-             _manageUsers = new frmManageUsers(),
-             _userDetails = new frmUserDetails(clsGlobal.currentUser),
-             _changeUserPassword = new frmChangeUserPassword(clsGlobal.currentUser),
-             _manageApplicationTypes = new frmManageApplicationTypes(),
-             _manageTestTypes = new frmManageTestTypes(),
-             _manageLDLApplications = new frmManageLDLApplications(),
-             _manageDrivers = new frmManageDrivers(),
-             _addEditLDLApp = new frmAddEditLDLApplication(),
-             _issueInternationalDL = new frmInternationalLicenseApplication(),
-             _renewDrivingLicense = new frmRenewLicenseApplication(),
-             _replaceLostDamagedLicense = new frmReplacementApplication(),
-             _releaseDetainedLicense = new frmReleaseDetainedLicense(),
-            _manageIDLApplications = new frmManageILDApplications(),
-            _detainLicense = new frmDetainLicense(), 
-            _manageDetainedLicenses = new frmManageDetainedLicense();
-            
 
         private void tsmiPeople_Click(object sender, EventArgs e)
         {
-            if (_managePeople.IsDisposed)
+            using (var frm = new frmManagePeople())
             {
-                _managePeople = new frmManagePeople();
+                frm.ShowDialog();
             }
-
-            _managePeople.MdiParent = this;
-            _managePeople.Show();
         }
 
         private void tsmiSignOut_Click(object sender, EventArgs e)
         {
             this.Close();
+            _frmLogin.Show();
         }
 
         private void frmManageIDLApplications_Click(object sender, EventArgs e)
         {
-            if (_manageIDLApplications.IsDisposed)
+            using (var frm = new frmManageILDApplications())
             {
-                _manageIDLApplications = new frmManageILDApplications();
+                frm.ShowDialog();
             }
-
-            _manageLDLApplications.MdiParent = this;
-            _manageIDLApplications.Show();
         }
 
         private void tsmiReleaseDetainedLicense2_Click(object sender, EventArgs e)
         {
-            if (_releaseDetainedLicense.IsDisposed)
+            using (var frm = new frmReleaseDetainedLicense())
             {
-                _releaseDetainedLicense = new frmReleaseDetainedLicense();
+                frm.ShowDialog();
             }
-
-            _releaseDetainedLicense.MdiParent = this;
-            _releaseDetainedLicense.Show();
         }
 
         private void tsmiDetainLicense_Click_1(object sender, EventArgs e)
         {
-            if (_detainLicense.IsDisposed)
+            using (var frm = new frmDetainLicense())
             {
-                _detainLicense = new frmDetainLicense();
+                frm.ShowDialog();
             }
-
-            _detainLicense.MdiParent = this;
-            _detainLicense.Show();
         }
 
         private void tsmiManageDetainedLicense_Click(object sender, EventArgs e)
         {
-            if (_manageDetainedLicenses.IsDisposed)
+            using (var frm = new frmManageDetainedLicense())
             {
-                _manageDetainedLicenses = new frmManageDetainedLicense();
+                frm.ShowDialog();
             }
-
-            _manageDetainedLicenses.MdiParent = this;
-            _manageDetainedLicenses.Show();
         }
 
         private void tsmiManageTestTypes_Click(object sender, EventArgs e)
         {
-            if (_manageTestTypes.IsDisposed)
+            using (var frm = new frmManageTestTypes())
             {
-                _manageTestTypes = new frmManageTestTypes();
+                frm.ShowDialog();
             }
-
-            _manageTestTypes.MdiParent = this;
-            _manageTestTypes.Show();
         }
 
         private void tsmiManageApplicationTypes_Click(object sender, EventArgs e)
         {
-            if (_manageApplicationTypes.IsDisposed)
+            using (var frm = new frmManageApplicationTypes())
             {
-                _manageApplicationTypes = new frmManageApplicationTypes();
+                frm.ShowDialog();
             }
-
-            _manageApplicationTypes.MdiParent = this;
-            _manageApplicationTypes.Show();
         }
-
 
         private void tsmiManageLDLApplications_Click(object sender, EventArgs e)
         {
-            if (_manageLDLApplications.IsDisposed)
+            using (var frm = new frmManageLDLApplications())
             {
-                _manageLDLApplications = new frmManageLDLApplications();
+                frm.ShowDialog();
             }
-
-            _manageLDLApplications.MdiParent = this;
-            _manageLDLApplications.Show();
-        }
-
-        private void tsmiRetakeTest_Click(object sender, EventArgs e)
-        {
-            //---------------Todo----------------------
         }
 
         private void tsmiReleaseDetainedLicense_Click(object sender, EventArgs e)
         {
-
-            if (_releaseDetainedLicense.IsDisposed)
+            using (var frm = new frmReleaseDetainedLicense())
             {
-                _releaseDetainedLicense = new frmReleaseDetainedLicense();
+                frm.ShowDialog();
             }
-
-            _releaseDetainedLicense.MdiParent = this;
-            _releaseDetainedLicense.Show();
         }
 
         private void tsmiReplaceLostDamagedLicense_Click(object sender, EventArgs e)
         {
-            if (_replaceLostDamagedLicense.IsDisposed)
+            using (var frm = new frmReplacementApplication())
             {
-                _replaceLostDamagedLicense = new frmReplacementApplication();
+                frm.ShowDialog();
             }
-
-            _replaceLostDamagedLicense.MdiParent = this;
-            _replaceLostDamagedLicense.Show();
         }
 
         private void tsmiRenewDrivingLicense_Click(object sender, EventArgs e)
         {
-            if (_renewDrivingLicense.IsDisposed)
+            using (var frm = new frmRenewLicenseApplication())
             {
-                _renewDrivingLicense = new frmRenewLicenseApplication();
+                frm.ShowDialog();
             }
-
-            _renewDrivingLicense.MdiParent = this;
-            _renewDrivingLicense.Show();
         }
 
         private void tsmiIssueInternationalLicense_Click(object sender, EventArgs e)
         {
-            if (_issueInternationalDL.IsDisposed)
+            using (var frm = new frmInternationalLicenseApplication())
             {
-                _issueInternationalDL = new frmInternationalLicenseApplication();
+                frm.ShowDialog();
             }
-
-            _issueInternationalDL.MdiParent = this;
-            _issueInternationalDL.Show();
         }
 
         private void tsmiNewLDL_Click(object sender, EventArgs e)
         {
-            if (_addEditLDLApp.IsDisposed)
+            using (var frm = new frmAddEditLDLApplication())
             {
-                _addEditLDLApp = new frmAddEditLDLApplication();
+                frm.ShowDialog();
             }
-
-            _addEditLDLApp.MdiParent = this;
-            _addEditLDLApp.Show();
         }
-
 
         private void tsmiDrivers_Click(object sender, EventArgs e)
         {
-            if (_manageDrivers.IsDisposed)
+            using (var frm = new frmManageDrivers())
             {
-                _manageDrivers = new frmManageDrivers();
+                frm.ShowDialog();
             }
-
-            _manageDrivers.MdiParent = this;
-            _manageDrivers.Show();
         }
-
 
         private void tsmiCurrUserInfo_Click(object sender, EventArgs e)
         {
-            if (_userDetails.IsDisposed)
+            using (var frm = new frmUserDetails(clsGlobal.currentUser))
             {
-                _userDetails = new frmUserDetails(clsGlobal.currentUser);
+                frm.ShowDialog();
             }
-
-            _userDetails.MdiParent = this;
-            _userDetails.Show();
         }
 
         private void tsmiChangeCurrUserPassword_Click(object sender, EventArgs e)
         {
-            if (_changeUserPassword.IsDisposed)
+            using (var frm = new frmChangeUserPassword(clsGlobal.currentUser))
             {
-                _changeUserPassword = new frmChangeUserPassword(clsGlobal.currentUser);
+                frm.ShowDialog();
             }
-
-            _changeUserPassword.MdiParent = this;
-            _changeUserPassword.Show();
         }
 
         private void tsmiUsers_Click(object sender, EventArgs e)
         {
-            if (_manageUsers.IsDisposed)
+            using (var frm = new frmManageUsers())
             {
-                _manageUsers = new frmManageUsers();
+                frm.ShowDialog();
             }
-
-            _manageUsers.MdiParent = this;
-            _manageUsers.Show();
         }
     }
 }
