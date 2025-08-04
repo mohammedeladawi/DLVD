@@ -34,7 +34,7 @@
             this.showLicenseInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
-            this.ctrManageData1 = new DVLD.ctrManageDataView();
+            this.ctrManageData1 = new DVLD.ctrFilterDataView();
             this.cmsIDLApplications.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,7 +103,7 @@
 
         #endregion
 
-        private ctrManageDataView ctrManageData1;
+        private ctrFilterDataView ctrManageData1;
         private ctrCloseBtn ctrCloseBtn1;
         private System.Windows.Forms.ContextMenuStrip cmsIDLApplications;
         private System.Windows.Forms.ToolStripMenuItem showPersonDetailsToolStripMenuItem;

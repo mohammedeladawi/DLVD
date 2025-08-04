@@ -17,20 +17,14 @@ namespace DVLD
         public frmManagePeople()
         {
             InitializeComponent();
-
-            ctrManageData1.LoadTitle("Manage People");
-            ctrManageData1.SetContextMenuStrip(cmsPeople);
-
-            _LoadPeopleData();
         }
 
-        private void _AddNewPersonDialog()
+        private void AddNewPersonDialog()
         {
             Form frmAddPerson = new frmAddEditPerson();
             frmAddPerson.FormClosed += frmAddEditPerson_Closed;
             frmAddPerson.ShowDialog();
         }
-
         private void _UpdatePersonDialog(int PersonID)
         {
             Form frmAddPerson = new frmAddEditPerson(PersonID);
@@ -47,7 +41,7 @@ namespace DVLD
                 if (clsPerson.DeleteByID(PersonID))
                 {
                     MessageBox.Show("Person has been deleted Succesfully.");
-                    _LoadPeopleData();
+                    ReloadPeopleData();
                 }
                 else
                 {
@@ -63,7 +57,7 @@ namespace DVLD
             frmPersonInfo.ShowDialog();
         }
             
-        private void _LoadPeopleData()
+        private void ReloadPeopleData()
         {
             DataTable dt = clsPerson.GetAllPersonsInfo();
             ctrManageData1.LoadData(dt);
@@ -71,17 +65,17 @@ namespace DVLD
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
-            _AddNewPersonDialog();
+            AddNewPersonDialog();
         }
 
         private void frmAddEditPerson_Closed(object sender, FormClosedEventArgs e)
         {
-            _LoadPeopleData();
+            ReloadPeopleData();
         }
 
         private void tsmiAddNewPerson_Click(object sender, EventArgs e)
         {
-            _AddNewPersonDialog();
+            AddNewPersonDialog();
         }
 
         private int GetSelectedPersonID()
@@ -142,8 +136,17 @@ namespace DVLD
 
         private void frmPersonDetails_Closed(object sender, FormClosedEventArgs e)
         {
-            _LoadPeopleData();
+            ReloadPeopleData();
         }
 
+        private void ctrManageData1_Load(object sender, EventArgs e)
+        {
+
+            ctrManageData1.LoadTitle("Manage People");
+            ctrManageData1.SetContextMenuStrip(cmsPeople);
+
+            DataTable dt = clsPerson.GetAllPersonsInfo();
+            ctrManageData1.LoadData(dt);
+        }
     }
 }

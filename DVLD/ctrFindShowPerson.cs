@@ -89,9 +89,9 @@ namespace DVLD
             frmAddEditPerson.ShowDialog();
         }
 
-        private void FrmAddEditPerson_DataBack(object sender, clsPerson person)
+        private void FrmAddEditPerson_DataBack(object sender, int personID)
         {
-            this.person = person;
+            this.person = clsPerson.FindByID(personID);
             SetFindShowPersonFields();
         }
 

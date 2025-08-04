@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrManageDataView1 = new DVLD.ctrManageDataView();
+            this.ctrManageDataView1 = new DVLD.ctrFilterDataView();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
 
         #endregion
 
-        private ctrManageDataView ctrManageDataView1;
+        private ctrFilterDataView ctrManageDataView1;
         private ctrCloseBtn ctrCloseBtn1;
     }
 }

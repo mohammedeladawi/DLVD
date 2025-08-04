@@ -71,10 +71,11 @@
     <Compile Include="ctrLDLApplicationInfo.Designer.cs">
       <DependentUpon>ctrLDLApplicationInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrDataView.cs">
+    <Compile Include="Global Classes\clsUtil.cs" />
+    <Compile Include="Reusable Controls\ctrDataView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrDataView.Designer.cs">
+    <Compile Include="Reusable Controls\ctrDataView.Designer.cs">
       <DependentUpon>ctrDataView.cs</DependentUpon>
     </Compile>
     <Compile Include="ctrManageTestApplicationInfo.cs">
@@ -83,10 +84,10 @@
     <Compile Include="ctrManageTestApplicationInfo.Designer.cs">
       <DependentUpon>ctrManageTestApplicationInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrUserPersonInformation.cs">
+    <Compile Include="Users\Controls\ctrUserPersonInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrUserPersonInformation.Designer.cs">
+    <Compile Include="Users\Controls\ctrUserPersonInformation.Designer.cs">
       <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Global Classes\ErrProviderUtilities.cs" />
@@ -120,16 +121,16 @@
     <Compile Include="frmManageDrivers.Designer.cs">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAddEditPerson.cs">
+    <Compile Include="People\frmAddEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddEditPerson.Designer.cs">
+    <Compile Include="People\frmAddEditPerson.Designer.cs">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrCloseBtn.cs">
+    <Compile Include="Reusable Controls\ctrCloseBtn.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrCloseBtn.Designer.cs">
+    <Compile Include="Reusable Controls\ctrCloseBtn.Designer.cs">
       <DependentUpon>ctrCloseBtn.cs</DependentUpon>
     </Compile>
     <Compile Include="ctrFindShowPerson.cs">
@@ -138,11 +139,11 @@
     <Compile Include="ctrFindShowPerson.Designer.cs">
       <DependentUpon>ctrFindShowPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrManageDataView.cs">
+    <Compile Include="Reusable Controls\ctrFilterDataView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrManageDataView.Designer.cs">
-      <DependentUpon>ctrManageDataView.cs</DependentUpon>
+    <Compile Include="Reusable Controls\ctrFilterDataView.Designer.cs">
+      <DependentUpon>ctrFilterDataView.cs</DependentUpon>
     </Compile>
     <Compile Include="ctrNextBtn.cs">
       <SubType>UserControl</SubType>
@@ -150,22 +151,22 @@
     <Compile Include="ctrNextBtn.Designer.cs">
       <DependentUpon>ctrNextBtn.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrPersonInformation.cs">
+    <Compile Include="People\Controls\ctrPersonInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrPersonInformation.Designer.cs">
+    <Compile Include="People\Controls\ctrPersonInformation.Designer.cs">
       <DependentUpon>ctrPersonInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrSaveBtn.cs">
+    <Compile Include="Reusable Controls\ctrSaveBtn.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrSaveBtn.Designer.cs">
+    <Compile Include="Reusable Controls\ctrSaveBtn.Designer.cs">
       <DependentUpon>ctrSaveBtn.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrUserInformation.cs">
+    <Compile Include="Users\Controls\ctrUserInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrUserInformation.Designer.cs">
+    <Compile Include="Users\Controls\ctrUserInformation.Designer.cs">
       <DependentUpon>ctrUserInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDriverLicenseInfo.cs">
@@ -216,10 +217,10 @@
     <Compile Include="frmScheduleTestAppointment.Designer.cs">
       <DependentUpon>frmScheduleTestAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAddUpdateUser.cs">
+    <Compile Include="Users\frmAddUpdateUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddUpdateUser.Designer.cs">
+    <Compile Include="Users\frmAddUpdateUser.Designer.cs">
       <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
     </Compile>
     <Compile Include="frmChangeUserPassword.cs">
@@ -258,10 +259,10 @@
     <Compile Include="frmManageTestTypes.Designer.cs">
       <DependentUpon>frmManageTestTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmManageUsers.cs">
+    <Compile Include="Users\frmManageUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmManageUsers.Designer.cs">
+    <Compile Include="Users\frmManageUsers.Designer.cs">
       <DependentUpon>frmManageUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddEditLDLApplication.cs">
@@ -270,10 +271,10 @@
     <Compile Include="frmAddEditLDLApplication.Designer.cs">
       <DependentUpon>frmAddEditLDLApplication.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPersonDetails.cs">
+    <Compile Include="People\frmPersonDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPersonDetails.Designer.cs">
+    <Compile Include="People\frmPersonDetails.Designer.cs">
       <DependentUpon>frmPersonDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTakeTest.cs">
@@ -294,16 +295,16 @@
     <Compile Include="frmUpdateTestType.Designer.cs">
       <DependentUpon>frmUpdateTestType.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUserDetails.cs">
+    <Compile Include="Users\frmUserDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUserDetails.Designer.cs">
+    <Compile Include="Users\frmUserDetails.Designer.cs">
       <DependentUpon>frmUserDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmManagePeople.cs">
+    <Compile Include="People\frmManagePeople.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmManagePeople.Designer.cs">
+    <Compile Include="People\frmManagePeople.Designer.cs">
       <DependentUpon>frmManagePeople.cs</DependentUpon>
     </Compile>
     <Compile Include="frmManageTestAppointments.cs">
@@ -327,13 +328,13 @@
     <EmbeddedResource Include="ctrLDLApplicationInfo.resx">
       <DependentUpon>ctrLDLApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrDataView.resx">
+    <EmbeddedResource Include="Reusable Controls\ctrDataView.resx">
       <DependentUpon>ctrDataView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctrManageTestApplicationInfo.resx">
       <DependentUpon>ctrManageTestApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrUserPersonInformation.resx">
+    <EmbeddedResource Include="Users\Controls\ctrUserPersonInformation.resx">
       <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDetainLicense.resx">
@@ -351,28 +352,28 @@
     <EmbeddedResource Include="frmManageDrivers.resx">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddEditPerson.resx">
+    <EmbeddedResource Include="People\frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrCloseBtn.resx">
+    <EmbeddedResource Include="Reusable Controls\ctrCloseBtn.resx">
       <DependentUpon>ctrCloseBtn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctrFindShowPerson.resx">
       <DependentUpon>ctrFindShowPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrManageDataView.resx">
-      <DependentUpon>ctrManageDataView.cs</DependentUpon>
+    <EmbeddedResource Include="Reusable Controls\ctrFilterDataView.resx">
+      <DependentUpon>ctrFilterDataView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctrNextBtn.resx">
       <DependentUpon>ctrNextBtn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrPersonInformation.resx">
+    <EmbeddedResource Include="People\Controls\ctrPersonInformation.resx">
       <DependentUpon>ctrPersonInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrSaveBtn.resx">
+    <EmbeddedResource Include="Reusable Controls\ctrSaveBtn.resx">
       <DependentUpon>ctrSaveBtn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrUserInformation.resx">
+    <EmbeddedResource Include="Users\Controls\ctrUserInformation.resx">
       <DependentUpon>ctrUserInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDriverLicenseInfo.resx">
@@ -399,7 +400,7 @@
     <EmbeddedResource Include="frmScheduleTestAppointment.resx">
       <DependentUpon>frmScheduleTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddUpdateUser.resx">
+    <EmbeddedResource Include="Users\frmAddUpdateUser.resx">
       <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChangeUserPassword.resx">
@@ -420,13 +421,13 @@
     <EmbeddedResource Include="frmManageTestTypes.resx">
       <DependentUpon>frmManageTestTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmManageUsers.resx">
+    <EmbeddedResource Include="Users\frmManageUsers.resx">
       <DependentUpon>frmManageUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddEditLDLApplication.resx">
       <DependentUpon>frmAddEditLDLApplication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPersonDetails.resx">
+    <EmbeddedResource Include="People\frmPersonDetails.resx">
       <DependentUpon>frmPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTakeTest.resx">
@@ -438,10 +439,10 @@
     <EmbeddedResource Include="frmUpdateTestType.resx">
       <DependentUpon>frmUpdateTestType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUserDetails.resx">
+    <EmbeddedResource Include="Users\frmUserDetails.resx">
       <DependentUpon>frmUserDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmManagePeople.resx">
+    <EmbeddedResource Include="People\frmManagePeople.resx">
       <DependentUpon>frmManagePeople.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageTestAppointments.resx">
@@ -556,6 +557,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Release Detained License 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Female.png" />
+    <None Include="Resources\Female1.png" />
+    <Content Include="Resources\Male.png" />
+    <None Include="Resources\Male1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

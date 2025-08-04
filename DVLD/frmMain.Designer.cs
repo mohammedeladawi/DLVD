@@ -68,7 +68,7 @@
             this.tsmiAccountSettings});
             this.msDVLD.Location = new System.Drawing.Point(0, 0);
             this.msDVLD.Name = "msDVLD";
-            this.msDVLD.Size = new System.Drawing.Size(1870, 42);
+            this.msDVLD.Size = new System.Drawing.Size(1870, 40);
             this.msDVLD.TabIndex = 1;
             this.msDVLD.Text = "menuStrip1";
             // 
@@ -82,7 +82,7 @@
             this.tsmiManageTestTypes});
             this.tsmiApplications.Image = global::DVLD.Properties.Resources.form__1_;
             this.tsmiApplications.Name = "tsmiApplications";
-            this.tsmiApplications.Size = new System.Drawing.Size(196, 38);
+            this.tsmiApplications.Size = new System.Drawing.Size(196, 36);
             this.tsmiApplications.Text = "Applications";
             // 
             // drivingLicenseToolStripMenuItem
@@ -228,7 +228,7 @@
             // 
             this.tsmiPeople.Image = global::DVLD.Properties.Resources.group;
             this.tsmiPeople.Name = "tsmiPeople";
-            this.tsmiPeople.Size = new System.Drawing.Size(138, 38);
+            this.tsmiPeople.Size = new System.Drawing.Size(138, 36);
             this.tsmiPeople.Text = "People";
             this.tsmiPeople.Click += new System.EventHandler(this.tsmiPeople_Click);
             // 
@@ -236,7 +236,7 @@
             // 
             this.tsmiDrivers.Image = global::DVLD.Properties.Resources.car;
             this.tsmiDrivers.Name = "tsmiDrivers";
-            this.tsmiDrivers.Size = new System.Drawing.Size(140, 38);
+            this.tsmiDrivers.Size = new System.Drawing.Size(140, 36);
             this.tsmiDrivers.Text = "Drivers";
             this.tsmiDrivers.Click += new System.EventHandler(this.tsmiDrivers_Click);
             // 
@@ -244,7 +244,7 @@
             // 
             this.tsmiUsers.Image = global::DVLD.Properties.Resources.status_available;
             this.tsmiUsers.Name = "tsmiUsers";
-            this.tsmiUsers.Size = new System.Drawing.Size(123, 38);
+            this.tsmiUsers.Size = new System.Drawing.Size(123, 36);
             this.tsmiUsers.Text = "Users";
             this.tsmiUsers.Click += new System.EventHandler(this.tsmiUsers_Click);
             // 
@@ -256,7 +256,7 @@
             this.tsmiSignOut});
             this.tsmiAccountSettings.Image = global::DVLD.Properties.Resources.account_settings__1_;
             this.tsmiAccountSettings.Name = "tsmiAccountSettings";
-            this.tsmiAccountSettings.Size = new System.Drawing.Size(246, 38);
+            this.tsmiAccountSettings.Size = new System.Drawing.Size(246, 36);
             this.tsmiAccountSettings.Text = "Account Settings";
             // 
             // tsmiCurrUserInfo
@@ -287,8 +287,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.BackgroundImage = global::DVLD.Properties.Resources.vecteezy_male_character_sitting_in_a_new_car_the_man_took_the_driving_5605324;
+            this.BackColor = System.Drawing.Color.OrangeRed;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1870, 1055);
             this.Controls.Add(this.msDVLD);

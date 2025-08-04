@@ -43,7 +43,7 @@
             this.tsmiShowLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiShowPersonLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
-            this.ctrManageData1 = new DVLD.ctrManageDataView();
+            this.ctrManageData1 = new DVLD.ctrFilterDataView();
             this.cmsManageLDLApplications.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -186,7 +186,7 @@
         #endregion
 
         private ctrCloseBtn ctrCloseBtn1;
-        private ctrManageDataView ctrManageData1;
+        private ctrFilterDataView ctrManageData1;
         private System.Windows.Forms.ContextMenuStrip cmsManageLDLApplications;
         private System.Windows.Forms.ToolStripMenuItem tsmiAddNewLDLApplication;
         private System.Windows.Forms.ToolStripMenuItem tsmiEditApplication;

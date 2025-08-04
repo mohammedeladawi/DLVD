@@ -35,7 +35,7 @@
             this.tsmiEditUser = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDeleteUser = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiChangeUserPassword = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctrManageData1 = new DVLD.ctrManageDataView();
+            this.ctrManageData1 = new DVLD.ctrFilterDataView();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
             this.cmsUsers.SuspendLayout();
             this.SuspendLayout();
@@ -122,7 +122,7 @@
 
         #endregion
 
-        private ctrManageDataView ctrManageData1;
+        private ctrFilterDataView ctrManageData1;
         private System.Windows.Forms.ContextMenuStrip cmsUsers;
         private System.Windows.Forms.ToolStripMenuItem tsmiShowUserDetails;
         private System.Windows.Forms.ToolStripMenuItem tsmiAddNewUser;

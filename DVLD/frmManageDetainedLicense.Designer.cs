@@ -35,7 +35,7 @@
             this.tsmiShowPersonLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiReleaseDetainedLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
-            this.ctrManageDataView1 = new DVLD.ctrManageDataView();
+            this.ctrManageDataView1 = new DVLD.ctrFilterDataView();
             this.btnRelease = new System.Windows.Forms.Button();
             this.btnDetain = new System.Windows.Forms.Button();
             this.cmsManageDetainedLicenses.SuspendLayout();
@@ -135,7 +135,7 @@
 
         #endregion
 
-        private ctrManageDataView ctrManageDataView1;
+        private ctrFilterDataView ctrManageDataView1;
         private ctrCloseBtn ctrCloseBtn1;
         private System.Windows.Forms.ContextMenuStrip cmsManageDetainedLicenses;
         private System.Windows.Forms.ToolStripMenuItem tsmiShowPersonDetails;

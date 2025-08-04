@@ -13,13 +13,11 @@ namespace DVLD
 {
     public partial class frmPersonDetails : Form
     {
-        clsPerson _person;
         public frmPersonDetails(int personID)
         {
             InitializeComponent();
 
-            _person = clsPerson.FindByID(personID);
-            ctrPersonInformation1.LoadPersonInfo(_person);
+            ctrPersonInformation1.LoadPersonInfo(personID);
         }
     }
 }

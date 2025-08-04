@@ -1,6 +1,6 @@
 ﻿namespace DVLD
 {
-    partial class ctrManageDataView
+    partial class ctrFilterDataView
     {
         /// <summary> 
         /// Required designer variable.
