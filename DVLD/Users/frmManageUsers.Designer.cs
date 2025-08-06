@@ -90,7 +90,7 @@
             // ctrManageData1
             // 
             this.ctrManageData1.Location = new System.Drawing.Point(21, 10);
-            this.ctrManageData1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ctrManageData1.Margin = new System.Windows.Forms.Padding(1);
             this.ctrManageData1.Name = "ctrManageData1";
             this.ctrManageData1.Size = new System.Drawing.Size(1033, 588);
             this.ctrManageData1.TabIndex = 0;
@@ -98,7 +98,7 @@
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrCloseBtn1.Location = new System.Drawing.Point(946, 621);
+            this.ctrCloseBtn1.Location = new System.Drawing.Point(863, 589);
             this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ctrCloseBtn1.Name = "ctrCloseBtn1";
             this.ctrCloseBtn1.Size = new System.Drawing.Size(153, 42);
@@ -108,10 +108,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1110, 674);
+            this.ClientSize = new System.Drawing.Size(1081, 674);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.ctrManageData1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmManageUsers";
             this.Text = "frmManageUsers";
             this.Load += new System.EventHandler(this.frmManageUsers_Load);

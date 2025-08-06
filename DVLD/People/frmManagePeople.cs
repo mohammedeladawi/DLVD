@@ -25,14 +25,15 @@ namespace DVLD
             frmAddPerson.FormClosed += frmAddEditPerson_Closed;
             frmAddPerson.ShowDialog();
         }
-        private void _UpdatePersonDialog(int PersonID)
+
+        private void UpdatePersonDialog(int PersonID)
         {
             Form frmAddPerson = new frmAddEditPerson(PersonID);
             frmAddPerson.FormClosed += frmAddEditPerson_Closed;
             frmAddPerson.ShowDialog();
         }
 
-        private void _DeletePersonDialog(int PersonID)
+        private void DeletePersonDialog(int PersonID)
         {
             if (MessageBox.Show("Are you sure you want to delete this person?",
                 "Delete a Person", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
@@ -50,13 +51,13 @@ namespace DVLD
             }
         }
 
-        private void _ShowPersonDetailsDialog(int PersonID)
+        private void PersonDetailsDialog(int PersonID)
         {
             Form frmPersonInfo = new frmPersonDetails(PersonID);
             frmPersonInfo.FormClosed += frmPersonDetails_Closed;
             frmPersonInfo.ShowDialog();
         }
-            
+
         private void ReloadPeopleData()
         {
             DataTable dt = clsPerson.GetAllPersonsInfo();
@@ -92,46 +93,33 @@ namespace DVLD
             return PersonID;
         }
 
-        private void tsmiEditPersonInfo_Click(object sender, EventArgs e)
+        private bool TryGetSelectedPersonID(out int personID)
         {
-            int PersonID = GetSelectedPersonID();
-            
-            if (PersonID != -1)
-            {
-                _UpdatePersonDialog(PersonID);
-            }
-            else
+            personID = GetSelectedPersonID();
+            if (personID == -1)
             {
                 MessageBox.Show("There are no selected rows");
+                return false;
             }
+            return true;
+        }
+
+        private void tsmiEditPersonInfo_Click(object sender, EventArgs e)
+        {
+            if (TryGetSelectedPersonID(out int personID))
+                UpdatePersonDialog(personID);
         }
 
         private void tsmiDeletePerson_Click(object sender, EventArgs e)
         {
-            int PersonID = GetSelectedPersonID();
-
-            if (PersonID != -1)
-            {
-                _DeletePersonDialog(PersonID);
-            }
-            else
-            {
-                MessageBox.Show("There are no selected rows");
-            }
+            if (TryGetSelectedPersonID(out int personID))
+                DeletePersonDialog(personID);
         }
 
         private void tsmiShowPersonDetails_Click(object sender, EventArgs e)
         {
-            int PersonID = GetSelectedPersonID();
-
-            if (PersonID != -1)
-            {
-                _ShowPersonDetailsDialog(PersonID);
-            }
-            else
-            {
-                MessageBox.Show("There are no selected rows");
-            }
+            if (TryGetSelectedPersonID(out int personID))
+                PersonDetailsDialog(personID);
         }
 
         private void frmPersonDetails_Closed(object sender, FormClosedEventArgs e)

@@ -35,7 +35,7 @@
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrCloseBtn1.Location = new System.Drawing.Point(866, 561);
+            this.ctrCloseBtn1.Location = new System.Drawing.Point(822, 561);
             this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(1);
             this.ctrCloseBtn1.Name = "ctrCloseBtn1";
             this.ctrCloseBtn1.Size = new System.Drawing.Size(153, 42);
@@ -45,7 +45,7 @@
             // 
             this.ctrUserInformation11.Location = new System.Drawing.Point(20, 12);
             this.ctrUserInformation11.Name = "ctrUserInformation11";
-            this.ctrUserInformation11.Size = new System.Drawing.Size(1011, 622);
+            this.ctrUserInformation11.Size = new System.Drawing.Size(1011, 527);
             this.ctrUserInformation11.TabIndex = 3;
             // 
             // frmUserDetails
