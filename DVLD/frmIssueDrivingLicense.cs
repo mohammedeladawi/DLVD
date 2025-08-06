@@ -21,7 +21,7 @@ namespace DVLD
         }
         private bool InsertDriverData(clsDriver driver)
         {
-            driver.PersonID = _ldlApplication.Application.Person.PersonId;
+            driver.PersonID = _ldlApplication.Application.Person.PersonID;
             driver.CreatedByUserID = clsGlobal.currentUser.UserID;
             driver.CreatedDate = DateTime.Now;
 

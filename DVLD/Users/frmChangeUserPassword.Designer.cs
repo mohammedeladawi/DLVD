@@ -36,7 +36,7 @@
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.ctrSaveBtn1 = new DVLD.ctrSaveBtn();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
-            this.ctrUserPersonInformation1 = new DVLD.ctrUserPersonInformation();
+            this.ctrUserInformation11 = new DVLD.ctrUserInformation();
             this.SuspendLayout();
             // 
             // label1
@@ -75,7 +75,7 @@
             // txtCurrentPassword
             // 
             this.txtCurrentPassword.Location = new System.Drawing.Point(261, 598);
-            this.txtCurrentPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCurrentPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtCurrentPassword.Name = "txtCurrentPassword";
             this.txtCurrentPassword.PasswordChar = '*';
             this.txtCurrentPassword.Size = new System.Drawing.Size(185, 22);
@@ -85,7 +85,7 @@
             // txtNewPassword
             // 
             this.txtNewPassword.Location = new System.Drawing.Point(261, 639);
-            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.PasswordChar = '*';
             this.txtNewPassword.Size = new System.Drawing.Size(185, 22);
@@ -95,7 +95,7 @@
             // txtConfirmPassword
             // 
             this.txtConfirmPassword.Location = new System.Drawing.Point(261, 680);
-            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(185, 22);
             this.txtConfirmPassword.TabIndex = 4;
@@ -104,8 +104,8 @@
             // ctrSaveBtn1
             // 
             this.ctrSaveBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrSaveBtn1.Location = new System.Drawing.Point(889, 748);
-            this.ctrSaveBtn1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ctrSaveBtn1.Location = new System.Drawing.Point(868, 729);
+            this.ctrSaveBtn1.Margin = new System.Windows.Forms.Padding(1);
             this.ctrSaveBtn1.Name = "ctrSaveBtn1";
             this.ctrSaveBtn1.Size = new System.Drawing.Size(141, 42);
             this.ctrSaveBtn1.TabIndex = 2;
@@ -114,25 +114,26 @@
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrCloseBtn1.Location = new System.Drawing.Point(716, 748);
-            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ctrCloseBtn1.Location = new System.Drawing.Point(679, 729);
+            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(1);
             this.ctrCloseBtn1.Name = "ctrCloseBtn1";
             this.ctrCloseBtn1.Size = new System.Drawing.Size(153, 42);
             this.ctrCloseBtn1.TabIndex = 1;
             // 
-            // ctrUserPersonInformation1
+            // ctrUserInformation11
             // 
-            this.ctrUserPersonInformation1.Location = new System.Drawing.Point(22, 8);
-            this.ctrUserPersonInformation1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-            this.ctrUserPersonInformation1.Name = "ctrUserPersonInformation1";
-            this.ctrUserPersonInformation1.Size = new System.Drawing.Size(997, 579);
-            this.ctrUserPersonInformation1.TabIndex = 0;
+            this.ctrUserInformation11.Location = new System.Drawing.Point(3, 21);
+            this.ctrUserInformation11.Name = "ctrUserInformation11";
+            this.ctrUserInformation11.Size = new System.Drawing.Size(1011, 528);
+            this.ctrUserInformation11.TabIndex = 5;
             // 
             // frmChangeUserPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 538);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1040, 539);
+            this.Controls.Add(this.ctrUserInformation11);
             this.Controls.Add(this.txtConfirmPassword);
             this.Controls.Add(this.txtNewPassword);
             this.Controls.Add(this.txtCurrentPassword);
@@ -141,8 +142,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ctrSaveBtn1);
             this.Controls.Add(this.ctrCloseBtn1);
-            this.Controls.Add(this.ctrUserPersonInformation1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmChangeUserPassword";
             this.Text = "frmChangePassword";
             this.Load += new System.EventHandler(this.frmChangePassword_Load);
@@ -152,8 +152,6 @@
         }
 
         #endregion
-
-        private ctrUserPersonInformation ctrUserPersonInformation1;
         private ctrCloseBtn ctrCloseBtn1;
         private ctrSaveBtn ctrSaveBtn1;
         private System.Windows.Forms.Label label1;
@@ -162,5 +160,6 @@
         private System.Windows.Forms.TextBox txtCurrentPassword;
         private System.Windows.Forms.TextBox txtNewPassword;
         private System.Windows.Forms.TextBox txtConfirmPassword;
+        private ctrUserInformation ctrUserInformation11;
     }
 }

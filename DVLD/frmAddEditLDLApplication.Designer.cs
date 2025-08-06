@@ -32,7 +32,7 @@
             this.tcLDLApplication = new System.Windows.Forms.TabControl();
             this.tpPersonInfo = new System.Windows.Forms.TabPage();
             this.ctrNextBtn1 = new DVLD.ctrNextBtn();
-            this.ctrFindShowPerson1 = new DVLD.ctrFindShowPerson();
+            this.ctrFindShowPerson1 = new DVLD.ctrFindPersonInfo();
             this.tpApplicationInfo = new System.Windows.Forms.TabPage();
             this.cbLicenseClasses = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -282,7 +282,7 @@
         private System.Windows.Forms.TabControl tcLDLApplication;
         private System.Windows.Forms.TabPage tpPersonInfo;
         private System.Windows.Forms.TabPage tpApplicationInfo;
-        private ctrFindShowPerson ctrFindShowPerson1;
+        private ctrFindPersonInfo ctrFindShowPerson1;
         private ctrNextBtn ctrNextBtn1;
         private System.Windows.Forms.Label label2;
         private ctrSaveBtn ctrSaveBtn1;

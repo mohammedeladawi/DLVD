@@ -11,9 +11,10 @@ using DVLD_BusinessLayer;
 
 namespace DVLD
 {
-    public partial class ctrFindShowPerson : UserControl
+    public partial class ctrFindPersonInfo : UserControl
     {
         private clsPerson _person;
+        
         public clsPerson person
         {
             get
@@ -23,19 +24,11 @@ namespace DVLD
             set
             {
                 _person = value;
-                // Update User
-                SetFindShowPersonFields();
-
             }
         }
         
-        public ctrFindShowPerson()
+        public ctrFindPersonInfo()
         {
-            InitializeComponent();
-        }
-        public ctrFindShowPerson(clsPerson person)
-        {
-            this.person = person;
             InitializeComponent();
         }
 
@@ -45,22 +38,22 @@ namespace DVLD
             string searchTxt = txtSearch.Text;
             if (cmbFilter.SelectedItem == "NationalNo")
             {
-                person = clsPerson.FindByNationalNo(searchTxt);
+                _person = clsPerson.FindByNationalNo(searchTxt);
             }
-            else if (cmbFilter.SelectedItem == "PersonID" && int.TryParse(searchTxt, out int personId))
+            else if (cmbFilter.SelectedItem == "PersonID" && int.TryParse(searchTxt, out int personID))
             {   
-                person = clsPerson.FindByID(personId);
+                _person = clsPerson.FindByID(personID);
             }   
         }
         
-        private void SetFindShowPersonFields()
+        private void LoadPersonIntoUIFileds()
         {
-            if (person == null)
+            if (_person == null)
                 return;
             
             cmbFilter.SelectedItem = "PersonID";
-            txtSearch.Text = person.PersonId.ToString();
-            ctrPersonInformation1.LoadPersonInfo(person);
+            txtSearch.Text = _person.PersonID.ToString();
+            ctrPersonInformation1.LoadPersonInfo(_person.PersonID);
 
         }
         
@@ -70,16 +63,21 @@ namespace DVLD
             FindPerson();
             
             // Show Found Person
-            if (person != null)
-                ctrPersonInformation1.LoadPersonInfo(person);
+            if (_person != null)
+            {
+                ctrPersonInformation1.LoadPersonInfo(_person.PersonID);
+                DisableGbFindPerson();
+            }
             else
                 MessageBox.Show("Person is not exist");
         }
 
         private void ctrFindShowPerson_Load(object sender, EventArgs e)
         {
-            // Initialize cmbFilter
+            // Reset
             cmbFilter.SelectedItem = "PersonID";
+            txtSearch.Clear();
+            ctrPersonInformation1.ResetPersonInfoUI();
         }
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)
@@ -91,13 +89,23 @@ namespace DVLD
 
         private void FrmAddEditPerson_DataBack(object sender, int personID)
         {
-            this.person = clsPerson.FindByID(personID);
-            SetFindShowPersonFields();
+            _person = clsPerson.FindByID(personID);
+            LoadPersonIntoUIFileds();
+            DisableGbFindPerson();
         }
 
-        public void DisableFindPerson()
+        public void DisableGbFindPerson()
         {
             gbFindPerson.Enabled = false;
+        }
+    
+        public void LoadPerson(int personID)
+        {
+            _person = clsPerson.FindByID(personID);
+            
+            // Update User
+            LoadPersonIntoUIFileds();
+            DisableGbFindPerson();
         }
     }
 }

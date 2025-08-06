@@ -33,7 +33,7 @@ namespace DVLD
             lblInterLicenseID.Text = _internationalLicense.InternationalLicenseID.ToString();
             lblLicenseID.Text = _internationalLicense.IssuedUsingLocalLicenseID.ToString();
             lblNationalNo.Text = _driver.Person.NationalNo;
-            lblGendor.Text = _driver.Person.Gendor == 0 ? "Male" : "Female";
+            lblGendor.Text = _driver.Person.Gender == 0 ? "Male" : "Female";
             lblIssueDate.Text = _internationalLicense.IssueDate.ToString();
             lblExpirationDate.Text = _internationalLicense.ExpirationDate.ToString();
             lblIApplicationID.Text = _internationalLicense.ApplicationID.ToString();
@@ -53,7 +53,7 @@ namespace DVLD
             }
             else
             {
-                defaultImagePath = person.Gendor == 0
+                defaultImagePath = person.Gender == 0
                     ? @"C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\assets\images\man.png"
                     : @"C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\assets\images\woman.png";
 

@@ -23,7 +23,7 @@ namespace DVLD
             InitializeComponent();
         }
 
-        private void ResetPersonInfoUI()
+        public void ResetPersonInfoUI()
         {
             lblPersonID.Text = "[????]";
             lblNationalNo.Text = "[????]";
@@ -40,10 +40,10 @@ namespace DVLD
         private void FillPersonInfoUI()
         {
             llblEditPersonInfo.Enabled = true;
-            lblPersonID.Text = Convert.ToString(_person.PersonId);
+            lblPersonID.Text = Convert.ToString(_person.PersonID);
             lblFullName.Text = _person.FirstName + " " + _person.LastName;
             lblNationalNo.Text = _person.NationalNo;
-            lblGendor.Text = _person.Gendor == 0 ? "Male" : "Female";
+            lblGendor.Text = _person.Gender == 0 ? "Male" : "Female";
             lblEmail.Text = _person.Email;
             lblAddress.Text = _person.Address;
             lblDateOfBirth.Text = _person.DateOfBirth.ToString("F");
@@ -68,7 +68,7 @@ namespace DVLD
                 }
 
                 // not exist or empty
-                pbPersonImage.Image = _person.Gendor == 0 ? Resources.Male : Resources.Female;
+                pbPersonImage.Image = _person.Gender == 0 ? Resources.Male : Resources.Female;
             }
 
 
@@ -107,7 +107,7 @@ namespace DVLD
         {
             if (_person == null) return;
 
-            frmAddEditPerson frmEditPerson = new frmAddEditPerson(_person.PersonId);
+            frmAddEditPerson frmEditPerson = new frmAddEditPerson(_person.PersonID);
             frmEditPerson.DataBack += frmAddEditPerson_DataBackEvent;
             frmEditPerson.ShowDialog();
         }

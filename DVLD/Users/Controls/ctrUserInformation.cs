@@ -1,27 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD_BusinessLayer;
 
 namespace DVLD
 {
-    public partial class ctrUserInformation : UserControl
+    public partial class ctrUserInformation: UserControl
     {
         public ctrUserInformation()
         {
             InitializeComponent();
         }
 
-        public void LoadUserInfo(int userID, string userName, bool isActive) 
+        public void LoadUserInfo(int userID)
         {
-            lblUserID.Text = userID.ToString();
-            lblUserName.Text = userName.ToString();
-            lblIsActive.Text = isActive ? "Yes" : "No";
+            clsUser user = clsUser.FindByID(userID);
+            if (user == null)
+            {
+                MessageBox.Show("No User with UserID = " + userID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            ctrPersonInformation1.LoadPersonInfo(user.PersonID);
+            lblUserID.Text = user.UserID.ToString();
+            lblUserName.Text = user.UserName.ToString();
+            lblIsActive.Text = user.IsActive ? "Yes" : "No";
         }
     }
 }

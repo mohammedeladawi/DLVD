@@ -133,7 +133,7 @@ namespace DVLD
 
         private void tsmiCurrUserInfo_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmUserDetails(clsGlobal.currentUser))
+            using (var frm = new frmUserDetails(clsGlobal.currentUser.UserID))
             {
                 frm.ShowDialog();
             }

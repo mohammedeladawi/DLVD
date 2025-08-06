@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.lblAddUpdateTitle = new System.Windows.Forms.Label();
-            this.tcAddEditUser = new System.Windows.Forms.TabControl();
+            this.tctrlAddEditUser = new System.Windows.Forms.TabControl();
             this.tpPersonInfo = new System.Windows.Forms.TabPage();
             this.ctrNextBtn1 = new DVLD.ctrNextBtn();
-            this.ctrFindPerson1 = new DVLD.ctrFindShowPerson();
+            this.ctrFindPerson1 = new DVLD.ctrFindPersonInfo();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.cbIsActive = new System.Windows.Forms.CheckBox();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
@@ -45,7 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
             this.ctrSaveBtn1 = new DVLD.ctrSaveBtn();
-            this.tcAddEditUser.SuspendLayout();
+            this.tctrlAddEditUser.SuspendLayout();
             this.tpPersonInfo.SuspendLayout();
             this.tpLoginInfo.SuspendLayout();
             this.SuspendLayout();
@@ -64,15 +64,15 @@
             // 
             // tcAddEditUser
             // 
-            this.tcAddEditUser.Controls.Add(this.tpPersonInfo);
-            this.tcAddEditUser.Controls.Add(this.tpLoginInfo);
-            this.tcAddEditUser.Location = new System.Drawing.Point(22, 65);
-            this.tcAddEditUser.Margin = new System.Windows.Forms.Padding(2);
-            this.tcAddEditUser.Name = "tcAddEditUser";
-            this.tcAddEditUser.SelectedIndex = 0;
-            this.tcAddEditUser.Size = new System.Drawing.Size(1096, 649);
-            this.tcAddEditUser.TabIndex = 1;
-            this.tcAddEditUser.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tcAddEditUser_Selecting);
+            this.tctrlAddEditUser.Controls.Add(this.tpPersonInfo);
+            this.tctrlAddEditUser.Controls.Add(this.tpLoginInfo);
+            this.tctrlAddEditUser.Location = new System.Drawing.Point(22, 65);
+            this.tctrlAddEditUser.Margin = new System.Windows.Forms.Padding(2);
+            this.tctrlAddEditUser.Name = "tcAddEditUser";
+            this.tctrlAddEditUser.SelectedIndex = 0;
+            this.tctrlAddEditUser.Size = new System.Drawing.Size(1096, 649);
+            this.tctrlAddEditUser.TabIndex = 1;
+            this.tctrlAddEditUser.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tctrlAddEditUser_Selecting);
             // 
             // tpPersonInfo
             // 
@@ -242,13 +242,13 @@
             this.ClientSize = new System.Drawing.Size(1155, 801);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.ctrSaveBtn1);
-            this.Controls.Add(this.tcAddEditUser);
+            this.Controls.Add(this.tctrlAddEditUser);
             this.Controls.Add(this.lblAddUpdateTitle);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAddUpdateUser";
             this.Text = "frmAddUpdateUser";
             this.Load += new System.EventHandler(this.frmAddUpdateUser_Load);
-            this.tcAddEditUser.ResumeLayout(false);
+            this.tctrlAddEditUser.ResumeLayout(false);
             this.tpPersonInfo.ResumeLayout(false);
             this.tpLoginInfo.ResumeLayout(false);
             this.tpLoginInfo.PerformLayout();
@@ -260,10 +260,10 @@
         #endregion
 
         private System.Windows.Forms.Label lblAddUpdateTitle;
-        private System.Windows.Forms.TabControl tcAddEditUser;
+        private System.Windows.Forms.TabControl tctrlAddEditUser;
         private System.Windows.Forms.TabPage tpPersonInfo;
         private System.Windows.Forms.TabPage tpLoginInfo;
-        private ctrFindShowPerson ctrFindPerson1;
+        private ctrFindPersonInfo ctrFindPerson1;
         private ctrNextBtn ctrNextBtn1;
         private ctrSaveBtn ctrSaveBtn1;
         private ctrCloseBtn ctrCloseBtn1;

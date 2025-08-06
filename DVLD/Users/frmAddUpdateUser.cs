@@ -14,118 +14,112 @@ namespace DVLD
     public partial class frmAddUpdateUser : Form
     {
         enum enMode { AddNew, Update}
-        enMode Mode;
+        enMode _Mode;
         clsUser _user;
 
         public frmAddUpdateUser()
         {
-            Mode = enMode.AddNew;
-            _user = new clsUser();
-
             InitializeComponent();
+            _Mode = enMode.AddNew;
+            _user = new clsUser();
         }
      
         public frmAddUpdateUser(int userID)
-        {
-            Mode = enMode.Update;
-            _user = clsUser.FindByID(userID);
-            
+        {   
             InitializeComponent();
+            _Mode = enMode.Update;
+            _user = clsUser.FindByID(userID);
         }
 
-        private void AddFieldsDataToUser()
+        private void LoadUIFieldsIntoUser()
         {
             _user.UserName = txtUserName.Text;
             _user.Password = txtPassword.Text;
-            _user.isActive = cbIsActive.Checked;
+            _user.IsActive = cbIsActive.Checked;
         }
         
-        private void AddUserDataToTpLoginInfo()
+        private void LoadUserIntoTpLoginInfoFields()
         {
             txtUserName.Text = _user.UserName;
             txtPassword.Text = _user.Password;
             txtConfirmPassword.Text = _user.Password;
             lblUserId.Text = _user.UserID.ToString();
-            cbIsActive.Checked = _user.isActive;
+            cbIsActive.Checked = _user.IsActive;
         }
        
         private void HandleClickTpLoginInfo(TabControlCancelEventArgs e)
         {
             clsPerson person = ctrFindPerson1.person;
 
-
             if (person == null)
             {
                 e.Cancel = true;
-                MessageBox.Show("Please add/find person first");
+                MessageBox.Show("Please add person first");
             }
-            else if (clsUser.IsExistByPersonID(person.PersonId) && Mode == enMode.AddNew)
+            else if (clsUser.IsExistByPersonID(person.PersonID) && _Mode == enMode.AddNew)
             {
                 e.Cancel=true;
                 MessageBox.Show("This person is already a user");
             }
             else
             {
-                _user.PerosnID = ctrFindPerson1.person.PersonId;
-                tcAddEditUser.SelectedTab = tpLoginInfo;
+                _user.PersonID = ctrFindPerson1.person.PersonID;
+                tctrlAddEditUser.SelectedTab = tpLoginInfo;
+                
+                // buttons
                 ctrNextBtn1.Visible = false;
                 ctrSaveBtn1.Enabled = true;
 
             }
         }
 
-        private void DefaultTapInitialization()
+        private void ResetButtons()
         {
             ctrNextBtn1.Visible = true;
             ctrSaveBtn1.Enabled = false;
         }
 
-        private void SetFrmAddUpdateFields()
+        private void frmAddUpdateUser_Load(object sender, EventArgs e)
         {
-            if (Mode == enMode.AddNew)
+            if (_Mode == enMode.AddNew)
             {
                 lblAddUpdateTitle.Text = "Add New User";
             }
-            else if (Mode == enMode.Update)
+            else if (_Mode == enMode.Update)
             {
                 lblAddUpdateTitle.Text = "Update User";
-                ctrFindPerson1.person = _user.Person;
-                AddUserDataToTpLoginInfo();
+                ctrFindPerson1.LoadPerson(_user.PersonID);
+                LoadUserIntoTpLoginInfoFields();
             }
-        }
 
-        private void frmAddUpdateUser_Load(object sender, EventArgs e)
-        {
-            SetFrmAddUpdateFields();
-            DefaultTapInitialization();
+            ResetButtons();
         }
 
         private void ctrNextBtn1_Click(object sender, EventArgs e)
         {
-            tcAddEditUser.SelectedTab = tpLoginInfo;
+            tctrlAddEditUser.SelectedTab = tpLoginInfo;
         }
 
-        private void tcAddEditUser_Selecting(object sender, TabControlCancelEventArgs e)
+        private void tctrlAddEditUser_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (tcAddEditUser.SelectedTab == tpLoginInfo)
+            if (tctrlAddEditUser.SelectedTab == tpLoginInfo)
                 HandleClickTpLoginInfo(e);
-            else if (tcAddEditUser.SelectedTab == tpPersonInfo)
-                DefaultTapInitialization();
+            else if (tctrlAddEditUser.SelectedTab == tpPersonInfo)
+                ResetButtons();
         }
 
         private void ctrSaveBtn1_Click(object sender, EventArgs e)
         {
-            AddFieldsDataToUser();
+            LoadUIFieldsIntoUser();
 
             if (_user.Save())
             {
-                Mode = enMode.Update;
-                SetFrmAddUpdateFields();
-                MessageBox.Show("User Has Been Added/Updated Succesfully");
+                MessageBox.Show($"User has been {(_Mode == enMode.AddNew ? "added" : "updated")} sucessfully");
+                this.Close();
             }
             else
             {
-                MessageBox.Show("Can't Update User");
+                MessageBox.Show("Couldn't update user");
             }
                 
         }
@@ -139,11 +133,11 @@ namespace DVLD
                 clsErrProviderUtilities.CancelEventAndShowErr(txtUserName, e, "UserName can't be empty");
             }
             else if (
-                (Mode == enMode.AddNew && clsUser.IsExistByUserName(usernameText)) ||
-                (Mode == enMode.Update && clsUser.IsExistByUserName(usernameText) && _user.UserName != usernameText)
+                (_Mode == enMode.AddNew && clsUser.IsExistByUserName(usernameText)) ||
+                (_Mode == enMode.Update && clsUser.IsExistByUserName(usernameText) && _user.UserName != usernameText)
                 ) 
             {
-                clsErrProviderUtilities.CancelEventAndShowErr(txtUserName, e, "UserName is already exist");
+                clsErrProviderUtilities.CancelEventAndShowErr(txtUserName, e, "UserName is used by another user");
             }
             else
             {

@@ -37,7 +37,7 @@ namespace DVLD
             lblName.Text = name;
             lblLicenseID.Text = license.LicenseID.ToString();
             lblNationalNo.Text = person.NationalNo;
-            lblGendor.Text = person.Gendor == 0 ? "Male" : "Female";
+            lblGendor.Text = person.Gender == 0 ? "Male" : "Female";
             lblIssueDate.Text = license.IssuanceDate.ToString();
             lblIssueReason.Text = IssueReasonsMap[license.IssueReason];
             lblNotes.Text = license.Notes == string.Empty ? "No Notes" : license.Notes;
@@ -60,7 +60,7 @@ namespace DVLD
             }
             else
             {
-                defaultImagePath = person.Gendor == 0
+                defaultImagePath = person.Gender == 0
                     ? @"C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\assets\images\man.png"
                     : @"C:\Users\mazik\Desktop\19. Full Real Project\03. DVLD Project\DVLD\assets\images\woman.png";
 

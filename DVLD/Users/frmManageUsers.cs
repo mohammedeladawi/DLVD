@@ -18,6 +18,44 @@ namespace DVLD
             InitializeComponent();
         }
 
+        private int GetSelectedUserID()
+        {
+            DataGridView dgvUsers = ctrManageData1.dgvManageDate1;
+            int UserID = -1;
+
+            if (dgvUsers.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgvUsers.SelectedRows[0];
+                UserID = Convert.ToInt32(row.Cells["UserID"].Value);
+            }
+
+            return UserID;
+        }
+
+        private bool TryGetSelectedUserID(out int userID)
+        {
+            userID = GetSelectedUserID();
+            if (userID == -1)
+            {
+                MessageBox.Show("There is no selected row");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void ReloadUsersData()
+        {
+            ctrManageData1.LoadData(clsUser.GetAllUsersData());
+        }
+
+        private void frmManageUsers_Load(object sender, EventArgs e)
+        {
+            ctrManageData1.LoadTitle("Manage Users");
+            ctrManageData1.LoadData(clsUser.GetAllUsersData());
+            ctrManageData1.SetContextMenuStrip(cmsUsers);
+        }
+
         private void ChangePasswordDialog(int userID)
         {
             Form changeUserPassword = new frmChangeUserPassword(userID);
@@ -43,17 +81,13 @@ namespace DVLD
             }
         }
 
-        private void ReloadUsersData()
-        {
-            ctrManageData1.LoadData(clsUser.GetAllUsersData());
-        }
         private void UpdateUserDialog(int userID)
         {
             Form addEditUser = new frmAddUpdateUser(userID);
             addEditUser.FormClosed += subForm_Closed;
             addEditUser.ShowDialog();
         }
-        
+
         private void ShowUserDetailsDialog(int userID)
         {
             frmUserDetails userDialog = new frmUserDetails(userID);
@@ -61,91 +95,41 @@ namespace DVLD
             userDialog.ShowDialog();
         }
 
-        private int GetSelectedUserID()
-        {
-            DataGridView dgvUsers = ctrManageData1.dgvManageDate1;
-            int UserID = -1;
-
-            if (dgvUsers.SelectedRows.Count > 0)
-            {
-                DataGridViewRow row = dgvUsers.SelectedRows[0];
-                UserID = Convert.ToInt32(row.Cells["UserID"].Value);
-            }
-
-            return UserID;
-        }
-       
-        private void frmManageUsers_Load(object sender, EventArgs e)
-        {
-            ctrManageData1.LoadTitle("Manage Users");
-            ctrManageData1.LoadData(clsUser.GetAllUsersData());
-            ctrManageData1.SetContextMenuStrip(cmsUsers);
-        }
-
-        private void tsmiShowUserDetails_Click(object sender, EventArgs e)
-        {
-            int userID = GetSelectedUserID();
-
-            if (userID != -1)
-            {
-                ShowUserDetailsDialog(userID);
-            }
-            else
-            {
-                MessageBox.Show("There is no selected row");
-            }    
-
-        }
-
-        private void tsmiAddNewUser_Click(object sender, EventArgs e)
-        {
-            Form addEditUser = new frmAddUpdateUser();
-            addEditUser.FormClosed += subForm_Closed;
-            addEditUser.ShowDialog();
-        }
-       
         private void subForm_Closed(object sender, FormClosedEventArgs e)
         {
             ReloadUsersData();
         }
 
+        private void tsmiShowUserDetails_Click(object sender, EventArgs e)
+        {
+            if (TryGetSelectedUserID(out int userID))
+                ShowUserDetailsDialog(userID);
+        }
+
+        private void tsmiAddNewUser_Click(object sender, EventArgs e)
+        {
+            var addEditUser = new frmAddUpdateUser();
+            addEditUser.FormClosed += subForm_Closed;
+            addEditUser.ShowDialog();
+        }
+
         private void tsmiEditUser_Click(object sender, EventArgs e)
         {
-            int UserID = GetSelectedUserID();
-            if (UserID != -1)
-            {
-                UpdateUserDialog(UserID);
-            }
-            else
-            {
-                MessageBox.Show("There is no selected row");
-            }
+            if (TryGetSelectedUserID(out int userID))
+                UpdateUserDialog(userID);
         }
 
         private void tsmiDeleteUser_Click(object sender, EventArgs e)
         {
-            int UserID = GetSelectedUserID();
-            if (UserID != -1)
-            {
-                DeleteUserDialog(UserID);
-            }
-            else
-            {
-                MessageBox.Show("There is no selected row");
-            }
+            if (TryGetSelectedUserID(out int userID))
+                DeleteUserDialog(userID);
         }
 
         private void tsmiChangeUserPassword_Click(object sender, EventArgs e)
         {
-            int UserID = GetSelectedUserID();
-            if (UserID != -1)
-            {
-                ChangePasswordDialog(UserID);
-            }
-            else
-            {
-                MessageBox.Show("There is no selected row");
-            }
+            if (TryGetSelectedUserID(out int userID))
+                ChangePasswordDialog(userID);
         }
+
     }
 }

@@ -71,6 +71,12 @@
     <Compile Include="ctrLDLApplicationInfo.Designer.cs">
       <DependentUpon>ctrLDLApplicationInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\Controls\ctrUserInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\Controls\ctrUserInformation.Designer.cs">
+      <DependentUpon>ctrUserInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global Classes\clsUtil.cs" />
     <Compile Include="Reusable Controls\ctrDataView.cs">
       <SubType>UserControl</SubType>
@@ -83,12 +89,6 @@
     </Compile>
     <Compile Include="ctrManageTestApplicationInfo.Designer.cs">
       <DependentUpon>ctrManageTestApplicationInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Users\Controls\ctrUserPersonInformation.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Users\Controls\ctrUserPersonInformation.Designer.cs">
-      <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Global Classes\ErrProviderUtilities.cs" />
     <Compile Include="frmDetainLicense.cs">
@@ -133,11 +133,11 @@
     <Compile Include="Reusable Controls\ctrCloseBtn.Designer.cs">
       <DependentUpon>ctrCloseBtn.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrFindShowPerson.cs">
+    <Compile Include="Users\Controls\ctrFindPersonInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrFindShowPerson.Designer.cs">
-      <DependentUpon>ctrFindShowPerson.cs</DependentUpon>
+    <Compile Include="Users\Controls\ctrFindPersonInfo.Designer.cs">
+      <DependentUpon>ctrFindPersonInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Reusable Controls\ctrFilterDataView.cs">
       <SubType>UserControl</SubType>
@@ -162,12 +162,6 @@
     </Compile>
     <Compile Include="Reusable Controls\ctrSaveBtn.Designer.cs">
       <DependentUpon>ctrSaveBtn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Users\Controls\ctrUserInformation.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Users\Controls\ctrUserInformation.Designer.cs">
-      <DependentUpon>ctrUserInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDriverLicenseInfo.cs">
       <SubType>Form</SubType>
@@ -223,10 +217,10 @@
     <Compile Include="Users\frmAddUpdateUser.Designer.cs">
       <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChangeUserPassword.cs">
+    <Compile Include="Users\frmChangeUserPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChangeUserPassword.Designer.cs">
+    <Compile Include="Users\frmChangeUserPassword.Designer.cs">
       <DependentUpon>frmChangeUserPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\frmLogin.cs">
@@ -328,14 +322,14 @@
     <EmbeddedResource Include="ctrLDLApplicationInfo.resx">
       <DependentUpon>ctrLDLApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Users\Controls\ctrUserInformation.resx">
+      <DependentUpon>ctrUserInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reusable Controls\ctrDataView.resx">
       <DependentUpon>ctrDataView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctrManageTestApplicationInfo.resx">
       <DependentUpon>ctrManageTestApplicationInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Users\Controls\ctrUserPersonInformation.resx">
-      <DependentUpon>ctrUserPersonInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDetainLicense.resx">
       <DependentUpon>frmDetainLicense.cs</DependentUpon>
@@ -358,8 +352,8 @@
     <EmbeddedResource Include="Reusable Controls\ctrCloseBtn.resx">
       <DependentUpon>ctrCloseBtn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrFindShowPerson.resx">
-      <DependentUpon>ctrFindShowPerson.cs</DependentUpon>
+    <EmbeddedResource Include="Users\Controls\ctrFindPersonInfo.resx">
+      <DependentUpon>ctrFindPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reusable Controls\ctrFilterDataView.resx">
       <DependentUpon>ctrFilterDataView.cs</DependentUpon>
@@ -372,9 +366,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reusable Controls\ctrSaveBtn.resx">
       <DependentUpon>ctrSaveBtn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Users\Controls\ctrUserInformation.resx">
-      <DependentUpon>ctrUserInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDriverLicenseInfo.resx">
       <DependentUpon>frmDriverLicenseInfo.cs</DependentUpon>
@@ -403,7 +394,7 @@
     <EmbeddedResource Include="Users\frmAddUpdateUser.resx">
       <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChangeUserPassword.resx">
+    <EmbeddedResource Include="Users\frmChangeUserPassword.resx">
       <DependentUpon>frmChangeUserPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">

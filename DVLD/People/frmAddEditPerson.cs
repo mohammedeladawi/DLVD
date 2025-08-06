@@ -57,7 +57,7 @@ namespace DVLD
        
         private void LoadPersonIntoUIFields()
         {
-            lblPersonId.Text = Convert.ToString(_person.PersonId);
+            lblPersonId.Text = Convert.ToString(_person.PersonID);
 
             txtFirstName.Text = _person.FirstName;
             txtSecondName.Text = _person.SecondName;
@@ -73,7 +73,7 @@ namespace DVLD
             cmbCountry.SelectedItem = NationalityCountry.CountryName;
 
             // gendor
-            switch (_person.Gendor)
+            switch (_person.Gender)
             {
                 case ((int)enGender.Male):
                     rbMale.Checked = true;
@@ -115,7 +115,7 @@ namespace DVLD
             _person.Email = txtEmail.Text;
             _person.Phone = txtPhone.Text;
             _person.NationalNo = txtNationalNo.Text;
-            _person.Gendor = rbMale.Checked ? (byte)enGender.Male : (byte)enGender.Female;
+            _person.Gender = rbMale.Checked ? (byte)enGender.Male : (byte)enGender.Female;
             _person.DateOfBirth = dtpDateOfBirth.Value;
             _person.Address = txtAddress.Text;
             _person.NationalityCountryID = (int)cmbCountry.SelectedValue;   
@@ -174,7 +174,7 @@ namespace DVLD
             {
                 MessageBox.Show($"Person has been {(Mode == enMode.AddNew ? "added" : "updated")} succeessfully");
                 Mode = enMode.Update;
-                DataBack?.Invoke(this, _person.PersonId);
+                DataBack?.Invoke(this, _person.PersonID);
                 this.Close();
             }
             else

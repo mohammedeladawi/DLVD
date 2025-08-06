@@ -13,25 +13,18 @@ namespace DVLD
 {
     public partial class frmUserDetails : Form
     {
-        private clsUser _user;
+        private int _userID;
+
         public frmUserDetails(int userID)
         {
-            this._user = clsUser.FindByID(userID);
             InitializeComponent();
-        }
-
-        public frmUserDetails(clsUser user)
-        {
-            this._user = user;
-            InitializeComponent();
+            this._userID = userID;
         }
 
         private void frmUserDetails_Load(object sender, EventArgs e)
         {
-            if (_user == null)
-                return;
-
-            ctrUserPersonInformation1.LoadUserInfo(_user);
+            ctrUserInformation11.LoadUserInfo(_userID);
         }
+
     }
 }

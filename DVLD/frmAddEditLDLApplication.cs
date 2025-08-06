@@ -82,7 +82,7 @@ namespace DVLD
         private void SetFrmUpdateDataIntoUIFields()
         {
             // disable addnew, find person buttons
-            ctrFindShowPerson1.DisableFindPerson();
+            ctrFindShowPerson1.DisableGbFindPerson();
 
 
             ctrFindShowPerson1.person = _ldlApplication.Application.Person;
@@ -130,7 +130,7 @@ namespace DVLD
         {
             int classID = ((KeyValuePair<int, string>)cbLicenseClasses.SelectedItem).Key;
             _ldlApplication.LicenseClassID = classID;
-            _ldlApplication.Application.ApplicationPersonID = _person.PersonId;
+            _ldlApplication.Application.ApplicationPersonID = _person.PersonID;
             _ldlApplication.Application.ApplicationDate = DateTime.Now;
             _ldlApplication.Application.PaidFees = _ldlApplication.Application.ApplicationType.Fees;
             _ldlApplication.Application.CreatedByUserID = clsGlobal.currentUser.UserID;

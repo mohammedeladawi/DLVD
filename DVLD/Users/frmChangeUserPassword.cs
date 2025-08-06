@@ -13,11 +13,12 @@ namespace DVLD
 {
     public partial class frmChangeUserPassword : Form
     {
+        int _userID;
         clsUser _user;
         public frmChangeUserPassword(int userID)
         {
-            _user = clsUser.FindByID(userID);
             InitializeComponent();
+            _userID = userID;
         }
 
         public frmChangeUserPassword(clsUser user)
@@ -31,21 +32,35 @@ namespace DVLD
             return currPasswordTxt == _user.Password;
         }
         
+        private void ResetDefaultValues()
+        {
+            txtCurrentPassword.Clear();
+            txtNewPassword.Clear();
+            txtConfirmPassword.Clear();
+
+            txtCurrentPassword.Focus();
+        }
+        
         private void ctrSaveBtn1_Click(object sender, EventArgs e)
         {
-            if (_user == null)
+            if (!this.ValidateChildren())
+            {
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show("Some fileds are not valid!, put the mouse over the red icon(s) to see the error",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
 
             if (IsCurrPasswordRight())
             {
                 _user.Password = txtConfirmPassword.Text;
                 if (_user.Save())
                 {
-                    MessageBox.Show("Password Has Been Changed Succesfully");
+                    MessageBox.Show("Password has been updated succesfully");
                 }
                 else
                 {
-                    MessageBox.Show("Couldn't Update Password");
+                    MessageBox.Show("Couldn't update password");
                 }
             }
             else
@@ -57,8 +72,20 @@ namespace DVLD
 
         private void frmChangePassword_Load(object sender, EventArgs e)
         {
-            if (_user != null)
-                ctrUserPersonInformation1.LoadUserInfo(_user);
+            ResetDefaultValues();
+            _user = clsUser.FindByID(_userID);
+
+            if (_user == null)
+            {
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show("Could not Find User with id = " + _userID,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+
+                return;
+            }
+
+            ctrUserInformation11.LoadUserInfo(_user.UserID);
         }
 
         private void txtCurrAndNewPassword_Validating(object sender, CancelEventArgs e)
@@ -66,7 +93,7 @@ namespace DVLD
             TextBox txtPassword = (sender) as TextBox;
             if (txtPassword.Text == string.Empty)
             {
-                clsErrProviderUtilities.CancelEventAndShowErr(txtPassword, e, "Password can't empty");
+                clsErrProviderUtilities.CancelEventAndShowErr(txtPassword, e, "Password can't be empty");
             }
             else
             {
@@ -78,7 +105,7 @@ namespace DVLD
         {
             if (txtNewPassword.Text != string.Empty && txtConfirmPassword.Text == "")
             {
-                clsErrProviderUtilities.CancelEventAndShowErr(txtConfirmPassword, e, "Password confirmation doesn't match password!");
+                clsErrProviderUtilities.CancelEventAndShowErr(txtConfirmPassword, e, "Password confirmation is not matched with the new password!");
             }
             else
             {

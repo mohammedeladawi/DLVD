@@ -1,6 +1,6 @@
 ﻿namespace DVLD
 {
-    partial class ctrFindShowPerson
+    partial class ctrFindPersonInfo
     {
         /// <summary> 
         /// Required designer variable.
