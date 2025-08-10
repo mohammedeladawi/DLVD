@@ -17,6 +17,17 @@ namespace DVLD_BusinessLayer
 
         public int ApplicationTypeID { get; private set; }
 
+        public enum enApplicationTypes
+        {
+            NewLocalDrivingLicenseService = 1,
+            RenewDrivingLicenseService = 2,
+            ReplacementForLostDrivingLicense = 3,
+            ReplacementForDamagedDrivingLicense = 4,
+            ReleaseDetainedDrivingLicense = 5,
+            NewInternationalLicense = 6,
+            RetakeTest = 7
+        }
+       
         public string Title { get; set; }
         public decimal Fees { get; set; }
         public static DataTable GetAllTypes()

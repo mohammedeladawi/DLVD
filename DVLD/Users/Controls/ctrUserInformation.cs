@@ -20,7 +20,7 @@ namespace DVLD
 
         public void LoadUserInfo(int userID)
         {
-            clsUser user = clsUser.FindByID(userID);
+            clsUser user = clsUser.Find(userID);
             if (user == null)
             {
                 MessageBox.Show("No User with UserID = " + userID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

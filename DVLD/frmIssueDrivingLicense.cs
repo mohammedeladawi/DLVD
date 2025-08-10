@@ -16,12 +16,12 @@ namespace DVLD
         private clsLDLApplication _ldlApplication;
         public frmIssueDrivingLicense(int ldlApplicationID)
         {
-            _ldlApplication = clsLDLApplication.FindByID(ldlApplicationID);
+            _ldlApplication = clsLDLApplication.FindByLDLApplicationID(ldlApplicationID);
             InitializeComponent();
         }
         private bool InsertDriverData(clsDriver driver)
         {
-            driver.PersonID = _ldlApplication.Application.Person.PersonID;
+            driver.PersonID = _ldlApplication.ApplicationPersonInfo.PersonID;
             driver.CreatedByUserID = clsGlobal.currentUser.UserID;
             driver.CreatedDate = DateTime.Now;
 
@@ -36,7 +36,7 @@ namespace DVLD
             byte validityLength = clsLicenseClass.Find(_ldlApplication.LicenseClassID).DefaultValidityLength;
             license.ExpirationDate = license.IssuanceDate.AddYears(validityLength);
             license.Notes = txtNotes.Text;
-            license.PaidFees = _ldlApplication.LicenseClass.ClassFees;
+            license.PaidFees = _ldlApplication.LicenseClassInfo.ClassFees;
             license.IsActive = true;
             license.IssueReason = 1;
             license.CreatedByUserID = clsGlobal.currentUser.UserID;
@@ -61,7 +61,7 @@ namespace DVLD
         }
         private void frmIssueDrivingLicense_Load(object sender, EventArgs e)
         {
-            ctrLDLApplicationInfo1.setApplicationInfo(_ldlApplication.LocalDrivingLicenseApplicationID);
+            ctrLDLApplicationInfo1.LoadApplication(_ldlApplication.LocalDrivingLicenseApplicationID);
         }
     }
 }

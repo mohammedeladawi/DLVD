@@ -56,7 +56,7 @@ namespace DVLD_BusinessLayer
 
         private bool _AddNewInternationalLicense()
         {
-            var application = clsApplication.Find(ApplicationID);
+            var application = clsApplication.FindBaseApplicationByID(ApplicationID);
             if (application == null)
                 return false;
 

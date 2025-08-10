@@ -73,7 +73,7 @@ namespace DVLD
         private void frmChangePassword_Load(object sender, EventArgs e)
         {
             ResetDefaultValues();
-            _user = clsUser.FindByID(_userID);
+            _user = clsUser.Find(_userID);
 
             if (_user == null)
             {

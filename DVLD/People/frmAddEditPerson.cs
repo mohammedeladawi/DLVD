@@ -36,7 +36,7 @@ namespace DVLD
         public frmAddEditPerson(int PersonID)
         {
             InitializeComponent();
-            _person = clsPerson.FindByID(PersonID);
+            _person = clsPerson.Find(PersonID);
             Mode = enMode.Update;
         }
 

@@ -18,7 +18,7 @@ namespace DVLD
         
         public frmDriverLicenseInfo(int ldlApplicationID)
         {
-            var ldlApp = clsLDLApplication.FindByID(ldlApplicationID);
+            var ldlApp = clsLDLApplication.FindByLDLApplicationID(ldlApplicationID);
             if (ldlApp == null)
                 return;
 

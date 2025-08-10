@@ -74,6 +74,41 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
+        // For New and Completed ApplicationStatus
+        public static bool DoesPersonHaveActiveOrCompleteApplication(int personID, int licenseClassID)
+        {
+            string query = @"select x=1 from Applications
+                             JOIN LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
+                             where Applications.ApplicationStatus IN (1, 3) 
+                                AND LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID
+                                AND Applications.ApplicationPersonID = @PersonID;";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LicenseClassID", licenseClassID);
+                    command.Parameters.AddWithValue("@PersonID", personID);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false;
+        }
+
         public static int AddNewLDLApplication(int applicationID, int licenseClassID)
         {
             string commandStr = @"INSERT INTO LocalDrivingLicenseApplications(ApplicationID, LicenseClassID)
@@ -107,10 +142,11 @@ namespace DVLD_DataAccessLayer
             return -1;
         }
 
-        public static bool UpdateLDLApplication(int ldlApplicationID, int licenseClassID)
+        public static bool UpdateLDLApplication(int ldlApplicationID, int applicationID, int licenseClassID)
         {
-            string commandStr = @"UPDATE LocalDrivingLicenseApplications SET 
-                                  LicenseClassID = @LicenseClassID
+            string commandStr = @"UPDATE LocalDrivingLicenseApplications 
+                                SET LicenseClassID = @LicenseClassID,
+                                    ApplicationID = @ApplicationID
                                   WHERE LocalDrivingLicenseApplicationID = @LDLApplicationID";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
@@ -118,6 +154,7 @@ namespace DVLD_DataAccessLayer
                 using (SqlCommand command = new SqlCommand(commandStr, connection))
                 {
                     command.Parameters.AddWithValue("@LicenseClassID", licenseClassID);
+                    command.Parameters.AddWithValue("@ApplicationID", applicationID);
                     command.Parameters.AddWithValue("@LDLApplicationID", ldlApplicationID);
 
                     try

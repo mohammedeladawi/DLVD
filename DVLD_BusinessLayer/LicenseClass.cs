@@ -1,10 +1,5 @@
-﻿using System;
+﻿using DVLD_DataAccessLayer;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DVLD_DataAccessLayer;
 
 namespace DVLD_BusinessLayer
 {
@@ -17,7 +12,7 @@ namespace DVLD_BusinessLayer
         public byte DefaultValidityLength { get; set; }
         public decimal ClassFees { get; set; }
 
-        public static Dictionary<int, string> getClassesIDName()
+        public static Dictionary<int, string> GetClassesIDName()
         {
             return clsDataAccessLicenseClasses.GetClassesIDName();
         }

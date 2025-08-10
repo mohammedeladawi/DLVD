@@ -77,7 +77,7 @@ namespace DVLD
         
         public void LoadPersonInfo(int personID)
         {
-            _person = clsPerson.FindByID(personID);
+            _person = clsPerson.Find(personID);
             
             if (_person == null)
             {

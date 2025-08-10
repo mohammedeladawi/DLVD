@@ -20,7 +20,7 @@ namespace DVLD
         {
             _testAppointment = clsTestAppointment.Find(testAppointmentID);
             _testType = clsTestType.Find(testTypeID);
-            _ldlApplication = clsLDLApplication.FindByID(_testAppointment.LDLApplicationID);
+            _ldlApplication = clsLDLApplication.FindByLDLApplicationID(_testAppointment.LDLApplicationID);
             InitializeComponent();
         }
 
@@ -31,7 +31,7 @@ namespace DVLD
             gbTestType.Text = _testType.Title.ToString();
             lblLDLApplicationID.Text = _ldlApplication.LocalDrivingLicenseApplicationID.ToString();
             lblDClass.Text = clsLicenseClass.Find(_ldlApplication.LicenseClassID).ClassName;
-            lblName.Text = _ldlApplication.Application.Person.FirstName + " " + _ldlApplication.Application.Person.LastName;
+            lblName.Text = _ldlApplication.ApplicationPersonInfo.FirstName + " " + _ldlApplication.ApplicationPersonInfo.LastName;
             lblTrial.Text = clsTest.SpecificTestTrials(_ldlApplication.ApplicationID, _testType.TestTypeID).ToString();
             lblDate.Text = _testAppointment.AppointmentDate.ToString();
             lblFees.Text = _testType.Fees.ToString();

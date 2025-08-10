@@ -14,14 +14,11 @@ namespace DVLD_DataAccessLayer
     {
       public static byte PassedTestsCount(int ldlApplicationID)
         {
-            string commandStr = @"SELECT COUNT(1) 
-                                  FROM LocalDrivingLicenseApplications L
-                                  JOIN TestAppointments TA 
-                                      ON L.LocalDrivingLicenseApplicationID = TA.LocalDrivingLicenseApplicationID
-                                  JOIN Tests T 
-                                      ON TA.TestAppointmentID = T.TestAppointmentID
-                                  WHERE L.LocalDrivingLicenseApplicationID = @LDLApplicationID
-                                      AND T.TestResult = 1;";
+            string commandStr = @"
+                            select COUNT(T.TestID) from TestAppointments TA
+                            inner Join tests T on T.TestAppointmentID = TA.TestAppointmentID
+                            where LocalDrivingLicenseApplicationID = @LDLApplicationID 
+                            And TestResult = 1;";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
@@ -32,12 +29,8 @@ namespace DVLD_DataAccessLayer
                     try
                     {
                         connection.Open();
-                        SqlDataReader read = command.ExecuteReader();
-                        if (read.Read())
-                        {
-                            int count = Convert.ToInt32(read[0]);
-                            return (byte)count;
-                        }
+                        object result = command.ExecuteScalar();
+                        return (result != null ? Convert.ToByte(result) : (byte)0);
                     }
                     catch (Exception ex)
                     {
@@ -45,8 +38,8 @@ namespace DVLD_DataAccessLayer
                     }
                 }
             }
-
             return 0;
+
         }
     
       public static int SpecificTestTrialsByLDLAppIdAndTestTypeID(int ldlApplicationID, int testTypeID)

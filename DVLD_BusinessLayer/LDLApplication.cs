@@ -9,90 +9,37 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD_BusinessLayer
 {
-    public class clsLDLApplication
+    public class clsLDLApplication: clsApplication
     {      
-        private bool _IsAllowedAge()
-        {
-            int age = DateTime.Today.Year - Application.Person.DateOfBirth.Year;
-            if (Application.Person.DateOfBirth.Date > DateTime.Today.AddYears(-age))
-                age--;
-            return LicenseClass.MinmumAllowedAge <= age;
-
-        }
         private bool _AddNewLDLApplication()
         {
-            bool IsDoublicate = clsApplication.IsExist(Application.ApplicationPersonID, LicenseClassID);
-            if (_IsAllowedAge() && !IsDoublicate)
-            {
-                // add new application
-                if (!Application.Save())
-                    return false;
+            this.LocalDrivingLicenseApplicationID =
+                clsDataAccessLDLApplications.AddNewLDLApplication(ApplicationID, LicenseClassID);
 
-                this.ApplicationID = Application.ApplicationID;
+            bool isAdded = LocalDrivingLicenseApplicationID != -1;
+            if (isAdded)
+                Mode = enMode.Update;
 
-                // add new ldl application
-                this.LocalDrivingLicenseApplicationID =
-                    clsDataAccessLDLApplications.AddNewLDLApplication(ApplicationID, LicenseClassID);
+            return isAdded;
 
-                bool isAdded = LocalDrivingLicenseApplicationID != -1;
-                if (isAdded)
-                    Mode = enMode.Update;
-
-                return isAdded;
-            }
-
-            return false;
         }
+       
         private bool _UpdateLDLApplication()
         {
-            bool IsDoublicate = clsApplication.IsExist(Application.ApplicationPersonID, LicenseClassID);
-            if (!IsDoublicate)
-            {
-                // update ldlApplication
-                return 
-                    clsDataAccessLDLApplications.UpdateLDLApplication(LocalDrivingLicenseApplicationID, LicenseClassID);
+            // update ldlApplication
+            return clsDataAccessLDLApplications.UpdateLDLApplication(
+                this.LocalDrivingLicenseApplicationID, this.ApplicationID, this.LicenseClassID
+                );
 
-            }
-            return false;
         }
 
         enum enMode { AddNew, Update }
         enMode Mode;
-
-        private int _ApplicationID;
-        private int _LicenseClassID;
+        
         public int LocalDrivingLicenseApplicationID { get; private set; }
-        public int ApplicationID
-        {
-            get
-            {
-                return _ApplicationID;
-            }
-           private set
-            {
-                _ApplicationID = value;
-                Application = clsApplication.Find(_ApplicationID);
-            }
-        }
-        public int LicenseClassID 
-        {
-            get
-            {
-                return _LicenseClassID;
-            }
-
-            set
-            {
-                _LicenseClassID = value;
-                if (_LicenseClassID != -1)
-                    LicenseClass = clsLicenseClass.Find(_LicenseClassID);
-            }
-        }
+        public int LicenseClassID { get; set; }
+        public clsLicenseClass LicenseClassInfo { get; set; }
         
-        public clsLicenseClass LicenseClass { get; set; }
-        
-        public clsApplication Application { get; set; }
-
         public static DataTable GetAllApplications()
         {
             return clsDataAccessLDLApplications.GetAllLDLApplicaitons();
@@ -100,28 +47,32 @@ namespace DVLD_BusinessLayer
 
         public clsLDLApplication()
         {
-            Mode = enMode.AddNew;
             LocalDrivingLicenseApplicationID = -1;
-            ApplicationID = -1;
             LicenseClassID = -1;
-
-            // application logic
-            Application = new clsApplication();
-            Application.ApplicationTypeID = (int)enApplicationTypes.NewLocalDrivingLicenseService;
+            Mode = enMode.AddNew;
         }
 
-        private clsLDLApplication(int localDrivingLicenseApplicationID, int applicationID, int licenseClassID)
+        private clsLDLApplication(
+            int localDrivingLicenseApplicationID, int licenseClassID,
+            int applicationID, int applicationPersonID, DateTime applicationDate,
+            int applicationTypeID, byte applicationStatus, DateTime lastStatusDate,
+            decimal paidFees, int createdByUserID
+            ) 
+            : base (applicationID, applicationPersonID, applicationDate,
+            applicationTypeID, applicationStatus, lastStatusDate,
+            paidFees, createdByUserID)
         {
-            Mode = enMode.Update;
             LocalDrivingLicenseApplicationID = localDrivingLicenseApplicationID;
-            ApplicationID = applicationID;
             LicenseClassID = licenseClassID;
+            LicenseClassInfo = clsLicenseClass.Find(licenseClassID);
+            
+            Mode = enMode.Update;
         }
 
         public static bool Delete(int ldlApplicationID)
         {
             // find applicationID
-            var applicationID = clsLDLApplication.FindByID(ldlApplicationID)?.ApplicationID;
+            var applicationID = clsLDLApplication.FindByLDLApplicationID(ldlApplicationID)?.ApplicationID;
             if (applicationID == null)
                 return false;
 
@@ -136,7 +87,7 @@ namespace DVLD_BusinessLayer
 
         public static bool Cancel(int ldlApplicationID)
         {
-            clsLDLApplication ldlApplication = FindByID(ldlApplicationID);
+            clsLDLApplication ldlApplication = clsLDLApplication.FindByLDLApplicationID(ldlApplicationID);
 
             if (ldlApplication != null)
                 return clsApplication.Cancel(ldlApplication.ApplicationID);
@@ -144,21 +95,47 @@ namespace DVLD_BusinessLayer
             return false;
         }
 
-        public static clsLDLApplication FindByID(int ldlAplicationID)
+        public static clsLDLApplication FindByLDLApplicationID(int ldlAplicationID)
         {
-            int applicationID = -1;
-            int licenseClassID = -1;
+            int applicationID = -1, licenseClassID = -1;
             bool isFound = 
                 clsDataAccessLDLApplications.FindLDLApplicationByID(ldlAplicationID, ref applicationID, ref licenseClassID);
 
-            if (isFound)
-                return new clsLDLApplication(ldlAplicationID, applicationID, licenseClassID);
+            if (!isFound)
+                return null;
+            
+            clsApplication baseApplication = clsApplication.FindBaseApplicationByID(applicationID);
+            
+            if (baseApplication != null)
+            {
+                return new clsLDLApplication(ldlAplicationID, licenseClassID, applicationID,
+                    baseApplication.ApplicationPersonID, baseApplication.ApplicationDate,
+                    baseApplication.ApplicationTypeID, baseApplication.ApplicationStatus,
+                    baseApplication.LastStatusDate, baseApplication.PaidFees,
+                    baseApplication.CreatedByUserID);
+            }
             else
                 return null;
 
         }
+
+        public static bool IsAlreadyExist(int applicationID, int licenseClassID)
+        {
+            return clsDataAccessLDLApplications.DoesPersonHaveActiveOrCompleteApplication(applicationID, licenseClassID);
+        }
+        
+        public byte GetPassedTestsCount()
+        {
+            return clsTest.PassedTestsCount(this.LocalDrivingLicenseApplicationID);
+        }
         public bool Save()
         {
+            base.Mode = (clsApplication.enMode)this.Mode;
+            // Application
+            if (!base.Save()) 
+                return false;
+
+            // Local Driving License Application
             switch (Mode)
             {
                 case enMode.AddNew:

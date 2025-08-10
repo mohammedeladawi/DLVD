@@ -42,7 +42,7 @@ namespace DVLD
             }
             else if (cmbFilter.SelectedItem == "PersonID" && int.TryParse(searchTxt, out int personID))
             {   
-                _person = clsPerson.FindByID(personID);
+                _person = clsPerson.Find(personID);
             }   
         }
         
@@ -89,7 +89,7 @@ namespace DVLD
 
         private void FrmAddEditPerson_DataBack(object sender, int personID)
         {
-            _person = clsPerson.FindByID(personID);
+            _person = clsPerson.Find(personID);
             LoadPersonIntoUIFileds();
             DisableGbFindPerson();
         }
@@ -101,7 +101,7 @@ namespace DVLD
     
         public void LoadPerson(int personID)
         {
-            _person = clsPerson.FindByID(personID);
+            _person = clsPerson.Find(personID);
             
             // Update User
             LoadPersonIntoUIFileds();

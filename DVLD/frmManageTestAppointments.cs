@@ -34,7 +34,7 @@ namespace DVLD
         public frmManageTestAppointments(int ldlApplicationID, int testTypeID, int testOrder)
         {
             _ldlApplicationID = ldlApplicationID;
-            _ldlApplication = clsLDLApplication.FindByID(_ldlApplicationID);
+            _ldlApplication = clsLDLApplication.FindByLDLApplicationID(_ldlApplicationID);
             _testTypeID = testTypeID;
             _testOrder = testOrder;
 
@@ -71,16 +71,16 @@ namespace DVLD
                 return;
             }
 
-            if (_ldlApplication.Application.ApplicationStatus == 2)
-            {
-                MessageBox.Show("can't update test for cancelled application");
-            }
-            else
-            {
-                Form frmScheduleTest = new frmScheduleTestAppointment(_ldlApplication, _testTypeID, testAppointmentID);
-                frmScheduleTest.FormClosed += frmScheduleTest_Closed;
-                frmScheduleTest.ShowDialog();
-            }
+            //if (_ldlApplication.Application.ApplicationStatus == 2)
+            //{
+            //    MessageBox.Show("can't update test for cancelled application");
+            //}
+            //else
+            //{
+            //    Form frmScheduleTest = new frmScheduleTestAppointment(_ldlApplication, _testTypeID, testAppointmentID);
+            //    frmScheduleTest.FormClosed += frmScheduleTest_Closed;
+            //    frmScheduleTest.ShowDialog();
+            //}
 
 
         }
@@ -93,10 +93,10 @@ namespace DVLD
                 MessageBox.Show("There is no selected row");
                 return;
             }
-            if (_ldlApplication.Application.ApplicationStatus == 2)
-            {
-                MessageBox.Show("can't take test for cancelled application");
-            }
+            //if (_ldlApplication.Application.ApplicationStatus == 2)
+            //{
+            //    MessageBox.Show("can't take test for cancelled application");
+            //}
             else if (clsTest.PassedTestsCount(_ldlApplicationID) >= _testOrder)
             {
                 MessageBox.Show("You already passed this test");
@@ -123,10 +123,10 @@ namespace DVLD
             {
                 MessageBox.Show("You already passed this test");
             }
-            else if (_ldlApplication.Application.ApplicationStatus == 2)
-            {
-                MessageBox.Show("can't add test for cancelled application");
-            }
+            //else if (_ldlApplication.Application.ApplicationStatus == 2)
+            //{
+            //    MessageBox.Show("can't add test for cancelled application");
+            //}
             else
             {
                 Form frmScheduleVTest = new frmScheduleTestAppointment(_ldlApplication, _testTypeID);

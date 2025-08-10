@@ -11,14 +11,14 @@ namespace DVLD_BusinessLayer
     public class clsPerson
     {
         public enum enMode { AddNew, Update }; 
-        public int PersonId { get; private set; } //readonly
+        public int PersonID { get; private set; } //readonly
         public string NationalNo { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public byte Gendor { get; set; }
+        public byte Gender { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
@@ -29,30 +29,30 @@ namespace DVLD_BusinessLayer
 
         private bool _AddNewPerson()
         {
-            this.PersonId = clsDataAccessPeople.AddNewPerson(NationalNo, FirstName, SecondName, ThirdName, LastName,
-                                                        DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID, ImagePath);
-            if (PersonId != -1)
+            this.PersonID = clsDataAccessPeople.AddNewPerson(NationalNo, FirstName, SecondName, ThirdName, LastName,
+                                                        DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
+            if (PersonID != -1)
                 Mode = enMode.Update;
 
-            return PersonId != -1;
+            return PersonID != -1;
         }
 
         private bool _UpdatePerson()
         {
-            return clsDataAccessPeople.UpdatePerson(PersonId, NationalNo, FirstName, SecondName, ThirdName, LastName,
-                                                    DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID, ImagePath); ;
+            return clsDataAccessPeople.UpdatePerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName,
+                                                    DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath); ;
         }
 
         public clsPerson()
         {
-            PersonId = -1;
+            PersonID = -1;
             NationalNo = "";
             FirstName = "";
             SecondName = "";
             ThirdName = "";
             LastName = "";
             DateOfBirth = DateTime.Now;
-            Gendor = 10;
+            Gender = 10;
             Address = "";
             Phone = "";
             Email = "";
@@ -66,14 +66,14 @@ namespace DVLD_BusinessLayer
                                         string ThirdName, string LastName, DateTime DateOfBirth, byte Gendor, string Address,
                                         string Phone, string Email, int NationalityCountryID, string ImagePath)
         {
-            this.PersonId = PersonID;
+            this.PersonID = PersonID;
             this.NationalNo = NationalNo;
             this.FirstName = FirstName;
             this.SecondName = SecondName;
             this.ThirdName = ThirdName;
             this.LastName = LastName;
             this.DateOfBirth = DateOfBirth;
-            this.Gendor = Gendor;
+            this.Gender = Gendor;
             this.Address = Address;
             this.Phone = Phone;
             this.Email = Email;
@@ -88,7 +88,7 @@ namespace DVLD_BusinessLayer
             return clsDataAccessPeople.GetAllPeopleInfo();
         }
 
-        public static clsPerson FindByID(int PersonID)
+        public static clsPerson Find(int PersonID)
         {
             string NationalNo = "";
             string FirstName = "";

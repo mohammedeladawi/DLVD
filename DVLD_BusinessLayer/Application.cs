@@ -15,7 +15,7 @@ namespace DVLD_BusinessLayer
         {
             
             this.ApplicationID = clsDataAccessApplications.AddNewApplication(ApplicationPersonID, ApplicationDate,
-                ApplicationTypeID, PaidFees, CreatedByUserID);
+                ApplicationTypeID, ApplicationStatus, PaidFees, CreatedByUserID);
 
             bool isAdded = ApplicationID != -1;
             if (isAdded)
@@ -24,89 +24,82 @@ namespace DVLD_BusinessLayer
             return isAdded;
         }
 
-        //--------------------- ToDo if needed --------------
         private bool _UpdateApplication()
         {
-            return false;
+
+            return clsDataAccessApplications.UpdateApplication(
+                this.ApplicationID, this.ApplicationPersonID, this.ApplicationDate,
+                this.ApplicationTypeID, (byte)this.ApplicationStatus,
+                this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
         }
 
-        enum enMode { AddNew, Update }
-        enMode Mode;
-
-        private int _ApplicationPersonID;
-        private byte _ApplicationTypeID;
-        public clsPerson Person { get; private set; }
-        public clsApplicationType ApplicationType;
-        public int ApplicationID { get; private set; }
-        public int ApplicationPersonID
+        protected enum enMode { AddNew, Update }
+        protected enMode Mode;
+        
+        public enum enApplicationStatus
         {
-            get
-            {
-                return _ApplicationPersonID;
-            }
-
-            set
-            {
-                _ApplicationPersonID = value;
-                Person = clsPerson.FindByID(_ApplicationPersonID);
-            }
+            New = 1,
+            Cancelled = 2,
+            Completed = 3
         }
+
+        public int ApplicationID { get; protected set; }
+        public int ApplicationPersonID { get; set; }
+        public clsPerson ApplicationPersonInfo { get; private set; }
         public DateTime ApplicationDate {get; set;}
-        public byte ApplicationTypeID 
-        {
-            get
-            {
-                return _ApplicationTypeID;
-            }
-            set
-            {
-                _ApplicationTypeID = value;
-                ApplicationType = clsApplicationType.Find(ApplicationTypeID);
-            }
-        }
+        public int ApplicationTypeID { get; set; }
+        public clsApplicationType ApplicationTypeInfo { get; private set; }
         public byte ApplicationStatus { get; set; }
         public DateTime LastStatusDate {get; set;}
         public decimal PaidFees { get; set;}
         public int CreatedByUserID { get; set; }
+        public clsUser CreatedByUserInfo { get; private set; }
 
         // new
         public clsApplication()
         {
-            Mode = enMode.AddNew;
             ApplicationID = -1;
             ApplicationPersonID = -1;
             ApplicationDate = DateTime.Now;
-            ApplicationTypeID =0;
-            ApplicationStatus = 0;
+            ApplicationTypeID = -1;
+            ApplicationStatus = (byte) enApplicationStatus.New;
             LastStatusDate = DateTime.Now;
             PaidFees = 0;
             CreatedByUserID = -1;
+           
+            Mode = enMode.AddNew;
         }
 
         // update
-        private clsApplication(
+        protected clsApplication(
             int applicationID, int applicationPersonID, DateTime applicationDate,
-            byte applicationTypeID, byte applicationStatus, DateTime lastStatusDate,
+            int applicationTypeID, byte applicationStatus, DateTime lastStatusDate,
             decimal paidFees, int createdByUserID)
         {
-            Mode = enMode.Update;
             ApplicationID = applicationID;
             ApplicationPersonID = applicationPersonID;
+            ApplicationPersonInfo = clsPerson.Find(ApplicationPersonID);
             ApplicationDate = applicationDate;
             ApplicationTypeID = applicationTypeID;
+            ApplicationTypeInfo = clsApplicationType.Find(applicationTypeID);
             ApplicationStatus = applicationStatus;
             LastStatusDate = lastStatusDate;
             PaidFees = paidFees;
             CreatedByUserID = createdByUserID;
+            CreatedByUserInfo = clsUser.Find(CreatedByUserID);
+
+            Mode = enMode.Update;
         }
 
 
-        public static clsApplication Find(int applicationID)
+
+        // --- ToDo: Protected in the future --------// 
+        public static clsApplication FindBaseApplicationByID(int applicationID)
         {
             int applicationPersonID = -1;
             DateTime applicationDate = DateTime.MinValue;
-            byte applicationTypeID = 0;
-            byte applicationStatus = 0;
+            int applicationTypeID = -1;
+            byte applicationStatus =(byte) enApplicationStatus.New;
             DateTime lastStatusDate = DateTime.MinValue;
             decimal paidFees = 0;
             int createdByUserID = -1;
@@ -121,29 +114,26 @@ namespace DVLD_BusinessLayer
             return null;
         }
 
-        public static bool IsExist(int applicationID, int licenseClassID)
-        {
-            return clsDataAccessApplications.IsSameApplicationExist(applicationID, licenseClassID);
-        }
-
-        public static bool Delete(int applicationID)
+        // ---------------------------------------------
+        protected static bool Delete(int applicationID)
         {
             return clsDataAccessApplications.DeleteApplicationByID(applicationID);
         }
-                
+        
         public static bool Complete(int applicationID)
         {
-            return clsDataAccessApplications.CompleteApplicationByID(applicationID);
+            return clsDataAccessApplications.UpdateApplicationStatus(applicationID, (byte) enApplicationStatus.Completed);
         }
-                
+        
         public static bool Cancel (int applicationID)
         {
-            return clsDataAccessApplications.CancelApplicationByID(applicationID);
+            return clsDataAccessApplications.UpdateApplicationStatus(applicationID, (byte) enApplicationStatus.Cancelled);
         }
 
+        // Todo: protected in the future
         public bool Save()
         {
-            switch (Mode)
+            switch (this.Mode)
             {
                 case enMode.AddNew:
                     return _AddNewApplication();

@@ -200,6 +200,7 @@ namespace DVLD
         public void LoadTitle(string title)
         {
             lblTitle.Text = title;
+            lblTitle.Left = (this.ClientSize.Width - lblTitle.Width) / 2;
         }
 
         public void SetContextMenuStrip(ContextMenuStrip cms)

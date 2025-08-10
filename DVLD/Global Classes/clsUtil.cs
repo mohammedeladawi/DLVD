@@ -36,5 +36,14 @@ namespace DVLD.Global_Classes
             sourcePath = destinationPath;
             return true;
         }
+    
+        public static bool IsAllowedAge(DateTime dateOfBirth, int minmumAllowedAge)
+        {
+            int age = DateTime.Today.Year - dateOfBirth.Year;
+            if (dateOfBirth > DateTime.Today.AddYears(-age))
+                age--;
+            return minmumAllowedAge <= age;
+
+        }
     }
 }

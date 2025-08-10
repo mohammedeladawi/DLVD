@@ -73,17 +73,17 @@ namespace DVLD
 
         private int AddNewRetakeTestApplication()
         {
-            clsApplication retakeTestApplication = new clsApplication();
-            retakeTestApplication.ApplicationTypeID = 7;
-            retakeTestApplication.ApplicationDate = DateTime.Now;
-            retakeTestApplication.ApplicationPersonID = _ldlApplication.Application.ApplicationPersonID;
-            retakeTestApplication.CreatedByUserID = clsGlobal.currentUser.UserID;
-            retakeTestApplication.PaidFees = retakeTestFees;
+            //clsApplication retakeTestApplication = new clsApplication();
+            //retakeTestApplication.ApplicationTypeID = 7;
+            //retakeTestApplication.ApplicationDate = DateTime.Now;
+            //retakeTestApplication.ApplicationPersonID = _ldlApplication.Application.ApplicationPersonID;
+            //retakeTestApplication.CreatedByUserID = clsGlobal.currentUser.UserID;
+            //retakeTestApplication.PaidFees = retakeTestFees;
 
-            if (retakeTestApplication.Save())
-            {
-                return retakeTestApplication.ApplicationID;
-            }
+            //if (retakeTestApplication.Save())
+            //{
+            //    return retakeTestApplication.ApplicationID;
+            //}
 
             return -1;
         }
@@ -110,11 +110,11 @@ namespace DVLD
       
         private void SetDataIntoUIFields()
         {
-            clsPerson person = _ldlApplication.Application.Person;
+            clsPerson person = _ldlApplication.ApplicationPersonInfo;
             string name = person.FirstName + " " + person.LastName;
 
             lblDLApplicationID.Text = _ldlApplication.LocalDrivingLicenseApplicationID.ToString();
-            lblLicenseClass.Text = _ldlApplication.LicenseClass.ClassName.ToString();
+            lblLicenseClass.Text = _ldlApplication.LicenseClassInfo.ClassName.ToString();
             lblName.Text = name;
             lblTrials.Text = _trials.ToString();
             gpTest.Text = _testType.Title;

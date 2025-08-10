@@ -25,7 +25,7 @@ namespace DVLD_BusinessLayer
             {
                 _PersonID = value;
                 if (value != -1)
-                    Person = clsPerson.FindByID(value);
+                    Person = clsPerson.Find(value);
             }
         }
         public int CreatedByUserID { get; set; }

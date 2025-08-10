@@ -53,7 +53,7 @@ namespace DVLD
             lblApplicationFees.Text = _applicationType.Fees.ToString();
             lblLicenseID.Text = _detainedLicense.LicenseID.ToString();
 
-            var createdByUsername = clsUser.FindByID(_detainedLicense.CreatedByUserID)?.UserName;
+            var createdByUsername = clsUser.Find(_detainedLicense.CreatedByUserID)?.UserName;
             if (createdByUsername != null)
                 lblCreatedBy.Text = createdByUsername;
 

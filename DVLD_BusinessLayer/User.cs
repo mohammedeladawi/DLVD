@@ -15,7 +15,7 @@ namespace DVLD_BusinessLayer
 
         private bool _AddNewUser()
         {
-            this.UserID = clsDataAccessUsers.AddNewUser(PerosnID, UserName, Password, isActive);
+            this.UserID = clsDataAccessUsers.AddNewUser(PersonID, UserName, Password, IsActive);
             bool isAdded = UserID != -1;
             
             if (isAdded)
@@ -26,27 +26,14 @@ namespace DVLD_BusinessLayer
 
         private bool _UpdateUser()
         {
-            return clsDataAccessUsers.UpdateUser(UserID, PerosnID, UserName, Password, isActive);
+            return clsDataAccessUsers.UpdateUser(UserID, PersonID, UserName, Password, IsActive);
         }
         
-        private int _PersonID;
         public int UserID { get; set; }
-        public int PerosnID 
-        {
-            get
-            {
-                return _PersonID;
-            }
-
-            set
-            {
-                _PersonID = value;
-                Person = clsPerson.FindByID(_PersonID);
-            }
-        }
+        public int PersonID { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-        public bool isActive { get; set; }
+        public bool IsActive { get; set; }
 
         public clsPerson Person { get; private set; }
 
@@ -58,11 +45,11 @@ namespace DVLD_BusinessLayer
         private clsUser(int userID, int perosnID, string userName, string password, bool isActive)
         {
             UserID = userID;
-            PerosnID = perosnID;
+            PersonID = perosnID;
             UserName = userName;
             Password = password;
-            this.isActive = isActive;
-            this.Person = clsPerson.FindByID(perosnID);
+            this.IsActive = isActive;
+            this.Person = clsPerson.Find(perosnID);
             
             Mode = enMode.Update;
         }
@@ -70,15 +57,15 @@ namespace DVLD_BusinessLayer
         public clsUser()
         {
             UserID = -1;
-            PerosnID = -1;
+            PersonID = -1;
             UserName = "";
             Password = "";
-            this.isActive = false;
+            this.IsActive = false;
 
             Mode = enMode.AddNew;
         }
 
-        public static clsUser FindByID(int userID)
+        public static clsUser Find(int userID)
         {
             int personID = -1;
             string username = "";

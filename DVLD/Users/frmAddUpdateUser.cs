@@ -28,7 +28,7 @@ namespace DVLD
         {   
             InitializeComponent();
             _Mode = enMode.Update;
-            _user = clsUser.FindByID(userID);
+            _user = clsUser.Find(userID);
         }
 
         private void LoadUIFieldsIntoUser()
@@ -54,7 +54,7 @@ namespace DVLD
             if (person == null)
             {
                 e.Cancel = true;
-                MessageBox.Show("Please add person first");
+                MessageBox.Show("Please add a person first");
             }
             else if (clsUser.IsExistByPersonID(person.PersonID) && _Mode == enMode.AddNew)
             {

@@ -12,11 +12,8 @@ namespace DVLD_DataAccessLayer
 {
     public static class clsDataAccessApplications
     { 
-        enum enStatus:byte { New = 1, Cancelled = 2, Completed = 3}
-
-        public static int AddNewApplication(int personID, DateTime date, byte typeID, decimal paidFees, int createdByUserID)
+        public static int AddNewApplication(int applicationPersonID, DateTime applicationDate, int applicationTypeID, byte applicationStatus, decimal paidFees, int createdByUserID)
         {
-            byte status = (byte)enStatus.New;
             string commandStr = @"INSERT INTO Applications(ApplicationPersonID, ApplicationDate, 
                                                            ApplicationTypeID, ApplicationStatus, 
                                                            LastStatusDate, PaidFees, CreatedByUserID)
@@ -30,11 +27,11 @@ namespace DVLD_DataAccessLayer
             {
                 using (SqlCommand command = new SqlCommand(commandStr, connection))
                 {
-                    command.Parameters.AddWithValue("@ApplicationPersonID", personID);
-                    command.Parameters.AddWithValue("@ApplicationDate", date);
-                    command.Parameters.AddWithValue("@ApplicationTypeID", typeID);
-                    command.Parameters.AddWithValue("@ApplicationStatus", status);
-                    command.Parameters.AddWithValue("@LastStatusDate", date); // Use the same date in new applications
+                    command.Parameters.AddWithValue("@ApplicationPersonID", applicationPersonID);
+                    command.Parameters.AddWithValue("@ApplicationDate", applicationDate);
+                    command.Parameters.AddWithValue("@ApplicationTypeID", applicationTypeID);
+                    command.Parameters.AddWithValue("@ApplicationStatus", applicationStatus);
+                    command.Parameters.AddWithValue("@LastStatusDate", applicationDate); // Use the same date in new applications
                     command.Parameters.AddWithValue("@PaidFees", paidFees);
                     command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
 
@@ -58,7 +55,49 @@ namespace DVLD_DataAccessLayer
             return -1;
         }
 
-        private static bool _UpdateApplication(int applicationID, byte applicationStatus, DateTime lastStatusDate)
+        public static bool UpdateApplication(int applicationID, int applicationPersonID, DateTime applicationDate, int applicationTypeID, byte applicationStatus, DateTime lastStatusDate, decimal paidFees, int createdByUserID)
+        {
+            int rowsAffected = 0;
+            string commandStr = @"Update Applications  
+                            set ApplicationPersonID = @ApplicationPersonID,
+                                ApplicationDate = @ApplicationDate,
+                                ApplicationTypeID = @ApplicationTypeID,
+                                ApplicationStatus = @ApplicationStatus, 
+                                LastStatusDate = @LastStatusDate,
+                                PaidFees = @PaidFees,
+                                CreatedByUserID=@CreatedByUserID
+                            where ApplicationID=@ApplicationID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@ApplicationID", applicationID);
+                    command.Parameters.AddWithValue("@ApplicationPersonID", applicationPersonID);
+                    command.Parameters.AddWithValue("@ApplicationDate", applicationDate);
+                    command.Parameters.AddWithValue("@ApplicationTypeID", applicationTypeID);
+                    command.Parameters.AddWithValue("@ApplicationStatus", applicationStatus);
+                    command.Parameters.AddWithValue("@LastStatusDate", lastStatusDate); // Use the same date in new applications
+                    command.Parameters.AddWithValue("@PaidFees", paidFees);
+                    command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
+
+                    try
+                    {
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        return false;
+                    }
+                }
+            }
+
+            return rowsAffected > 0;
+        }
+        
+        public static bool UpdateApplicationStatus(int applicationID, byte applicationStatus)
         {
             string commandStr = @"UPDATE Applications SET 
                                   ApplicationStatus = @ApplicationStatus,
@@ -70,7 +109,7 @@ namespace DVLD_DataAccessLayer
                 using (SqlCommand command = new SqlCommand(commandStr, connection))
                 {
                     command.Parameters.AddWithValue("@ApplicationStatus", applicationStatus);
-                    command.Parameters.AddWithValue("@LastStatusDate", lastStatusDate);
+                    command.Parameters.AddWithValue("@LastStatusDate", DateTime.Now);
                     command.Parameters.AddWithValue("@ApplicationID", applicationID);
 
 
@@ -80,43 +119,6 @@ namespace DVLD_DataAccessLayer
                        
                         int numberOfRows = command.ExecuteNonQuery();
                         if (numberOfRows > 0)
-                        {
-                            return true;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        // For New and Completed ApplicationStatus
-        public static bool IsSameApplicationExist(int personID, int licenseClassID)
-        {
-            string query = @"select x=1 from Applications
-                             JOIN LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
-                             where Applications.ApplicationStatus IN (@NewStatus, @CompletedStatus) 
-                                AND LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID
-                                AND Applications.ApplicationPersonID = @PersonID;";
-
-            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@NewStatus", (byte)enStatus.New);
-                    command.Parameters.AddWithValue("@CompletedStatus", (byte)enStatus.Completed);
-                    command.Parameters.AddWithValue("@LicenseClassID", licenseClassID);
-                    command.Parameters.AddWithValue("@PersonID", personID);
-
-                    try
-                    {
-                        connection.Open();
-                        object result = command.ExecuteScalar();
-                        if (result != null)
                         {
                             return true;
                         }
@@ -159,21 +161,9 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
-
-        public static bool CancelApplicationByID(int applicationID)
-        {
-            byte status = (byte)enStatus.Cancelled;
-            return _UpdateApplication(applicationID, status, DateTime.Now);
-        }
-       
-        public static bool CompleteApplicationByID(int applicationID)
-        {
-            byte status = (byte)enStatus.Completed;
-            return _UpdateApplication(applicationID, status, DateTime.Now);
-        }
    
         public static bool FindApplicationByID(int applicationID, ref int applicationPersonID, ref DateTime applicationDate,
-            ref byte applicationTypeID, ref byte applicationStatus, ref DateTime lastStatusDate,
+            ref int applicationTypeID, ref byte applicationStatus, ref DateTime lastStatusDate,
             ref decimal paidFees, ref int createdByUserID)
         {
             string commandStr = @"Select * From Applications WHERE ApplicationID = @ApplicationID";

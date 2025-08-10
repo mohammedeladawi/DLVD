@@ -22,7 +22,7 @@ namespace DVLD
         public void SetApplicationInfo(int ldlApplicationID)
         {
             _ldlApplicationID = ldlApplicationID;
-            ctrApplicationInfo1.setApplicationInfo(_ldlApplicationID);
+            ctrApplicationInfo1.LoadApplication(_ldlApplicationID);
         }
 
         public ctrManageTestApplicationInfo()

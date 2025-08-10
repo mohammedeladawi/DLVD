@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\Local Driving License\frmLDLApplicationDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmLDLApplicationDetails.Designer.cs">
+      <DependentUpon>frmLDLApplicationDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctrDriverLicenseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -65,10 +71,10 @@
     <Compile Include="ctrIssueBtn.Designer.cs">
       <DependentUpon>ctrIssueBtn.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrLDLApplicationInfo.cs">
+    <Compile Include="Applications\Local Driving License\Controls\ctrLDLApplicationInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrLDLApplicationInfo.Designer.cs">
+    <Compile Include="Applications\Local Driving License\Controls\ctrLDLApplicationInfo.Designer.cs">
       <DependentUpon>ctrLDLApplicationInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\Controls\ctrUserInformation.cs">
@@ -78,10 +84,10 @@
       <DependentUpon>ctrUserInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Global Classes\clsUtil.cs" />
-    <Compile Include="Reusable Controls\ctrDataView.cs">
+    <Compile Include="Applications\Controls\ctrDataView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Reusable Controls\ctrDataView.Designer.cs">
+    <Compile Include="Applications\Controls\ctrDataView.Designer.cs">
       <DependentUpon>ctrDataView.cs</DependentUpon>
     </Compile>
     <Compile Include="ctrManageTestApplicationInfo.cs">
@@ -133,22 +139,22 @@
     <Compile Include="Reusable Controls\ctrCloseBtn.Designer.cs">
       <DependentUpon>ctrCloseBtn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\Controls\ctrFindPersonInfo.cs">
+    <Compile Include="People\Controls\ctrFindPersonInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Users\Controls\ctrFindPersonInfo.Designer.cs">
+    <Compile Include="People\Controls\ctrFindPersonInfo.Designer.cs">
       <DependentUpon>ctrFindPersonInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reusable Controls\ctrFilterDataView.cs">
+    <Compile Include="Applications\Controls\ctrFilterDataView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Reusable Controls\ctrFilterDataView.Designer.cs">
+    <Compile Include="Applications\Controls\ctrFilterDataView.Designer.cs">
       <DependentUpon>ctrFilterDataView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrNextBtn.cs">
+    <Compile Include="Reusable Controls\ctrNextBtn.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrNextBtn.Designer.cs">
+    <Compile Include="Reusable Controls\ctrNextBtn.Designer.cs">
       <DependentUpon>ctrNextBtn.cs</DependentUpon>
     </Compile>
     <Compile Include="People\Controls\ctrPersonInformation.cs">
@@ -241,10 +247,10 @@
     <Compile Include="frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmManageLDLApplications.cs">
+    <Compile Include="Applications\Local Driving License\frmManageLDLApplications.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmManageLDLApplications.Designer.cs">
+    <Compile Include="Applications\Local Driving License\frmManageLDLApplications.Designer.cs">
       <DependentUpon>frmManageLDLApplications.cs</DependentUpon>
     </Compile>
     <Compile Include="frmManageTestTypes.cs">
@@ -259,10 +265,10 @@
     <Compile Include="Users\frmManageUsers.Designer.cs">
       <DependentUpon>frmManageUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAddEditLDLApplication.cs">
+    <Compile Include="Applications\Local Driving License\frmAddEditLDLApplication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddEditLDLApplication.Designer.cs">
+    <Compile Include="Applications\Local Driving License\frmAddEditLDLApplication.Designer.cs">
       <DependentUpon>frmAddEditLDLApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="People\frmPersonDetails.cs">
@@ -310,6 +316,9 @@
     <Compile Include="Global Classes\clsGlobal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Applications\Local Driving License\frmLDLApplicationDetails.resx">
+      <DependentUpon>frmLDLApplicationDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctrDriverLicenseInfo.resx">
       <DependentUpon>ctrDriverLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,13 +328,13 @@
     <EmbeddedResource Include="ctrIssueBtn.resx">
       <DependentUpon>ctrIssueBtn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrLDLApplicationInfo.resx">
+    <EmbeddedResource Include="Applications\Local Driving License\Controls\ctrLDLApplicationInfo.resx">
       <DependentUpon>ctrLDLApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\Controls\ctrUserInformation.resx">
       <DependentUpon>ctrUserInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reusable Controls\ctrDataView.resx">
+    <EmbeddedResource Include="Applications\Controls\ctrDataView.resx">
       <DependentUpon>ctrDataView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctrManageTestApplicationInfo.resx">
@@ -352,13 +361,13 @@
     <EmbeddedResource Include="Reusable Controls\ctrCloseBtn.resx">
       <DependentUpon>ctrCloseBtn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users\Controls\ctrFindPersonInfo.resx">
+    <EmbeddedResource Include="People\Controls\ctrFindPersonInfo.resx">
       <DependentUpon>ctrFindPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reusable Controls\ctrFilterDataView.resx">
+    <EmbeddedResource Include="Applications\Controls\ctrFilterDataView.resx">
       <DependentUpon>ctrFilterDataView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrNextBtn.resx">
+    <EmbeddedResource Include="Reusable Controls\ctrNextBtn.resx">
       <DependentUpon>ctrNextBtn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\Controls\ctrPersonInformation.resx">
@@ -406,7 +415,7 @@
     <EmbeddedResource Include="frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmManageLDLApplications.resx">
+    <EmbeddedResource Include="Applications\Local Driving License\frmManageLDLApplications.resx">
       <DependentUpon>frmManageLDLApplications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageTestTypes.resx">
@@ -415,7 +424,7 @@
     <EmbeddedResource Include="Users\frmManageUsers.resx">
       <DependentUpon>frmManageUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddEditLDLApplication.resx">
+    <EmbeddedResource Include="Applications\Local Driving License\frmAddEditLDLApplication.resx">
       <DependentUpon>frmAddEditLDLApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmPersonDetails.resx">
