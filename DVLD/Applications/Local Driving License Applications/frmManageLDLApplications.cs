@@ -115,26 +115,6 @@ namespace DVLD
             editUpdateLDLApplication.ShowDialog();
         }
 
-        private void ShowMangageVisionTest(int ldlApplicationID)
-        {
-            Form scheduleVTest = new frmManageTestAppointments(ldlApplicationID, (int)enTestTypes.VisionTest, 1);
-            scheduleVTest.FormClosed += frm_Closed;
-            scheduleVTest.ShowDialog();
-        }
-
-        private void ShowMangageWrittenTest(int ldlApplicationID)
-        {
-            Form scheduleVTest = new frmManageTestAppointments(ldlApplicationID, (int)enTestTypes.WrittenTheoryTest, 2);
-            scheduleVTest.FormClosed += frm_Closed;
-            scheduleVTest.ShowDialog();
-        }
-       
-        private void ShowMangageStreetTest(int ldlApplicationID)
-        {
-            Form scheduleVTest = new frmManageTestAppointments(ldlApplicationID, (int)enTestTypes.PracticalStreetTest, 3);
-            scheduleVTest.FormClosed += frm_Closed;
-            scheduleVTest.ShowDialog();
-        }
 
         private void ShowIssueDrivingLicense(int ldlApplicaitonID)
         {
@@ -240,6 +220,7 @@ namespace DVLD
             switch(ldlApplication.ApplicationStatus)
             {
                 case (byte)clsApplication.enApplicationStatus.Cancelled:
+                    tsmiDeleteApplication.Enabled = true;
                     break;
                 case (byte)clsApplication.enApplicationStatus.Completed:
                     tsmiShowLicense.Enabled = true;
@@ -290,22 +271,92 @@ namespace DVLD
                 ShowUpdateLDLApplication(ldlApplicationID);
         }
 
-        private void tsmiScheduleVisionTest_Click(object sender, EventArgs e)
+
+        private bool CanOpenScheduleTest(int ldlApplicationID, clsTestType.enTestTypes testType)
+        {
+            clsLDLApplication ldlApplication = clsLDLApplication.FindByLDLApplicationID(ldlApplicationID);
+            if (ldlApplication == null)
+                return false;
+
+            switch (testType)
+            {
+                case clsTestType.enTestTypes.VisionTest:
+                    // check if already passed it
+                    if (ldlApplication.IsPassedTest((int)testType))
+                    {
+                        MessageBox.Show("Person already passed this test!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false ;
+                    }
+                    break;
+
+                case clsTestType.enTestTypes.WrittenTheoryTest:
+                    if (!ldlApplication.IsPassedTest((int)clsTestType.enTestTypes.VisionTest))
+                    {
+                        MessageBox.Show("Person should pass vision test first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+
+                    if (ldlApplication.IsPassedTest((int)testType))
+                    {
+                        MessageBox.Show("Person already passed this test!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    break;
+
+                case clsTestType.enTestTypes.PracticalStreetTest:
+                    if (!ldlApplication.IsPassedTest((int)clsTestType.enTestTypes.VisionTest))
+                    {
+                        MessageBox.Show("Person should pass vision test and then written test!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    
+                    if (!ldlApplication.IsPassedTest((int)clsTestType.enTestTypes.WrittenTheoryTest))
+                    {
+                        MessageBox.Show("Person should pass written test first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+
+                    if (ldlApplication.IsPassedTest((int)testType))
+                    {
+                        MessageBox.Show("Person already passed this test!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    break;
+
+                default:
+                    return false;
+
+            }
+            return true;
+        }
+
+        private void ShowManageTestAppointments(clsTestType.enTestTypes testType)
         {
             if (TryGetSelectedLDLApplicationID(out int ldlApplicationID))
-                ShowMangageVisionTest(ldlApplicationID);
+            {
+                if (!CanOpenScheduleTest(ldlApplicationID, testType))
+                    return;
+
+                Form scheduleVTest = new frmManageTestAppointments(ldlApplicationID, testType);
+                scheduleVTest.FormClosed += frm_Closed;
+                scheduleVTest.ShowDialog();
+
+            }
+        }
+
+        private void tsmiScheduleVisionTest_Click(object sender, EventArgs e)
+        {
+                ShowManageTestAppointments(clsTestType.enTestTypes.VisionTest);
         }
 
         private void tsmiScheduleWrittenTest_Click(object sender, EventArgs e)
         {
-            if (TryGetSelectedLDLApplicationID(out int ldlApplicationID))
-                ShowMangageWrittenTest(ldlApplicationID);
+                ShowManageTestAppointments(clsTestType.enTestTypes.WrittenTheoryTest);
         }
 
         private void tsmiScheduleStreetTest_Click(object sender, EventArgs e)
         {
-            if (TryGetSelectedLDLApplicationID(out int ldlApplicationID))
-                ShowMangageStreetTest(ldlApplicationID);
+                ShowManageTestAppointments(clsTestType.enTestTypes.PracticalStreetTest);
         }
 
         private void tsmiIssueDrivingLicense_Click(object sender, EventArgs e)

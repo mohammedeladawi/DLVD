@@ -13,6 +13,11 @@ namespace DVLD
 {
     public partial class frmManageTestTypes: Form
     {
+        public frmManageTestTypes()
+        {
+            InitializeComponent();
+        }
+
         private int GetSelectedTestTypetID()
         {
             DataGridView dgvTestType = ctrDataView1.dgvManageDate1;
@@ -33,10 +38,7 @@ namespace DVLD
             updateTestType.FormClosed += frmUpdateTestType_Closed;
             updateTestType.ShowDialog();
         }
-        public frmManageTestTypes()
-        {
-            InitializeComponent();
-        }
+
 
         private void ReloadTestTypesData()
         {
@@ -52,7 +54,6 @@ namespace DVLD
         private void tsmiEditTestType_Click(object sender, EventArgs e)
         {
             int testTypeID = GetSelectedTestTypetID();
-
             if (testTypeID != -1)
             {
                 UpdateTestTypeDialog(testTypeID);

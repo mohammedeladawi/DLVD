@@ -36,13 +36,14 @@ namespace DVLD_BusinessLayer
         public decimal PaidFees { get; set; }
         public bool IsLocked { get; set; }
         public int CreatedByUserID { get; set; }
-        public int? RetakeTestApplicationID { get; set; }
+        public int RetakeTestApplicationID { get; set; }
 
-        public static bool IsActiveAppointmentExist(int ldlApplicationID)
+        public static bool IsActiveAppointmentExist(int ldlApplicationID, int testTypeID)
         {
-            return clsDataAccessTestAppointments.IsActiveAppointmentExist(ldlApplicationID);
+            return clsDataAccessTestAppointments.
+                IsActiveAppointmentExist(ldlApplicationID, testTypeID);
         }
-        public static DataTable GetAllTestAppointmentsByLDLAppID(int ldlApplicationID, int testTypeID)
+        public static DataTable GetApplicationTestAppointmentsPerTestType(int ldlApplicationID, int testTypeID)
         {
             return clsDataAccessTestAppointments.GetAllTestAppointmenstByLDLAppID(ldlApplicationID, testTypeID);
         }
@@ -56,12 +57,12 @@ namespace DVLD_BusinessLayer
             PaidFees = 0;
             IsLocked = false;
             CreatedByUserID = -1;
-            RetakeTestApplicationID = null;
+            RetakeTestApplicationID = -1;
             Mode = enMode.AddNew;
         }
 
         private clsTestAppointment(int testAppointmentID, int testTypeID, int ldlApplicationID,
-            DateTime appointmentDate, decimal paidFees, bool isLocked, int createdByUserID, int? retakeTestApplicationID)
+            DateTime appointmentDate, decimal paidFees, bool isLocked, int createdByUserID, int retakeTestApplicationID)
         {
             TestAppointmentID = testAppointmentID;
             TestTypeID = testTypeID;
@@ -82,7 +83,7 @@ namespace DVLD_BusinessLayer
             decimal paidFees = 0;
             bool isLocked = false;
             int createdByUserID = -1;
-            int? retakeTestApplicationID = null;
+            int retakeTestApplicationID = -1;
 
             bool isFound = clsDataAccessTestAppointments.FindByTestAppointmentID(testAppointmentID, ref testTypeID,
                 ref ldlApplicationID, ref appointmentDate, ref paidFees, ref isLocked, ref createdByUserID, ref retakeTestApplicationID);
@@ -92,9 +93,7 @@ namespace DVLD_BusinessLayer
             else
                 return null;
         }
-
         
-
         public bool Save()
         {
             switch(Mode)

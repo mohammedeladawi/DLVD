@@ -55,9 +55,14 @@ namespace DVLD_BusinessLayer
             return clsDataAccessTests.PassedTestsCount(ldlApplicationID);
         }
 
-        public static int SpecificTestTrials(int ldlApplicaitonID, int testTypeID)
+        public static int LDLApplicationTestTrials(int ldlApplicaitonID, int testTypeID)
         {
-            return clsDataAccessTests.SpecificTestTrialsByLDLAppIdAndTestTypeID(ldlApplicaitonID, testTypeID);
+            return clsDataAccessTests.LDLApplicationTestTrials(ldlApplicaitonID, testTypeID);
+        }
+
+        public static bool IsLDLApplicationTestPassed(int ldlApplicationID, int testTypeID)
+        {
+            return clsDataAccessTests.IsApplicationTestPassed(ldlApplicationID, testTypeID);
         }
 
         public bool Save()

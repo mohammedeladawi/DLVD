@@ -128,6 +128,23 @@ namespace DVLD_BusinessLayer
         {
             return clsTest.PassedTestsCount(this.LocalDrivingLicenseApplicationID);
         }
+
+        public bool IsPassedTest(int testTypeID)
+        {
+            return
+                clsTest.IsLDLApplicationTestPassed(this.LocalDrivingLicenseApplicationID, testTypeID);
+        }
+     
+        public bool HasActiveAppointmentPerTestType(int testTypeID)
+        {
+            return clsTestAppointment.IsActiveAppointmentExist(this.LocalDrivingLicenseApplicationID, testTypeID);
+        }
+
+        public int GetTestTrialsPerTestType(int testTypeID)
+        {
+            return clsTest.LDLApplicationTestTrials(this.LocalDrivingLicenseApplicationID, testTypeID);
+        }
+
         public bool Save()
         {
             base.Mode = (clsApplication.enMode)this.Mode;

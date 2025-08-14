@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
-            this.ctrTestApplicationInfo1 = new DVLD.ctrManageTestApplicationInfo();
-            this.cmsVisionTestAppointment = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmsiTakeTest = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmsiEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsManageTestAppointment = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiTakeTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddNewAppointment = new System.Windows.Forms.Button();
-            this.cmsVisionTestAppointment.SuspendLayout();
+            this.ctrTestApplicationInfo1 = new DVLD.ctrManageTestApplicationInfo();
+            this.cmsManageTestAppointment.SuspendLayout();
             this.SuspendLayout();
             // 
             // ctrCloseBtn1
@@ -46,38 +46,30 @@
             this.ctrCloseBtn1.Size = new System.Drawing.Size(228, 64);
             this.ctrCloseBtn1.TabIndex = 1;
             // 
-            // ctrTestApplicationInfo1
+            // cmsManageTestAppointment
             // 
-            this.ctrTestApplicationInfo1.AutoScroll = true;
-            this.ctrTestApplicationInfo1.Location = new System.Drawing.Point(18, 19);
-            this.ctrTestApplicationInfo1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.ctrTestApplicationInfo1.Name = "ctrTestApplicationInfo1";
-            this.ctrTestApplicationInfo1.Size = new System.Drawing.Size(1568, 1631);
-            this.ctrTestApplicationInfo1.TabIndex = 0;
+            this.cmsManageTestAppointment.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsManageTestAppointment.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiTakeTest,
+            this.tsmiEdit});
+            this.cmsManageTestAppointment.Name = "cmsVisionTestAppointment";
+            this.cmsManageTestAppointment.Size = new System.Drawing.Size(207, 80);
+            this.cmsManageTestAppointment.Text = "Edit";
+            this.cmsManageTestAppointment.Opening += new System.ComponentModel.CancelEventHandler(this.cmsManageTestAppointment_Opening);
             // 
-            // cmsVisionTestAppointment
+            // tsmiTakeTest
             // 
-            this.cmsVisionTestAppointment.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsVisionTestAppointment.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmsiTakeTest,
-            this.tmsiEdit});
-            this.cmsVisionTestAppointment.Name = "cmsVisionTestAppointment";
-            this.cmsVisionTestAppointment.Size = new System.Drawing.Size(301, 124);
-            this.cmsVisionTestAppointment.Text = "Edit";
+            this.tsmiTakeTest.Name = "tsmiTakeTest";
+            this.tsmiTakeTest.Size = new System.Drawing.Size(206, 38);
+            this.tsmiTakeTest.Text = "Take A Test";
+            this.tsmiTakeTest.Click += new System.EventHandler(this.tsmiTakeTest_Click);
             // 
-            // cmsiTakeTest
+            // tsmiEdit
             // 
-            this.cmsiTakeTest.Name = "cmsiTakeTest";
-            this.cmsiTakeTest.Size = new System.Drawing.Size(300, 38);
-            this.cmsiTakeTest.Text = "Take A Test";
-            this.cmsiTakeTest.Click += new System.EventHandler(this.cmsiTakeTest_Click);
-            // 
-            // tmsiEdit
-            // 
-            this.tmsiEdit.Name = "tmsiEdit";
-            this.tmsiEdit.Size = new System.Drawing.Size(300, 38);
-            this.tmsiEdit.Text = "Edit";
-            this.tmsiEdit.Click += new System.EventHandler(this.tmsiEdit_Click);
+            this.tsmiEdit.Name = "tsmiEdit";
+            this.tsmiEdit.Size = new System.Drawing.Size(206, 38);
+            this.tsmiEdit.Text = "Edit";
+            this.tsmiEdit.Click += new System.EventHandler(this.tsmiEdit_Click);
             // 
             // btnAddNewAppointment
             // 
@@ -90,7 +82,16 @@
             this.btnAddNewAppointment.UseVisualStyleBackColor = true;
             this.btnAddNewAppointment.Click += new System.EventHandler(this.btnAddNewAppointment_Click);
             // 
-            // frmManageVisionTestAppointments
+            // ctrTestApplicationInfo1
+            // 
+            this.ctrTestApplicationInfo1.AutoScroll = true;
+            this.ctrTestApplicationInfo1.Location = new System.Drawing.Point(18, 19);
+            this.ctrTestApplicationInfo1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ctrTestApplicationInfo1.Name = "ctrTestApplicationInfo1";
+            this.ctrTestApplicationInfo1.Size = new System.Drawing.Size(1568, 1631);
+            this.ctrTestApplicationInfo1.TabIndex = 0;
+            // 
+            // frmManageTestAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -99,10 +100,10 @@
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.ctrTestApplicationInfo1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "frmManageVisionTestAppointments";
+            this.Name = "frmManageTestAppointments";
             this.Text = "frmVisionTestAppointments";
             this.Load += new System.EventHandler(this.frmManageTestAppointments_Load);
-            this.cmsVisionTestAppointment.ResumeLayout(false);
+            this.cmsManageTestAppointment.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -111,9 +112,9 @@
 
         private ctrManageTestApplicationInfo ctrTestApplicationInfo1;
         private ctrCloseBtn ctrCloseBtn1;
-        private System.Windows.Forms.ContextMenuStrip cmsVisionTestAppointment;
-        private System.Windows.Forms.ToolStripMenuItem cmsiTakeTest;
-        private System.Windows.Forms.ToolStripMenuItem tmsiEdit;
+        private System.Windows.Forms.ContextMenuStrip cmsManageTestAppointment;
+        private System.Windows.Forms.ToolStripMenuItem tsmiTakeTest;
+        private System.Windows.Forms.ToolStripMenuItem tsmiEdit;
         private System.Windows.Forms.Button btnAddNewAppointment;
     }
 }

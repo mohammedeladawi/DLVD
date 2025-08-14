@@ -12,7 +12,7 @@ namespace DVLD_DataAccessLayer
 {
     public static class clsDataAccessTests
     {
-      public static byte PassedTestsCount(int ldlApplicationID)
+        public static byte PassedTestsCount(int ldlApplicationID)
         {
             string commandStr = @"
                             select COUNT(T.TestID) from TestAppointments TA
@@ -42,13 +42,15 @@ namespace DVLD_DataAccessLayer
 
         }
     
-      public static int SpecificTestTrialsByLDLAppIdAndTestTypeID(int ldlApplicationID, int testTypeID)
+        public static int LDLApplicationTestTrials(int ldlApplicationID, int testTypeID)
         {
-            string commandStr = @"select count(1) from tests T
-                                  JOIN TestAppointments TA on TA.TestAppointmentID = T.TestAppointmentID
-                                  JOIN LocalDrivingLicenseApplications LDLApp on LDLApp.LocalDrivingLicenseApplicationID = TA.LocalDrivingLicenseApplicationID
-                                  where LDLApp.LocalDrivingLicenseApplicationID = @LDLApplicationID
-                                    and TestTypeID = @TestTypeID";
+            string commandStr = @"select count(1) from Tests T
+                                inner join TestAppointments TA
+                                    on TA.TestAppointmentID = T.TestAppointmentID
+                                    where 
+                                        T.TestResult = 0
+                                        and TA.LocalDrivingLicenseApplicationID = @LDLApplicationID
+                                        and TA.TestTypeID = @TestTypeID;";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
@@ -60,12 +62,8 @@ namespace DVLD_DataAccessLayer
                     try
                     {
                         connection.Open();
-                        SqlDataReader read = command.ExecuteReader();
-                        if (read.Read())
-                        {
-                            int testsCount = (int)read[0];
-                            return testsCount;
-                        }
+                        object result = command.ExecuteScalar();
+                        return Convert.ToInt16(result);
                     }
                     catch (Exception ex)
                     {
@@ -76,8 +74,42 @@ namespace DVLD_DataAccessLayer
 
             return 0;
         }
+
+        public static bool IsApplicationTestPassed(int ldlApplicationID, int testTypeID)
+        {
+            string commandStr = @"
+                                select 1 from tests T
+                                inner join TestAppointments TA 
+                                    on TA.TestAppointmentID = T.TestAppointmentID
+                                Where 
+                                    TA.LocalDrivingLicenseApplicationID = @LDLApplicationID
+                                    AND TA.TestTypeID = @TestTypeID
+                                    AND T.TestResult = 1;";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(commandStr, connection))
+                {
+                    command.Parameters.AddWithValue("@LDLApplicationID", ldlApplicationID);
+                    command.Parameters.AddWithValue("@TestTypeID", testTypeID);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        return result != null;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return false; ;
+        }
       
-      public static int AddNewTest( int testAppointmentID, bool testResult, string notes, int createdByUserID) 
+        public static int AddNewTest( int testAppointmentID, bool testResult, string notes, int createdByUserID) 
         { string commandStr = @"Insert Into Tests(TestAppointmentID, TestResult, Notes, CreatedByUserID)
                                   values (@TestAppointmentID, @TestResult, @Notes, @CreatedByUserID);
                                   SELECT SCOPE_IDENTITY();";

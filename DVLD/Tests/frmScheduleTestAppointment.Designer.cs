@@ -304,7 +304,7 @@
             this.Controls.Add(this.gpTest);
             this.Name = "frmScheduleTestAppointment";
             this.Text = "frmAddEditVisionTestAppointment";
-            this.Load += new System.EventHandler(this.frmAddEditVisionTestAppointment_Load);
+            this.Load += new System.EventHandler(this.frmScheduleTestAppointment_Load);
             this.gpTest.ResumeLayout(false);
             this.gpTest.PerformLayout();
             this.gpRetakeTestInfo.ResumeLayout(false);

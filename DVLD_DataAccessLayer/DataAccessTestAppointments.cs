@@ -51,28 +51,28 @@ namespace DVLD_DataAccessLayer
             return dt;
         }
 
-        public static bool IsActiveAppointmentExist(int ldlApplicationID)
+        public static bool IsActiveAppointmentExist(int ldlApplicationID, int testTypeID)
         {
             string query = @"select 
                                 1 from TestAppointments
                              where 
                                 IsLocked = 0 
+                                and TestTypeID = @TestTypeID
                                 and LocalDrivingLicenseApplicationID = @LDLApplicationID ;";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@TestTypeID", testTypeID);
                     command.Parameters.AddWithValue("@LDLApplicationID", ldlApplicationID);
 
                     try
                     {
                         connection.Open();
                         object result = command.ExecuteScalar();
-                        if (result != null)
-                        {
-                            return true;
-                        }
+                        return result != null;
+                        
                     }
                     catch (Exception ex)
                     {
@@ -86,7 +86,7 @@ namespace DVLD_DataAccessLayer
 
         public static int AddNewTestAppointment(int testTypeID, int ldlApplicationID,
             DateTime appointmentDate, decimal paidFees, int createdByUserID,
-            int? retakeTestApplicationID = null)
+            int retakeTestApplicationID)
         {
             string commandStr = @"Insert Into TestAppointments(TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, PaidFees, IsLocked, CreatedByUserID, RetakeTestApplicationID)
                                   values (@TestTypeID, @LocalDrivingLicenseApplicationID, @AppointmentDate, @PaidFees, @IsLocked, @CreatedByUserID, @RetakeTestApplicationID);;
@@ -103,7 +103,7 @@ namespace DVLD_DataAccessLayer
                     command.Parameters.AddWithValue("@IsLocked", false);
                     command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
                    
-                    if (retakeTestApplicationID != null)
+                    if (retakeTestApplicationID != -1)
                         command.Parameters.AddWithValue("@RetakeTestApplicationID", retakeTestApplicationID);
                     else
                         command.Parameters.AddWithValue("@RetakeTestApplicationID", DBNull.Value);
@@ -130,7 +130,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool FindByTestAppointmentID(int testAppointmentID, ref int testTypeID,
                 ref int ldlApplicationID, ref DateTime appointmentDate, ref decimal paidFees,
-                ref bool isLocked, ref int createdByUserID, ref int? retakeTestApplicationID)
+                ref bool isLocked, ref int createdByUserID, ref int retakeTestApplicationID)
         {
             string commandStr = @"Select * From TestAppointments 
                                   WHERE TestAppointmentID = @TestAppointmentID";
@@ -156,7 +156,7 @@ namespace DVLD_DataAccessLayer
                             retakeTestApplicationID =
                                 read["RetakeTestApplicationID"] != DBNull.Value
                                 ? (int)read["RetakeTestApplicationID"]
-                                : (int?)null;
+                                : -1;
 
                             return true;
                         }

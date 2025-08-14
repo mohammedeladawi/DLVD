@@ -15,48 +15,47 @@ namespace DVLD
     public partial class frmUpdateApplicationType : Form
     {
         private clsApplicationType _applicationType;
-
-        private void frmUpdateApplicationTypes_Load(object sender, EventArgs e)
-        {
-            AddApplicationTypeDataToFields();
-        }
-
         public frmUpdateApplicationType(int applicationTypeID)
         {
-            _applicationType = clsApplicationType.Find(applicationTypeID);
             InitializeComponent();
+            _applicationType = clsApplicationType.Find(applicationTypeID);
         }
 
-        public void AddApplicationTypeDataToFields()
+        
+        private void frmUpdateApplicationTypes_Load(object sender, EventArgs e)
         {
             if (_applicationType == null)
+            {
+                MessageBox.Show("Application type is not exist", 
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
                 return;
+            }
 
+            LoadApplicationTypeIntoUIFields();
+        }
+
+        private void LoadApplicationTypeIntoUIFields()
+        {
             lblApplicationTypeID.Text = _applicationType.ApplicationTypeID.ToString();
             txtTitle.Text = _applicationType.Title;
             txtFees.Text = _applicationType.Fees.ToString();
         }
 
-        public void AddFieldsDataToApplicationType()
+        private void LoadUIFieldsIntoApplicationType()
         {
-            if (_applicationType == null)
-                return;
-
             _applicationType.Title = txtTitle.Text;
             _applicationType.Fees = Convert.ToDecimal(txtFees.Text);
         }
 
         private void ctrSaveBtn1_Click(object sender, EventArgs e)
         {
-            AddFieldsDataToApplicationType();
+            LoadUIFieldsIntoApplicationType();
+            
             if (_applicationType.Save())
-            {
-                MessageBox.Show("Application Type Has Been Updated Successfully");
-            }
+                MessageBox.Show("Application type has been updated successfully");
             else
-            {
-                MessageBox.Show("Failed To Update Application Type");
-            }
+                MessageBox.Show("Couldn't update application type");
         }
     }
 }

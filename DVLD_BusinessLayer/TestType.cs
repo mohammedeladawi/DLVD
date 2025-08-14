@@ -16,6 +16,12 @@ namespace DVLD_BusinessLayer
             return clsDataAccessTestTypes.UpdateTestType(TestTypeID, Title, Description, Fees);
         }
 
+        public enum enTestTypes
+        {
+            VisionTest = 1,
+            WrittenTheoryTest = 2,
+            PracticalStreetTest = 3
+        }
         public int TestTypeID { get; private set; }
 
         public string Title { get; set; }

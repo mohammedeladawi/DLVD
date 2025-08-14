@@ -13,6 +13,10 @@ namespace DVLD
 {
     public partial class frmManageApplicationTypes: Form
     {
+        public frmManageApplicationTypes()
+        {
+            InitializeComponent();
+        }
         private int GetSelectedApplicationTypeID()
         {
             DataGridView dgvApplicationType = ctrDataView1.dgvManageDate1;
@@ -62,10 +66,7 @@ namespace DVLD
             }
         }
 
-        public frmManageApplicationTypes()
-        {
-            InitializeComponent();
-        }
+
 
     }
 }

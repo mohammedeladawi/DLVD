@@ -16,26 +16,20 @@ namespace DVLD
         clsTestType _testType;
         public frmUpdateTestType(int testID)
         {
-            _testType = clsTestType.Find(testID);
             InitializeComponent();
+            _testType = clsTestType.Find(testID);
         }
 
-        public void AddTestTypeDataToFields()
+        public void LoadTestTypeIntoUIFields()
         {
-            if (_testType == null)
-                return;
-
             lblTestID.Text = _testType.TestTypeID.ToString();
             txtTitle.Text = _testType.Title;
             txtDescription.Text = _testType.Description;
             txtFees.Text = _testType.Fees.ToString();
         }
 
-        public void AddFieldsDataToTestType()
+        public void LoadUIFieldsIntoTestType()
         {
-            if (_testType == null)
-                return;
-
             _testType.Title = txtTitle.Text;
             _testType.Description = txtDescription.Text;
             _testType.Fees = Convert.ToDecimal(txtFees.Text);
@@ -43,19 +37,27 @@ namespace DVLD
         
         private void frmUpdateTestType_Load(object sender, EventArgs e)
         {
-            AddTestTypeDataToFields();
+            if (_testType == null)
+            {
+                MessageBox.Show("Test type is not exist",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            LoadTestTypeIntoUIFields();
         }
 
         private void ctrSaveBtn1_Click(object sender, EventArgs e)
         {
-            AddFieldsDataToTestType();
+            LoadUIFieldsIntoTestType();
             if (_testType.Save())
             {
-                MessageBox.Show("Test Type Has Been Updated Successfully");
+                MessageBox.Show("Test type has been updated successfully");
             }
             else
             {
-               MessageBox.Show("Failed To Update Test Type");
+               MessageBox.Show("Couldn't update test type");
             }
         }
     }

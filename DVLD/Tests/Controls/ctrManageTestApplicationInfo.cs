@@ -17,30 +17,28 @@ namespace DVLD
             get { return ctrDataView1.dgvManageDate1; }
         }
 
-        private int _ldlApplicationID;
-
-        public void SetApplicationInfo(int ldlApplicationID)
-        {
-            _ldlApplicationID = ldlApplicationID;
-            ctrApplicationInfo1.LoadApplication(_ldlApplicationID);
-        }
-
         public ctrManageTestApplicationInfo()
         {
             InitializeComponent();
         }
-
-        public void SetTestTitle(string title)
+        
+        public void LoadLDLApplicationInfo(int ldlApplicationID)
         {
-            lblTestTitle.Text = title;
+            ctrApplicationInfo1.LoadApplication(ldlApplicationID);
         }
 
-        public void SetTestAppointmentsView(DataTable dt)
+        public void LoadTitle(string title)
+        {
+            lblTestTitle.Text = title;
+            lblTestTitle.Left = (this.ClientSize.Width - lblTestTitle.Width) / 2;
+        }
+
+        public void LoadTestAppointments(DataTable dt)
         {
             ctrDataView1.LoadDataInDgvManageData(dt);
         }
 
-        public void SetContextMenuStrip(ContextMenuStrip cms)
+        public void LoadContextMenuStrip(ContextMenuStrip cms)
         {
             ctrDataView1.SetContextMenuStrip(cms);
         }
