@@ -83,7 +83,7 @@ namespace DVLD
         private void LoadApplicationData(clsApplication application)
         {
             DateTime todayDate = DateTime.Now;
-            application.ApplicationPersonID = _localLicense.Driver.PersonID;
+            application.ApplicationPersonID = _localLicense.DriverInfo.PersonID;
             application.ApplicationDate = todayDate;
             application.ApplicationTypeID = Convert.ToByte(_applicationType.ApplicationTypeID);
             application.PaidFees = _applicationType.Fees;

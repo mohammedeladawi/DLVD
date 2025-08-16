@@ -22,7 +22,7 @@ namespace DVLD
             InitializeComponent();
         }
 
-        public void SetContextMenuStrip(ContextMenuStrip cms)
+        public void LoadContextMenuStrip(ContextMenuStrip cms)
         {
             dgvManageData.ContextMenuStrip = cms;
         }

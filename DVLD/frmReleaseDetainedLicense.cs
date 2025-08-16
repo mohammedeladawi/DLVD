@@ -77,7 +77,7 @@ namespace DVLD
                 return;
             }
 
-            if (!clsDetainedLicense.IsDetained(licenseID))
+            if (!clsDetainedLicense.IsDetainedByLicenseID(licenseID))
             {
                 MessageBox.Show("License is not detained!");
                 return;
@@ -109,7 +109,7 @@ namespace DVLD
 
         private void LoadApplicationData(clsApplication application)
         {
-            application.ApplicationPersonID = _license.Driver.PersonID;
+            application.ApplicationPersonID = _license.DriverInfo.PersonID;
             application.ApplicationDate = DateTime.Now;
             application.ApplicationTypeID = Convert.ToByte(_applicationType.ApplicationTypeID);
             application.PaidFees = _applicationType.Fees;

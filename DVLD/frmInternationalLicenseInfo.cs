@@ -29,18 +29,18 @@ namespace DVLD
         private void frmInternationalLicenseInfo_Load(object sender, EventArgs e)
         {
             if (_internationalLicense == null || _driver == null) return;
-            lblName.Text = _driver.Person.FirstName + " " + _driver.Person.LastName;
+            lblName.Text = _driver.PersonInfo.FullName;
             lblInterLicenseID.Text = _internationalLicense.InternationalLicenseID.ToString();
             lblLicenseID.Text = _internationalLicense.IssuedUsingLocalLicenseID.ToString();
-            lblNationalNo.Text = _driver.Person.NationalNo;
-            lblGendor.Text = _driver.Person.Gender == 0 ? "Male" : "Female";
+            lblNationalNo.Text = _driver.PersonInfo.NationalNo;
+            lblGendor.Text = _driver.PersonInfo.Gender == 0 ? "Male" : "Female";
             lblIssueDate.Text = _internationalLicense.IssueDate.ToString();
             lblExpirationDate.Text = _internationalLicense.ExpirationDate.ToString();
             lblIApplicationID.Text = _internationalLicense.ApplicationID.ToString();
             lblIsActive.Text = _internationalLicense.IsActive ? "Yes" : "No";
-            lblDateOfBirth.Text = _driver.Person.DateOfBirth.ToString();
+            lblDateOfBirth.Text = _driver.PersonInfo.DateOfBirth.ToString();
             lblDriverID.Text = _driver.DriverID.ToString();
-            LoadPersonImage(_driver.Person);
+            LoadPersonImage(_driver.PersonInfo);
         }
 
         private void LoadPersonImage(clsPerson person)

@@ -71,7 +71,7 @@ namespace DVLD_BusinessLayer
                 ReleaseDate, ReleaseByUserID, ReleaseApplicationID);
         }
 
-        public static bool IsDetained(int licenseID)
+        public static bool IsDetainedByLicenseID(int licenseID)
         {
             return clsDataAccessDetainedLicenses.IsDetained(licenseID);
         }

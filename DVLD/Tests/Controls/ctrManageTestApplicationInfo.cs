@@ -24,7 +24,7 @@ namespace DVLD
         
         public void LoadLDLApplicationInfo(int ldlApplicationID)
         {
-            ctrApplicationInfo1.LoadApplication(ldlApplicationID);
+            ctrApplicationInfo1.LoadApplicationInfo(ldlApplicationID);
         }
 
         public void LoadTitle(string title)
@@ -40,7 +40,7 @@ namespace DVLD
 
         public void LoadContextMenuStrip(ContextMenuStrip cms)
         {
-            ctrDataView1.SetContextMenuStrip(cms);
+            ctrDataView1.LoadContextMenuStrip(cms);
         }
 
     }

@@ -90,7 +90,7 @@ namespace DVLD
 
         private void LoadApplicationData(clsApplication application)
         {
-            application.ApplicationPersonID = _oldLicense.Driver.PersonID;
+            application.ApplicationPersonID = _oldLicense.DriverInfo.PersonID;
             application.ApplicationDate = DateTime.Now;
             application.ApplicationTypeID = Convert.ToByte(_applicationType.ApplicationTypeID);
             application.PaidFees = _applicationType.Fees;

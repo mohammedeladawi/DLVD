@@ -13,31 +13,24 @@ namespace DVLD
 {
     public partial class frmDriverLicenseInfo : Form
     {
-
-        clsLicense _license;
+        int _licenseID;
         
-        public frmDriverLicenseInfo(int ldlApplicationID)
+        public frmDriverLicenseInfo(int licenseID)
         {
-            var ldlApp = clsLDLApplication.FindByLDLApplicationID(ldlApplicationID);
-            if (ldlApp == null)
-                return;
-
-            _license = clsLicense.FindByAppID(ldlApp.ApplicationID);
-
             InitializeComponent();
+
+            _licenseID = licenseID;
         }
 
         public frmDriverLicenseInfo(clsLicense license)
         {
-            _license = license;
             InitializeComponent();
         }
 
         private void frmDriverLicenseInfo_Load(object sender, EventArgs e)
         {
-            ctrDriverLicenseInfo1.LoadLicenseInfo(_license);
+            ctrDriverLicenseInfo1.LoadInfo(_licenseID);
         }
-
 
     }
 }

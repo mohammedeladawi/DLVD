@@ -53,9 +53,7 @@ namespace DVLD
             if (!int.TryParse(txtSearch.Text, out int licenseID))
                 return;
 
-            clsLicense license = clsLicense.FindByLicenseID(licenseID);
-            if (license != null)
-                ctrDriverLicenseInfo1.LoadLicenseInfo(license);
+            ctrDriverLicenseInfo1.LoadInfo(licenseID);
 
             if (onLocalLicenseInfoLoaded != null)
                 LocalLicenseInfoLoaded(licenseID);

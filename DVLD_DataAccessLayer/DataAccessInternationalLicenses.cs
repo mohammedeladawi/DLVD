@@ -55,17 +55,18 @@ namespace DVLD_DataAccessLayer
             return dt;
         }
 
-        public static DataTable GetILicensesByDriverID(int driverID)
+        public static DataTable GetInternationalLicensesByDriverID(int driverID)
         {
             DataTable dt = new DataTable();
             string query = @"SELECT
-                               InternationalLicenseID,
-                               ApplicationID, 
-                               IssuedUsingLocalLicenseID, 
-                               IssueDate, 
-                               ExpirationDate, 
-                               IsActive 
-                             FROM InternationalLicenses;";
+                                IL.InternationalLicenseID,
+                                IL.ApplicationID, 
+                                IL.IssuedUsingLocalLicenseID, 
+                                IL.IssueDate, 
+                                IL.ExpirationDate, 
+                                IL.IsActive 
+                            FROM InternationalLicenses IL
+                            Where L.DriverID = @DriverID;";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {

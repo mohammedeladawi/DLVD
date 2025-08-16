@@ -145,6 +145,54 @@ namespace DVLD_BusinessLayer
             return clsTest.LDLApplicationTestTrials(this.LocalDrivingLicenseApplicationID, testTypeID);
         }
 
+        public bool HasPassedAllTests()
+        {
+            return clsTest.HasPassedAllTests(this.LocalDrivingLicenseApplicationID);
+        }
+
+        public int IssueLicenseForTheFirstTime(string notes, int createdUserID)
+        {
+            // if driver already exist update
+            clsDriver driver = clsDriver.FindByPersonID(this.ApplicationPersonID);
+
+            if (driver == null)
+            {
+                driver = new clsDriver();
+                driver.PersonID = this.ApplicationPersonID;
+                driver.CreatedByUserID = createdUserID;
+                driver.CreatedDate = DateTime.Now;
+
+                if (!driver.Save())
+                    return -1;
+            }
+            
+            // add new license 
+            // check in the service or presentation layer
+            clsLicense license = new clsLicense();
+            license.ApplicationID = this.ApplicationID;
+            license.DriverID = driver.DriverID;
+            license.LicenseClassID = this.LicenseClassID;
+            license.IssuanceDate = DateTime.Now;
+            license.ExpirationDate = license.IssuanceDate.AddYears(this.LicenseClassInfo.DefaultValidityLength);
+            license.Notes = notes;
+            license.PaidFees = this.LicenseClassInfo.ClassFees;
+            license.IsActive = true;
+            license.IssueReason = (byte)clsLicense.enIssueReasons.FirstTime;
+            license.CreatedByUserID = createdUserID;
+
+            if (license.Save())
+            {
+                this.Complete();
+                return license.LicenseID;
+            }
+            else
+                return -1;
+        }
+        
+        public int GetActiveLicenseID()
+        {
+            return clsLicense.GetActiveLicenseIDByPersonID(this.ApplicationPersonID, this.LicenseClassID);
+        }
         public bool Save()
         {
             base.Mode = (clsApplication.enMode)this.Mode;

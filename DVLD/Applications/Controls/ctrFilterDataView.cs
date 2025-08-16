@@ -205,7 +205,7 @@ namespace DVLD
 
         public void SetContextMenuStrip(ContextMenuStrip cms)
         {
-            ctrDataView1.SetContextMenuStrip(cms);
+            ctrDataView1.LoadContextMenuStrip(cms);
         }
     }
 }

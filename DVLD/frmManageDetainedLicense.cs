@@ -173,7 +173,7 @@ namespace DVLD
             if (licenseID == -1)
                 return;
 
-            tsmiReleaseDetainedLicense.Enabled = clsDetainedLicense.IsDetained(licenseID);
+            tsmiReleaseDetainedLicense.Enabled = clsDetainedLicense.IsDetainedByLicenseID(licenseID);
             
 
         }

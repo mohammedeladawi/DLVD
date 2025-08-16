@@ -124,32 +124,33 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
-        public static bool HasActiveLicense(int driverID, int licenseClassID)
+        
+        public static bool FindDriverByPersonID(ref int driverID, int personID, ref int createdByUserID, ref DateTime createdDate)
         {
-            DataTable dt = new DataTable();
-            string query = @"SELECT 1 FROM Licenses
-                             WHERE IsActive = 1 
-                             AND DriverID = @DriverID
-                             AND LicenseClassID = @LicenseClassID;";
+
+            string commandStr = @"SELECT * FROM Drivers WHERE PersonID = @PersonID";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand command = new SqlCommand(commandStr, connection))
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                command.Parameters.AddWithValue("@PersonID", personID);
+
+                try
                 {
-                    command.Parameters.AddWithValue("@DriverID", driverID);
-                    command.Parameters.AddWithValue("@LicenseClassID", licenseClassID);
-
-
-                    try
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
                     {
-                        connection.Open();
-                        object result = command.ExecuteScalar();
-                        return result != null;
+                        driverID = (int)reader["DriverID"];
+                        createdByUserID = (int)reader["CreatedByUserID"];
+                        createdDate = (DateTime)reader["CreatedDate"];
+
+                        return true;
                     }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error in FindByID (Driver): " + ex.Message);
                 }
             }
 

@@ -22,18 +22,12 @@ namespace DVLD
 
         private void LoadApplicationBasicInfo()
         {
-            Dictionary<byte, string> StatusDict = new Dictionary<byte, string>
-            {
-                {1, "New" },
-                {2, "Cancelled" },
-                {3, "Completed" }
-            };
 
             lblApplicationID.Text = _ldlApplication.ApplicationID.ToString();
-            lblStatus.Text = StatusDict[_ldlApplication.ApplicationStatus];
+            lblStatus.Text = _ldlApplication.StatusText;
             lblFees.Text = "$" + _ldlApplication.PaidFees;
             lblType.Text = _ldlApplication.ApplicationTypeInfo.Title.ToString();
-            lblApplicant.Text = _ldlApplication.ApplicationPersonInfo.FirstName + " " + _ldlApplication.ApplicationPersonInfo.LastName;
+            lblApplicant.Text = _ldlApplication.ApplicationPersonInfo.FullName;
             lblDate.Text = _ldlApplication.ApplicationDate.ToShortDateString();
             lblLastStatusDate.Text = _ldlApplication.LastStatusDate.ToShortDateString();
             lblCreatedBy.Text = _ldlApplication.CreatedByUserInfo.UserName;
@@ -45,15 +39,10 @@ namespace DVLD
             lblDLAppID.Text = _ldlApplication.LocalDrivingLicenseApplicationID.ToString();
             lblLicenseClass.Text = _ldlApplication.LicenseClassInfo.ClassName;
             lblPassedTests.Text = $"{_ldlApplication.GetPassedTestsCount()} / 3";
-
-            // ------ TODO if there a license -----//
-            llblShowLicenseInfo.Enabled = false;
-            // if clsLicense.IsExistByApplicationID then enable 
-            // else disable 
-            //llblShowLicenseInfo.Enabled = ;
+            llblShowLicenseInfo.Enabled = (_ldlApplication.GetActiveLicenseID() != -1);
       } 
         
-        public void LoadApplication(int ldlApplicationID)
+        public void LoadApplicationInfo(int ldlApplicationID)
         {
             _ldlApplication = clsLDLApplication.FindByLDLApplicationID(ldlApplicationID);
             LoadDLApplicationInfo();
@@ -64,6 +53,12 @@ namespace DVLD
         {
             Form showPersonInfo = new frmPersonDetails(_ldlApplication.ApplicationPersonID);
             showPersonInfo.ShowDialog();
+        }
+
+        private void llblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmDriverLicenseInfo frm1 = new frmDriverLicenseInfo(_ldlApplication.GetActiveLicenseID());
+            frm1.ShowDialog();
         }
     }
 }

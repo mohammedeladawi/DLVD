@@ -116,16 +116,32 @@ namespace DVLD
         }
 
 
-        private void ShowIssueDrivingLicense(int ldlApplicaitonID)
+        private void ShowIssueDrivingLicense(int ldlApplicationID)
         {
-            Form issueDLForm = new frmIssueDrivingLicense(ldlApplicaitonID);
-            issueDLForm.FormClosed += frm_Closed;
-            issueDLForm.ShowDialog();
+            clsLDLApplication ldlApplicaiton = clsLDLApplication.FindByLDLApplicationID(ldlApplicationID);
+            if (ldlApplicaiton == null) 
+                return;
+
+            if (ldlApplicaiton.HasPassedAllTests())
+            {
+                Form issueDLForm = new frmIssueDrivingLicense(ldlApplicationID);
+                issueDLForm.FormClosed += frm_Closed;
+                issueDLForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Should pass all tests first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ShowLicenseInfo(int ldlApplicationID)
         {
-            Form showLicenseInfo = new frmDriverLicenseInfo(ldlApplicationID);
+            clsLDLApplication ldlApplication = clsLDLApplication.FindByLDLApplicationID(ldlApplicationID);
+            if (ldlApplication == null)
+                return;
+
+
+            Form showLicenseInfo = new frmDriverLicenseInfo(ldlApplication.GetActiveLicenseID());
             showLicenseInfo.ShowDialog();
         }
 
@@ -135,7 +151,7 @@ namespace DVLD
             if (ldlApp == null)
                 return;
 
-            Form showPersonLicenseHistory = new frmPersonLicenseHistory(ldlApp.ApplicationID);
+            Form showPersonLicenseHistory = new frmPersonLicenseHistory(ldlApp.ApplicationPersonID);
             showPersonLicenseHistory.ShowDialog();
         }
 

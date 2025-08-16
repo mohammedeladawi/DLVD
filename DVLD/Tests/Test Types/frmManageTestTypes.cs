@@ -48,7 +48,7 @@ namespace DVLD
         private void frmManageTestTypes_Load(object sender, EventArgs e)
         {
             ctrDataView1.LoadDataInDgvManageData(clsTestType.GetAllTypes());
-            ctrDataView1.SetContextMenuStrip(cmsManageTestTypes);
+            ctrDataView1.LoadContextMenuStrip(cmsManageTestTypes);
         }
 
         private void tsmiEditTestType_Click(object sender, EventArgs e)

@@ -54,7 +54,7 @@ namespace DVLD
             if (_license == null)
                 return;
 
-            if (clsDetainedLicense.IsDetained(licenseID))
+            if (clsDetainedLicense.IsDetainedByLicenseID(licenseID))
             {
                 MessageBox.Show("License is already detained");
                 return;

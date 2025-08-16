@@ -53,16 +53,16 @@
     <Compile Include="Applications\Local Driving License Applications\frmLDLApplicationDetails.Designer.cs">
       <DependentUpon>frmLDLApplicationDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrDriverLicenseInfo.cs">
+    <Compile Include="Licenses\Local Licenses\Controls\ctrDriverLicenseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrDriverLicenseInfo.Designer.cs">
+    <Compile Include="Licenses\Local Licenses\Controls\ctrDriverLicenseInfo.Designer.cs">
       <DependentUpon>ctrDriverLicenseInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrFindDLicenseInfo.cs">
+    <Compile Include="Licenses\Controls\ctrFindDLicenseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrFindDLicenseInfo.Designer.cs">
+    <Compile Include="Licenses\Controls\ctrFindDLicenseInfo.Designer.cs">
       <DependentUpon>ctrFindDLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Reusable Controls\ctrIssueBtn.cs">
@@ -169,16 +169,16 @@
     <Compile Include="Reusable Controls\ctrSaveBtn.Designer.cs">
       <DependentUpon>ctrSaveBtn.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDriverLicenseInfo.cs">
+    <Compile Include="Licenses\Local Licenses\frmDriverLicenseInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDriverLicenseInfo.Designer.cs">
+    <Compile Include="Licenses\Local Licenses\frmDriverLicenseInfo.Designer.cs">
       <DependentUpon>frmDriverLicenseInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmIssueDrivingLicense.cs">
+    <Compile Include="Licenses\Local Licenses\frmIssueDrivingLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmIssueDrivingLicense.Designer.cs">
+    <Compile Include="Licenses\Local Licenses\frmIssueDrivingLicense.Designer.cs">
       <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="frmManageILDApplications.cs">
@@ -319,10 +319,10 @@
     <EmbeddedResource Include="Applications\Local Driving License Applications\frmLDLApplicationDetails.resx">
       <DependentUpon>frmLDLApplicationDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrDriverLicenseInfo.resx">
+    <EmbeddedResource Include="Licenses\Local Licenses\Controls\ctrDriverLicenseInfo.resx">
       <DependentUpon>ctrDriverLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrFindDLicenseInfo.resx">
+    <EmbeddedResource Include="Licenses\Controls\ctrFindDLicenseInfo.resx">
       <DependentUpon>ctrFindDLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reusable Controls\ctrIssueBtn.resx">
@@ -376,10 +376,10 @@
     <EmbeddedResource Include="Reusable Controls\ctrSaveBtn.resx">
       <DependentUpon>ctrSaveBtn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDriverLicenseInfo.resx">
+    <EmbeddedResource Include="Licenses\Local Licenses\frmDriverLicenseInfo.resx">
       <DependentUpon>frmDriverLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmIssueDrivingLicense.resx">
+    <EmbeddedResource Include="Licenses\Local Licenses\frmIssueDrivingLicense.resx">
       <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageILDApplications.resx">

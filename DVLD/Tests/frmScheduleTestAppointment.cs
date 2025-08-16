@@ -139,12 +139,10 @@ namespace DVLD
       
         private void LoadDataIntoUIFields()
         {
-            string fullName = _ldlApplication.ApplicationPersonInfo.FirstName + 
-                " " + _ldlApplication.ApplicationPersonInfo.LastName;
 
             lblDLApplicationID.Text = _ldlApplication.LocalDrivingLicenseApplicationID.ToString();
             lblLicenseClass.Text = _ldlApplication.LicenseClassInfo.ClassName.ToString();
-            lblName.Text = fullName;
+            lblName.Text = _ldlApplication.ApplicationPersonInfo.FullName; ;
             lblTrials.Text = _trialsCount.ToString();
             gpTest.Text = _testType.Title;
             lblFees.Text = _testType.Fees.ToString();

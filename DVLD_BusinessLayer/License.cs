@@ -10,27 +10,44 @@ namespace DVLD_BusinessLayer
 {
     public class clsLicense
     {
-        public enum enMode { AddNew, Update };
-        enMode Mode;
-
-        private int _DriverID;
-        public int LicenseID {  get; private set; }
-        public int ApplicationID { get; set; }
-        public int DriverID
+        private string _GetIssueReasonText(byte issueReason)
         {
-            get { return _DriverID; }
-            set
+            switch ((enIssueReasons)issueReason)
             {
-                _DriverID = value;
-                if (value != -1)
-                    Driver = clsDriver.Find(value);
+                case enIssueReasons.FirstTime:
+                    return "First Time";
+                case enIssueReasons.Renew:
+                    return "Renew";
+                case enIssueReasons.ReplacementForDamaged:
+                    return "Replacement For Damaged";
+                case enIssueReasons.ReplacementForLost:
+                    return "Replacement For Lost";
+                default:
+                    return "None";
             }
         }
+        private enum enMode { AddNew, Update };
+        enMode Mode;
 
-        public clsDriver Driver { get; private set; }
+        public enum enIssueReasons
+        {
+            FirstTime = 1,
+            Renew = 2,
+            ReplacementForDamaged = 3,
+            ReplacementForLost = 4
+        }
+       
+        public int LicenseID {  get; private set; }
+        public int ApplicationID { get; set; }
+        public clsApplication ApplicationInfo { get; private set; }
+        
+        public int DriverID { get; set; }
+
+        public clsDriver DriverInfo { get; private set; }
         
         public int LicenseClassID {  get; set; }
-       
+        public clsLicenseClass LicenseClassInfo { get; private set; }
+
         public DateTime IssuanceDate { get; set; } 
         
         public DateTime ExpirationDate { get; set; }
@@ -44,6 +61,24 @@ namespace DVLD_BusinessLayer
         public byte IssueReason { get; set; }
 
         public int CreatedByUserID { get; set; }
+        public clsUser CreatedByUserInfo { get; private set; }
+
+        public string IssueReasonText
+        {
+            get
+            {
+                return _GetIssueReasonText(IssueReason);
+            }
+        }
+
+        public bool IsDetained
+        {
+            get
+            {
+                return clsDetainedLicense.IsDetainedByLicenseID(this.LicenseID);
+            }
+        }
+       
         
         private bool _UpdateLicense()
         {
@@ -51,13 +86,6 @@ namespace DVLD_BusinessLayer
         }
         private bool _AddNewLicense()
         {
-            var application = clsApplication.FindBaseApplicationByID(ApplicationID);
-            if (application == null)
-                return false;
-
-            if (clsDriver.HasActiveLicense(DriverID, LicenseClassID))
-                return false;
-
             this.LicenseID = clsDataAccessLicenses.AddNewLicense(ApplicationID, DriverID, LicenseClassID, IssuanceDate, 
                                                                  ExpirationDate, Notes, PaidFees, IsActive, IssueReason, 
                                                                  CreatedByUserID);
@@ -100,8 +128,11 @@ namespace DVLD_BusinessLayer
         {
             LicenseID = licenseID;
             ApplicationID = applicationID;
+            ApplicationInfo = clsApplication.FindBaseApplicationByID(applicationID);
             DriverID = driverID;
+            DriverInfo = clsDriver.Find(driverID);
             LicenseClassID = licenseClassID;
+            LicenseClassInfo = clsLicenseClass.Find(licenseClassID);
             IssuanceDate = issuanceDate;
             ExpirationDate = expirationDate;
             Notes = notes;
@@ -109,6 +140,7 @@ namespace DVLD_BusinessLayer
             IsActive = isActive;
             IssueReason = issueReason;
             CreatedByUserID = createdByUserID;
+            CreatedByUserInfo = clsUser.Find(createdByUserID);
 
             Mode = enMode.Update;
         }
@@ -213,9 +245,14 @@ namespace DVLD_BusinessLayer
             return null;
         }
         
-        public static DataTable GetLicenses(int driverID)
+        public static DataTable GetLicensesByDriverID(int driverID)
         {
             return clsDataAccessLicenses.GetLicensesByDriverID(driverID);
+        }
+
+        public static int GetActiveLicenseIDByPersonID(int personID, int licenseClassID)
+        {
+            return clsDataAccessLicenses.GetActiveLicenseIDByPerson(personID, licenseClassID);
         }
 
         public bool Save()

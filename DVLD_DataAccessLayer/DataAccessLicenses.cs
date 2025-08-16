@@ -30,8 +30,6 @@ namespace DVLD_DataAccessLayer
                                 Licenses L
                             JOIN 
                                 LicenseClasses LC ON LC.LicenseClassID = L.LicenseClassID
-                            JOIN 
-                                Applications A ON A.ApplicationID = L.ApplicationID
                             WHERE 
                                 L.DriverID = @DriverID;";
 
@@ -136,7 +134,7 @@ namespace DVLD_DataAccessLayer
 
             return false;
         }
-        
+
         public static bool FindByApplicationID(
             ref int licenseID,
             int applicationID,
@@ -169,10 +167,10 @@ namespace DVLD_DataAccessLayer
                             licenseClassID = (int)read["LicenseClassID"];
                             issuanceDate = (DateTime)read["IssuanceDate"];
                             expirationDate = (DateTime)read["ExpirationDate"];
-                            
-                            notes = read["Notes"] != DBNull.Value 
-                                ? (string)read["Notes"] 
-                                : string.Empty; 
+
+                            notes = read["Notes"] != DBNull.Value
+                                ? (string)read["Notes"]
+                                : string.Empty;
 
                             paidFees = (decimal)read["PaidFees"];
                             isActive = (bool)read["IsActive"];
@@ -247,6 +245,41 @@ namespace DVLD_DataAccessLayer
             return false;
         }
 
-    }
+        public static int GetActiveLicenseIDByPerson(int personID, int licenseClassID)
+        {
+            string query = @"SELECT L.LicenseID FROM Licenses L
+                            Inner Join Drivers D
+                                ON D.DriverID = L.DriverID
+                                WHERE IsActive = 1 
+                                AND D.PersonID = @PersonID
+                                AND L.LicenseClassID = @LicenseClassID;";
 
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PersonID", personID);
+                    command.Parameters.AddWithValue("@LicenseClassID", licenseClassID);
+
+
+                    try
+                    {
+                        connection.Open();
+                        
+                        object result = command.ExecuteScalar();
+                        if (result != null )
+                            return Convert.ToInt16(result);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return -1;
+        }
+
+
+    }
 }

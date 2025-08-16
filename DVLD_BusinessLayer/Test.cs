@@ -65,6 +65,11 @@ namespace DVLD_BusinessLayer
             return clsDataAccessTests.IsApplicationTestPassed(ldlApplicationID, testTypeID);
         }
 
+        public static bool HasPassedAllTests(int ldlApplicationID)
+        {
+            return PassedTestsCount(ldlApplicationID) == 3;
+        }
+
         public bool Save()
         {
             return _AddNewTest();

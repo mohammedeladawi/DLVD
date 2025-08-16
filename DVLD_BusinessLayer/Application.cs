@@ -55,6 +55,24 @@ namespace DVLD_BusinessLayer
         public int CreatedByUserID { get; set; }
         public clsUser CreatedByUserInfo { get; private set; }
 
+        public string StatusText
+        {
+            get
+            {
+                switch((enApplicationStatus) ApplicationStatus)
+                {
+                    case enApplicationStatus.New:
+                        return "New";
+                    case enApplicationStatus.Cancelled:
+                        return "Cancelled";
+                    case enApplicationStatus.Completed:
+                        return "Completed";
+                    default:
+                        return "Unkown";
+                }
+            }
+        }
+
         // new
         public clsApplication()
         {
@@ -125,6 +143,10 @@ namespace DVLD_BusinessLayer
             return clsDataAccessApplications.UpdateApplicationStatus(applicationID, (byte) enApplicationStatus.Completed);
         }
         
+        public bool Complete()
+        {
+            return Complete(this.ApplicationID);
+        }
         public static bool Cancel (int applicationID)
         {
             return clsDataAccessApplications.UpdateApplicationStatus(applicationID, (byte) enApplicationStatus.Cancelled);

@@ -75,9 +75,9 @@ namespace DVLD_BusinessLayer
 
             return InternationalLicenseID != -1;
         }
-        public static DataTable GetILicensesByDriverID(int driverID)
+        public static DataTable GetInternationalLicensesByDriverID(int driverID)
         {
-            return clsDataAccessInternationalLicenses.GetILicensesByDriverID(driverID);
+            return clsDataAccessInternationalLicenses.GetInternationalLicensesByDriverID(driverID);
         }
         public static DataTable GetAllILicensesApplications()
         {

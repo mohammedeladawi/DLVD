@@ -17,8 +17,25 @@ namespace DVLD_BusinessLayer
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
+
+        public string FullName 
+        { 
+            get
+            {
+                return FirstName + " " + LastName; 
+            }
+        }
         public DateTime DateOfBirth { get; set; }
         public byte Gender { get; set; }
+
+        public string GenderText
+        {
+            get
+            {
+                return Gender == 0 ? "Male" : "Female";
+            }
+        }
+       
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }

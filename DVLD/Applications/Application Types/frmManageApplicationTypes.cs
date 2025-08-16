@@ -48,7 +48,7 @@ namespace DVLD
 
         private void frmManageApplicationTypes_Load(object sender, EventArgs e)
         {
-            ctrDataView1.SetContextMenuStrip(cmsManageApplicationTypes);
+            ctrDataView1.LoadContextMenuStrip(cmsManageApplicationTypes);
             ctrDataView1.LoadDataInDgvManageData(clsApplicationType.GetAllTypes());
         }
 

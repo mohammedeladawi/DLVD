@@ -41,7 +41,7 @@ namespace DVLD
         {
             llblEditPersonInfo.Enabled = true;
             lblPersonID.Text = Convert.ToString(_person.PersonID);
-            lblFullName.Text = _person.FirstName + " " + _person.LastName;
+            lblFullName.Text = _person.FullName;
             lblNationalNo.Text = _person.NationalNo;
             lblGendor.Text = _person.Gender == 0 ? "Male" : "Female";
             lblEmail.Text = _person.Email;

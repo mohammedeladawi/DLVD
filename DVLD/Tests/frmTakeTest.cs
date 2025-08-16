@@ -27,11 +27,11 @@ namespace DVLD
 
         private void LoadDataIntoUIFields()
         {
-            lblTestTitle.Text = "Schedule Test";
+            lblTestTitle.Text = "Take Test";
             gbTestType.Text = _testType.Title.ToString();
             lblLDLApplicationID.Text = _ldlApplication.LocalDrivingLicenseApplicationID.ToString();
             lblDClass.Text = _ldlApplication.LicenseClassInfo.ClassName;
-            lblName.Text = _ldlApplication.ApplicationPersonInfo.FirstName + " " + _ldlApplication.ApplicationPersonInfo.LastName;
+            lblName.Text = _ldlApplication.ApplicationPersonInfo.FullName;
             lblTrial.Text = _ldlApplication.GetTestTrialsPerTestType(_testType.TestTypeID).ToString();
             lblDate.Text = _testAppointment.AppointmentDate.ToString();
             lblFees.Text = _testType.Fees.ToString();

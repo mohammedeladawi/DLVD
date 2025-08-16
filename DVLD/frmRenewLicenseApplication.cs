@@ -76,7 +76,7 @@ namespace DVLD
 
         private void LoadApplicationData(clsApplication application)
         {
-            application.ApplicationPersonID = _oldLicense.Driver.PersonID;
+            application.ApplicationPersonID = _oldLicense.DriverInfo.PersonID;
             application.ApplicationDate = DateTime.Now;
             application.ApplicationTypeID = (byte)enApplicationTypes.RenewDrivingLicenseService;
             application.PaidFees = _applicationType.Fees;
