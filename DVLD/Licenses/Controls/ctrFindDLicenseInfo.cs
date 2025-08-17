@@ -50,13 +50,25 @@ namespace DVLD
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(txtSearch.Text, out int licenseID))
-                return;
+            if (int.TryParse(txtSearch.Text, out int licenseID))
+            {
+                ctrDriverLicenseInfo1.LoadInfo(licenseID);
 
-            ctrDriverLicenseInfo1.LoadInfo(licenseID);
-
-            if (onLocalLicenseInfoLoaded != null)
-                LocalLicenseInfoLoaded(licenseID);
+                if (ctrDriverLicenseInfo1.HasLicenseFound && onLocalLicenseInfoLoaded != null) 
+                    LocalLicenseInfoLoaded(licenseID);
+                
+            }
+            
+        }
+    
+        public void DisableFilter()
+        {
+            gbFilter.Enabled = false;
+        }
+        
+        public void ResetForm()
+        {
+            ctrDriverLicenseInfo1.ResetForm();
         }
     }
 }

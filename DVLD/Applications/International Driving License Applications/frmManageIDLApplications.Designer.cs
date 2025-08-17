@@ -1,6 +1,6 @@
 ﻿namespace DVLD
 {
-    partial class frmManageILDApplications
+    partial class frmManageIDLApplications
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,7 @@
             this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
             this.ctrManageData1 = new DVLD.ctrFilterDataView();
+            this.addNewInternationaLicenseApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsIDLApplications.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,30 +43,31 @@
             // 
             this.cmsIDLApplications.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.cmsIDLApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewInternationaLicenseApplicationToolStripMenuItem,
             this.showPersonDetailsToolStripMenuItem,
             this.showLicenseInfoToolStripMenuItem,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsIDLApplications.Name = "cmsIDLApplications";
-            this.cmsIDLApplications.Size = new System.Drawing.Size(392, 162);
+            this.cmsIDLApplications.Size = new System.Drawing.Size(535, 200);
             // 
             // showPersonDetailsToolStripMenuItem
             // 
             this.showPersonDetailsToolStripMenuItem.Name = "showPersonDetailsToolStripMenuItem";
-            this.showPersonDetailsToolStripMenuItem.Size = new System.Drawing.Size(391, 38);
+            this.showPersonDetailsToolStripMenuItem.Size = new System.Drawing.Size(534, 38);
             this.showPersonDetailsToolStripMenuItem.Text = "Show Person Details";
             this.showPersonDetailsToolStripMenuItem.Click += new System.EventHandler(this.showPersonDetailsToolStripMenuItem_Click);
             // 
             // showLicenseInfoToolStripMenuItem
             // 
             this.showLicenseInfoToolStripMenuItem.Name = "showLicenseInfoToolStripMenuItem";
-            this.showLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(391, 38);
+            this.showLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(534, 38);
             this.showLicenseInfoToolStripMenuItem.Text = "Show License Details";
             this.showLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showLicenseInfoToolStripMenuItem_Click);
             // 
             // showPersonLicenseHistoryToolStripMenuItem
             // 
             this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
-            this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(391, 38);
+            this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(534, 38);
             this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
             this.showPersonLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonLicenseHistoryToolStripMenuItem_Click);
             // 
@@ -86,14 +88,21 @@
             this.ctrManageData1.Size = new System.Drawing.Size(1550, 908);
             this.ctrManageData1.TabIndex = 3;
             // 
-            // frmManageILDApplications
+            // addNewInternationaLicenseApplicationToolStripMenuItem
+            // 
+            this.addNewInternationaLicenseApplicationToolStripMenuItem.Name = "addNewInternationaLicenseApplicationToolStripMenuItem";
+            this.addNewInternationaLicenseApplicationToolStripMenuItem.Size = new System.Drawing.Size(534, 38);
+            this.addNewInternationaLicenseApplicationToolStripMenuItem.Text = "Add New Internationa License Application";
+            this.addNewInternationaLicenseApplicationToolStripMenuItem.Click += new System.EventHandler(this.addNewInternationaLicenseApplicationToolStripMenuItem_Click);
+            // 
+            // frmManageIDLApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1584, 974);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.ctrManageData1);
-            this.Name = "frmManageILDApplications";
+            this.Name = "frmManageIDLApplications";
             this.Text = "frmManageInternationalLicenseApplications";
             this.Load += new System.EventHandler(this.frmManageILDApplications_Load);
             this.cmsIDLApplications.ResumeLayout(false);
@@ -109,5 +118,6 @@
         private System.Windows.Forms.ToolStripMenuItem showPersonDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showLicenseInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showPersonLicenseHistoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewInternationaLicenseApplicationToolStripMenuItem;
     }
 }

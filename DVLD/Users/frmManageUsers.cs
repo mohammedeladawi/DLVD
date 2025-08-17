@@ -53,7 +53,7 @@ namespace DVLD
         {
             ctrManageData1.LoadTitle("Manage Users");
             ctrManageData1.LoadData(clsUser.GetAllUsersData());
-            ctrManageData1.SetContextMenuStrip(cmsUsers);
+            ctrManageData1.LoadContextMenuStrip(cmsUsers);
         }
 
         private void ChangePasswordDialog(int userID)

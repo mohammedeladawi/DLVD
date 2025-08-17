@@ -6,12 +6,13 @@ namespace DVLD_BusinessLayer
 {
     public class clsInternationalLicense
     {
-        public enum enMode { AddNew, Update }
+        private enum enMode { AddNew, Update }
         private enMode Mode;
 
         public int InternationalLicenseID { get; private set; }
         public int ApplicationID { get; set; }
         public int DriverID { get; set; }
+        public clsDriver DriverInfo { get; private set; }
         public int IssuedUsingLocalLicenseID { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime ExpirationDate { get; set; }
@@ -45,6 +46,7 @@ namespace DVLD_BusinessLayer
             InternationalLicenseID = internationalLicenseID;
             ApplicationID = applicationID;
             DriverID = driverID;
+            DriverInfo = clsDriver.Find(driverID);
             IssuedUsingLocalLicenseID = issuedUsingLocalLicenseID;
             IssueDate = issueDate;
             ExpirationDate = expirationDate;
@@ -79,9 +81,9 @@ namespace DVLD_BusinessLayer
         {
             return clsDataAccessInternationalLicenses.GetInternationalLicensesByDriverID(driverID);
         }
-        public static DataTable GetAllILicensesApplications()
+        public static DataTable GetAllInternationalLicenses()
         {
-            return clsDataAccessInternationalLicenses.GetAllIDLApplicaitons();
+            return clsDataAccessInternationalLicenses.GetAllInternationalLicenses();
         }
         public static bool HasInternationalLicense(int driverID)
         {

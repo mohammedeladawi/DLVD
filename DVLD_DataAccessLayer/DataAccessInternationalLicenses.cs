@@ -15,7 +15,7 @@ namespace DVLD_DataAccessLayer
 {
     public static class clsDataAccessInternationalLicenses
     {
-        public static DataTable GetAllIDLApplicaitons()
+        public static DataTable GetAllInternationalLicenses()
         {
             DataTable dt = new DataTable();
             string query = @"SELECT 
@@ -66,7 +66,7 @@ namespace DVLD_DataAccessLayer
                                 IL.ExpirationDate, 
                                 IL.IsActive 
                             FROM InternationalLicenses IL
-                            Where L.DriverID = @DriverID;";
+                            Where IL.DriverID = @DriverID;";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {

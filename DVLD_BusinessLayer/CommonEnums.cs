@@ -17,23 +17,6 @@ namespace DVLD_BusinessLayer
         RetakeTest = 7
     }
 
-    public enum enLicenseClasses
-    {
-        Class1_SmallMotorcycle = 1,
-        Class2_HeavyMotorcycle = 2,
-        Class3_OrdinaryDrivingLicense = 3,
-        Class4_Commercial = 4,
-        Class5_Agricultural = 5,
-        Class6_SmallAndMediumBus = 6,
-        Class7_TruckAndHeavyVehicle = 7
-    }
-
-    public enum enTestTypes
-    {
-        VisionTest = 1,
-        WrittenTheoryTest = 2,
-        PracticalStreetTest = 3
-    }
 
     public enum enIssueReasons
     {

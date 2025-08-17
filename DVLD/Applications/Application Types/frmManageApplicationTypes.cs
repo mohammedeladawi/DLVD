@@ -32,7 +32,7 @@ namespace DVLD
         }
         private void ReloadApplicationTypesData()
         {
-            ctrDataView1.LoadDataInDgvManageData(clsApplicationType.GetAllTypes());
+            ctrDataView1.LoadData(clsApplicationType.GetAllTypes());
         }
         private void frmUpdateApplicationType_Closed(object sender, EventArgs e)
         {
@@ -49,7 +49,7 @@ namespace DVLD
         private void frmManageApplicationTypes_Load(object sender, EventArgs e)
         {
             ctrDataView1.LoadContextMenuStrip(cmsManageApplicationTypes);
-            ctrDataView1.LoadDataInDgvManageData(clsApplicationType.GetAllTypes());
+            ctrDataView1.LoadData(clsApplicationType.GetAllTypes());
         }
 
         private void editApplicationTypeToolStripMenuItem_Click(object sender, EventArgs e)

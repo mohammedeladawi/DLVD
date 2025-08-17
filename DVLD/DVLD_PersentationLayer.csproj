@@ -65,10 +65,10 @@
     <Compile Include="Licenses\Controls\ctrFindDLicenseInfo.Designer.cs">
       <DependentUpon>ctrFindDLicenseInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reusable Controls\ctrIssueBtn.cs">
+    <Compile Include="Controls\Buttons\ctrIssueBtn.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Reusable Controls\ctrIssueBtn.Designer.cs">
+    <Compile Include="Controls\Buttons\ctrIssueBtn.Designer.cs">
       <DependentUpon>ctrIssueBtn.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\Local Driving License Applications\Controls\ctrLDLApplicationInfo.cs">
@@ -84,10 +84,10 @@
       <DependentUpon>ctrUserInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Global Classes\clsUtil.cs" />
-    <Compile Include="Applications\Controls\ctrDataView.cs">
+    <Compile Include="Controls\ctrDataView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Applications\Controls\ctrDataView.Designer.cs">
+    <Compile Include="Controls\ctrDataView.Designer.cs">
       <DependentUpon>ctrDataView.cs</DependentUpon>
     </Compile>
     <Compile Include="Tests\Controls\ctrManageTestApplicationInfo.cs">
@@ -103,16 +103,16 @@
     <Compile Include="frmDetainLicense.Designer.cs">
       <DependentUpon>frmDetainLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInternationalLicenseApplication.cs">
+    <Compile Include="Licenses\International Licenses\frmIssueInternationalLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInternationalLicenseApplication.Designer.cs">
-      <DependentUpon>frmInternationalLicenseApplication.cs</DependentUpon>
+    <Compile Include="Licenses\International Licenses\frmIssueInternationalLicense.Designer.cs">
+      <DependentUpon>frmIssueInternationalLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInternationalLicenseInfo.cs">
+    <Compile Include="Licenses\International Licenses\frmInternationalLicenseInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInternationalLicenseInfo.Designer.cs">
+    <Compile Include="Licenses\International Licenses\frmInternationalLicenseInfo.Designer.cs">
       <DependentUpon>frmInternationalLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmManageDetainedLicense.cs">
@@ -121,10 +121,10 @@
     <Compile Include="frmManageDetainedLicense.Designer.cs">
       <DependentUpon>frmManageDetainedLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmManageDrivers.cs">
+    <Compile Include="Drivers\frmManageDrivers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmManageDrivers.Designer.cs">
+    <Compile Include="Drivers\frmManageDrivers.Designer.cs">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </Compile>
     <Compile Include="People\frmAddEditPerson.cs">
@@ -133,28 +133,28 @@
     <Compile Include="People\frmAddEditPerson.Designer.cs">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reusable Controls\ctrCloseBtn.cs">
+    <Compile Include="Controls\Buttons\ctrCloseBtn.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Reusable Controls\ctrCloseBtn.Designer.cs">
+    <Compile Include="Controls\Buttons\ctrCloseBtn.Designer.cs">
       <DependentUpon>ctrCloseBtn.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\Controls\ctrFindPersonInfo.cs">
+    <Compile Include="Controls\ctrFindPersonInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="People\Controls\ctrFindPersonInfo.Designer.cs">
+    <Compile Include="Controls\ctrFindPersonInfo.Designer.cs">
       <DependentUpon>ctrFindPersonInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Controls\ctrFilterDataView.cs">
+    <Compile Include="Controls\ctrFilterDataView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Applications\Controls\ctrFilterDataView.Designer.cs">
+    <Compile Include="Controls\ctrFilterDataView.Designer.cs">
       <DependentUpon>ctrFilterDataView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reusable Controls\ctrNextBtn.cs">
+    <Compile Include="Controls\Buttons\ctrNextBtn.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Reusable Controls\ctrNextBtn.Designer.cs">
+    <Compile Include="Controls\Buttons\ctrNextBtn.Designer.cs">
       <DependentUpon>ctrNextBtn.cs</DependentUpon>
     </Compile>
     <Compile Include="People\Controls\ctrPersonInformation.cs">
@@ -163,10 +163,10 @@
     <Compile Include="People\Controls\ctrPersonInformation.Designer.cs">
       <DependentUpon>ctrPersonInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reusable Controls\ctrSaveBtn.cs">
+    <Compile Include="Controls\Buttons\ctrSaveBtn.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Reusable Controls\ctrSaveBtn.Designer.cs">
+    <Compile Include="Controls\Buttons\ctrSaveBtn.Designer.cs">
       <DependentUpon>ctrSaveBtn.cs</DependentUpon>
     </Compile>
     <Compile Include="Licenses\Local Licenses\frmDriverLicenseInfo.cs">
@@ -181,16 +181,16 @@
     <Compile Include="Licenses\Local Licenses\frmIssueDrivingLicense.Designer.cs">
       <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmManageILDApplications.cs">
+    <Compile Include="Applications\International Driving License Applications\frmManageIDLApplications.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmManageILDApplications.Designer.cs">
-      <DependentUpon>frmManageILDApplications.cs</DependentUpon>
+    <Compile Include="Applications\International Driving License Applications\frmManageIDLApplications.Designer.cs">
+      <DependentUpon>frmManageIDLApplications.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPersonLicenseHistory.cs">
+    <Compile Include="Licenses\frmPersonLicenseHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPersonLicenseHistory.Designer.cs">
+    <Compile Include="Licenses\frmPersonLicenseHistory.Designer.cs">
       <DependentUpon>frmPersonLicenseHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReleaseDetainedLicense.cs">
@@ -325,7 +325,7 @@
     <EmbeddedResource Include="Licenses\Controls\ctrFindDLicenseInfo.resx">
       <DependentUpon>ctrFindDLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reusable Controls\ctrIssueBtn.resx">
+    <EmbeddedResource Include="Controls\Buttons\ctrIssueBtn.resx">
       <DependentUpon>ctrIssueBtn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Local Driving License Applications\Controls\ctrLDLApplicationInfo.resx">
@@ -334,7 +334,7 @@
     <EmbeddedResource Include="Users\Controls\ctrUserInformation.resx">
       <DependentUpon>ctrUserInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Controls\ctrDataView.resx">
+    <EmbeddedResource Include="Controls\ctrDataView.resx">
       <DependentUpon>ctrDataView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tests\Controls\ctrManageTestApplicationInfo.resx">
@@ -343,37 +343,37 @@
     <EmbeddedResource Include="frmDetainLicense.resx">
       <DependentUpon>frmDetainLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInternationalLicenseApplication.resx">
-      <DependentUpon>frmInternationalLicenseApplication.cs</DependentUpon>
+    <EmbeddedResource Include="Licenses\International Licenses\frmIssueInternationalLicense.resx">
+      <DependentUpon>frmIssueInternationalLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInternationalLicenseInfo.resx">
+    <EmbeddedResource Include="Licenses\International Licenses\frmInternationalLicenseInfo.resx">
       <DependentUpon>frmInternationalLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageDetainedLicense.resx">
       <DependentUpon>frmManageDetainedLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmManageDrivers.resx">
+    <EmbeddedResource Include="Drivers\frmManageDrivers.resx">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reusable Controls\ctrCloseBtn.resx">
+    <EmbeddedResource Include="Controls\Buttons\ctrCloseBtn.resx">
       <DependentUpon>ctrCloseBtn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\Controls\ctrFindPersonInfo.resx">
+    <EmbeddedResource Include="Controls\ctrFindPersonInfo.resx">
       <DependentUpon>ctrFindPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Controls\ctrFilterDataView.resx">
+    <EmbeddedResource Include="Controls\ctrFilterDataView.resx">
       <DependentUpon>ctrFilterDataView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reusable Controls\ctrNextBtn.resx">
+    <EmbeddedResource Include="Controls\Buttons\ctrNextBtn.resx">
       <DependentUpon>ctrNextBtn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\Controls\ctrPersonInformation.resx">
       <DependentUpon>ctrPersonInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reusable Controls\ctrSaveBtn.resx">
+    <EmbeddedResource Include="Controls\Buttons\ctrSaveBtn.resx">
       <DependentUpon>ctrSaveBtn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\Local Licenses\frmDriverLicenseInfo.resx">
@@ -382,10 +382,10 @@
     <EmbeddedResource Include="Licenses\Local Licenses\frmIssueDrivingLicense.resx">
       <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmManageILDApplications.resx">
-      <DependentUpon>frmManageILDApplications.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\International Driving License Applications\frmManageIDLApplications.resx">
+      <DependentUpon>frmManageIDLApplications.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPersonLicenseHistory.resx">
+    <EmbeddedResource Include="Licenses\frmPersonLicenseHistory.resx">
       <DependentUpon>frmPersonLicenseHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReleaseDetainedLicense.resx">

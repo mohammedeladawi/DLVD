@@ -68,11 +68,11 @@ namespace DVLD
             ctrPersonInformation1.LoadPersonInfo(_personID);
 
             DataTable dtLocalDrivingLicenses = clsLicense.GetLicensesByDriverID(_driver.DriverID);
-            ctrDVLocal.LoadDataInDgvManageData(dtLocalDrivingLicenses);
+            ctrDVLocal.LoadData(dtLocalDrivingLicenses);
             ctrDVLocal.LoadContextMenuStrip(cmsLicence);
 
             DataTable dtInternational = clsInternationalLicense.GetInternationalLicensesByDriverID(_driver.DriverID);
-            ctrDVInternational.LoadDataInDgvManageData(dtInternational);
+            ctrDVInternational.LoadData(dtInternational);
             ctrDVInternational.LoadContextMenuStrip(cmsInternationalLicense);
 
 

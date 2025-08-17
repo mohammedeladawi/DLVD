@@ -29,7 +29,7 @@ namespace DVLD
 
         private void frmManageIDLApplications_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmManageILDApplications())
+            using (var frm = new frmManageIDLApplications())
             {
                 frm.ShowDialog();
             }
@@ -109,7 +109,7 @@ namespace DVLD
 
         private void tsmiIssueInternationalLicense_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmInternationalLicenseApplication())
+            using (var frm = new frmIssueInternationalLicense())
             {
                 frm.ShowDialog();
             }

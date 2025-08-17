@@ -131,7 +131,7 @@ namespace DVLD
         {
 
             ctrManageData1.LoadTitle("Manage People");
-            ctrManageData1.SetContextMenuStrip(cmsPeople);
+            ctrManageData1.LoadContextMenuStrip(cmsPeople);
 
             DataTable dt = clsPerson.GetAllPersonsInfo();
             ctrManageData1.LoadData(dt);

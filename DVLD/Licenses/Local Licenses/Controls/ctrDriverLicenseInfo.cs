@@ -18,6 +18,12 @@ namespace DVLD
     {
 
         clsLicense _license;
+
+        public bool HasLicenseFound
+        {
+            get { return _license != null; }
+        }
+       
         public ctrDriverLicenseInfo()
         {
             InitializeComponent();
@@ -28,6 +34,7 @@ namespace DVLD
             _license = clsLicense.FindByLicenseID(licenseID);
             if (_license == null)
             {
+                ResetForm();
                 MessageBox.Show($"Couldn't find license with ID = {licenseID}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -70,5 +77,24 @@ namespace DVLD
             }
 
         }
+
+        public void ResetForm()
+        {
+            lblClass.Text = "????";
+            lblName.Text = "????";
+            lblLicenseID.Text = "????";
+            lblNationalNo.Text = "????";
+            lblGendor.Text = "????";
+            lblIssueDate.Text = "????";
+            lblIssueReason.Text = "????";
+            lblNotes.Text = "????";
+            lblIsActive.Text = "????";
+            lblDateOfBirth.Text = "????";
+            lblDriverID.Text = "????";
+            lblExpirationDate.Text = "????";
+            lblIsDetained.Text = "????";
+
+        }
+
     }
 }

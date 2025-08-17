@@ -93,6 +93,11 @@ namespace DVLD_BusinessLayer
             return clsDataAccessDrivers.GetAllDrivers();
         }
 
+        public bool HasInternationalLicense()
+        {
+            return clsInternationalLicense.HasInternationalLicense(this.DriverID);
+
+        }
         public bool Save()
         {
             switch(Mode)

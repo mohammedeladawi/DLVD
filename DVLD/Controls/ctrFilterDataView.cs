@@ -192,7 +192,7 @@ namespace DVLD
             if (dt == null || dt.Rows.Count == 0)
                 return;
 
-            ctrDataView1.LoadDataInDgvManageData(_dt);
+            ctrDataView1.LoadData(_dt);
             LoadTableHeadersInCmbFilters();
             SetCmbSearchItems();
         }
@@ -203,7 +203,7 @@ namespace DVLD
             lblTitle.Left = (this.ClientSize.Width - lblTitle.Width) / 2;
         }
 
-        public void SetContextMenuStrip(ContextMenuStrip cms)
+        public void LoadContextMenuStrip(ContextMenuStrip cms)
         {
             ctrDataView1.LoadContextMenuStrip(cms);
         }

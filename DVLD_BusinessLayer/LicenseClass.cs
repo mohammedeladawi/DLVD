@@ -5,6 +5,17 @@ namespace DVLD_BusinessLayer
 {
     public class clsLicenseClass
     {
+        public enum enLicenseClasses
+        {
+            Class1_SmallMotorcycle = 1,
+            Class2_HeavyMotorcycle = 2,
+            Class3_OrdinaryDrivingLicense = 3,
+            Class4_Commercial = 4,
+            Class5_Agricultural = 5,
+            Class6_SmallAndMediumBus = 6,
+            Class7_TruckAndHeavyVehicle = 7
+        }
+
         public int LicenseClassID { get; private set; }
         public string ClassName { get; set; }
         public string ClassDescription { get; set; }

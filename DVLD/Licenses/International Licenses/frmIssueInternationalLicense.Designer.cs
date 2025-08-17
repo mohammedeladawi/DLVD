@@ -1,6 +1,6 @@
 ﻿namespace DVLD
 {
-    partial class frmInternationalLicenseApplication
+    partial class frmIssueInternationalLicense
     {
         /// <summary>
         /// Required designer variable.

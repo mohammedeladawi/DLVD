@@ -42,12 +42,12 @@ namespace DVLD
 
         private void ReloadTestTypesData()
         {
-            ctrDataView1.LoadDataInDgvManageData(clsTestType.GetAllTypes());
+            ctrDataView1.LoadData(clsTestType.GetAllTypes());
         }
 
         private void frmManageTestTypes_Load(object sender, EventArgs e)
         {
-            ctrDataView1.LoadDataInDgvManageData(clsTestType.GetAllTypes());
+            ctrDataView1.LoadData(clsTestType.GetAllTypes());
             ctrDataView1.LoadContextMenuStrip(cmsManageTestTypes);
         }
 

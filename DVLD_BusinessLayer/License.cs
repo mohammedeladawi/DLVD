@@ -1,10 +1,11 @@
-﻿using System;
+﻿using DVLD_DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DVLD_DataAccessLayer;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD_BusinessLayer
 {
@@ -255,6 +256,46 @@ namespace DVLD_BusinessLayer
             return clsDataAccessLicenses.GetActiveLicenseIDByPerson(personID, licenseClassID);
         }
 
+        public int IssueNewInternationalLicense(int createdByUserID)
+        {
+            // check if driver already has active one
+            if (
+                this.DriverInfo.HasInternationalLicense() ||
+                !this.IsActive ||
+                this.LicenseClassID != (byte) clsLicenseClass.enLicenseClasses.Class3_OrdinaryDrivingLicense
+                )
+                return -1;
+
+            // add new application
+            clsApplication application = new clsApplication();
+            clsApplicationType internationalLicenseAppType = clsApplicationType.Find((int)clsApplicationType.enApplicationTypes.NewInternationalLicense);
+
+            DateTime todayDate = DateTime.Now;
+            application.ApplicationPersonID = this.DriverInfo.PersonID;
+            application.ApplicationDate = todayDate;
+            application.ApplicationTypeID = internationalLicenseAppType.ApplicationTypeID;
+            application.PaidFees = internationalLicenseAppType.Fees;
+            application.CreatedByUserID = createdByUserID;
+            if (!application.Save())
+                return -1;
+
+            // add new international license
+            clsInternationalLicense internationalLicense = new clsInternationalLicense();
+            internationalLicense.ApplicationID = application.ApplicationID;
+            internationalLicense.DriverID = this.DriverID;
+            internationalLicense.IssuedUsingLocalLicenseID = this.LicenseID;
+            internationalLicense.IssueDate = todayDate;
+            internationalLicense.ExpirationDate = todayDate.AddYears(1);
+            internationalLicense.IsActive = true;
+            internationalLicense.CreatedByUserID = createdByUserID;
+
+            if (internationalLicense.Save())
+                return internationalLicense.InternationalLicenseID;
+            
+            return -1;
+
+        }
+      
         public bool Save()
         {
             switch(Mode)

@@ -35,7 +35,7 @@ namespace DVLD
 
         public void LoadTestAppointments(DataTable dt)
         {
-            ctrDataView1.LoadDataInDgvManageData(dt);
+            ctrDataView1.LoadData(dt);
         }
 
         public void LoadContextMenuStrip(ContextMenuStrip cms)

@@ -26,7 +26,7 @@ namespace DVLD
         {
             dgvManageData.ContextMenuStrip = cms;
         }
-        public void LoadDataInDgvManageData(DataTable dt)
+        public void LoadData(DataTable dt)
         {
             dgvManageData.DataSource = dt;
             lblNumOfRecords.Text = dt.Rows.Count.ToString();

@@ -49,7 +49,7 @@ namespace DVLD
         {
             ctrManageDataView1.LoadTitle("List Detained Licenses");
             ctrManageDataView1.LoadData(clsDetainedLicense.GetAll());
-            ctrManageDataView1.SetContextMenuStrip(cmsManageDetainedLicenses);
+            ctrManageDataView1.LoadContextMenuStrip(cmsManageDetainedLicenses);
         }
 
         private void ShowPersonDetails(int driverID)

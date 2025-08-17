@@ -64,7 +64,7 @@ namespace DVLD
 
             ctrManageData1.LoadTitle("Local Driving License Applications");
             ctrManageData1.LoadData(clsLDLApplication.GetAllApplications());
-            ctrManageData1.SetContextMenuStrip(cmsManageLDLApplications);
+            ctrManageData1.LoadContextMenuStrip(cmsManageLDLApplications);
         }
 
         private void ReloadLDLApplications()
