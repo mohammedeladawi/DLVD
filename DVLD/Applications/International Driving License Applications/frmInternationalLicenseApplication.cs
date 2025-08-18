@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace DVLD
 {
-    public partial class frmIssueInternationalLicense: Form
+    public partial class frmInternationalLicenseApplication: Form
     {
         private clsLicense _localLicense;
 
-        public frmIssueInternationalLicense()
+        public frmInternationalLicenseApplication()
         {
             InitializeComponent();
         }

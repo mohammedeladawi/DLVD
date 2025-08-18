@@ -109,7 +109,7 @@ namespace DVLD
 
         private void tsmiIssueInternationalLicense_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmIssueInternationalLicense())
+            using (var frm = new frmInternationalLicenseApplication())
             {
                 frm.ShowDialog();
             }

@@ -106,7 +106,7 @@ namespace DVLD
 
         private void addNewInternationaLicenseApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm1 = new frmIssueInternationalLicense();
+            Form frm1 = new frmInternationalLicenseApplication();
             frm1.ShowDialog();
         }
     }

@@ -296,6 +296,59 @@ namespace DVLD_BusinessLayer
 
         }
       
+        public bool DeactiveLicense()
+        {
+            this.IsActive = false;
+            return this.Save();
+        }
+        
+        public int RenewLicense(int createdUserID, string notes)
+        {
+            DateTime todayDate = DateTime.Now;
+
+            // not expired or already renewd
+            if (this.IsActive && this.ExpirationDate > todayDate)
+                return -1;
+            else if (!this.IsActive)
+                return -1;
+
+            clsApplicationType applicationType = clsApplicationType.Find((int)clsApplicationType.enApplicationTypes.RenewDrivingLicenseService);
+
+            // renew application
+            clsApplication renewApplication = new clsApplication();
+            renewApplication.ApplicationPersonID = this.DriverInfo.PersonID;
+            renewApplication.ApplicationDate = todayDate;
+            renewApplication.ApplicationTypeID = applicationType.ApplicationTypeID;
+            renewApplication.PaidFees = applicationType.Fees;
+            renewApplication.CreatedByUserID = createdUserID;
+            if (!renewApplication.Save()) 
+                return -1;
+
+
+
+            // add new license
+            clsLicense newLicense = new clsLicense();
+            newLicense.ApplicationID = renewApplication.ApplicationID;
+            newLicense.DriverID = this.DriverID;
+            newLicense.LicenseClassID = this.LicenseClassID;
+            newLicense.IssuanceDate = todayDate;
+            newLicense.ExpirationDate = todayDate.AddYears(this.LicenseClassInfo.DefaultValidityLength);
+            newLicense.Notes = notes;
+            newLicense.PaidFees = this.LicenseClassInfo.ClassFees;
+            newLicense.IsActive = true;
+            newLicense.IssueReason = (byte)enIssueReasons.Renew;
+            newLicense.CreatedByUserID = createdUserID;
+            if (newLicense.Save())
+            {
+                // deactive old one
+                this.DeactiveLicense();
+                return newLicense.LicenseID;
+            }
+
+
+            return -1;
+        }
+        
         public bool Save()
         {
             switch(Mode)
