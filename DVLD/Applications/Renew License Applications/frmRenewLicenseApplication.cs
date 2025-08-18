@@ -65,16 +65,14 @@ namespace DVLD
             _oldLicense = clsLicense.FindByLicenseID(licenseID);
 
             // is not expired
-            if (_oldLicense.ExpirationDate > DateTime.Now && _oldLicense.IsActive)
+            if (!_oldLicense.IsExpired && _oldLicense.IsActive)
             {
-                _newLicense = _oldLicense;
                 EnableLicenseInfoLLs();
                 MessageBox.Show("License is still valid and cannot be renewed yet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else if (!_oldLicense.IsActive)
             {
-                _newLicense = _oldLicense;
                 EnableLicenseInfoLLs();
                 MessageBox.Show("This license is inactive. It cannot be renewed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -120,20 +118,20 @@ namespace DVLD
 
         private void llblShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (_newLicense != null) 
-            {
-                Form showPersonLicenseHistory = new frmPersonLicenseHistory(_newLicense.DriverInfo.PersonID);
-                showPersonLicenseHistory.ShowDialog();
-            }
+         
+            Form showPersonLicenseHistory = new frmPersonLicenseHistory(_oldLicense.DriverInfo.PersonID);
+            showPersonLicenseHistory.ShowDialog();
         }
 
         private void llblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Form frm;
             if (_newLicense != null)
-            {
-                Form frmLicense = new frmDriverLicenseInfo(_newLicense.LicenseID);
-                frmLicense.ShowDialog();
-            }
+                frm = new frmDriverLicenseInfo(_newLicense.LicenseID);
+            else
+                frm = new frmDriverLicenseInfo(_oldLicense.LicenseID);
+
+            frm.ShowDialog();
         }
     }
 }

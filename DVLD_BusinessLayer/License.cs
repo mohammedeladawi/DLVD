@@ -80,6 +80,13 @@ namespace DVLD_BusinessLayer
             }
         }
        
+        public bool IsExpired
+        {
+            get
+            {
+                return (this.ExpirationDate < DateTime.Now);
+            }
+        }
         
         private bool _UpdateLicense()
         {
@@ -94,6 +101,23 @@ namespace DVLD_BusinessLayer
                 Mode = enMode.Update;
 
             return LicenseID != -1;
+        }
+
+        private int _CreateApplicationGetID(int applicationTypeID, int createdUserID)
+        {
+            clsApplicationType applicationType = clsApplicationType.Find(applicationTypeID);
+
+            // application
+            clsApplication newApplication = new clsApplication();
+            newApplication.ApplicationPersonID = this.DriverInfo.PersonID;
+            newApplication.ApplicationDate = DateTime.Now;
+            newApplication.ApplicationTypeID = applicationType.ApplicationTypeID;
+            newApplication.PaidFees = applicationType.Fees;
+            newApplication.CreatedByUserID = createdUserID;
+            if (newApplication.Save())
+                return newApplication.ApplicationID;
+            else
+                return -1;
         }
 
         public clsLicense()
@@ -266,22 +290,17 @@ namespace DVLD_BusinessLayer
                 )
                 return -1;
 
-            // add new application
-            clsApplication application = new clsApplication();
-            clsApplicationType internationalLicenseAppType = clsApplicationType.Find((int)clsApplicationType.enApplicationTypes.NewInternationalLicense);
 
-            DateTime todayDate = DateTime.Now;
-            application.ApplicationPersonID = this.DriverInfo.PersonID;
-            application.ApplicationDate = todayDate;
-            application.ApplicationTypeID = internationalLicenseAppType.ApplicationTypeID;
-            application.PaidFees = internationalLicenseAppType.Fees;
-            application.CreatedByUserID = createdByUserID;
-            if (!application.Save())
+            int internationLicenseApplicationID = 
+                _CreateApplicationGetID((int)clsApplicationType.enApplicationTypes.NewInternationalLicense, createdByUserID);
+           
+            if (internationLicenseApplicationID == -1)
                 return -1;
 
             // add new international license
+            DateTime todayDate = DateTime.Now;
             clsInternationalLicense internationalLicense = new clsInternationalLicense();
-            internationalLicense.ApplicationID = application.ApplicationID;
+            internationalLicense.ApplicationID = internationLicenseApplicationID;
             internationalLicense.DriverID = this.DriverID;
             internationalLicense.IssuedUsingLocalLicenseID = this.LicenseID;
             internationalLicense.IssueDate = todayDate;
@@ -301,42 +320,68 @@ namespace DVLD_BusinessLayer
             this.IsActive = false;
             return this.Save();
         }
-        
+              
         public int RenewLicense(int createdUserID, string notes)
         {
-            DateTime todayDate = DateTime.Now;
+            if (this.IsExpired && this.IsActive)
+            {
+                    int renewApplicationID =
+                        _CreateApplicationGetID((int)clsApplicationType.enApplicationTypes.RenewDrivingLicenseService, createdUserID);
+                if (renewApplicationID == -1)
+                    return -1;
 
-            // not expired or already renewd
-            if (this.IsActive && this.ExpirationDate > todayDate)
+                // add new license
+                DateTime todayDate = DateTime.Now;
+                clsLicense newLicense = new clsLicense();
+                newLicense.ApplicationID = renewApplicationID;
+                newLicense.DriverID = this.DriverID;
+                newLicense.LicenseClassID = this.LicenseClassID;
+                newLicense.IssuanceDate = todayDate;
+                newLicense.ExpirationDate = todayDate.AddYears(this.LicenseClassInfo.DefaultValidityLength);
+                newLicense.Notes = notes;
+                newLicense.PaidFees = this.LicenseClassInfo.ClassFees;
+                newLicense.IsActive = true;
+                newLicense.IssueReason = (byte)enIssueReasons.Renew;
+                newLicense.CreatedByUserID = createdUserID;
+                if (newLicense.Save())
+                {
+                    // deactive old one
+                    this.DeactiveLicense();
+                    return newLicense.LicenseID;
+                }
+            }
+
+
+            return -1;
+        }
+        
+        public int Replace(enIssueReasons issueReason, int createdUserID)
+        {
+            if (this.IsExpired || !this.IsActive)
                 return -1;
-            else if (!this.IsActive)
+
+            int applicationTypeID = issueReason == enIssueReasons.ReplacementForLost
+                ? (int)clsApplicationType.enApplicationTypes.ReplacementForLostDrivingLicense
+                : (int)clsApplicationType.enApplicationTypes.ReplacementForDamagedDrivingLicense;
+
+            int replacementApplicationID =
+                _CreateApplicationGetID(applicationTypeID, createdUserID);
+           
+            if (replacementApplicationID == -1)
                 return -1;
-
-            clsApplicationType applicationType = clsApplicationType.Find((int)clsApplicationType.enApplicationTypes.RenewDrivingLicenseService);
-
-            // renew application
-            clsApplication renewApplication = new clsApplication();
-            renewApplication.ApplicationPersonID = this.DriverInfo.PersonID;
-            renewApplication.ApplicationDate = todayDate;
-            renewApplication.ApplicationTypeID = applicationType.ApplicationTypeID;
-            renewApplication.PaidFees = applicationType.Fees;
-            renewApplication.CreatedByUserID = createdUserID;
-            if (!renewApplication.Save()) 
-                return -1;
-
-
 
             // add new license
+            DateTime todayDate = DateTime.Now;
             clsLicense newLicense = new clsLicense();
-            newLicense.ApplicationID = renewApplication.ApplicationID;
+            newLicense.ApplicationID = replacementApplicationID;
             newLicense.DriverID = this.DriverID;
             newLicense.LicenseClassID = this.LicenseClassID;
             newLicense.IssuanceDate = todayDate;
-            newLicense.ExpirationDate = todayDate.AddYears(this.LicenseClassInfo.DefaultValidityLength);
-            newLicense.Notes = notes;
+            newLicense.ExpirationDate = this.ExpirationDate;
+            newLicense.Notes = string.Empty;
             newLicense.PaidFees = this.LicenseClassInfo.ClassFees;
             newLicense.IsActive = true;
-            newLicense.IssueReason = (byte)enIssueReasons.Renew;
+            newLicense.IssueReason = (byte)issueReason;
             newLicense.CreatedByUserID = createdUserID;
             if (newLicense.Save())
             {
@@ -345,10 +390,10 @@ namespace DVLD_BusinessLayer
                 return newLicense.LicenseID;
             }
 
-
             return -1;
+
         }
-        
+
         public bool Save()
         {
             switch(Mode)

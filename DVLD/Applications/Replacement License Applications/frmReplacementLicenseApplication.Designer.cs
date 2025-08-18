@@ -1,6 +1,6 @@
 ﻿namespace DVLD
 {
-    partial class frmReplacementApplication
+    partial class frmReplacementLicenseApplication
     {
         /// <summary>
         /// Required designer variable.
@@ -48,7 +48,7 @@
             this.lblAppDate = new System.Windows.Forms.Label();
             this.lblReplacedLicenseID = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblLRAppID = new System.Windows.Forms.Label();
+            this.lblLicenseReplacementAppID = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gbReplacement.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -73,6 +73,7 @@
             this.ctrFindDLicenseInfo1.Name = "ctrFindDLicenseInfo1";
             this.ctrFindDLicenseInfo1.Size = new System.Drawing.Size(1575, 719);
             this.ctrFindDLicenseInfo1.TabIndex = 7;
+            this.ctrFindDLicenseInfo1.txtSearchText = "";
             this.ctrFindDLicenseInfo1.onLocalLicenseInfoLoaded += new System.Action<int>(this.ctrFindDLicenseInfo1_onLocalLicenseInfoLoaded);
             // 
             // gbReplacement
@@ -96,6 +97,7 @@
             this.rbLostLicense.TabStop = true;
             this.rbLostLicense.Text = "Lost License";
             this.rbLostLicense.UseVisualStyleBackColor = true;
+            this.rbLostLicense.CheckedChanged += new System.EventHandler(this.rbLostLicense_CheckedChanged);
             // 
             // rbDamagedLicense
             // 
@@ -112,6 +114,7 @@
             // ctrIssueBtn1
             // 
             this.ctrIssueBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ctrIssueBtn1.btnText = "Issue";
             this.ctrIssueBtn1.Location = new System.Drawing.Point(1350, 1162);
             this.ctrIssueBtn1.Name = "ctrIssueBtn1";
             this.ctrIssueBtn1.Size = new System.Drawing.Size(226, 68);
@@ -162,7 +165,7 @@
             this.groupBox2.Controls.Add(this.lblAppDate);
             this.groupBox2.Controls.Add(this.lblReplacedLicenseID);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.lblLRAppID);
+            this.groupBox2.Controls.Add(this.lblLicenseReplacementAppID);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(39, 854);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -278,15 +281,15 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Application Date:";
             // 
-            // lblLRAppID
+            // lblLicenseReplacementAppID
             // 
-            this.lblLRAppID.AutoSize = true;
-            this.lblLRAppID.Location = new System.Drawing.Point(325, 70);
-            this.lblLRAppID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLRAppID.Name = "lblLRAppID";
-            this.lblLRAppID.Size = new System.Drawing.Size(60, 25);
-            this.lblLRAppID.TabIndex = 18;
-            this.lblLRAppID.Text = "????";
+            this.lblLicenseReplacementAppID.AutoSize = true;
+            this.lblLicenseReplacementAppID.Location = new System.Drawing.Point(325, 70);
+            this.lblLicenseReplacementAppID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLicenseReplacementAppID.Name = "lblLicenseReplacementAppID";
+            this.lblLicenseReplacementAppID.Size = new System.Drawing.Size(60, 25);
+            this.lblLicenseReplacementAppID.TabIndex = 18;
+            this.lblLicenseReplacementAppID.Text = "????";
             // 
             // label6
             // 
@@ -299,7 +302,7 @@
             this.label6.TabIndex = 7;
             this.label6.Text = "Application Fees:";
             // 
-            // frmReplacementApplication
+            // frmReplacementLicenseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -312,7 +315,7 @@
             this.Controls.Add(this.gbReplacement);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ctrFindDLicenseInfo1);
-            this.Name = "frmReplacementApplication";
+            this.Name = "frmReplacementLicenseApplication";
             this.Text = "frmReplacementApplication";
             this.Load += new System.EventHandler(this.frmReplacementApplication_Load);
             this.gbReplacement.ResumeLayout(false);
@@ -346,7 +349,7 @@
         private System.Windows.Forms.Label lblAppDate;
         private System.Windows.Forms.Label lblReplacedLicenseID;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblLRAppID;
+        private System.Windows.Forms.Label lblLicenseReplacementAppID;
         private System.Windows.Forms.Label label6;
     }
 }

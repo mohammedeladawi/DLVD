@@ -205,11 +205,11 @@
     <Compile Include="Applications\Renew License Applications\frmRenewLicenseApplication.Designer.cs">
       <DependentUpon>frmRenewLicenseApplication.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReplacementApplication.cs">
+    <Compile Include="Applications\Replacement License Applications\frmReplacementLicenseApplication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReplacementApplication.Designer.cs">
-      <DependentUpon>frmReplacementApplication.cs</DependentUpon>
+    <Compile Include="Applications\Replacement License Applications\frmReplacementLicenseApplication.Designer.cs">
+      <DependentUpon>frmReplacementLicenseApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="Tests\frmScheduleTestAppointment.cs">
       <SubType>Form</SubType>
@@ -394,8 +394,8 @@
     <EmbeddedResource Include="Applications\Renew License Applications\frmRenewLicenseApplication.resx">
       <DependentUpon>frmRenewLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReplacementApplication.resx">
-      <DependentUpon>frmReplacementApplication.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\Replacement License Applications\frmReplacementLicenseApplication.resx">
+      <DependentUpon>frmReplacementLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tests\frmScheduleTestAppointment.resx">
       <DependentUpon>frmScheduleTestAppointment.cs</DependentUpon>

@@ -93,7 +93,7 @@ namespace DVLD
 
         private void tsmiReplaceLostDamagedLicense_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmReplacementApplication())
+            using (var frm = new frmReplacementLicenseApplication())
             {
                 frm.ShowDialog();
             }
