@@ -145,7 +145,7 @@ namespace DVLD
                 StopTxtSearch();
                 StopCmbSearch();
             }
-            else if (cmbFilter.SelectedItem.ToString() == "IsActive")
+            else if (cmbFilter.SelectedItem.ToString().StartsWith("Is"))
             {
                 // for IsActive property in users table
                 StopTxtSearch();

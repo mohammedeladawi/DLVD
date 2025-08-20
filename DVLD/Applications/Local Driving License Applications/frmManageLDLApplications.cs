@@ -124,7 +124,7 @@ namespace DVLD
 
             if (ldlApplicaiton.HasPassedAllTests())
             {
-                Form issueDLForm = new frmIssueDrivingLicense(ldlApplicationID);
+                Form issueDLForm = new frmIssueDrivingLicenseFirstTime(ldlApplicationID);
                 issueDLForm.FormClosed += frm_Closed;
                 issueDLForm.ShowDialog();
             }

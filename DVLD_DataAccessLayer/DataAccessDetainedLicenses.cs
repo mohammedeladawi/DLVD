@@ -126,8 +126,8 @@ namespace DVLD_DataAccessLayer
             int detainID,
             bool isReleased,
             DateTime? releaseDate,
-            int? releaseByUserID,
-            int? releaseApplicationID)
+            int releaseByUserID,
+            int releaseApplicationID)
         {
             string commandStr = @"UPDATE DetainedLicenses
                                   SET IsReleased = @IsReleased,
@@ -141,9 +141,20 @@ namespace DVLD_DataAccessLayer
                 using (SqlCommand command = new SqlCommand(commandStr, connection))
                 {
                     command.Parameters.AddWithValue("@IsReleased", isReleased);
-                    command.Parameters.AddWithValue("@ReleaseDate", releaseDate);
-                    command.Parameters.AddWithValue("@ReleaseByUserID", releaseByUserID);
-                    command.Parameters.AddWithValue("@ReleaseApplicationID", releaseApplicationID);
+                    command.Parameters.AddWithValue("@ReleaseDate", releaseDate.HasValue ? (object)releaseDate.Value : DBNull.Value);
+                    
+                    if (releaseByUserID != -1)
+                        command.Parameters.AddWithValue("@ReleaseByUserID", releaseByUserID);
+                    else
+                        command.Parameters.AddWithValue("@ReleaseByUserID", DBNull.Value);
+
+
+                    if (releaseApplicationID != -1)
+                        command.Parameters.AddWithValue("@ReleaseApplicationID", releaseApplicationID);
+                    else
+                        command.Parameters.AddWithValue("@ReleaseApplicationID", DBNull.Value);
+
+                    
                     command.Parameters.AddWithValue("@DetainID", detainID);
 
                     try
@@ -171,8 +182,8 @@ namespace DVLD_DataAccessLayer
             ref int createdByUserID,
             ref bool isReleased,
             ref DateTime? releaseDate,
-            ref int? releaseByUserID,
-            ref int? releaseApplicationID)
+            ref int releaseByUserID,
+            ref int releaseApplicationID)
         {
             string commandStr = @"SELECT * FROM DetainedLicenses 
                                   WHERE LicenseID = @LicenseID AND IsReleased = 0";
@@ -196,8 +207,9 @@ namespace DVLD_DataAccessLayer
                             isReleased = (bool)reader["IsReleased"];
 
                             releaseDate = reader["ReleaseDate"] != DBNull.Value ? (DateTime?)reader["ReleaseDate"] : null;
-                            releaseByUserID = reader["ReleaseByUserID"] != DBNull.Value ? (int?)reader["ReleaseByUserID"] : null;
-                            releaseApplicationID = reader["ReleaseApplicationID"] != DBNull.Value ? (int?)reader["ReleaseApplicationID"] : null;
+                   
+                            releaseByUserID = reader["ReleaseByUserID"] != DBNull.Value ? (int)reader["ReleaseByUserID"] : -1;
+                            releaseApplicationID = reader["ReleaseApplicationID"] != DBNull.Value ? (int)reader["ReleaseApplicationID"] : -1;
 
                             return true;
                         }

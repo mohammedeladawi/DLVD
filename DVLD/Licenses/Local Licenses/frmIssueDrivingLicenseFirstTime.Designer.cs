@@ -1,6 +1,6 @@
 ﻿namespace DVLD
 {
-    partial class frmIssueDrivingLicense
+    partial class frmIssueDrivingLicenseFirstTime
     {
         /// <summary>
         /// Required designer variable.

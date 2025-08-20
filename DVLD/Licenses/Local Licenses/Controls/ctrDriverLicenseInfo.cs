@@ -93,6 +93,7 @@ namespace DVLD
             lblDriverID.Text = "????";
             lblExpirationDate.Text = "????";
             lblIsDetained.Text = "????";
+            pbPersonImage.Image = null;
 
         }
 

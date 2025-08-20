@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace DVLD
 {
-    public partial class frmIssueDrivingLicense : Form
+    public partial class frmIssueDrivingLicenseFirstTime : Form
     {
         private clsLDLApplication _ldlApplication;
-        public frmIssueDrivingLicense(int ldlApplicationID)
+        public frmIssueDrivingLicenseFirstTime(int ldlApplicationID)
         {
             InitializeComponent();
             _ldlApplication = clsLDLApplication.FindByLDLApplicationID(ldlApplicationID);

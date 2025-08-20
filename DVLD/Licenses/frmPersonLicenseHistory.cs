@@ -24,11 +24,6 @@ namespace DVLD
             _driver = clsDriver.FindByPersonID(personID);
         }
 
-        public frmPersonLicenseHistory(clsDriver driver)
-        {
-            _driver = driver;
-            InitializeComponent();
-        }
 
         private int GetSelectedLicenseID(DataGridView ctrlDGVGridView)
         {

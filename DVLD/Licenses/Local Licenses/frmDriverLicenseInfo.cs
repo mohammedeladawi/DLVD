@@ -22,11 +22,6 @@ namespace DVLD
             _licenseID = licenseID;
         }
 
-        public frmDriverLicenseInfo(clsLicense license)
-        {
-            InitializeComponent();
-        }
-
         private void frmDriverLicenseInfo_Load(object sender, EventArgs e)
         {
             ctrDriverLicenseInfo1.LoadInfo(_licenseID);
