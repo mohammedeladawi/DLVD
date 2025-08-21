@@ -29,6 +29,10 @@ namespace DVLD
         public void LoadData(DataTable dt)
         {
             dgvManageData.DataSource = dt;
+            dgvManageData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+
+
             lblNumOfRecords.Text = dt.Rows.Count.ToString();
         }
 

@@ -37,6 +37,7 @@
             this.tsmiDeletePerson = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
             this.ctrManageData1 = new DVLD.ctrFilterDataView();
+            this.btnAddNew = new System.Windows.Forms.Button();
             this.cmsPeople.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             this.btnAddNewPerson.Image = global::DVLD.Properties.Resources.incorporation;
             this.btnAddNewPerson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddNewPerson.Location = new System.Drawing.Point(1523, 195);
-            this.btnAddNewPerson.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddNewPerson.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddNewPerson.Name = "btnAddNewPerson";
             this.btnAddNewPerson.Size = new System.Drawing.Size(63, 43);
             this.btnAddNewPerson.TabIndex = 1;
@@ -113,16 +114,27 @@
             this.ctrManageData1.TabIndex = 0;
             this.ctrManageData1.Load += new System.EventHandler(this.ctrManageData1_Load);
             // 
+            // btnAddNew
+            // 
+            this.btnAddNew.Location = new System.Drawing.Point(841, 127);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(140, 23);
+            this.btnAddNew.TabIndex = 3;
+            this.btnAddNew.Text = "Add New";
+            this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
             // frmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1032, 655);
+            this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.btnAddNewPerson);
             this.Controls.Add(this.ctrManageData1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmManagePeople";
             this.Text = "Manage People";
             this.cmsPeople.ResumeLayout(false);
@@ -140,6 +152,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiEditPersonInfo;
         private System.Windows.Forms.ToolStripMenuItem tsmiDeletePerson;
         private ctrCloseBtn ctrCloseBtn1;
+        private System.Windows.Forms.Button btnAddNew;
     }
 }
 

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -71,12 +71,12 @@ namespace DVLD
             {
                 if (clsUser.DeleteByID(userID))
                 {
-                    MessageBox.Show("User has been deleted succesfully.");
+                    MessageBox.Show("User has been deleted succesfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ReloadUsersData();
                 }
                 else
                 {
-                    MessageBox.Show("Could't deleted this User.");
+                    MessageBox.Show("Could't deleted this user!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -131,5 +131,11 @@ namespace DVLD
                 ChangePasswordDialog(userID);
         }
 
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            var addEditUser = new frmAddUpdateUser();
+            addEditUser.FormClosed += subForm_Closed;
+            addEditUser.ShowDialog();
+        }
     }
 }

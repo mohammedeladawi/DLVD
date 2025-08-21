@@ -126,13 +126,8 @@ namespace DVLD
         
         private void cmsManageDetainedLicenses_Opening(object sender, CancelEventArgs e)
         {
-            int licenseID = GetSelectedLicenseID();
-            if (licenseID == -1)
-                return;
-
-            tsmiReleaseDetainedLicense.Enabled = clsDetainedLicense.IsDetainedByLicenseID(licenseID);
-            
-
+            if (GetSelectedLicenseID() != -1)
+                tsmiReleaseDetainedLicense.Enabled = !(bool)ctrManageDataView1.dgvManageDate1.CurrentRow.Cells["IsReleased"].Value;
         }
     }
 }

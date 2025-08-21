@@ -34,6 +34,7 @@ namespace DVLD
         private void LoadUIFieldsIntoUser()
         {
             _user.UserName = txtUserName.Text;
+            _user.PersonID = ctrFindPerson1.person.PersonID;
             _user.Password = txtPassword.Text;
             _user.IsActive = cbIsActive.Checked;
         }
@@ -54,16 +55,15 @@ namespace DVLD
             if (person == null)
             {
                 e.Cancel = true;
-                MessageBox.Show("Please add a person first");
+                MessageBox.Show("Please add a person first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (clsUser.IsExistByPersonID(person.PersonID) && _Mode == enMode.AddNew)
             {
                 e.Cancel=true;
-                MessageBox.Show("This person is already a user");
+                MessageBox.Show("This person is already a user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                _user.PersonID = ctrFindPerson1.person.PersonID;
                 tctrlAddEditUser.SelectedTab = tpLoginInfo;
                 
                 // buttons
@@ -110,16 +110,24 @@ namespace DVLD
 
         private void ctrSaveBtn1_Click(object sender, EventArgs e)
         {
-            LoadUIFieldsIntoUser();
+            if (!this.ValidateChildren())
+            {
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show("Some fileds are not valid!, put the mouse over the red icon(s) to see the error",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            LoadUIFieldsIntoUser();
             if (_user.Save())
             {
-                MessageBox.Show($"User has been {(_Mode == enMode.AddNew ? "added" : "updated")} sucessfully");
+                MessageBox.Show($"User has been {(_Mode == enMode.AddNew ? "added" : "updated")} sucessfully", "Saved", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Couldn't update user");
+                MessageBox.Show("Couldn't update user!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
                 
         }

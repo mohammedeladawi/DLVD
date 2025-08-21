@@ -60,7 +60,7 @@ namespace DVLD
             }
             else
             {
-                MessageBox.Show("There is no selected row");
+                MessageBox.Show("There is no selected row!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

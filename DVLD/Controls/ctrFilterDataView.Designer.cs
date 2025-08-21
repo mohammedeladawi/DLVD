@@ -38,17 +38,19 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(444, 181);
+            this.txtSearch.Location = new System.Drawing.Point(296, 116);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(352, 31);
+            this.txtSearch.Size = new System.Drawing.Size(236, 22);
             this.txtSearch.TabIndex = 1;
             // 
             // cmbFilter
             // 
             this.cmbFilter.FormattingEnabled = true;
-            this.cmbFilter.Location = new System.Drawing.Point(180, 175);
+            this.cmbFilter.Location = new System.Drawing.Point(120, 112);
+            this.cmbFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbFilter.Name = "cmbFilter";
-            this.cmbFilter.Size = new System.Drawing.Size(240, 33);
+            this.cmbFilter.Size = new System.Drawing.Size(161, 24);
             this.cmbFilter.TabIndex = 2;
             this.cmbFilter.SelectedValueChanged += new System.EventHandler(this.cmbFilter_SelectedValueChanged);
             // 
@@ -56,9 +58,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(74, 178);
+            this.label1.Location = new System.Drawing.Point(49, 114);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 25);
+            this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "Filter By";
             // 
@@ -67,9 +70,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblTitle.Location = new System.Drawing.Point(692, 28);
+            this.lblTitle.Location = new System.Drawing.Point(461, 18);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(144, 51);
+            this.lblTitle.Size = new System.Drawing.Size(92, 31);
             this.lblTitle.TabIndex = 5;
             this.lblTitle.Text = "label2";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -77,22 +81,23 @@
             // cmbSearch
             // 
             this.cmbSearch.FormattingEnabled = true;
-            this.cmbSearch.Location = new System.Drawing.Point(444, 178);
+            this.cmbSearch.Location = new System.Drawing.Point(296, 114);
+            this.cmbSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbSearch.Name = "cmbSearch";
-            this.cmbSearch.Size = new System.Drawing.Size(253, 33);
+            this.cmbSearch.Size = new System.Drawing.Size(170, 24);
             this.cmbSearch.TabIndex = 8;
             // 
             // ctrDataView1
             // 
-            this.ctrDataView1.Location = new System.Drawing.Point(34, 241);
-            this.ctrDataView1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ctrDataView1.Location = new System.Drawing.Point(23, 154);
+            this.ctrDataView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrDataView1.Name = "ctrDataView1";
-            this.ctrDataView1.Size = new System.Drawing.Size(1478, 670);
+            this.ctrDataView1.Size = new System.Drawing.Size(985, 429);
             this.ctrDataView1.TabIndex = 9;
             // 
-            // ctrManageDataView
+            // ctrFilterDataView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ctrDataView1);
             this.Controls.Add(this.cmbSearch);
@@ -100,8 +105,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbFilter);
             this.Controls.Add(this.txtSearch);
-            this.Name = "ctrManageDataView";
-            this.Size = new System.Drawing.Size(1572, 1027);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "ctrFilterDataView";
+            this.Size = new System.Drawing.Size(1048, 657);
+            this.Load += new System.EventHandler(this.ctrFilterDataView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

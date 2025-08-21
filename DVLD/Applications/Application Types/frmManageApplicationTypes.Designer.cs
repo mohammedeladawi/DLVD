@@ -42,27 +42,27 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label1.Location = new System.Drawing.Point(447, 33);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(298, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(614, 55);
+            this.label1.Size = new System.Drawing.Size(392, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Manage Application Types";
             // 
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrCloseBtn1.Location = new System.Drawing.Point(1218, 791);
+            this.ctrCloseBtn1.Location = new System.Drawing.Point(812, 506);
+            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ctrCloseBtn1.Name = "ctrCloseBtn1";
-            this.ctrCloseBtn1.Size = new System.Drawing.Size(228, 64);
+            this.ctrCloseBtn1.Size = new System.Drawing.Size(153, 42);
             this.ctrCloseBtn1.TabIndex = 2;
             // 
             // ctrDataView1
             // 
-            this.ctrDataView1.Location = new System.Drawing.Point(-9, 94);
-            this.ctrDataView1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ctrDataView1.Location = new System.Drawing.Point(-6, 60);
+            this.ctrDataView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrDataView1.Name = "ctrDataView1";
-            this.ctrDataView1.Size = new System.Drawing.Size(1478, 670);
+            this.ctrDataView1.Size = new System.Drawing.Size(985, 429);
             this.ctrDataView1.TabIndex = 1;
             // 
             // cmsManageApplicationTypes
@@ -71,24 +71,23 @@
             this.cmsManageApplicationTypes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editApplicationTypeToolStripMenuItem});
             this.cmsManageApplicationTypes.Name = "cmsManageApplicationTypes";
-            this.cmsManageApplicationTypes.Size = new System.Drawing.Size(314, 86);
+            this.cmsManageApplicationTypes.Size = new System.Drawing.Size(221, 28);
             // 
             // editApplicationTypeToolStripMenuItem
             // 
             this.editApplicationTypeToolStripMenuItem.Name = "editApplicationTypeToolStripMenuItem";
-            this.editApplicationTypeToolStripMenuItem.Size = new System.Drawing.Size(313, 38);
+            this.editApplicationTypeToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
             this.editApplicationTypeToolStripMenuItem.Text = "Edit Application Type";
             this.editApplicationTypeToolStripMenuItem.Click += new System.EventHandler(this.editApplicationTypeToolStripMenuItem_Click);
             // 
             // frmManageApplicationTypes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1514, 873);
+            this.ClientSize = new System.Drawing.Size(1012, 563);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.ctrDataView1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmManageApplicationTypes";
             this.Text = "frmManageApplicationTypes";
             this.Load += new System.EventHandler(this.frmManageApplicationTypes_Load);

@@ -51,11 +51,14 @@ namespace DVLD
         private void ctrSaveBtn1_Click(object sender, EventArgs e)
         {
             LoadUIFieldsIntoApplicationType();
-            
+
             if (_applicationType.Save())
-                MessageBox.Show("Application type has been updated successfully");
+            {
+                MessageBox.Show("Application type has been updated successfully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
             else
-                MessageBox.Show("Couldn't update application type");
+                MessageBox.Show("Couldn't update application type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

@@ -167,20 +167,32 @@ namespace DVLD
 
         private void ctrSaveBtn1_MouseClick(object sender, MouseEventArgs e)
         {
+            if (!this.ValidateChildren())
+            {
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show("Some fileds are not valid!, put the mouse over the red icon(s) to see the error",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             HandlePersonImage();
             LoadUIFieldsIntoPerson();
             
             if (_person.Save())
             {
-                MessageBox.Show($"Person has been {(Mode == enMode.AddNew ? "added" : "updated")} succeessfully");
+                MessageBox.Show($"Person has been {(Mode == enMode.AddNew ? "added" : "updated")} succeessfully", 
+                    "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 Mode = enMode.Update;
                 DataBack?.Invoke(this, _person.PersonID);
                 this.Close();
             }
             else
             {
-                MessageBox.Show($"Couldn't {(Mode == enMode.AddNew ? "add" : "update")} the person");
-            };
+                MessageBox.Show($"Couldn't {(Mode == enMode.AddNew ? "add" : "update")} the person", 
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ;
         }
        
         private void llblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

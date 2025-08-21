@@ -65,10 +65,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label1.Location = new System.Drawing.Point(402, 32);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(268, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(626, 55);
+            this.label1.Size = new System.Drawing.Size(401, 36);
             this.label1.TabIndex = 6;
             this.label1.Text = "Renew License Application";
             // 
@@ -96,40 +95,37 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblRLAppID);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(26, 862);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Location = new System.Drawing.Point(17, 552);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(1119, 514);
+            this.groupBox1.Size = new System.Drawing.Size(746, 329);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Application Info";
             // 
             // txtNotes
             // 
-            this.txtNotes.Location = new System.Drawing.Point(306, 399);
+            this.txtNotes.Location = new System.Drawing.Point(204, 255);
+            this.txtNotes.Margin = new System.Windows.Forms.Padding(2);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Size = new System.Drawing.Size(438, 89);
+            this.txtNotes.Size = new System.Drawing.Size(293, 58);
             this.txtNotes.TabIndex = 19;
             // 
             // lblTotalFees
             // 
             this.lblTotalFees.AutoSize = true;
-            this.lblTotalFees.Location = new System.Drawing.Point(894, 340);
-            this.lblTotalFees.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalFees.Location = new System.Drawing.Point(596, 218);
             this.lblTotalFees.Name = "lblTotalFees";
-            this.lblTotalFees.Size = new System.Drawing.Size(60, 25);
+            this.lblTotalFees.Size = new System.Drawing.Size(35, 16);
             this.lblTotalFees.TabIndex = 13;
             this.lblTotalFees.Text = "????";
             // 
             // lblCreatedBy
             // 
             this.lblCreatedBy.AutoSize = true;
-            this.lblCreatedBy.Location = new System.Drawing.Point(894, 277);
-            this.lblCreatedBy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCreatedBy.Location = new System.Drawing.Point(596, 177);
             this.lblCreatedBy.Name = "lblCreatedBy";
-            this.lblCreatedBy.Size = new System.Drawing.Size(60, 25);
+            this.lblCreatedBy.Size = new System.Drawing.Size(35, 16);
             this.lblCreatedBy.TabIndex = 13;
             this.lblCreatedBy.Text = "????";
             // 
@@ -137,10 +133,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(613, 78);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(409, 50);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(261, 29);
+            this.label7.Size = new System.Drawing.Size(166, 18);
             this.label7.TabIndex = 12;
             this.label7.Text = "Renewed License ID:";
             // 
@@ -148,20 +143,18 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(76, 75);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(51, 48);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(221, 29);
+            this.label12.Size = new System.Drawing.Size(142, 18);
             this.label12.TabIndex = 12;
             this.label12.Text = "R.L ApplicaitonID:";
             // 
             // lblExpirationDate
             // 
             this.lblExpirationDate.AutoSize = true;
-            this.lblExpirationDate.Location = new System.Drawing.Point(894, 216);
-            this.lblExpirationDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblExpirationDate.Location = new System.Drawing.Point(596, 138);
             this.lblExpirationDate.Name = "lblExpirationDate";
-            this.lblExpirationDate.Size = new System.Drawing.Size(60, 25);
+            this.lblExpirationDate.Size = new System.Drawing.Size(35, 16);
             this.lblExpirationDate.TabIndex = 14;
             this.lblExpirationDate.Text = "????";
             // 
@@ -169,20 +162,18 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(76, 335);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(51, 214);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(170, 29);
+            this.label13.Size = new System.Drawing.Size(108, 18);
             this.label13.TabIndex = 11;
             this.label13.Text = "LicenseFees:";
             // 
             // lblLicenseFees
             // 
             this.lblLicenseFees.AutoSize = true;
-            this.lblLicenseFees.Location = new System.Drawing.Point(301, 337);
-            this.lblLicenseFees.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLicenseFees.Location = new System.Drawing.Point(201, 216);
             this.lblLicenseFees.Name = "lblLicenseFees";
-            this.lblLicenseFees.Size = new System.Drawing.Size(60, 25);
+            this.lblLicenseFees.Size = new System.Drawing.Size(35, 16);
             this.lblLicenseFees.TabIndex = 15;
             this.lblLicenseFees.Text = "????";
             // 
@@ -190,20 +181,18 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(76, 207);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(51, 132);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(143, 29);
+            this.label9.Size = new System.Drawing.Size(93, 18);
             this.label9.TabIndex = 11;
             this.label9.Text = "Issue Date:";
             // 
             // lblIssueDate
             // 
             this.lblIssueDate.AutoSize = true;
-            this.lblIssueDate.Location = new System.Drawing.Point(301, 209);
-            this.lblIssueDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIssueDate.Location = new System.Drawing.Point(201, 134);
             this.lblIssueDate.Name = "lblIssueDate";
-            this.lblIssueDate.Size = new System.Drawing.Size(60, 25);
+            this.lblIssueDate.Size = new System.Drawing.Size(35, 16);
             this.lblIssueDate.TabIndex = 15;
             this.lblIssueDate.Text = "????";
             // 
@@ -211,20 +200,18 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(613, 213);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(409, 136);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(198, 29);
+            this.label10.Size = new System.Drawing.Size(128, 18);
             this.label10.TabIndex = 10;
             this.label10.Text = "Expiration Date:";
             // 
             // lblApplicationFees
             // 
             this.lblApplicationFees.AutoSize = true;
-            this.lblApplicationFees.Location = new System.Drawing.Point(301, 275);
-            this.lblApplicationFees.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApplicationFees.Location = new System.Drawing.Point(201, 176);
             this.lblApplicationFees.Name = "lblApplicationFees";
-            this.lblApplicationFees.Size = new System.Drawing.Size(60, 25);
+            this.lblApplicationFees.Size = new System.Drawing.Size(35, 16);
             this.lblApplicationFees.TabIndex = 16;
             this.lblApplicationFees.Text = "????";
             // 
@@ -232,10 +219,9 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(613, 333);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(409, 213);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(146, 29);
+            this.label14.Size = new System.Drawing.Size(93, 18);
             this.label14.TabIndex = 9;
             this.label14.Text = "Total Fees:";
             // 
@@ -243,20 +229,18 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(613, 275);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(409, 176);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(149, 29);
+            this.label11.Size = new System.Drawing.Size(96, 18);
             this.label11.TabIndex = 9;
             this.label11.Text = "Created By:";
             // 
             // lblOldLicenseID
             // 
             this.lblOldLicenseID.AutoSize = true;
-            this.lblOldLicenseID.Location = new System.Drawing.Point(894, 148);
-            this.lblOldLicenseID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOldLicenseID.Location = new System.Drawing.Point(596, 95);
             this.lblOldLicenseID.Name = "lblOldLicenseID";
-            this.lblOldLicenseID.Size = new System.Drawing.Size(60, 25);
+            this.lblOldLicenseID.Size = new System.Drawing.Size(35, 16);
             this.lblOldLicenseID.TabIndex = 17;
             this.lblOldLicenseID.Text = "????";
             // 
@@ -264,30 +248,27 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(613, 148);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(409, 95);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(192, 29);
+            this.label3.Size = new System.Drawing.Size(123, 18);
             this.label3.TabIndex = 8;
             this.label3.Text = "Old License ID:";
             // 
             // lblAppDate
             // 
             this.lblAppDate.AutoSize = true;
-            this.lblAppDate.Location = new System.Drawing.Point(301, 143);
-            this.lblAppDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAppDate.Location = new System.Drawing.Point(201, 92);
             this.lblAppDate.Name = "lblAppDate";
-            this.lblAppDate.Size = new System.Drawing.Size(60, 25);
+            this.lblAppDate.Size = new System.Drawing.Size(35, 16);
             this.lblAppDate.TabIndex = 17;
             this.lblAppDate.Text = "????";
             // 
             // lblRenewedLicenseID
             // 
             this.lblRenewedLicenseID.AutoSize = true;
-            this.lblRenewedLicenseID.Location = new System.Drawing.Point(894, 78);
-            this.lblRenewedLicenseID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRenewedLicenseID.Location = new System.Drawing.Point(596, 50);
             this.lblRenewedLicenseID.Name = "lblRenewedLicenseID";
-            this.lblRenewedLicenseID.Size = new System.Drawing.Size(60, 25);
+            this.lblRenewedLicenseID.Size = new System.Drawing.Size(35, 16);
             this.lblRenewedLicenseID.TabIndex = 18;
             this.lblRenewedLicenseID.Text = "????";
             // 
@@ -295,10 +276,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(76, 141);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(51, 90);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(211, 29);
+            this.label5.Size = new System.Drawing.Size(135, 18);
             this.label5.TabIndex = 8;
             this.label5.Text = "Application Date:";
             // 
@@ -306,20 +286,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(76, 401);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(51, 257);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 29);
+            this.label2.Size = new System.Drawing.Size(58, 18);
             this.label2.TabIndex = 7;
             this.label2.Text = "Notes:";
             // 
             // lblRLAppID
             // 
             this.lblRLAppID.AutoSize = true;
-            this.lblRLAppID.Location = new System.Drawing.Point(301, 77);
-            this.lblRLAppID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRLAppID.Location = new System.Drawing.Point(201, 49);
             this.lblRLAppID.Name = "lblRLAppID";
-            this.lblRLAppID.Size = new System.Drawing.Size(60, 25);
+            this.lblRLAppID.Size = new System.Drawing.Size(35, 16);
             this.lblRLAppID.TabIndex = 18;
             this.lblRLAppID.Text = "????";
             // 
@@ -327,20 +305,18 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(76, 273);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(51, 175);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(216, 29);
+            this.label6.Size = new System.Drawing.Size(137, 18);
             this.label6.TabIndex = 7;
             this.label6.Text = "Application Fees:";
             // 
             // llblShowLicenseHistory
             // 
             this.llblShowLicenseHistory.AutoSize = true;
-            this.llblShowLicenseHistory.Location = new System.Drawing.Point(99, 1399);
-            this.llblShowLicenseHistory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.llblShowLicenseHistory.Location = new System.Drawing.Point(66, 895);
             this.llblShowLicenseHistory.Name = "llblShowLicenseHistory";
-            this.llblShowLicenseHistory.Size = new System.Drawing.Size(219, 25);
+            this.llblShowLicenseHistory.Size = new System.Drawing.Size(135, 16);
             this.llblShowLicenseHistory.TabIndex = 20;
             this.llblShowLicenseHistory.TabStop = true;
             this.llblShowLicenseHistory.Text = "Show License History";
@@ -349,10 +325,9 @@
             // llblShowLicenseInfo
             // 
             this.llblShowLicenseInfo.AutoSize = true;
-            this.llblShowLicenseInfo.Location = new System.Drawing.Point(395, 1399);
-            this.llblShowLicenseInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.llblShowLicenseInfo.Location = new System.Drawing.Point(263, 895);
             this.llblShowLicenseInfo.Name = "llblShowLicenseInfo";
-            this.llblShowLicenseInfo.Size = new System.Drawing.Size(187, 25);
+            this.llblShowLicenseInfo.Size = new System.Drawing.Size(114, 16);
             this.llblShowLicenseInfo.TabIndex = 21;
             this.llblShowLicenseInfo.TabStop = true;
             this.llblShowLicenseInfo.Text = "Show License Info";
@@ -362,35 +337,38 @@
             // 
             this.ctrIssueBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ctrIssueBtn1.btnText = "Issue";
-            this.ctrIssueBtn1.Location = new System.Drawing.Point(1343, 1386);
+            this.ctrIssueBtn1.Location = new System.Drawing.Point(895, 887);
+            this.ctrIssueBtn1.Margin = new System.Windows.Forms.Padding(1);
             this.ctrIssueBtn1.Name = "ctrIssueBtn1";
-            this.ctrIssueBtn1.Size = new System.Drawing.Size(226, 68);
+            this.ctrIssueBtn1.Size = new System.Drawing.Size(151, 44);
             this.ctrIssueBtn1.TabIndex = 23;
             this.ctrIssueBtn1.Click += new System.EventHandler(this.ctrRenewBtn1_Click);
             // 
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrCloseBtn1.Location = new System.Drawing.Point(1075, 1390);
+            this.ctrCloseBtn1.Location = new System.Drawing.Point(717, 890);
+            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(1);
             this.ctrCloseBtn1.Name = "ctrCloseBtn1";
-            this.ctrCloseBtn1.Size = new System.Drawing.Size(228, 64);
+            this.ctrCloseBtn1.Size = new System.Drawing.Size(153, 42);
             this.ctrCloseBtn1.TabIndex = 22;
             // 
             // ctrFindDLicenseInfo1
             // 
-            this.ctrFindDLicenseInfo1.Location = new System.Drawing.Point(13, 130);
-            this.ctrFindDLicenseInfo1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ctrFindDLicenseInfo1.Location = new System.Drawing.Point(9, 83);
+            this.ctrFindDLicenseInfo1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrFindDLicenseInfo1.Name = "ctrFindDLicenseInfo1";
-            this.ctrFindDLicenseInfo1.Size = new System.Drawing.Size(1575, 719);
+            this.ctrFindDLicenseInfo1.Size = new System.Drawing.Size(1050, 460);
             this.ctrFindDLicenseInfo1.TabIndex = 1;
             this.ctrFindDLicenseInfo1.txtSearchText = "";
             this.ctrFindDLicenseInfo1.onLocalLicenseInfoLoaded += new System.Action<int>(this.ctrFindDLicenseInfo1_onLocalLicenseInfoLoaded_1);
             // 
             // frmRenewLicenseApplication
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1594, 1466);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1078, 951);
             this.Controls.Add(this.ctrIssueBtn1);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.llblShowLicenseHistory);
@@ -398,6 +376,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ctrFindDLicenseInfo1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmRenewLicenseApplication";
             this.Text = "frmRenewLicenseApplication";
             this.Load += new System.EventHandler(this.frmRenewLicenseApplication_Load);

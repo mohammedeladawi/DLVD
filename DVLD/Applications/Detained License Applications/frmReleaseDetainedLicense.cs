@@ -13,7 +13,7 @@ namespace DVLD
 {
     public partial class frmReleaseDetainedLicense : Form
     {
-        private clsApplicationType _applicationType = clsApplicationType.Find((int)enApplicationTypes.ReleaseDetainedDrivingLicense);
+        private clsApplicationType _applicationType = clsApplicationType.Find((int)clsApplicationType.enApplicationTypes.ReleaseDetainedDrivingLicense);
         private clsLicense _license;
         private clsDetainedLicense _detainedLicense;
         public frmReleaseDetainedLicense()

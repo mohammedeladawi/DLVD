@@ -140,7 +140,8 @@ namespace DVLD
         // ------------------------------------------------------
         private void SearchIconVisibility()
         {
-            if (cmbFilter.SelectedItem.ToString() == "None")
+
+            if (cmbFilter.SelectedItem == null || cmbFilter.SelectedItem.ToString() == "None")
             {
                 StopTxtSearch();
                 StopCmbSearch();
@@ -206,6 +207,11 @@ namespace DVLD
         public void LoadContextMenuStrip(ContextMenuStrip cms)
         {
             ctrDataView1.LoadContextMenuStrip(cms);
+        }
+
+        private void ctrFilterDataView_Load(object sender, EventArgs e)
+        {
+            SearchIconVisibility();
         }
     }
 }

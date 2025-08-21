@@ -113,7 +113,7 @@ namespace DVLD_BusinessLayer
             newApplication.ApplicationPersonID = this.DriverInfo.PersonID;
             newApplication.ApplicationDate = DateTime.Now;
             newApplication.ApplicationTypeID = applicationType.ApplicationTypeID;
-            newApplication.ApplicationStatus = (byte)enApplicationStatus.Completed;
+            newApplication.ApplicationStatus = (byte)clsApplication.enApplicationStatus.Completed;
             newApplication.PaidFees = applicationType.Fees;
             newApplication.CreatedByUserID = createdUserID;
             if (newApplication.Save())
@@ -286,7 +286,6 @@ namespace DVLD_BusinessLayer
         {
             // check if driver already has active one
             if (
-                this.DriverInfo.HasInternationalLicense() ||
                 !this.IsActive ||
                 this.LicenseClassID != (byte) clsLicenseClass.enLicenseClasses.Class3_OrdinaryDrivingLicense
                 )

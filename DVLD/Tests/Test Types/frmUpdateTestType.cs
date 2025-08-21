@@ -53,11 +53,12 @@ namespace DVLD
             LoadUIFieldsIntoTestType();
             if (_testType.Save())
             {
-                MessageBox.Show("Test type has been updated successfully");
+                MessageBox.Show("Test type has been updated successfully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {
-               MessageBox.Show("Couldn't update test type");
+               MessageBox.Show("Couldn't update test type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

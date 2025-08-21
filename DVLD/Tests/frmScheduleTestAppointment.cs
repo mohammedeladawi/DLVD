@@ -18,7 +18,6 @@ namespace DVLD
         enMode Mode;
 
         int _trialsCount;
-        clsApplicationType _retakeTestType;
 
         clsLDLApplication _ldlApplication;
         clsTestAppointment _testAppointment;
@@ -56,10 +55,13 @@ namespace DVLD
 
             if (_trialsCount > 0)
             {
-                 if (_retakeTestType == null)
+                clsApplicationType retakeTestType =
+                    clsApplicationType.Find((int)clsApplicationType.enApplicationTypes.RetakeTest);
+                
+                if (retakeTestType == null)
                     return;
 
-                decimal retakeTestFees = _retakeTestType.Fees;
+                decimal retakeTestFees = retakeTestType.Fees;
 
                 switch (Mode)
                 {
@@ -84,11 +86,14 @@ namespace DVLD
         }
 
         private int CreateRetakeTestApplicationAndGetID()
-        {            
-            if (_retakeTestType == null)
+        {
+            clsApplicationType retakeTestType =
+                 clsApplicationType.Find((int)clsApplicationType.enApplicationTypes.RetakeTest);
+            
+            if (retakeTestType == null)
                 return -1;
 
-            decimal retakeTestFees = _retakeTestType.Fees;
+            decimal retakeTestFees = retakeTestType.Fees;
 
             clsApplication retakeTestApplication = new clsApplication();
             retakeTestApplication.ApplicationTypeID = _testType.TestTypeID;
@@ -169,7 +174,7 @@ namespace DVLD
             lblRetakeTestAppID.Text = "N/A";
         }
        
-        private void CheckAppointmentIsLocked()
+        private void HandleLockedAppointment()
         {
             if (_testAppointment.IsLocked)
             {
@@ -180,9 +185,6 @@ namespace DVLD
        
         private void frmScheduleTestAppointment_Load(object sender, EventArgs e)
         {
-            _retakeTestType =
-                clsApplicationType.Find((int)clsApplicationType.enApplicationTypes.RetakeTest);
-
             if (_ldlApplication == null || _testType == null || _testAppointment == null)
             {
                 MessageBox.Show("Couldn't load form data!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -195,13 +197,14 @@ namespace DVLD
             else
                 lblTestTitle.Text = "Update Test";
 
-            lblTestTitle.Left = (this.ClientSize.Width - lblTestTitle.Width) / 2;
+            lblTestTitle.Left = (this.ClientSize.Width - lblTestTitle.Width) / 2; // main title
+            
             dtpAppointmentDate.Format = DateTimePickerFormat.Custom;
             dtpAppointmentDate.CustomFormat = "dd/MM/yy";
             
 
             LoadDataIntoUIFields();
-            CheckAppointmentIsLocked();
+            HandleLockedAppointment();
         }
 
         private void ctrSaveBtn1_Click(object sender, EventArgs e)

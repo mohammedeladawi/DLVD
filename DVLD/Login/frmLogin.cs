@@ -31,10 +31,16 @@ namespace DVLD
             string password = txtPassword.Text;
             
 
-            clsGlobal.currentUser = clsUser.FindByUsernameAndPassword(username, password);
-            if (clsGlobal.currentUser == null)
+            clsUser user = clsUser.FindByUsernameAndPassword(username, password);
+            if (user == null)
             {
-                MessageBox.Show("Invalid UserName or Password!");
+                MessageBox.Show("Invalid username or password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!user.IsActive)
+            {
+                MessageBox.Show("This user is not active!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -43,6 +49,7 @@ namespace DVLD
             else
                 clsGlobal.RememberUsernameAndPassword("", "");
 
+            clsGlobal.currentUser = user;
             this.Hide();
             Form frmMain1 = new frmMain(this);
             frmMain1.ShowDialog();

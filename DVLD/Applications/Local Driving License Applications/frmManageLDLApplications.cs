@@ -174,7 +174,7 @@ namespace DVLD
             var ldlApplication = clsLDLApplication.FindByLDLApplicationID(ldlApplicaitonID);
             if (
                 ldlApplication == null || 
-                ldlApplication.ApplicationStatus == (byte) enApplicationStatus.Cancelled)
+                ldlApplication.ApplicationStatus == (byte)clsApplication.enApplicationStatus.Cancelled)
                 return;
 
             if (passedTests >= 0 && passedTests <= 2)
@@ -205,14 +205,14 @@ namespace DVLD
             var ldlApplication = clsLDLApplication.FindByLDLApplicationID(ldlApplicaitonID);
             if (
                 ldlApplication == null || 
-                ldlApplication.ApplicationStatus == (byte)enApplicationStatus.Cancelled
+                ldlApplication.ApplicationStatus == (byte)clsApplication.enApplicationStatus.Cancelled
                )
                 return;
 
             // not already completed
             if (
                 passedTests == 3 && 
-                ldlApplication.ApplicationStatus != (byte)enApplicationStatus.Completed
+                ldlApplication.ApplicationStatus != (byte)clsApplication.enApplicationStatus.Completed
                )
                 tsmiIssueDrivingLicense.Enabled = true;
 
@@ -403,6 +403,13 @@ namespace DVLD
         {
             if (TryGetSelectedLDLApplicationID(out int ldlApplicationID))
                 ShowLDLApplicationDetails(ldlApplicationID);
+        }
+
+        private void btnAddNewLDLApp_Click(object sender, EventArgs e)
+        {
+            Form addUpdateLDLApplication = new frmAddEditLDLApplication();
+            addUpdateLDLApplication.FormClosed += frm_Closed;
+            addUpdateLDLApplication.ShowDialog();
         }
     }
 }

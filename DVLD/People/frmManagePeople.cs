@@ -136,5 +136,10 @@ namespace DVLD
             DataTable dt = clsPerson.GetAllPersonsInfo();
             ctrManageData1.LoadData(dt);
         }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            AddNewPersonDialog();
+        }
     }
 }

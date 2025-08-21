@@ -96,40 +96,15 @@ namespace DVLD_DataAccessLayer
             return dt;
         }
 
-        public static bool HasActiveInternationalLicense(int driverID)
-        {
-            DataTable dt = new DataTable();
-            string query = @"SELECT 1 FROM InternationalLicenses
-                             WHERE IsActive = 1 
-                             AND DriverID = @DriverID;";
-
-            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@DriverID", driverID);
-
-                    try
-                    {
-                        connection.Open();
-                        object result= command.ExecuteScalar();
-                        return result != null;
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                }
-            }
-
-            return false;
-        }
-
         public static int AddNewInternationalLicense(int applicationID, int driverID, int issuedUsingLocalLicenseID,
                                               DateTime issueDate, DateTime expirationDate,
                                               bool isActive, int createdByUserID)
         {
             string commandStr = @"
+                Update InternationalLicenses 
+                        set IsActive = 0
+                        Where DriverID = @DriverID;
+                
                 INSERT INTO InternationalLicenses 
                 (ApplicationID, DriverID, IssuedUsingLocalLicenseID, IssueDate, ExpirationDate, IsActive, CreatedByUserID)
                 VALUES 
@@ -167,54 +142,7 @@ namespace DVLD_DataAccessLayer
             return -1;
         }
 
-        public static bool FindILicenseByApplicationID(
-            ref int internationalLicenseID,
-            int applicationID,
-            ref int driverID,
-            ref int issuedUsingLocalLicenseID,
-            ref DateTime issueDate,
-            ref DateTime expirationDate,
-            ref bool isActive,
-            ref int createdByUserID)
-        {
-            string commandStr = @"SELECT * FROM InternationalLicenses WHERE ApplicationID = @ApplicationID";
-
-            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-            {
-                using (SqlCommand command = new SqlCommand(commandStr, connection))
-                {
-                    command.Parameters.AddWithValue("@ApplicationID", applicationID);
-
-                    try
-                    {
-                        connection.Open();
-                        using (SqlDataReader read = command.ExecuteReader())
-                        {
-                            if (read.Read())
-                            {
-                                internationalLicenseID = (int)read["InternationalLicenseID"];
-                                driverID = (int)read["DriverID"];
-                                issuedUsingLocalLicenseID = (int)read["IssuedUsingLocalLicenseID"];
-                                issueDate = (DateTime)read["IssueDate"];
-                                expirationDate = (DateTime)read["ExpirationDate"];
-                                isActive = (bool)read["IsActive"];
-                                createdByUserID = (int)read["CreatedByUserID"];
-
-                                return true;
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        public static bool FindByILicenseID(
+        public static bool FindInternationalLicenseByID(
             int internationalLicenseID,
             ref int applicationID,
             ref int driverID,
@@ -224,7 +152,8 @@ namespace DVLD_DataAccessLayer
             ref bool isActive,
             ref int createdByUserID)
         {
-            string commandStr = @"SELECT * FROM InternationalLicenses WHERE InternationalLicenseID = @InternationalLicenseID";
+            string commandStr = @"SELECT * FROM InternationalLicenses 
+                                    WHERE InternationalLicenseID = @InternationalLicenseID;";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             using (SqlCommand command = new SqlCommand(commandStr, connection))
@@ -271,7 +200,7 @@ namespace DVLD_DataAccessLayer
             ref int createdByUserID)
         {
             string commandStr = @"SELECT * FROM InternationalLicenses 
-                                  WHERE IssuedUsingLocalLicenseID = @IssuedUsingLocalLicenseID";
+                                  WHERE IssuedUsingLocalLicenseID = @IssuedUsingLocalLicenseID and IsActive = 1";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             using (SqlCommand command = new SqlCommand(commandStr, connection))

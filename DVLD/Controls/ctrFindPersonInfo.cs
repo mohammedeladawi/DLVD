@@ -69,7 +69,7 @@ namespace DVLD
                 DisableGbFindPerson();
             }
             else
-                MessageBox.Show("Person is not exist");
+                MessageBox.Show("Person is not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void ctrFindShowPerson_Load(object sender, EventArgs e)

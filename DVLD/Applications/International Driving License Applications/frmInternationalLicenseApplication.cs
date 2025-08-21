@@ -62,14 +62,6 @@ namespace DVLD
                 return;
             }
 
-            // already has an active international license 
-            if (_localLicense.DriverInfo.HasInternationalLicense())
-            {
-                LoadInternationalLicenseAppUIFields();
-                EnableLicenseInfoLLs();
-                MessageBox.Show("Driver already has an international License!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
 
             ctrFindDLicenseInfo1.DisableFilter();
             ctrIssueBtn1.Enabled = true;

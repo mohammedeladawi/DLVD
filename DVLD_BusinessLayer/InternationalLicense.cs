@@ -85,10 +85,7 @@ namespace DVLD_BusinessLayer
         {
             return clsDataAccessInternationalLicenses.GetAllInternationalLicenses();
         }
-        public static bool HasInternationalLicense(int driverID)
-        {
-            return clsDataAccessInternationalLicenses.HasActiveInternationalLicense(driverID);
-        }
+              
         public static clsInternationalLicense FindByID(int internationalLicenseID)
         {
             int applicationID = -1,
@@ -101,7 +98,7 @@ namespace DVLD_BusinessLayer
 
             bool isActive = false;
 
-            bool isFound = clsDataAccessInternationalLicenses.FindByILicenseID(
+            bool isFound = clsDataAccessInternationalLicenses.FindInternationalLicenseByID(
                 internationalLicenseID,
                 ref applicationID,
                 ref driverID,
@@ -128,6 +125,7 @@ namespace DVLD_BusinessLayer
 
             return null;
         }
+        
         public static clsInternationalLicense FindByLocalLicenseID(int localLicenseID)
         {
             int internationalLicenseID = -1, applicationID = -1,
