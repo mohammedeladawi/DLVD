@@ -34,7 +34,13 @@ namespace DVLD
             clsGlobal.currentUser = clsUser.FindByUsernameAndPassword(username, password);
             if (clsGlobal.currentUser == null)
             {
-                MessageBox.Show("Invalid UserName or Password!");
+                MessageBox.Show("Invalid username or password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!clsGlobal.currentUser.IsActive)
+            {
+                MessageBox.Show("This user is not active!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

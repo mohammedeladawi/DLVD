@@ -141,7 +141,7 @@ namespace DVLD
 
         private void tsmiChangeCurrUserPassword_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmChangeUserPassword(clsGlobal.currentUser))
+            using (var frm = new frmChangeUserPassword(clsGlobal.currentUser.UserID))
             {
                 frm.ShowDialog();
             }

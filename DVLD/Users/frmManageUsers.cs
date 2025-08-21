@@ -131,5 +131,11 @@ namespace DVLD
                 ChangePasswordDialog(userID);
         }
 
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            var addEditUser = new frmAddUpdateUser();
+            addEditUser.FormClosed += subForm_Closed;
+            addEditUser.ShowDialog();
+        }
     }
 }

@@ -44,45 +44,46 @@
             this.showPersonInfoToolStripMenuItem,
             this.showLicenseHistoryToolStripMenuItem});
             this.cmsDrivers.Name = "cmsDrivers";
-            this.cmsDrivers.Size = new System.Drawing.Size(314, 80);
+            this.cmsDrivers.Size = new System.Drawing.Size(218, 52);
             // 
             // showPersonInfoToolStripMenuItem
             // 
             this.showPersonInfoToolStripMenuItem.Name = "showPersonInfoToolStripMenuItem";
-            this.showPersonInfoToolStripMenuItem.Size = new System.Drawing.Size(313, 38);
+            this.showPersonInfoToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
             this.showPersonInfoToolStripMenuItem.Text = "Show Person Info";
             this.showPersonInfoToolStripMenuItem.Click += new System.EventHandler(this.showPersonInfoToolStripMenuItem_Click);
             // 
             // showLicenseHistoryToolStripMenuItem
             // 
             this.showLicenseHistoryToolStripMenuItem.Name = "showLicenseHistoryToolStripMenuItem";
-            this.showLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(313, 38);
+            this.showLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
             this.showLicenseHistoryToolStripMenuItem.Text = "Show License History";
             this.showLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showLicenseHistoryToolStripMenuItem_Click);
             // 
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrCloseBtn1.Location = new System.Drawing.Point(1276, 939);
+            this.ctrCloseBtn1.Location = new System.Drawing.Point(851, 601);
+            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ctrCloseBtn1.Name = "ctrCloseBtn1";
-            this.ctrCloseBtn1.Size = new System.Drawing.Size(228, 64);
+            this.ctrCloseBtn1.Size = new System.Drawing.Size(153, 42);
             this.ctrCloseBtn1.TabIndex = 4;
             // 
             // ctrManageDataView1
             // 
-            this.ctrManageDataView1.Location = new System.Drawing.Point(16, 17);
+            this.ctrManageDataView1.Location = new System.Drawing.Point(11, 11);
+            this.ctrManageDataView1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ctrManageDataView1.Name = "ctrManageDataView1";
-            this.ctrManageDataView1.Size = new System.Drawing.Size(1572, 1027);
+            this.ctrManageDataView1.Size = new System.Drawing.Size(1048, 657);
             this.ctrManageDataView1.TabIndex = 3;
             // 
             // frmManageDrivers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1612, 1056);
+            this.ClientSize = new System.Drawing.Size(1050, 658);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.ctrManageDataView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmManageDrivers";
             this.Text = "fmMangeDrivers";
             this.Load += new System.EventHandler(this.fmManageDrivers_Load);

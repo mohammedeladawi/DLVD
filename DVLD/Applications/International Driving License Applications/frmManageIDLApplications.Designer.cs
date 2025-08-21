@@ -30,12 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.cmsIDLApplications = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addNewInternationaLicenseApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPersonDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showLicenseInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
             this.ctrManageData1 = new DVLD.ctrFilterDataView();
-            this.addNewInternationaLicenseApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAddNewIDLApp = new System.Windows.Forms.Button();
             this.cmsIDLApplications.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,60 +49,73 @@
             this.showLicenseInfoToolStripMenuItem,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsIDLApplications.Name = "cmsIDLApplications";
-            this.cmsIDLApplications.Size = new System.Drawing.Size(535, 200);
+            this.cmsIDLApplications.Size = new System.Drawing.Size(358, 100);
+            // 
+            // addNewInternationaLicenseApplicationToolStripMenuItem
+            // 
+            this.addNewInternationaLicenseApplicationToolStripMenuItem.Name = "addNewInternationaLicenseApplicationToolStripMenuItem";
+            this.addNewInternationaLicenseApplicationToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
+            this.addNewInternationaLicenseApplicationToolStripMenuItem.Text = "Add New Internationa License Application";
+            this.addNewInternationaLicenseApplicationToolStripMenuItem.Click += new System.EventHandler(this.addNewInternationaLicenseApplicationToolStripMenuItem_Click);
             // 
             // showPersonDetailsToolStripMenuItem
             // 
             this.showPersonDetailsToolStripMenuItem.Name = "showPersonDetailsToolStripMenuItem";
-            this.showPersonDetailsToolStripMenuItem.Size = new System.Drawing.Size(534, 38);
+            this.showPersonDetailsToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
             this.showPersonDetailsToolStripMenuItem.Text = "Show Person Details";
             this.showPersonDetailsToolStripMenuItem.Click += new System.EventHandler(this.showPersonDetailsToolStripMenuItem_Click);
             // 
             // showLicenseInfoToolStripMenuItem
             // 
             this.showLicenseInfoToolStripMenuItem.Name = "showLicenseInfoToolStripMenuItem";
-            this.showLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(534, 38);
+            this.showLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
             this.showLicenseInfoToolStripMenuItem.Text = "Show License Details";
             this.showLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showLicenseInfoToolStripMenuItem_Click);
             // 
             // showPersonLicenseHistoryToolStripMenuItem
             // 
             this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
-            this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(534, 38);
+            this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(357, 24);
             this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
             this.showPersonLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonLicenseHistoryToolStripMenuItem_Click);
             // 
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrCloseBtn1.Location = new System.Drawing.Point(1271, 873);
-            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(2);
+            this.ctrCloseBtn1.Location = new System.Drawing.Point(847, 559);
+            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ctrCloseBtn1.Name = "ctrCloseBtn1";
-            this.ctrCloseBtn1.Size = new System.Drawing.Size(228, 64);
+            this.ctrCloseBtn1.Size = new System.Drawing.Size(153, 42);
             this.ctrCloseBtn1.TabIndex = 4;
             // 
             // ctrManageData1
             // 
-            this.ctrManageData1.Location = new System.Drawing.Point(11, 29);
-            this.ctrManageData1.Margin = new System.Windows.Forms.Padding(2);
+            this.ctrManageData1.Location = new System.Drawing.Point(7, 19);
+            this.ctrManageData1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ctrManageData1.Name = "ctrManageData1";
-            this.ctrManageData1.Size = new System.Drawing.Size(1550, 908);
+            this.ctrManageData1.Size = new System.Drawing.Size(1033, 581);
             this.ctrManageData1.TabIndex = 3;
             // 
-            // addNewInternationaLicenseApplicationToolStripMenuItem
+            // btnAddNewIDLApp
             // 
-            this.addNewInternationaLicenseApplicationToolStripMenuItem.Name = "addNewInternationaLicenseApplicationToolStripMenuItem";
-            this.addNewInternationaLicenseApplicationToolStripMenuItem.Size = new System.Drawing.Size(534, 38);
-            this.addNewInternationaLicenseApplicationToolStripMenuItem.Text = "Add New Internationa License Application";
-            this.addNewInternationaLicenseApplicationToolStripMenuItem.Click += new System.EventHandler(this.addNewInternationaLicenseApplicationToolStripMenuItem_Click);
+            this.btnAddNewIDLApp.Location = new System.Drawing.Point(847, 141);
+            this.btnAddNewIDLApp.Name = "btnAddNewIDLApp";
+            this.btnAddNewIDLApp.Size = new System.Drawing.Size(149, 23);
+            this.btnAddNewIDLApp.TabIndex = 5;
+            this.btnAddNewIDLApp.Text = "Add New Application";
+            this.btnAddNewIDLApp.UseVisualStyleBackColor = true;
+            this.btnAddNewIDLApp.Click += new System.EventHandler(this.btnAddNewIDLApp_Click);
             // 
             // frmManageIDLApplications
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1584, 974);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1056, 623);
+            this.Controls.Add(this.btnAddNewIDLApp);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.ctrManageData1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmManageIDLApplications";
             this.Text = "frmManageInternationalLicenseApplications";
             this.Load += new System.EventHandler(this.frmManageILDApplications_Load);
@@ -119,5 +133,6 @@
         private System.Windows.Forms.ToolStripMenuItem showLicenseInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showPersonLicenseHistoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewInternationaLicenseApplicationToolStripMenuItem;
+        private System.Windows.Forms.Button btnAddNewIDLApp;
     }
 }

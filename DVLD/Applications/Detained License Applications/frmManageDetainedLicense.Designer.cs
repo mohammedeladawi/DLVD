@@ -50,57 +50,60 @@
             this.tsmiShowPersonLicenseHistory,
             this.tsmiReleaseDetainedLicense});
             this.cmsManageDetainedLicenses.Name = "cmsManageDetainedLicenses";
-            this.cmsManageDetainedLicenses.Size = new System.Drawing.Size(392, 200);
+            this.cmsManageDetainedLicenses.Size = new System.Drawing.Size(265, 100);
             this.cmsManageDetainedLicenses.Opening += new System.ComponentModel.CancelEventHandler(this.cmsManageDetainedLicenses_Opening);
             // 
             // tsmiShowPersonDetails
             // 
             this.tsmiShowPersonDetails.Name = "tsmiShowPersonDetails";
-            this.tsmiShowPersonDetails.Size = new System.Drawing.Size(391, 38);
+            this.tsmiShowPersonDetails.Size = new System.Drawing.Size(264, 24);
             this.tsmiShowPersonDetails.Text = "Show Person Details";
             this.tsmiShowPersonDetails.Click += new System.EventHandler(this.tsmiShowPersonDetails_Click);
             // 
             // tsmiShowLicenseDetails
             // 
             this.tsmiShowLicenseDetails.Name = "tsmiShowLicenseDetails";
-            this.tsmiShowLicenseDetails.Size = new System.Drawing.Size(391, 38);
+            this.tsmiShowLicenseDetails.Size = new System.Drawing.Size(264, 24);
             this.tsmiShowLicenseDetails.Text = "Show License Details";
             this.tsmiShowLicenseDetails.Click += new System.EventHandler(this.tsmiShowLicenseDetails_Click);
             // 
             // tsmiShowPersonLicenseHistory
             // 
             this.tsmiShowPersonLicenseHistory.Name = "tsmiShowPersonLicenseHistory";
-            this.tsmiShowPersonLicenseHistory.Size = new System.Drawing.Size(391, 38);
+            this.tsmiShowPersonLicenseHistory.Size = new System.Drawing.Size(264, 24);
             this.tsmiShowPersonLicenseHistory.Text = "Show Person License History";
             this.tsmiShowPersonLicenseHistory.Click += new System.EventHandler(this.tsmiShowPersonLicenseHistory_Click);
             // 
             // tsmiReleaseDetainedLicense
             // 
             this.tsmiReleaseDetainedLicense.Name = "tsmiReleaseDetainedLicense";
-            this.tsmiReleaseDetainedLicense.Size = new System.Drawing.Size(391, 38);
+            this.tsmiReleaseDetainedLicense.Size = new System.Drawing.Size(264, 24);
             this.tsmiReleaseDetainedLicense.Text = "Release Detained License";
             this.tsmiReleaseDetainedLicense.Click += new System.EventHandler(this.tsmiReleaseDetainedLicense_Click);
             // 
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrCloseBtn1.Location = new System.Drawing.Point(1297, 949);
+            this.ctrCloseBtn1.Location = new System.Drawing.Point(865, 607);
+            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ctrCloseBtn1.Name = "ctrCloseBtn1";
-            this.ctrCloseBtn1.Size = new System.Drawing.Size(228, 64);
+            this.ctrCloseBtn1.Size = new System.Drawing.Size(153, 42);
             this.ctrCloseBtn1.TabIndex = 1;
             // 
             // ctrManageDataView1
             // 
-            this.ctrManageDataView1.Location = new System.Drawing.Point(33, 12);
+            this.ctrManageDataView1.Location = new System.Drawing.Point(22, 8);
+            this.ctrManageDataView1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ctrManageDataView1.Name = "ctrManageDataView1";
-            this.ctrManageDataView1.Size = new System.Drawing.Size(1572, 1027);
+            this.ctrManageDataView1.Size = new System.Drawing.Size(1048, 657);
             this.ctrManageDataView1.TabIndex = 0;
             // 
             // btnRelease
             // 
-            this.btnRelease.Location = new System.Drawing.Point(1297, 174);
+            this.btnRelease.Location = new System.Drawing.Point(865, 111);
+            this.btnRelease.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRelease.Name = "btnRelease";
-            this.btnRelease.Size = new System.Drawing.Size(133, 53);
+            this.btnRelease.Size = new System.Drawing.Size(89, 34);
             this.btnRelease.TabIndex = 2;
             this.btnRelease.Text = "Release";
             this.btnRelease.UseVisualStyleBackColor = true;
@@ -108,9 +111,10 @@
             // 
             // btnDetain
             // 
-            this.btnDetain.Location = new System.Drawing.Point(1127, 174);
+            this.btnDetain.Location = new System.Drawing.Point(751, 111);
+            this.btnDetain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDetain.Name = "btnDetain";
-            this.btnDetain.Size = new System.Drawing.Size(133, 53);
+            this.btnDetain.Size = new System.Drawing.Size(89, 34);
             this.btnDetain.TabIndex = 2;
             this.btnDetain.Text = "Detain";
             this.btnDetain.UseVisualStyleBackColor = true;
@@ -118,13 +122,14 @@
             // 
             // frmManageDetainedLicense
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1638, 1032);
+            this.ClientSize = new System.Drawing.Size(1096, 671);
             this.Controls.Add(this.btnDetain);
             this.Controls.Add(this.btnRelease);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.ctrManageDataView1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmManageDetainedLicense";
             this.Text = "frmManageDetainedLicense";
             this.Load += new System.EventHandler(this.frmManageDetainedLicense_Load);

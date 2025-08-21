@@ -42,10 +42,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label1.Location = new System.Drawing.Point(540, 30);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(360, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(466, 55);
+            this.label1.Size = new System.Drawing.Size(293, 36);
             this.label1.TabIndex = 3;
             this.label1.Text = "Manage Test Types";
             // 
@@ -55,40 +54,40 @@
             this.cmsManageTestTypes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiEditTestType});
             this.cmsManageTestTypes.Name = "cmsManageTestTypes";
-            this.cmsManageTestTypes.Size = new System.Drawing.Size(236, 42);
+            this.cmsManageTestTypes.Size = new System.Drawing.Size(170, 28);
             // 
             // tsmiEditTestType
             // 
             this.tsmiEditTestType.Name = "tsmiEditTestType";
-            this.tsmiEditTestType.Size = new System.Drawing.Size(235, 38);
+            this.tsmiEditTestType.Size = new System.Drawing.Size(169, 24);
             this.tsmiEditTestType.Text = "Edit Test Type";
             this.tsmiEditTestType.Click += new System.EventHandler(this.tsmiEditTestType_Click);
             // 
             // ctrCloseBtn1
             // 
             this.ctrCloseBtn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrCloseBtn1.Location = new System.Drawing.Point(1237, 806);
+            this.ctrCloseBtn1.Location = new System.Drawing.Point(825, 516);
+            this.ctrCloseBtn1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ctrCloseBtn1.Name = "ctrCloseBtn1";
-            this.ctrCloseBtn1.Size = new System.Drawing.Size(228, 64);
+            this.ctrCloseBtn1.Size = new System.Drawing.Size(153, 42);
             this.ctrCloseBtn1.TabIndex = 5;
             // 
             // ctrDataView1
             // 
-            this.ctrDataView1.Location = new System.Drawing.Point(15, 113);
-            this.ctrDataView1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ctrDataView1.Location = new System.Drawing.Point(10, 72);
+            this.ctrDataView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrDataView1.Name = "ctrDataView1";
-            this.ctrDataView1.Size = new System.Drawing.Size(1478, 670);
+            this.ctrDataView1.Size = new System.Drawing.Size(985, 429);
             this.ctrDataView1.TabIndex = 4;
             // 
             // frmManageTestTypes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1489, 884);
+            this.ClientSize = new System.Drawing.Size(992, 568);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.ctrDataView1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmManageTestTypes";
             this.Text = "frmManageTestTypes";
             this.Load += new System.EventHandler(this.frmManageTestTypes_Load);

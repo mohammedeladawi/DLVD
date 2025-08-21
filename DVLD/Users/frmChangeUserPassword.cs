@@ -21,11 +21,6 @@ namespace DVLD
             _userID = userID;
         }
 
-        public frmChangeUserPassword(clsUser user)
-        {
-            _user = user;
-            InitializeComponent();
-        }
         private bool IsCurrPasswordRight()
         {
             string currPasswordTxt = txtCurrentPassword.Text;
@@ -103,7 +98,7 @@ namespace DVLD
 
         private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
         {
-            if (txtNewPassword.Text != string.Empty && txtConfirmPassword.Text == "")
+            if (txtConfirmPassword.Text != txtNewPassword.Text)
             {
                 clsErrProviderUtilities.CancelEventAndShowErr(txtConfirmPassword, e, "Password confirmation is not matched with the new password!");
             }

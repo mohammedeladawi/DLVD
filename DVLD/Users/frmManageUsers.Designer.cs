@@ -37,6 +37,7 @@
             this.tsmiChangeUserPassword = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrManageData1 = new DVLD.ctrFilterDataView();
             this.ctrCloseBtn1 = new DVLD.ctrCloseBtn();
+            this.btnAddNew = new System.Windows.Forms.Button();
             this.cmsUsers.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,11 +105,22 @@
             this.ctrCloseBtn1.Size = new System.Drawing.Size(153, 42);
             this.ctrCloseBtn1.TabIndex = 1;
             // 
+            // btnAddNew
+            // 
+            this.btnAddNew.Location = new System.Drawing.Point(863, 131);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(140, 23);
+            this.btnAddNew.TabIndex = 2;
+            this.btnAddNew.Text = "Add New";
+            this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
             // frmManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 674);
+            this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.ctrCloseBtn1);
             this.Controls.Add(this.ctrManageData1);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -130,5 +142,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiDeleteUser;
         private System.Windows.Forms.ToolStripMenuItem tsmiChangeUserPassword;
         private ctrCloseBtn ctrCloseBtn1;
+        private System.Windows.Forms.Button btnAddNew;
     }
 }

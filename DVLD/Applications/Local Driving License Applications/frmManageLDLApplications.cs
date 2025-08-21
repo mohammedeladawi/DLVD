@@ -404,5 +404,12 @@ namespace DVLD
             if (TryGetSelectedLDLApplicationID(out int ldlApplicationID))
                 ShowLDLApplicationDetails(ldlApplicationID);
         }
+
+        private void btnAddNewLDLApp_Click(object sender, EventArgs e)
+        {
+            Form addUpdateLDLApplication = new frmAddEditLDLApplication();
+            addUpdateLDLApplication.FormClosed += frm_Closed;
+            addUpdateLDLApplication.ShowDialog();
+        }
     }
 }
