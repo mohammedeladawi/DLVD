@@ -33,7 +33,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        clsDatabaseHelper.LogError($"Error occurred: {ex.Message}\nStackTrace: {ex.StackTrace}");
                     }
                 }
             }
@@ -64,7 +64,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        clsDatabaseHelper.LogError($"Error occurred: {ex.Message}\nStackTrace: {ex.StackTrace}");
                     }
                 }
             }
@@ -99,7 +99,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        clsDatabaseHelper.LogError($"Error occurred: {ex.Message}\nStackTrace: {ex.StackTrace}");
                     }
                 }
             }

@@ -51,7 +51,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        clsDatabaseHelper.LogError($"Error occurred: {ex.Message}\nStackTrace: {ex.StackTrace}");
                     }
                 }
             }
@@ -85,7 +85,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        clsDatabaseHelper.LogError($"Error occurred: {ex.Message}\nStackTrace: {ex.StackTrace}");
                     }
                 }
             }
@@ -118,7 +118,7 @@ namespace DVLD_DataAccessLayer
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error in FindByID (Driver): " + ex.Message);
+                    clsDatabaseHelper.LogError("Error in FindByID (Driver): " + ex.Message);
                 }
             }
 
@@ -150,7 +150,7 @@ namespace DVLD_DataAccessLayer
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error in FindByID (Driver): " + ex.Message);
+                    clsDatabaseHelper.LogError("Error in FindByID (Driver): " + ex.Message);
                 }
             }
 

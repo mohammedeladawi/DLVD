@@ -52,7 +52,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        clsDatabaseHelper.LogError($"Error occurred: {ex.Message}\nStackTrace: {ex.StackTrace}");
                     }
                 }
             }
@@ -86,7 +86,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"Error: {ex.Message}");
+                        clsDatabaseHelper.LogError($"Error: {ex.Message}");
                     }
                 }
             }
@@ -114,7 +114,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"[IsDetained Error] {ex.Message}");
+                        clsDatabaseHelper.LogError($"[IsDetained Error] {ex.Message}");
                     }
                 }
             }
@@ -165,7 +165,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"[Update Error] {ex.Message}");
+                        clsDatabaseHelper.LogError($"[Update Error] {ex.Message}");
                     }
                 }
             }
@@ -216,7 +216,7 @@ namespace DVLD_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"[FindDetainedLicenseByLicenseID] Error: {ex.Message}");
+                        clsDatabaseHelper.LogError($"[FindDetainedLicenseByLicenseID] Error: {ex.Message}");
                     }
                 }
             }
