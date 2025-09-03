@@ -5,28 +5,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DVLD_BusinessLayer;
+using Microsoft.Win32;
 
 namespace DVLD
 {
     internal static class clsGlobal
     {
         public static clsUser currentUser;
-      
+
+        private static readonly string keyName = @"HKEY_CURRENT_USER\Software\DVLD";
+        private static readonly string keyPath = @"Software\DVLD";
+        private static readonly string valueName = "credintials";
+
         public static bool RememberUsernameAndPassword(string username, string password)
         {
-            // write username and password in data.txt file with #//# seperator
-            string filePath = "data.txt";
+            // write username and password in windows registry with #//# seperator
 
             try
             {
-                if (username == "" && File.Exists(filePath))
+                if (username == "")
                 {
-                    File.Delete(filePath);
-                    return true;
+                    // delete the valueName
+                    using (RegistryKey baseKey = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64))
+                    {
+                        using (RegistryKey key = baseKey.OpenSubKey(keyPath, true))
+                        {
+                            if (key != null)
+                            {
+                                // Delete the specified value
+                                key.DeleteValue(valueName);
+                            }
+                        }
+                    }
+
+                    return false;
                 }
 
-                string dataLine = username + "#//#" + password;
-                File.WriteAllText(filePath, dataLine);
+                string value = username + "#//#" + password;
+                Registry.SetValue(keyName, valueName, value, RegistryValueKind.String);
                 return true;
             }
             catch (Exception ex)
@@ -39,23 +55,25 @@ namespace DVLD
 
         public static bool GetStoredCredintials(ref string username, ref string password)
         {
-            string filePath = "data.txt";
-
+            // read user credinrials from windows registry
             try
             {
-                if (File.Exists(filePath))
-                {
-                    string firstLine = File.ReadLines(filePath).FirstOrDefault();
-                    string[] credintials = firstLine.Split(new string[] { "#//#" }, StringSplitOptions.None);
+                string value = (string)Registry.GetValue(keyName, valueName, null);
 
-                    username = credintials[0];
-                    password = credintials[1];
-                    return true;
-                }
-                else
+                if (value != null)
                 {
-                    return false;
+                    string[] credintials = value.Split(new string[] { "#//#" }, StringSplitOptions.None);
+
+                    if (credintials.Length == 2)
+                    {
+                        username = credintials[0];
+                        password = credintials[1];
+                        return true;
+                    }
                 }
+
+                return false;
+                
             }
             catch (Exception ex)
             {
