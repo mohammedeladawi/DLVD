@@ -21,11 +21,6 @@ namespace DVLD
             _userID = userID;
         }
 
-        private bool IsCurrPasswordRight()
-        {
-            string currPasswordTxt = txtCurrentPassword.Text;
-            return currPasswordTxt == _user.Password;
-        }
         
         private void ResetDefaultValues()
         {
@@ -46,7 +41,7 @@ namespace DVLD
                 return;
             }
 
-            if (IsCurrPasswordRight())
+            if (_user.VerifyPassword(txtCurrentPassword.Text))
             {
                 _user.Password = txtConfirmPassword.Text;
                 if (_user.Save())

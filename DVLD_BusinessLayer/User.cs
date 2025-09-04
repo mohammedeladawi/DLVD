@@ -1,10 +1,11 @@
-﻿using System;
+﻿using DVLD_DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using DVLD_DataAccessLayer;
 
 namespace DVLD_BusinessLayer
 {
@@ -13,9 +14,18 @@ namespace DVLD_BusinessLayer
         enum enMode { AddNew, Update }
         enMode Mode;
 
+        public static string _ComputeHash(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            }
+        }
+
         private bool _AddNewUser()
         {
-            this.UserID = clsDataAccessUsers.AddNewUser(PersonID, UserName, Password, IsActive);
+            this.UserID = clsDataAccessUsers.AddNewUser(PersonID, UserName, _ComputeHash(Password), IsActive);
             bool isAdded = UserID != -1;
             
             if (isAdded)
@@ -26,7 +36,7 @@ namespace DVLD_BusinessLayer
 
         private bool _UpdateUser()
         {
-            return clsDataAccessUsers.UpdateUser(UserID, PersonID, UserName, Password, IsActive);
+            return clsDataAccessUsers.UpdateUser(UserID, PersonID, UserName, _ComputeHash(Password), IsActive);
         }
         
         public int UserID { get; set; }
@@ -84,6 +94,7 @@ namespace DVLD_BusinessLayer
             int userID = -1;
             int personID = -1;
             bool isActive = false;
+            password = _ComputeHash(password);
 
             bool isFound = clsDataAccessUsers.FindUserByUsernameAndPassword(ref userID, ref personID, username, password, ref isActive);
             if (isFound)
@@ -105,6 +116,11 @@ namespace DVLD_BusinessLayer
         public static bool DeleteByID(int userID)
         {
             return clsDataAccessUsers.DeleteUserByID(userID);
+        }
+       
+        public bool VerifyPassword(string password)
+        {
+            return _ComputeHash(password) == this.Password;
         }
        
         public bool Save()
